@@ -1,0 +1,149 @@
+# config.yaml — REKONSTRUERAD av Claude för att kunna köra modulerna --dry-run.
+# Den ursprungliga config.yaml fanns inte bland de bifogade filerna; den här är
+# byggd från de nycklar varje modul faktiskt läser. ETF/sektor-tickrar är de som
+# nämns i koden/CLAUDE.md och är ännu INTE verifierade (se TODO 3).
+
+# ---- Scanner (scanner.py) ----
+scan_holdings: true
+claude_summary:
+  enabled: false
+  model: claude-haiku-4-5-20251001
+
+thresholds:
+  min_avg_volume: 50000      # lägsta 20d-snittvolym för att RVOL ska vara meningsfull
+  rvol_trigger: 3.0          # volym >= 3x normalt för tidpunkten
+  rvol_min_price_move: 1.5   # och kursrörelse >= 1.5 %
+  big_move_pct: 6.0          # stor dagsrörelse utan volymkrav
+
+tickers:
+  - {symbol: VOLV-B.ST, name: Volvo B,    market: SE, rss: "", levels: []}
+  - {symbol: ERIC-B.ST, name: Ericsson B, market: SE, rss: "", levels: []}
+  - {symbol: EVO.ST,    name: Evolution,  market: SE, rss: "", levels: [{price: 2000, dir: over, note: "testnivå"}]}
+  - {symbol: AAPL,      name: Apple,      market: US, rss: "", levels: []}
+  - {symbol: NVDA,      name: Nvidia,     market: US, rss: "", levels: []}
+
+# ---- Insiders (insiders.py) ----
+insiders:
+  enabled: true
+  sec_user_agent: ""   # lämna tom; sätt din e-post via GitHub Secret SEC_USER_AGENT (SEC kräver den)
+  cluster_window_days: 14
+  alert_on_sales: false
+  us_tickers: [AAPL, MSFT, NVDA, JPM]
+
+# ---- Tillgångsmomentum (momentum.py) ----
+momentum:
+  enabled: true
+  sma_months: 10
+  top_n: 1
+  universe:
+    - {name: "S&P 500 (SXR8)",   signal: SXR8.DE, trade: "SXR8.DE"}
+    - {name: "MSCI World (EUNL)", signal: EUNL.DE, trade: "EUNL.DE"}
+    - {name: "EM IMI (IS3N)",     signal: IS3N.DE, trade: "IS3N.DE"}
+  cash: {name: "Kassa (XEON)", trade: "XEON.DE"}
+
+# ---- Aktiemotorn (stocks.py) ----
+stocks:
+  enabled: true
+  top_n: 10
+  band_keep: 20
+  regime_filter: true
+  universe_from_quality: false        # ingen Börsdata-fundamenta-fil tillgänglig
+  quality_top_pct: 50
+  ticker_column: Ticker
+  quality_column: F-Score
+  ticker_overrides: {}
+  markets:
+    - {name: Sverige, market: SE, universe_file: universe/sverige.csv, index_signal: "^OMX",    quality_file: data/fundamenta_sverige.csv}
+    - {name: USA,     market: US, universe_file: universe/usa.csv,     index_signal: "SXR8.DE", quality_file: data/fundamenta_usa.csv}
+
+# ---- Nedsidesvakt (exits.py) ----
+exit_watch:
+  enabled: true
+  drawdown_pct: 20
+  extra_holdings: {}
+
+# ---- PEAD (pead.py) ----
+pead:
+  enabled: true
+  lookback_days: 5
+  hold_days: 70
+  surprise_pct_min: 5.0
+  reaction_pct_min: 5.0
+  markets:
+    - {name: USA, index_signal: "SXR8.DE", universe_file: universe/usa_pead.csv, earnings_source: yfinance}
+
+# ---- Trendföljning (trend.py) ----
+trend:
+  enabled: true
+  sma_months: 10
+  assets:
+    - {name: "MSCI World (EUNL)",        signal: EUNL.DE, trade: "EUNL.DE"}
+    - {name: "S&P 500 (SXR8)",           signal: SXR8.DE, trade: "SXR8.DE"}
+    - {name: "EM IMI (IS3N)",            signal: IS3N.DE, trade: "IS3N.DE"}
+    - {name: "Guld (4GLD)",              signal: 4GLD.DE, trade: "4GLD.DE"}
+    - {name: "Långa statsobl. (IBTL)",   signal: IBTL.DE, trade: "IBTL.DE"}   # TODO verifiera
+    - {name: "Råvaror (ICOM)",           signal: ICOM.DE, trade: "ICOM.DE"}   # TODO verifiera
+  cash: {name: "Kassa (XEON)", trade: "XEON.DE"}
+
+# ---- Regimläge (regime.py) ----
+regime:
+  enabled: true
+  equity_signal: EUNL.DE
+
+# ---- Sektorrotation (sectors.py) ----
+sectors:
+  enabled: true
+  top_n: 3
+  groups:
+    - {name: "Verkstad", market: SE, members: [VOLV-B.ST, SAND.ST, SKF-B.ST, ALFA.ST, ATCO-A.ST, EPI-A.ST, ABB.ST]}
+    - {name: "Bank/finans", market: SE, members: [SEB-A.ST, SHB-A.ST, SWED-A.ST, NDA-SE.ST, INVE-B.ST, AZA.ST]}
+    - {name: "Fastighet", market: SE, members: [BALD-B.ST, CAST.ST, SAGA-B.ST, WIHL.ST, FABG.ST, NP3.ST]}
+    - {name: "Hälsovård", market: SE, members: [AZN.ST, GETI-B.ST, SOBI.ST, ARJO-B.ST, VITR.ST]}
+    - {name: "Industri/teknik", market: SE, members: [HEXA-B.ST, ATCO-A.ST, NIBE-B.ST, ADDT-B.ST, LIFCO-B.ST]}
+    - {name: "US Tech", market: US, members: [AAPL, MSFT, NVDA, GOOGL, AMZN, META, AVGO]}
+    - {name: "US Financials", market: US, members: [JPM, BAC, GS, MS, V, MA, AXP]}
+    - {name: "US Energy", market: US, members: [XOM, CVX, COP]}
+
+# ---- Sektortrend-vakt (sectortrend.py) ----
+sector_trend:
+  enabled: true
+  groups:
+    - {name: "Svensk verkstad", market: SE, members: [VOLV-B.ST, SAND.ST, SKF-B.ST, ALFA.ST, ATCO-A.ST, EPI-A.ST]}
+    - {name: "Svensk bank",     market: SE, members: [SEB-A.ST, SHB-A.ST, SWED-A.ST, NDA-SE.ST]}
+    - {name: "US Big Tech",     market: US, members: [AAPL, MSFT, NVDA, GOOGL, AMZN, META]}
+
+# ---- Lead-Lag (leadlag.py) — experimentell ----
+leadlag:
+  enabled: true
+  trigger_window_days: 7
+  skip_if_follower_moved_pct: 12
+  links: []
+
+# ---- Innehav (holdings.py) ----
+holdings:
+  enabled: true
+
+# ---- Multifaktor (multifactor.py) ----
+multifactor:
+  enabled: true
+  top_n: 10
+  quality_column: F-Score
+  value_column: EV/EBIT
+  value_lower_better: true
+  markets:
+    - {name: Sverige, market: SE, universe_file: universe/sverige.csv, fundamenta_file: data/fundamenta_sverige.csv, index_signal: "^OMX"}
+
+# ---- Breakout-larm (breakout.py) — Qullamaggie, EGEN strategi, kräver BREDD ----
+breakout:
+  enabled: true
+  run_up_min: 0.30        # +30 % ben in i basen
+  base_days: 10           # tight bas-fönster
+  base_range_max: 0.15    # < 15 % range i basen
+  rvol_min: 2.0           # utbrott på >= 2x normalvolym
+  markets:
+    # USA: brett, likvitt S&P 500-universum (Yahoo har god täckning).
+    - {name: USA, market: US, universe_file: universe/usa_broad.csv, min_avg_turnover: 5000000}
+    # Sverige: Small Cap och uppåt + likvida First North. universe/sverige_broad.csv
+    # skapas från en Börsdata-export (se BORSDATA-EXPORT.md). min_avg_turnover i SEK
+    # = likviditetsgrinden som håller tunt handlade First North-namn ute.
+    - {name: Sverige, market: SE, universe_file: universe/sverige_broad.csv, min_avg_turnover: 1500000}

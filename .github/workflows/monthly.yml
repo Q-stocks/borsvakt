@@ -1,0 +1,80 @@
+name: Börsvakt – månadssignaler
+
+on:
+  schedule:
+    # 06:15 UTC den 1:a varje månad – föregående månads stängningar
+    # är då klara på alla marknader.
+    - cron: "15 6 1 * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # Aktiemotorn sparar portföljen i state.json
+
+jobs:
+  signal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installera beroenden
+        run: pip install -r requirements.txt
+
+      - name: Tillgångssignal (dual momentum, modul 1)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python momentum.py
+
+      - name: Aktiemotorn (modul 3)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python stocks.py
+
+      - name: Multifaktor (modul 6)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python multifactor.py
+
+      - name: Trendföljning (modul 7)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python trend.py
+
+      - name: Sektorrotation (modul 9)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python sectors.py
+
+      - name: Regimläge (modul 10)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python regime.py
+
+      - name: Larmlogg – månadens scorecard
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python alertlog.py evaluate
+          python alertlog.py report
+
+      - name: Generera dashboard
+        run: python dashboard.py
+
+      - name: Spara state (portfölj + dubblettskydd)
+        run: |
+          git config user.name "borsvakt-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state.json log/ docs/ holdings.csv 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "state: månadssignal $(date -u +%Y-%m)"
+          git push || true

@@ -1,0 +1,68 @@
+name: Börsvakt – nedsidesvakt (daglig)
+
+on:
+  schedule:
+    # 21:30 UTC vardagar – efter både svensk och amerikansk stängning,
+    # så MA-brott bedöms på dagens stängningskurser.
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # uppdaterar exit_alerts i state.json (dubblettskydd)
+
+jobs:
+  exits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Installera beroenden
+        run: pip install -r requirements.txt
+      - name: PEAD – vinstdrift (eventdriven)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python pead.py
+
+      - name: Lead-lag (experimentell, ovanpå PEAD)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python leadlag.py
+
+      - name: Nedsidesvakt (MA-exit på innehav)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python exits.py
+
+      - name: Sektortrend – vändningsvarningar
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python sectortrend.py
+
+      - name: Breakout-larm (Qullamaggie, eget facit)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python breakout.py
+
+      - name: Innehav – status till dashboarden
+        run: python holdings.py
+
+      - name: Larmlogg – utvärdera mognade signaler
+        run: python alertlog.py evaluate
+      - name: Generera dashboard
+        run: python dashboard.py
+
+      - name: Spara state
+        run: |
+          git config user.name "borsvakt-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state.json log/ docs/ holdings.csv 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "state: nedsidesvakt $(date -u +%F)"
+          git push || true

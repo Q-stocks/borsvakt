@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+.DS_Store
+# Lokal venv + Windows CA-bundle (maskinspecifikt, committas ALDRIG)
+.venv/
+winca.pem
+# Lokala scratch-/körningsfiler
+_smoke.py
+_probe.py
+bt_*.txt
+# state.json, log/ och docs/ committas MEDVETET av workflows (dubblettskydd
+# + dashboard via Pages). Ta inte bort dem härifrån.

@@ -1,0 +1,5 @@
+# Tvinga LF i repot så GitHub Actions (bash på Ubuntu) inte får \r i skripten.
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.webmanifest text eol=lf

@@ -1,0 +1,7 @@
+pandas>=2.0
+yfinance>=0.2.40
+feedparser>=6.0
+pyyaml>=6.0
+requests>=2.31
+anthropic>=0.40
+lxml>=5.0

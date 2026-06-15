@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Börsvakt">
+  <rect width="512" height="512" rx="112" fill="#0d1420"/>
+  <rect x="138" y="300" width="58" height="98" rx="12" fill="#e9b949"/>
+  <rect x="227" y="232" width="58" height="166" rx="12" fill="#e9b949"/>
+  <rect x="316" y="150" width="58" height="248" rx="12" fill="#e9b949"/>
+  <circle cx="345" cy="118" r="22" fill="#e9b949"/>
+</svg>
