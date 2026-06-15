@@ -1,6 +1,31 @@
 {
   "alerts": {},
-  "seen_news": {},
+  "seen_news": {
+    "VOLV-B.ST": [],
+    "ERIC-B.ST": [],
+    "EVO.ST": [],
+    "AAPL": [],
+    "NVDA": [],
+    "HTRO.ST": [],
+    "ORCL": [],
+    "INSTAL.ST": [],
+    "MS": [],
+    "CSCO": [],
+    "BOL.ST": [],
+    "TXN": [],
+    "QCOM": [],
+    "GOOGL": [],
+    "CAT": [],
+    "ABB.ST": [],
+    "SSAB-A.ST": [],
+    "MYCR.ST": [],
+    "TOBII.ST": [],
+    "GS": [],
+    "AVGO": [],
+    "SAND.ST": [],
+    "AMD": [],
+    "SINCH.ST": []
+  },
   "regime": {
     "date": "2026-06-15",
     "risk_on": true,
@@ -115,5 +140,8 @@
       "BOL.ST",
       "ERIC-B.ST"
     ]
-  }
+  },
+  "seen_filings": {},
+  "insider_buys": {},
+  "cik_cache": {}
 }
