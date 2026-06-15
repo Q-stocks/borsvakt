@@ -77,5 +77,43 @@
       "rs_up": false,
       "updated": "2026-06-15"
     }
+  },
+  "stock_portfolio": {
+    "Sverige": [
+      "HTRO.ST",
+      "SINCH.ST",
+      "TOBII.ST",
+      "ABB.ST",
+      "MYCR.ST",
+      "INSTAL.ST",
+      "SSAB-A.ST",
+      "SAND.ST",
+      "BOL.ST",
+      "ERIC-B.ST"
+    ],
+    "USA": [
+      "AMD",
+      "CAT",
+      "CSCO",
+      "QCOM",
+      "TXN",
+      "GOOGL",
+      "AVGO",
+      "GS",
+      "MS",
+      "ORCL"
+    ],
+    "Multifaktor-Sverige": [
+      "HTRO.ST",
+      "SINCH.ST",
+      "TOBII.ST",
+      "ABB.ST",
+      "MYCR.ST",
+      "INSTAL.ST",
+      "SSAB-A.ST",
+      "SAND.ST",
+      "BOL.ST",
+      "ERIC-B.ST"
+    ]
   }
 }

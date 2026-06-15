@@ -281,6 +281,10 @@ TEMPLATE = r"""<!DOCTYPE html>
     <div class="infobox" id="i-regime" hidden><b>OFFENSIV / DEFENSIV</b> är en mekanisk beskrivning av läget — ingen prognos. OFFENSIV = globala aktier över sitt 200-dagars glidande medel och normal räntekurva; då har momentum, sektorrotation och PEAD historiskt medvind. DEFENSIV = aktier under 200d MA eller inverterad räntekurva; då lutar systemet mot trendföljning och kvalitet. Chipsen visar de underliggande måtten. Systemet <b>reagerar</b> på läget — det spår inte vändpunkter.</div>
     <div class="banner" id="banner"></div>
 
+    <div class="eyebrow">Aktiemotorn — momentum-portfölj<button class="info" data-box="i-momentum" aria-label="Förklaring">i</button></div>
+    <div class="infobox" id="i-momentum" hidden>Aktierna med starkast <b>sammansatt momentum</b> (snittet av 3-, 6- och 12-månadersavkastning), topp 10 per marknad. Systemets kärnstrategi — uppdateras vid varje <b>månadsskifte</b> (ingen brådska däremellan; signalen håller i veckor). Banding: ett innehav säljs först när det fallit under rank 20. Ej rådgivning.</div>
+    <div id="momentum"></div>
+
     <div class="eyebrow">Sektorledare — ligg där styrkan är<button class="info" data-box="i-leaders" aria-label="Förklaring">i</button></div>
     <div class="infobox" id="i-leaders" hidden>Sektorerna rankade efter <b>sammansatt momentum</b> (snittet av 3-, 6- och 12-månadersavkastning). <b>12m</b> är avkastningen senaste året. <b>trend ✓</b> = sektorn ligger över sitt 10-månaders glidande medel (annars <b>svag</b>). Idén: ligg där kapitalet redan flödar, utan att gissa varför.</div>
     <div id="leaders"></div>
@@ -379,6 +383,13 @@ document.querySelectorAll('nav button').forEach(b=>{
   }
   b.innerHTML = `<div><div class="big" style="color:${col}">${label}</div></div>
     <div class="desc">${esc(desc)}</div><div class="signals-row">${chips}</div>`;
+})();
+
+(function(){
+  const el = document.getElementById('momentum');
+  if(!D.sleeves || !D.sleeves.length){ el.innerHTML='<div class="empty">Momentum-portföljen beräknas vid månadsskifte (1:a varje månad).</div>'; return; }
+  el.innerHTML = D.sleeves.map(s=>`<div class="sleeve"><h3>${esc(s.name)} <span class="mono" style="color:var(--muted);font-size:12px">(${s.tickers.length})</span></h3>
+    <div class="pills">${s.tickers.map(t=>`<span class="pill">${esc(t)}</span>`).join('')}</div></div>`).join('');
 })();
 
 (function(){
