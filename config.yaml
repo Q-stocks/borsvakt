@@ -54,7 +54,7 @@ stocks:
   quality_column: F-Score
   ticker_overrides: {}
   markets:
-    - {name: Sverige, market: SE, universe_file: universe/sverige.csv, index_signal: "^OMX",    quality_file: data/fundamenta_sverige.csv}
+    - {name: Sverige, market: SE, universe_file: universe/sverige_broad.csv, index_signal: "^OMX",    quality_file: data/fundamenta_sverige.csv}
     - {name: USA,     market: US, universe_file: universe/usa.csv,     index_signal: "SXR8.DE", quality_file: data/fundamenta_usa.csv}
 
 # ---- Nedsidesvakt (exits.py) ----

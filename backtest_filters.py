@@ -109,11 +109,11 @@ def fscore_keep(universe, pct):
     p = Path(QFILE)
     if not p.exists():
         return None
-    from stocks import borsdata_to_yahoo, load_quality
+    from stocks import load_quality
     vals = load_quality(QFILE, "Ticker", "F-Score")
     if not vals:
         return None
-    m = {borsdata_to_yahoo(raw, "SE", {}).upper(): s for raw, s in vals.items()}
+    m = {raw.upper(): s for raw, s in vals.items()}   # filen har redan Yahoo-tickrar
     have = [(t, m[t.upper()]) for t in universe if t.upper() in m]
     have.sort(key=lambda x: x[1], reverse=True)
     keep_n = max(1, int(len(have) * pct / 100.0))
@@ -155,7 +155,9 @@ def main() -> int:
     ]
     if qcols:
         configs += [
-            (f"F-score topp{QPCT}% + allpos+evict", qcols, "allpos", True),
+            (f"F-score topp{QPCT}% (utan vakt)", qcols, "none",   False),
+            (f"F-score topp{QPCT}% + allpos",    qcols, "allpos", False),
+            (f"F-score topp{QPCT}% + evict",     qcols, "allpos", True),
         ]
 
     bm = metrics(np.cumprod(1 + Brel[252:]))
