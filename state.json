@@ -107,14 +107,14 @@
     "Sverige": [
       "HTRO.ST",
       "SINCH.ST",
-      "TOBII.ST",
       "ABB.ST",
       "MYCR.ST",
       "INSTAL.ST",
       "SSAB-A.ST",
-      "SAND.ST",
-      "BOL.ST",
-      "ERIC-B.ST"
+      "ERIC-B.ST",
+      "SOBI.ST",
+      "CLAS-B.ST",
+      "INDU-A.ST"
     ],
     "USA": [
       "AMD",
@@ -127,18 +127,6 @@
       "GS",
       "MS",
       "ORCL"
-    ],
-    "Multifaktor-Sverige": [
-      "HTRO.ST",
-      "SINCH.ST",
-      "TOBII.ST",
-      "ABB.ST",
-      "MYCR.ST",
-      "INSTAL.ST",
-      "SSAB-A.ST",
-      "SAND.ST",
-      "BOL.ST",
-      "ERIC-B.ST"
     ]
   },
   "seen_filings": {},

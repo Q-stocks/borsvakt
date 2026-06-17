@@ -136,18 +136,35 @@ def score_universe(universe: list[tuple[str, str]]) -> tuple[list[dict], list[st
             errors.append(ticker)
             continue
         r3, r6, r12 = _ret(closes, 3), _ret(closes, 6), _ret(closes, 12)
+        above = float(closes.iloc[-1]) > float(closes.iloc[-10:].mean())  # eget 10-mån MA
         scored.append({"ticker": ticker, "name": name,
-                       "r3": r3, "r6": r6, "r12": r12,
+                       "r3": r3, "r6": r6, "r12": r12, "above": above,
                        "score": (r3 + r6 + r12) / 3.0})
     scored.sort(key=lambda r: r["score"], reverse=True)
     return scored, errors
 
 
-def apply_banding(ranked: list[dict], prev: list[str],
-                  top_n: int, band_keep: int) -> tuple[list[str], dict]:
+def _passes_gate(r: dict, gate: str) -> bool:
+    """Vakt på NYA köp. Backtest (sverige, 14å): 'allpos' bäst — +1,6 pp/år,
+    Sharpe 0,90→0,99, maxDD −52→−41 %, genom att utesluta trendbrutna studsare
+    (positivt momentum-snitt men negativt 12m, t.ex. TOBII)."""
+    if gate == "trend":
+        return r.get("above", True)                       # eget 10-mån MA (svagt)
+    if gate == "m12":
+        return r.get("r12", 1.0) > 0                       # positivt årsmomentum
+    if gate == "allpos":
+        return r.get("r3", 1.0) > 0 and r.get("r6", 1.0) > 0 and r.get("r12", 1.0) > 0
+    return True                                            # 'off'
+
+
+def apply_banding(ranked: list[dict], prev: list[str], top_n: int, band_keep: int,
+                  gate: str = "allpos") -> tuple[list[str], dict]:
     rank_of = {r["ticker"]: i + 1 for i, r in enumerate(ranked)}
     keep = [t for t in prev if rank_of.get(t, 10 ** 9) <= band_keep]
-    fill = [r["ticker"] for r in ranked if r["ticker"] not in keep][: max(0, top_n - len(keep))]
+    # Banding behåller befintliga innehav via rank; vakten gäller bara nya köp.
+    fill = [r["ticker"] for r in ranked
+            if r["ticker"] not in keep and _passes_gate(r, gate)
+            ][: max(0, top_n - len(keep))]
     portfolio = sorted(keep + fill, key=lambda t: rank_of[t])
     return portfolio, rank_of
 
@@ -201,7 +218,8 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
     prev = list(state.setdefault("stock_portfolio", {}).get(name, []))
     top_n = int(cfg_s.get("top_n", 10))
     band = int(cfg_s.get("band_keep", 20))
-    portfolio, rank_of = apply_banding(ranked, prev, top_n, band)
+    gate = cfg_s.get("momentum_gate", "allpos")
+    portfolio, rank_of = apply_banding(ranked, prev, top_n, band, gate)
 
     # 4) Regimfilter
     regime_line = ""
