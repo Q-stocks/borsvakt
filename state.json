@@ -105,16 +105,16 @@
   },
   "stock_portfolio": {
     "Sverige": [
-      "HTRO.ST",
-      "SINCH.ST",
-      "ABB.ST",
-      "MYCR.ST",
-      "INSTAL.ST",
-      "SSAB-A.ST",
-      "ERIC-B.ST",
-      "SOBI.ST",
-      "CLAS-B.ST",
-      "INDU-A.ST"
+      "SIVE.ST",
+      "EPIS-B.ST",
+      "SPRINT.ST",
+      "ACCON.ST",
+      "NOKIA-SEK.ST",
+      "MVIR.ST",
+      "MORROW.ST",
+      "VPLAY-B.ST",
+      "NANEXA.ST",
+      "HTRO.ST"
     ],
     "USA": [
       "AMD",
