@@ -229,11 +229,15 @@ def process_market(mkt: dict, cfg_p: dict, state: dict, dry: bool) -> None:
 
     # 1) Exit: stäng positioner vars driftfönster löpt ut
     for sym in list(drift):
-        entry = dt.date.fromisoformat(drift[sym]["report"])
+        try:
+            entry = dt.date.fromisoformat(drift[sym]["report"])
+        except (KeyError, ValueError, TypeError):
+            del drift[sym]   # oparsbar post -> self-heal i stället för att krascha steget
+            continue
         held = (today - entry).days
         if held >= hold:
-            send_telegram(build_exit_alert(names.get(sym, sym), sym, held), dry)
-            del drift[sym]
+            if send_telegram(build_exit_alert(names.get(sym, sym), sym, held), dry):
+                del drift[sym]   # ta bort positionen först vid bekräftad exit-leverans
 
     # 2) Entry: leta färska rapporter som kvalificerar
     for sym, nm in names.items():
@@ -259,13 +263,13 @@ def process_market(mkt: dict, cfg_p: dict, state: dict, dry: bool) -> None:
             if not (ok_surprise or ok_reaction):
                 continue
 
-            send_telegram(build_entry_alert(nm, sym, surprise, reaction, hold), dry)
-            log_alert("pead", sym, "entry",
-                      market=("US" if name == "USA" else "SE"),
-                      meta={"surprise": surprise, "reaction": reaction}, dry=dry)
-            drift[sym] = {"report": ev["date"].isoformat(),
-                          "surprise": surprise, "reaction": reaction,
-                          "entry_logged": today.isoformat()}
+            if send_telegram(build_entry_alert(nm, sym, surprise, reaction, hold), dry):
+                log_alert("pead", sym, "entry",
+                          market=("US" if name == "USA" else "SE"),
+                          meta={"surprise": surprise, "reaction": reaction}, dry=dry)
+                drift[sym] = {"report": ev["date"].isoformat(),
+                              "surprise": surprise, "reaction": reaction,
+                              "entry_logged": today.isoformat()}
         except Exception as exc:
             print(f"  {sym}: PEAD-fel: {exc}", file=sys.stderr)
 
@@ -288,7 +292,8 @@ def main() -> int:
             process_market(mkt, cfg_p, state, args.dry_run)
         except Exception as exc:
             print(f"PEAD {mkt.get('name')}: fel: {exc}", file=sys.stderr)
-    save_state(state)
+    if not args.dry_run:
+        save_state(state)
     print("PEAD-koll klar.")
     return 0
 

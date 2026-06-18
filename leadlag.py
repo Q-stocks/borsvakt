@@ -116,9 +116,8 @@ def process(cfg_l: dict, state: dict, dry: bool) -> None:
 
         if not followers:
             k = f"nudge:{base}"
-            if not fired.get(k):
-                send_telegram(build_research_nudge(lead_sym, link, ev), dry)
-                fired[k] = True
+            if not fired.get(k) and send_telegram(build_research_nudge(lead_sym, link, ev), dry):
+                fired[k] = True   # markera skickat först vid bekräftad leverans
             continue
 
         for fol in followers:
@@ -134,11 +133,11 @@ def process(cfg_l: dict, state: dict, dry: bool) -> None:
             if moved is not None and abs(moved) >= skip_pct:
                 fired[k] = True
                 continue
-            send_telegram(build_follower_alert(lead_sym, fol, link, ev, moved), dry)
-            log_alert("leadlag", fol, "follower_watch",
-                      market=link.get("market", "SE"),
-                      meta={"leader": lead_sym, "thesis": link.get("thesis", "")}, dry=dry)
-            fired[k] = True
+            if send_telegram(build_follower_alert(lead_sym, fol, link, ev, moved), dry):
+                log_alert("leadlag", fol, "follower_watch",
+                          market=link.get("market", "SE"),
+                          meta={"leader": lead_sym, "thesis": link.get("thesis", "")}, dry=dry)
+                fired[k] = True   # logga + markera först vid bekräftad leverans
 
 
 def main() -> int:
@@ -161,7 +160,8 @@ def main() -> int:
     # Trimma gammal fired-historik (behåll ~200 senaste nycklar)
     if len(state.get("leadlag_fired", {})) > 200:
         state["leadlag_fired"] = dict(list(state["leadlag_fired"].items())[-200:])
-    save_state(state)
+    if not args.dry_run:
+        save_state(state)
     print("Lead-lag klar.")
     return 0
 

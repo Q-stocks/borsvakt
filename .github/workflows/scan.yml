@@ -5,11 +5,18 @@ on:
     # Var 15:e minut, vardagar. 06–21 UTC täcker både Stockholmsbörsen
     # (09:00–17:30 sv. tid, sommar- och vintertid) och USA (15:30–22:00 sv. tid).
     # Skriptet själv avgör vilka marknader som är öppna.
+    # OBS: GitHub stryper högfrekventa cron på lågaktivitetsrepo – schemat firar
+    # i praktiken bara några gånger/dag. En extern pinger (workflow_dispatch via
+    # API) ger pålitlig 15-min-kadens, se PINGER.md. Cron kvar som gratis backup.
     - cron: "*/15 6-21 * * 1-5"
-  workflow_dispatch: {}   # gör att du kan trigga manuellt i GitHub-gränssnittet
+  workflow_dispatch: {}   # manuell trigg + extern pinger via API
 
 permissions:
   contents: write   # behövs för att spara state.json tillbaka till repot
+
+concurrency:
+  group: borsvakt-state          # serialisera scan/daily/monthly så state-push aldrig krockar
+  cancel-in-progress: false
 
 jobs:
   scan:
@@ -32,17 +39,18 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scanner.py
 
-      - name: Insiderbevakning (SEC EDGAR)
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-        run: python insiders.py
-
       - name: Spara state (dubblettskydd mellan körningar)
         run: |
           git config user.name "borsvakt-bot"
           git config user.email "bot@users.noreply.github.com"
           git add state.json 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "state: $(date -u +%Y-%m-%dT%H:%M)"
-          git push || true
+          if git diff --cached --quiet; then echo "Inget att spara."; exit 0; fi
+          git commit -m "state: $(date -u +%Y-%m-%dT%H:%M)"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push-försök $i misslyckades (remote flyttade) – nytt försök om 5s." >&2
+            sleep 5
+          done
+          echo "Kunde inte pusha state efter 5 försök." >&2
+          exit 1

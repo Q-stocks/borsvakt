@@ -105,17 +105,21 @@ def main() -> int:
             L.append("  <i>Invertering har föregått recessioner – men med lång, "
                      "oregelbunden fördröjning. Varning, inte signal.</i>")
 
-    # Bredd över bevakade sektorer (om sectors-modulen är konfigurerad)
-    sectors = cfg.get("sectors", {}).get("assets", [])
+    # Bredd över bevakade sektorer: likaviktade korgar ur sectors.groups mot 200d MA.
+    # (configen har 'groups' med members, inte 'assets'. Samma composite-definition
+    #  som sectortrend/sectors – håller breddmåttet konsistent över systemet.)
+    groups = cfg.get("sectors", {}).get("groups", [])
     breadth_above = breadth_total = 0
-    if sectors:
-        # Hämta en gång per sektor – återanvänds i både notis och snapshot
-        # (annars 3 okachade yfinance-anrop per sektor som kan ge olika svar).
-        results = [(a, _above_200(a["signal"])) for a in sectors]
-        for a, r in results:
-            if r is not None:
-                breadth_total += 1
-                breadth_above += 1 if r[0] else 0
+    if groups:
+        from sectortrend import composite
+        cache: dict = {}
+        for grp in groups:
+            comp = composite(grp.get("members", []), cache)
+            if comp is None or len(comp) < 200:
+                continue
+            breadth_total += 1
+            if float(comp.iloc[-1]) > float(comp.tail(200).mean()):
+                breadth_above += 1
         if breadth_total:
             pct = 100.0 * breadth_above / breadth_total
             L.append(f"• Bredd: {breadth_above}/{breadth_total} sektorer ({pct:.0f} %) över 200-dagars MA.")

@@ -10,6 +10,10 @@ on:
 permissions:
   contents: write   # Aktiemotorn sparar portföljen i state.json
 
+concurrency:
+  group: borsvakt-state          # serialisera scan/daily/monthly så state-push aldrig krockar
+  cancel-in-progress: false
+
 jobs:
   signal:
     runs-on: ubuntu-latest
@@ -76,5 +80,13 @@ jobs:
           git config user.name "borsvakt-bot"
           git config user.email "bot@users.noreply.github.com"
           git add state.json log/ docs/ holdings.csv 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "state: månadssignal $(date -u +%Y-%m)"
-          git push || true
+          if git diff --cached --quiet; then echo "Inget att spara."; exit 0; fi
+          git commit -m "state: månadssignal $(date -u +%Y-%m)"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push-försök $i misslyckades (remote flyttade) – nytt försök om 5s." >&2
+            sleep 5
+          done
+          echo "Kunde inte pusha state efter 5 försök." >&2
+          exit 1

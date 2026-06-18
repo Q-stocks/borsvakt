@@ -477,7 +477,8 @@ def main() -> int:
                 print(f"FEL för innehav {sym}:", file=sys.stderr)
                 traceback.print_exc()
 
-    save_state(state)
+    if not args.dry_run:
+        save_state(state)   # dry-run ska aldrig bränna seen_news/alerts mot riktig state.json
     print("Klar.")
     return 0
 

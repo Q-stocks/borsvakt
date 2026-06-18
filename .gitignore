@@ -9,5 +9,6 @@ winca.pem
 _smoke.py
 _probe.py
 bt_*.txt
+*.out
 # state.json, log/ och docs/ committas MEDVETET av workflows (dubblettskydd
 # + dashboard via Pages). Ta inte bort dem härifrån.

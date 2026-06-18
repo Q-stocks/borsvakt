@@ -293,7 +293,8 @@ def main() -> int:
             send_telegram(process_market(mkt, cfg_s, state, args.dry_run), args.dry_run)
         except Exception as exc:
             print(f"Aktiemotorn {mkt.get('name')}: fel: {exc}", file=sys.stderr)
-    save_state(state)
+    if not args.dry_run:
+        save_state(state)   # dry-run ska inte persistera omräknad portfölj
     return 0
 
 

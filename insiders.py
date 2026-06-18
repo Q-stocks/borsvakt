@@ -143,8 +143,11 @@ def main() -> int:
 
     ua = os.environ.get("SEC_USER_AGENT") or str(ins.get("sec_user_agent", ""))
     if "@" not in ua:
-        print("VARNING: sätt en riktig e-post i insiders.sec_user_agent – "
-              "SEC kräver identifierande User-Agent och kan annars blockera.", file=sys.stderr)
+        print("insiders: SEC_USER_AGENT/sec_user_agent saknar giltig e-post – SEC kräver "
+              "identifierande User-Agent. Hoppar över insiderkoll (sätt secret "
+              "SEC_USER_AGENT till din e-post för att aktivera) i stället för att "
+              "hamra EDGAR med 403.", file=sys.stderr)
+        return 0
 
     window = int(ins.get("cluster_window_days", 14))
     state = load_state()
@@ -198,7 +201,8 @@ def main() -> int:
         state["seen_filings"][t] = state["seen_filings"][t][-200:]
     for t in list(state["insider_buys"]):
         state["insider_buys"][t] = state["insider_buys"][t][-100:]
-    save_state(state)
+    if not args.dry_run:
+        save_state(state)
     print("Insiderkoll klar.")
     return 0
 

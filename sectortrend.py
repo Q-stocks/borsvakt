@@ -138,11 +138,15 @@ def process(cfg_t: dict, state: dict, dry: bool) -> None:
         new["updated"] = dt.date.today().isoformat()
         old = store.get(name, {})
 
+        ok = True
         if old:  # inte första gången -> leta vändningar
             changes = transitions(name, market, old, new)
             if changes:
-                send_telegram(build_alert(name, market, new, changes), dry)
-        store[name] = new  # uppdatera läget oavsett
+                ok = send_telegram(build_alert(name, market, new, changes), dry)
+        # Flytta baslinjen bara om ev. larm levererades – annars står vändningen
+        # kvar och re-detekteras nästa körning (tappa aldrig en vändning på 429/5xx).
+        if ok:
+            store[name] = new
 
 
 def main() -> int:
@@ -162,7 +166,8 @@ def main() -> int:
         process(cfg_t, state, args.dry_run)
     except Exception as exc:
         print(f"sector_trend: fel: {exc}", file=sys.stderr)
-    save_state(state)
+    if not args.dry_run:
+        save_state(state)
     print("Sektortrend-koll klar.")
     return 0
 

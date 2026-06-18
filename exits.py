@@ -123,9 +123,9 @@ def main() -> int:
             key = f"{symbol}:{level}:{wk}"
             if state["exit_alerts"].get(key):
                 continue
-            send_telegram(build_exit_alert(universe[symbol], symbol, a, level, dd_trigger),
-                          args.dry_run)
-            state["exit_alerts"][key] = True
+            if send_telegram(build_exit_alert(universe[symbol], symbol, a, level, dd_trigger),
+                             args.dry_run):
+                state["exit_alerts"][key] = True   # markera skickat först vid bekräftad leverans
         except Exception as exc:
             print(f"  {symbol}: exit-fel: {exc}", file=sys.stderr)
 
@@ -134,7 +134,8 @@ def main() -> int:
     keep = {wk, f"{prev[0]}-W{prev[1]:02d}"}
     state["exit_alerts"] = {k: v for k, v in state["exit_alerts"].items()
                             if k.rsplit(":", 1)[-1] in keep}
-    save_state(state)
+    if not args.dry_run:
+        save_state(state)
     print("Nedsidesvakt klar.")
     return 0
 
