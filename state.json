@@ -10774,7 +10774,10 @@
     "GOOGL:sma50:2026-W25": true,
     "MORROW.ST:sma50:2026-W25": true,
     "MVIR.ST:sma50:2026-W25": true,
-    "VPLAY-B.ST:sma50:2026-W25": true
+    "VPLAY-B.ST:sma50:2026-W25": true,
+    "ORRON.ST:sma50:2026-W25": true,
+    "OVZON.ST:sma200:2026-W25": true,
+    "SINCH.ST:sma50:2026-W25": true
   },
   "breakout_alerts": {}
 }
