@@ -144,10 +144,16 @@ def score_universe(universe: list[tuple[str, str]]) -> tuple[list[dict], list[st
     return scored, errors
 
 
-def _passes_gate(r: dict, gate: str) -> bool:
+def _passes_gate(r: dict, gate: str, cap: float | None = None) -> bool:
     """Vakt på NYA köp. Backtest (sverige, 14å): 'allpos' bäst — +1,6 pp/år,
     Sharpe 0,90→0,99, maxDD −52→−41 %, genom att utesluta trendbrutna studsare
-    (positivt momentum-snitt men negativt 12m, t.ex. TOBII)."""
+    (positivt momentum-snitt men negativt 12m, t.ex. TOBII).
+    `cap` (momentum_cap, valfritt): övre tak på 12-mån-avkastning för NYA köp –
+    hoppa över redan extremt rusade namn. Banding behåller dem man REDAN äger.
+    Test 2026-06 (backtest_cap.py): taket höjer INTE R/R (sänker CAGR, höjer maxDD);
+    +1000 % (cap=10.0) ≈ gratis blow-off-försäkring, snävare tak = F-score-fällan."""
+    if cap is not None and r.get("r12", 0.0) >= cap:
+        return False
     if gate == "trend":
         return r.get("above", True)                       # eget 10-mån MA (svagt)
     if gate == "m12":
@@ -158,12 +164,12 @@ def _passes_gate(r: dict, gate: str) -> bool:
 
 
 def apply_banding(ranked: list[dict], prev: list[str], top_n: int, band_keep: int,
-                  gate: str = "allpos") -> tuple[list[str], dict]:
+                  gate: str = "allpos", cap: float | None = None) -> tuple[list[str], dict]:
     rank_of = {r["ticker"]: i + 1 for i, r in enumerate(ranked)}
     keep = [t for t in prev if rank_of.get(t, 10 ** 9) <= band_keep]
-    # Banding behåller befintliga innehav via rank; vakten gäller bara nya köp.
+    # Banding behåller befintliga innehav via rank; vakten (inkl. tak) gäller bara nya köp.
     fill = [r["ticker"] for r in ranked
-            if r["ticker"] not in keep and _passes_gate(r, gate)
+            if r["ticker"] not in keep and _passes_gate(r, gate, cap)
             ][: max(0, top_n - len(keep))]
     portfolio = sorted(keep + fill, key=lambda t: rank_of[t])
     return portfolio, rank_of
@@ -219,7 +225,9 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
     top_n = int(cfg_s.get("top_n", 10))
     band = int(cfg_s.get("band_keep", 20))
     gate = cfg_s.get("momentum_gate", "allpos")
-    portfolio, rank_of = apply_banding(ranked, prev, top_n, band, gate)
+    cap_raw = cfg_s.get("momentum_cap")
+    cap = float(cap_raw) if cap_raw not in (None, "", False) else None
+    portfolio, rank_of = apply_banding(ranked, prev, top_n, band, gate, cap)
 
     # 4) Regimfilter
     regime_line = ""
@@ -257,9 +265,11 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
         lines.append(f"⚠️ Saknar data: {', '.join(html.escape(e) for e in errors[:8])}"
                      + (" …" if len(errors) > 8 else ""))
     lines.append("")
+    cap_note = (f" Tak: nya köp hoppas över om 12m-avkastning ≥ {cap:.0%} "
+                "(banding behåller befintliga).") if cap else ""
     lines.append("<i>Ingen brådska – signalen håller i veckor. Handla med limit när "
                  "spreaden är tight. Banding: innehav säljs först när de fallit under "
-                 f"rank {band}. Ej rådgivning.</i>")
+                 f"rank {band}.{cap_note} Ej rådgivning.</i>")
 
     state["stock_portfolio"][name] = portfolio
     return "\n".join(lines)
