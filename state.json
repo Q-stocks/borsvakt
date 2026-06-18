@@ -3,7 +3,8 @@
     "MVIR.ST:rvol:2026-06-18": "2026-06-18",
     "NANEXA.ST:rvol:2026-06-18": "2026-06-18",
     "EPIS-B.ST:move:2026-06-18": "2026-06-18",
-    "SIVE.ST:move:2026-06-18": "2026-06-18"
+    "SIVE.ST:move:2026-06-18": "2026-06-18",
+    "ORRON.ST:move:2026-06-18": "2026-06-18"
   },
   "seen_news": {
     "VOLV-B.ST": [],
@@ -38,7 +39,13 @@
     "EPIS-B.ST": [],
     "MORROW.ST": [],
     "MVIR.ST": [],
-    "SIVE.ST": []
+    "SIVE.ST": [],
+    "SALT-B.ST": [],
+    "NCAB.ST": [],
+    "ACAST.ST": [],
+    "ORRON.ST": [],
+    "HOFI.ST": [],
+    "OVZON.ST": []
   },
   "regime": {
     "date": "2026-06-18",
