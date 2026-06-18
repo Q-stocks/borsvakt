@@ -1,5 +1,8 @@
 {
-  "alerts": {},
+  "alerts": {
+    "MVIR.ST:rvol:2026-06-18": "2026-06-18",
+    "NANEXA.ST:rvol:2026-06-18": "2026-06-18"
+  },
   "seen_news": {
     "VOLV-B.ST": [],
     "ERIC-B.ST": [],
