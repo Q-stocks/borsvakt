@@ -41,14 +41,15 @@
     "SIVE.ST": []
   },
   "regime": {
-    "date": "2026-06-15",
+    "date": "2026-06-18",
     "risk_on": true,
     "inverted": false,
     "curve_spread": 0.87,
+    "breadth_pct": 62,
     "stance": "Offensivt: momentum, sektorrotation och PEAD har medvind. Trendföljningen ligger kvar som bas."
   },
   "sectors": {
-    "updated": "2026-06-15",
+    "updated": "2026-06-18",
     "held": [
       "US Tech",
       "US Energy",
@@ -153,6 +154,18 @@
       "SAND.ST",
       "BOL.ST",
       "ERIC-B.ST"
+    ],
+    "Sverige Stora": [
+      "NOKIA-SEK.ST",
+      "MORROW.ST",
+      "VPLAY-B.ST",
+      "HTRO.ST",
+      "ACAST.ST",
+      "ORRON.ST",
+      "OVZON.ST",
+      "SALT-B.ST",
+      "NCAB.ST",
+      "HOFI.ST"
     ]
   },
   "seen_filings": {
