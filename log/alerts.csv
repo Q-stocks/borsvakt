@@ -29,3 +29,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-06-18T10:42:54+00:00,2026-06-18,stocks,SALT-B.ST,buy,SE,7.4900,{}
 2026-06-18T10:42:54+00:00,2026-06-18,stocks,NCAB.ST,buy,SE,80.1000,{}
 2026-06-18T10:42:54+00:00,2026-06-18,stocks,HOFI.ST,buy,SE,161.9000,{}
+2026-06-19T12:36:59+00:00,2026-06-19,breakout,CAT,breakout,US,985.8200,"{""rvol"": 2.2, ""run_up"": 0.418}"
