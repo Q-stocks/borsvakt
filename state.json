@@ -126,19 +126,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-06-20"
+      "updated": "2026-06-23"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-06-20"
+      "updated": "2026-06-23"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-06-20"
+      "updated": "2026-06-23"
     }
   },
   "stock_portfolio": {
@@ -317,7 +317,12 @@
       "0001696841-25-000006",
       "0001588670-25-000015",
       "0001197649-25-000058",
-      "0001197649-26-000008"
+      "0001197649-26-000008",
+      "0001696841-26-000008",
+      "0001283854-26-000008",
+      "0001588670-26-000012",
+      "0001347842-26-000013",
+      "0001197649-26-000010"
     ],
     "JPM": [
       "0001193125-26-258526",
@@ -359,7 +364,8 @@
       "0001225208-26-003869",
       "0001225208-26-003868",
       "0001225208-26-003867",
-      "0001225208-26-003866"
+      "0001225208-26-003866",
+      "0001225208-26-006142"
     ]
   },
   "insider_buys": {},
@@ -10794,7 +10800,21 @@
     "VPLAY-B.ST:sma50:2026-W25": true,
     "ORRON.ST:sma50:2026-W25": true,
     "OVZON.ST:sma200:2026-W25": true,
-    "SINCH.ST:sma50:2026-W25": true
+    "SINCH.ST:sma50:2026-W25": true,
+    "ACCON.ST:drawdown:2026-W26": true,
+    "AVGO:sma50:2026-W26": true,
+    "EPIS-B.ST:sma50:2026-W26": true,
+    "ERIC-B.ST:sma50:2026-W26": true,
+    "GOOGL:sma50:2026-W26": true,
+    "HTRO.ST:sma50:2026-W26": true,
+    "MORROW.ST:sma50:2026-W26": true,
+    "MVIR.ST:sma50:2026-W26": true,
+    "NANEXA.ST:sma50:2026-W26": true,
+    "ORCL:sma200:2026-W26": true,
+    "ORRON.ST:sma50:2026-W26": true,
+    "OVZON.ST:sma200:2026-W26": true,
+    "TOBII.ST:sma200:2026-W26": true,
+    "VPLAY-B.ST:sma50:2026-W26": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true
