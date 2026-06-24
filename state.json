@@ -131,19 +131,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-06-23"
+      "updated": "2026-06-24"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-06-23"
+      "updated": "2026-06-24"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-06-23"
+      "updated": "2026-06-24"
     }
   },
   "stock_portfolio": {
@@ -327,7 +327,8 @@
       "0001283854-26-000008",
       "0001588670-26-000012",
       "0001347842-26-000013",
-      "0001197649-26-000010"
+      "0001197649-26-000010",
+      "0001199039-26-000007"
     ],
     "JPM": [
       "0001193125-26-258526",
