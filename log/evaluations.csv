@@ -60,3 +60,5 @@ stocks:OVZON.ST:buy:2026-06-18,stocks,OVZON.ST,buy,2026-06-18,SE,5,-8.1023,-0.36
 stocks:SALT-B.ST:buy:2026-06-18,stocks,SALT-B.ST,buy,2026-06-18,SE,5,-0.1319,-0.3652,0.2333
 stocks:NCAB.ST:buy:2026-06-18,stocks,NCAB.ST,buy,2026-06-18,SE,5,1.2484,-0.3652,1.6136
 stocks:HOFI.ST:buy:2026-06-18,stocks,HOFI.ST,buy,2026-06-18,SE,5,7.1602,-0.3652,7.5254
+breakout:CAT:breakout:2026-06-19,breakout,CAT,breakout,2026-06-19,US,5,1.0672,-0.83,1.8972
+breakout:WST:breakout:2026-06-26,breakout,WST,breakout,2026-06-26,US,1,1.0916,0.1924,0.8992

@@ -133,19 +133,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-06-27"
+      "updated": "2026-06-30"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-06-27"
+      "updated": "2026-06-30"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-06-27"
+      "updated": "2026-06-30"
     }
   },
   "stock_portfolio": {
@@ -330,7 +330,16 @@
       "0001588670-26-000012",
       "0001347842-26-000013",
       "0001197649-26-000010",
-      "0001199039-26-000007"
+      "0001199039-26-000007",
+      "0001725292-26-000004",
+      "0001199039-26-000009",
+      "0001197652-26-000007",
+      "0001768670-26-000004",
+      "0001284116-26-000004",
+      "0001197650-26-000002",
+      "0001219888-26-000002",
+      "0001818224-26-000006",
+      "0001197647-26-000003"
     ],
     "JPM": [
       "0001193125-26-258526",
@@ -10800,19 +10809,6 @@
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "AVGO:sma50:2026-W25": true,
-    "ERIC-B.ST:sma50:2026-W25": true,
-    "ORCL:sma200:2026-W25": true,
-    "TOBII.ST:sma200:2026-W25": true,
-    "ACCON.ST:drawdown:2026-W25": true,
-    "EPIS-B.ST:sma50:2026-W25": true,
-    "GOOGL:sma50:2026-W25": true,
-    "MORROW.ST:sma50:2026-W25": true,
-    "MVIR.ST:sma50:2026-W25": true,
-    "VPLAY-B.ST:sma50:2026-W25": true,
-    "ORRON.ST:sma50:2026-W25": true,
-    "OVZON.ST:sma200:2026-W25": true,
-    "SINCH.ST:sma50:2026-W25": true,
     "ACCON.ST:drawdown:2026-W26": true,
     "AVGO:sma50:2026-W26": true,
     "EPIS-B.ST:sma50:2026-W26": true,
@@ -10833,7 +10829,27 @@
     "SIVE.ST:sma50:2026-W26": true,
     "ACCON.ST:sma50:2026-W26": true,
     "NOKIA-SEK.ST:drawdown:2026-W26": true,
-    "TXN:sma50:2026-W26": true
+    "TXN:sma50:2026-W26": true,
+    "ACCON.ST:drawdown:2026-W27": true,
+    "AVGO:sma50:2026-W27": true,
+    "EPIS-B.ST:sma50:2026-W27": true,
+    "ERIC-B.ST:sma50:2026-W27": true,
+    "GOOGL:sma50:2026-W27": true,
+    "HTRO.ST:sma50:2026-W27": true,
+    "INSTAL.ST:sma50:2026-W27": true,
+    "MORROW.ST:sma50:2026-W27": true,
+    "MVIR.ST:sma50:2026-W27": true,
+    "NANEXA.ST:sma50:2026-W27": true,
+    "ORCL:sma200:2026-W27": true,
+    "ORRON.ST:sma50:2026-W27": true,
+    "OVZON.ST:sma200:2026-W27": true,
+    "QCOM:sma50:2026-W27": true,
+    "SALT-B.ST:sma50:2026-W27": true,
+    "SIVE.ST:drawdown:2026-W27": true,
+    "SSAB-A.ST:sma50:2026-W27": true,
+    "TOBII.ST:sma200:2026-W27": true,
+    "TXN:sma50:2026-W27": true,
+    "VPLAY-B.ST:sma200:2026-W27": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
