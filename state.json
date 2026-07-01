@@ -68,59 +68,59 @@
     "OVZON.ST": []
   },
   "regime": {
-    "date": "2026-06-18",
+    "date": "2026-07-01",
     "risk_on": true,
     "inverted": false,
-    "curve_spread": 0.87,
+    "curve_spread": 0.76,
     "breadth_pct": 62,
     "stance": "Offensivt: momentum, sektorrotation och PEAD har medvind. Trendföljningen ligger kvar som bas."
   },
   "sectors": {
-    "updated": "2026-06-18",
+    "updated": "2026-07-01",
     "held": [
-      "US Tech",
-      "US Energy",
-      "Verkstad"
+      "Verkstad",
+      "Bank/finans",
+      "US Financials"
     ],
     "leaders": [
       {
-        "name": "US Tech",
-        "r12": 51.0,
-        "above": true
-      },
-      {
-        "name": "US Energy",
-        "r12": 41.9,
-        "above": true
-      },
-      {
         "name": "Verkstad",
-        "r12": 41.6,
+        "r12": 47.6,
         "above": true
       },
       {
         "name": "Bank/finans",
-        "r12": 26.4,
+        "r12": 35.8,
         "above": true
       },
       {
         "name": "US Financials",
-        "r12": 23.3,
+        "r12": 20.2,
+        "above": true
+      },
+      {
+        "name": "US Tech",
+        "r12": 21.9,
         "above": true
       },
       {
         "name": "Hälsovård",
-        "r12": 10.7,
+        "r12": 14.9,
         "above": true
       },
       {
-        "name": "Fastighet",
-        "r12": -3.8,
+        "name": "US Energy",
+        "r12": 24.2,
         "above": false
       },
       {
         "name": "Industri/teknik",
-        "r12": -6.0,
+        "r12": -0.7,
+        "above": true
+      },
+      {
+        "name": "Fastighet",
+        "r12": -13.6,
         "above": false
       }
     ]
@@ -148,51 +148,51 @@
   "stock_portfolio": {
     "Sverige": [
       "SIVE.ST",
-      "EPIS-B.ST",
       "SPRINT.ST",
-      "ACCON.ST",
       "NOKIA-SEK.ST",
       "MVIR.ST",
+      "ACCON.ST",
+      "CHEF.ST",
+      "ACAST.ST",
       "MORROW.ST",
-      "VPLAY-B.ST",
-      "NANEXA.ST",
+      "EPIS-B.ST",
       "HTRO.ST"
     ],
     "USA": [
       "AMD",
       "CAT",
       "CSCO",
-      "QCOM",
       "TXN",
       "GOOGL",
-      "AVGO",
-      "GS",
+      "UNH",
       "MS",
-      "ORCL"
+      "GS",
+      "QCOM",
+      "AVGO"
     ],
     "Multifaktor-Sverige": [
-      "HTRO.ST",
-      "SINCH.ST",
-      "TOBII.ST",
       "ABB.ST",
       "MYCR.ST",
+      "HTRO.ST",
+      "SAND.ST",
       "INSTAL.ST",
       "SSAB-A.ST",
-      "SAND.ST",
+      "SOBI.ST",
+      "INDU-A.ST",
       "BOL.ST",
-      "ERIC-B.ST"
+      "SINCH.ST"
     ],
     "Sverige Stora": [
       "NOKIA-SEK.ST",
-      "MORROW.ST",
-      "VPLAY-B.ST",
-      "HTRO.ST",
       "ACAST.ST",
-      "ORRON.ST",
-      "OVZON.ST",
-      "SALT-B.ST",
+      "MORROW.ST",
+      "VESTUM.ST",
+      "HOFI.ST",
       "NCAB.ST",
-      "HOFI.ST"
+      "ABB.ST",
+      "BOOZT.ST",
+      "HTRO.ST",
+      "ORRON.ST"
     ]
   },
   "seen_filings": {

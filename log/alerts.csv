@@ -35,3 +35,9 @@ ts,date,module,ticker,kind,market,price,meta
 2026-06-27T08:08:50+00:00,2026-06-27,breakout,LLY,breakout,US,1208.1200,"{""rvol"": 2.4, ""run_up"": 0.367}"
 2026-06-27T08:08:50+00:00,2026-06-27,breakout,MOH,breakout,US,229.7400,"{""rvol"": 2.6, ""run_up"": 0.473}"
 2026-07-01T10:53:27+00:00,2026-07-01,breakout,CINT.ST,breakout,SE,5.9700,"{""rvol"": 2.3, ""run_up"": 0.684}"
+2026-07-01T13:03:26+00:00,2026-07-01,stocks,CHEF.ST,buy,SE,123.4000,{}
+2026-07-01T13:03:26+00:00,2026-07-01,stocks,ACAST.ST,buy,SE,39.9500,{}
+2026-07-01T13:03:48+00:00,2026-07-01,stocks,VESTUM.ST,buy,SE,15.9800,{}
+2026-07-01T13:03:48+00:00,2026-07-01,stocks,ABB.ST,buy,SE,1035.0000,{}
+2026-07-01T13:03:48+00:00,2026-07-01,stocks,BOOZT.ST,buy,SE,146.6000,{}
+2026-07-01T13:04:00+00:00,2026-07-01,stocks,UNH,buy,US,415.6300,{}
