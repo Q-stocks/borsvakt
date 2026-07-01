@@ -62,3 +62,6 @@ stocks:NCAB.ST:buy:2026-06-18,stocks,NCAB.ST,buy,2026-06-18,SE,5,1.2484,-0.3652,
 stocks:HOFI.ST:buy:2026-06-18,stocks,HOFI.ST,buy,2026-06-18,SE,5,7.1602,-0.3652,7.5254
 breakout:CAT:breakout:2026-06-19,breakout,CAT,breakout,2026-06-19,US,5,1.0672,-0.83,1.8972
 breakout:WST:breakout:2026-06-26,breakout,WST,breakout,2026-06-26,US,1,1.0916,0.1924,0.8992
+breakout:DVA:breakout:2026-06-27,breakout,DVA,breakout,2026-06-27,US,1,1.2654,1.0347,0.2306
+breakout:LLY:breakout:2026-06-27,breakout,LLY,breakout,2026-06-27,US,1,-2.4798,1.0347,-3.5146
+breakout:MOH:breakout:2026-06-27,breakout,MOH,breakout,2026-06-27,US,1,-0.3659,1.0347,-1.4007

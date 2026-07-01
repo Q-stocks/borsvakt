@@ -34,3 +34,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-06-27T08:08:49+00:00,2026-06-27,breakout,DVA,breakout,US,217.0400,"{""rvol"": 2.1, ""run_up"": 0.425}"
 2026-06-27T08:08:50+00:00,2026-06-27,breakout,LLY,breakout,US,1208.1200,"{""rvol"": 2.4, ""run_up"": 0.367}"
 2026-06-27T08:08:50+00:00,2026-06-27,breakout,MOH,breakout,US,229.7400,"{""rvol"": 2.6, ""run_up"": 0.473}"
+2026-07-01T10:53:27+00:00,2026-07-01,breakout,CINT.ST,breakout,SE,5.9700,"{""rvol"": 2.3, ""run_up"": 0.684}"
