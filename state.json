@@ -77,8 +77,8 @@
     "date": "2026-07-01",
     "risk_on": true,
     "inverted": false,
-    "curve_spread": 0.76,
-    "breadth_pct": 62,
+    "curve_spread": 0.74,
+    "breadth_pct": 75,
     "stance": "Offensivt: momentum, sektorrotation och PEAD har medvind. Trendföljningen ligger kvar som bas."
   },
   "sectors": {
