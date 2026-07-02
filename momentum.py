@@ -138,7 +138,12 @@ def main() -> int:
         return 0
 
     rows = evaluate(cfg_m)
-    send_telegram(build_message(rows, cfg_m), args.dry_run)
+    if not send_telegram(build_message(rows, cfg_m), args.dry_run):
+        # Månadssignalen får inte tappas tyst: faila steget så att
+        # schemavakten kör om månadssignalerna (modulen är stateless).
+        print("momentum: månadssignalen kunde inte levereras – steget failar "
+              "för omkörning.", file=sys.stderr)
+        return 1
     return 0
 
 

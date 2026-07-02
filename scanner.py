@@ -25,6 +25,7 @@ import html
 import json
 import os
 import sys
+import time
 import traceback
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -326,10 +327,21 @@ def build_news_alert(name, symbol, item, summary) -> str:
 # Telegram
 # ----------------------------------------------------------------------
 
+def _truncate_html_safe(text: str, limit: int = 4096) -> str:
+    """Telegram tillåter max 4096 tecken. Klipp aldrig mitt i en HTML-tagg –
+    en halv tagg ger 400 'can't parse entities' och meddelandet tappas helt."""
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    if cut.rfind("<") > cut.rfind(">"):
+        cut = cut[: cut.rfind("<")]
+    return cut
+
+
 def send_telegram(text: str, dry_run: bool) -> bool:
     # Returnerar True när notisen är levererad (eller dry_run), annars False –
     # anroparen markerar PM som "sett" först EFTER bekräftad leverans.
-    text = text[:4096]  # Telegram tillåter max 4096 tecken per meddelande
+    text = _truncate_html_safe(text)
     if dry_run:
         print("\n" + "=" * 60 + "\n[DRY RUN] Skulle skicka:\n" + text + "\n")
         return True
@@ -339,16 +351,41 @@ def send_telegram(text: str, dry_run: bool) -> bool:
         print("VARNING: TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID saknas – hoppar över.", file=sys.stderr)
         print(text)
         return False
-    resp = requests.post(
-        f"https://api.telegram.org/bot{token}/sendMessage",
-        json={"chat_id": chat_id, "text": text, "parse_mode": "HTML",
-              "disable_web_page_preview": False},
-        timeout=20,
-    )
-    if not resp.ok:
-        print(f"Telegram-fel {resp.status_code}: {resp.text}", file=sys.stderr)
+    payload = {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
+               "disable_web_page_preview": False}
+    retried_429 = tried_plain = False
+    while True:
+        try:
+            resp = requests.post(
+                f"https://api.telegram.org/bot{token}/sendMessage",
+                json=payload, timeout=20,
+            )
+        except requests.RequestException as exc:
+            # Sanerat fel: undantagstexten kan innehålla URL:en med bot-token.
+            print(f"Telegram-nätfel: {type(exc).__name__}", file=sys.stderr)
+            return False
+        if resp.ok:
+            return True
+        if resp.status_code == 429 and not retried_429:
+            retried_429 = True
+            try:
+                wait = int(resp.json().get("parameters", {}).get("retry_after", 3))
+            except (ValueError, AttributeError, json.JSONDecodeError):
+                wait = 3
+            time.sleep(min(wait, 30))
+            continue
+        if (resp.status_code == 400 and "can't parse entities" in resp.text
+                and not tried_plain):
+            # HTML-fel får inte tysta ett larm: skicka om som ren text.
+            # Taggarna syns i chatten – fult men LEVERERAT, och buggen blir
+            # omedelbart synlig i stället för en evig tyst retry-loop.
+            tried_plain = True
+            print(f"Telegram HTML-parsefel – skickar om som ren text: "
+                  f"{resp.text[:200]}", file=sys.stderr)
+            payload.pop("parse_mode", None)
+            continue
+        print(f"Telegram-fel {resp.status_code}: {resp.text[:300]}", file=sys.stderr)
         return False
-    return True
 
 
 # ----------------------------------------------------------------------

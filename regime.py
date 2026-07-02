@@ -158,7 +158,12 @@ def main() -> int:
                               "Trendföljningen ligger kvar som bas.")
         st["regime"] = snap
         save_state(st)
-    send_telegram("\n".join(L), args.dry_run)
+    # Snapshoten ovan persisteras oavsett (dashboard-kontext), men en
+    # olevererad månadsnotis failar steget så schemavakten kör om.
+    if not send_telegram("\n".join(L), args.dry_run):
+        print("regime: månadsnotisen kunde inte levereras – steget failar "
+              "för omkörning.", file=sys.stderr)
+        return 1
     return 0
 
 

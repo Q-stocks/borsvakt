@@ -129,8 +129,9 @@ def process_market(mkt: dict, cfg_m: dict, state: dict, dry: bool) -> str:
     L.append("<i>Momentum byts månads-/kvartalsvis, värde/kvalitet årsvis (låg "
              "omsättning). Ej rådgivning.</i>")
 
-    state.setdefault("stock_portfolio", {})[f"Multifaktor-{name}"] = combined
-    return "\n".join(L)
+    # OBS: state uppdateras INTE här – anroparen roterar portföljen först vid
+    # bekräftad Telegram-leverans (annars tappas månadens lista permanent).
+    return "\n".join(L), f"Multifaktor-{name}", combined
 
 
 def main() -> int:
@@ -146,13 +147,25 @@ def main() -> int:
         return 0
 
     state = load_state()
+    undelivered = []
     for mkt in cfg_m.get("markets", []):
         try:
-            send_telegram(process_market(mkt, cfg_m, state, args.dry_run), args.dry_run)
+            text, sleeve, combined = process_market(mkt, cfg_m, state, args.dry_run)
+            # Leveransvillkorat: rotera portföljen först vid bekräftad leverans;
+            # vid miss failar steget så schemavakten kör om månadssignalerna.
+            if send_telegram(text, args.dry_run):
+                state.setdefault("stock_portfolio", {})[sleeve] = combined
+            else:
+                undelivered.append(mkt.get("name"))
         except Exception as exc:
             print(f"Multifaktor {mkt.get('name')}: fel: {exc}", file=sys.stderr)
     if not args.dry_run:
         save_state(state)
+    if undelivered:
+        print(f"Multifaktor: notisen kunde inte levereras för "
+              f"{', '.join(map(str, undelivered))} – steget failar för omkörning.",
+              file=sys.stderr)
+        return 1
     print("Multifaktor klar.")
     return 0
 

@@ -77,6 +77,8 @@ def load_borsdata(path: str, cfg_s: dict, market: str) -> list[dict] | None:
     """Läser en Börsdata-export → lista av {ticker(Yahoo), name, quality}.
     Används både som UNIVERSUM (alla rader = Large+Mid+Small Cap) och som
     kvalitetsfilter i ett svep. Returnerar None om filen saknas."""
+    if not path:
+        return None  # tom sökväg: ROOT / "" = katalogen själv -> open() kraschar
     p = ROOT / path
     if not p.exists():
         return None
@@ -108,6 +110,8 @@ def load_borsdata(path: str, cfg_s: dict, market: str) -> list[dict] | None:
 def load_quality(path: str, ticker_col: str, quality_col: str) -> dict | None:
     """Läser en fundamenta-fil (t.ex. Börsdata-export). Returnerar
     ticker -> tal (högre = bättre), eller None om filen saknas."""
+    if not path:
+        return None  # tom sökväg: ROOT / "" = katalogen själv -> open() kraschar
     p = ROOT / path
     if not p.exists():
         return None
@@ -250,8 +254,6 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
     sells = [t for t in prev if t not in portfolio]
     buys = [t for t in portfolio if t not in prev]
     by_ticker = {r["ticker"]: r for r in ranked}
-    for t in buys:
-        log_alert("stocks", t, "buy", market=("US" if name == "USA" else "SE"), dry=dry)
 
     lines = [f"📈 <b>Aktiemotorn – {html.escape(name)} – {dt.date.today():%Y-%m}</b>"]
     lines.append(f"Kvalitetsfilter: {html.escape(quality_note)}{regime_line}")
@@ -285,8 +287,10 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
                  "spreaden är tight. Banding: innehav säljs först när de fallit under "
                  f"rank {band}.{cap_note} Ej rådgivning.</i>")
 
-    state["stock_portfolio"][name] = portfolio
-    return "\n".join(lines)
+    # OBS: state["stock_portfolio"] uppdateras INTE här – anroparen roterar
+    # portföljen och facit-loggar byten först vid bekräftad Telegram-leverans,
+    # annars tappas månadens sälj/köp-lista permanent medan state tyst roterar.
+    return "\n".join(lines), portfolio, buys
 
 
 def main() -> int:
@@ -302,13 +306,31 @@ def main() -> int:
         return 0
 
     state = load_state()
+    undelivered = []
     for mkt in cfg_s.get("markets", []):
         try:
-            send_telegram(process_market(mkt, cfg_s, state, args.dry_run), args.dry_run)
+            text, portfolio, buys = process_market(mkt, cfg_s, state, args.dry_run)
+            # Leveransvillkorat: portföljen roterar och byten facit-loggas
+            # FÖRST när månadsnotisen bekräftats levererad. Vid miss failar
+            # steget (exit 1) så schemavakten kör om monthly – prev-portföljen
+            # är orörd, så omkörningen ger exakt samma byten-notis igen.
+            if send_telegram(text, args.dry_run):
+                state["stock_portfolio"][mkt["name"]] = portfolio
+                for t in buys:
+                    log_alert("stocks", t, "buy",
+                              market=("US" if mkt["name"] == "USA" else "SE"),
+                              dry=args.dry_run)
+            else:
+                undelivered.append(mkt.get("name"))
         except Exception as exc:
             print(f"Aktiemotorn {mkt.get('name')}: fel: {exc}", file=sys.stderr)
     if not args.dry_run:
         save_state(state)   # dry-run ska inte persistera omräknad portfölj
+    if undelivered:
+        print(f"Aktiemotorn: månadsnotisen kunde inte levereras för "
+              f"{', '.join(map(str, undelivered))} – steget failar så att "
+              f"schemavakten kör om månadssignalerna.", file=sys.stderr)
+        return 1
     return 0
 
 

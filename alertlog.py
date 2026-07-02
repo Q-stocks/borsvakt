@@ -230,7 +230,10 @@ def report(dry: bool = False) -> int:
              f"snitt-överavk {total['avg_excess']:+.1f}%")
     L.append("<i>Litet n = osäkert. Döm ingen strategi förrän några månaders "
              "signaler hunnit mogna. Detta är facit – inte backtest.</i>")
-    send_telegram("\n".join(L), dry)
+    if not send_telegram("\n".join(L), dry):
+        print("alertlog: scorecard-notisen kunde inte levereras – steget "
+              "failar för omkörning.", file=sys.stderr)
+        return 1
     return 0
 
 

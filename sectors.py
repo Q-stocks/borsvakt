@@ -137,8 +137,9 @@ def main() -> int:
         return 0
 
     held = [u["name"] for u in units if u["above"]][:top_n]
-    send_telegram(build_message(units, top_n, held), args.dry_run)
+    delivered = send_telegram(build_message(units, top_n, held), args.dry_run)
 
+    # Dashboard-snapshoten persisteras oavsett leverans (kontextdata) …
     if not args.dry_run:
         state = load_state()
         state["sectors"] = {
@@ -148,6 +149,11 @@ def main() -> int:
                          "above": u["above"]} for u in units],
         }
         save_state(state)
+    # … men en olevererad månadsnotis failar steget så schemavakten kör om.
+    if not delivered:
+        print("sectors: månadsnotisen kunde inte levereras – steget failar "
+              "för omkörning.", file=sys.stderr)
+        return 1
     print("Sektorrotation klar.")
     return 0
 

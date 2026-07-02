@@ -80,7 +80,7 @@ def build_follower_alert(leader, follower, link, ev, moved) -> str:
         f"🔗 <b>LEAD-LAG (experimentell)</b>\n"
         f"<b>{html.escape(leader)}</b> fick ett PEAD-larm{dl}.\n"
         f"Nedströmskandidat: <b>{html.escape(follower)}</b> "
-        f"<span>[{html.escape(link.get('market','SE'))}]</span>\n"
+        f"[{html.escape(link.get('market','SE'))}]\n"
         f"Tes: {html.escape(link.get('thesis','värdekedjekoppling'))}.{mv}\n\n"
         f"<i>Hypotes under test — loggas och utvärderas out-of-sample. "
         f"Detta är PEAD i ett extra led och en försvagad effekt; behandla som "

@@ -123,7 +123,7 @@ def build_buy_alert(ticker: str, parsed: dict, filing_date: str,
         f"👤 <b>INSIDERKÖP – {html.escape(ticker)}</b>\n"
         f"{html.escape(parsed['owner'])} ({html.escape(parsed['title'])}) köpte "
         f"{_fmt(tot_sh)} aktier à ${avg_px:.2f} ≈ ${_fmt(tot_val)}\n"
-        f"Anmält {filing_date} (Form 4, SEC){cluster}\n\n"
+        f"Anmält {html.escape(str(filing_date))} (Form 4, SEC){cluster}\n\n"
         f"<i>Öppna marknadsköp (kod P). Kluster av köp – flera insiders, egna pengar – "
         f"är den insidersignal med starkast stöd i forskningen. Ej rådgivning.</i>"
     )
@@ -196,7 +196,8 @@ def main() -> int:
                     if send_telegram(
                         f"👤 <b>Insidersälj – {html.escape(ticker)}</b>: "
                         f"{html.escape(parsed['owner'])} sålde för ≈ ${_fmt(tot)} "
-                        f"({filing['date']}). <i>Sälj är brusiga – lågt signalvärde.</i>",
+                        f"({html.escape(str(filing['date']))}). "
+                        f"<i>Sälj är brusiga – lågt signalvärde.</i>",
                         args.dry_run,
                     ):
                         seen.append(filing["acc"])

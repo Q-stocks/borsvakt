@@ -88,7 +88,10 @@ def main() -> int:
             r["on"] = float(closes.iloc[-1]) > float(closes.iloc[-sma_n:].mean())
         rows.append(r)
 
-    send_telegram(build_message(rows, cfg_t.get("cash", {})), args.dry_run)
+    if not send_telegram(build_message(rows, cfg_t.get("cash", {})), args.dry_run):
+        print("trend: månadssignalen kunde inte levereras – steget failar "
+              "för omkörning.", file=sys.stderr)
+        return 1
     return 0
 
 
