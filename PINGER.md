@@ -6,6 +6,24 @@ gratis extern cron som triggar workflowen via GitHubs API (`workflow_dispatch`)
 på en pålitlig kadens. `scan.yml` har redan `workflow_dispatch:` aktiverat, så
 ingen kodändring behövs — bara stegen nedan.
 
+> **STATUS (2026-07-02): AKTIV OCH VERIFIERAD.** Pingern kör var 15:e minut,
+> vardagar ca 06:00–21:45 **svensk tid** (04:00–19:45 UTC). Skanningarna syns
+> som `workflow_dispatch`-händelser i Actions-fliken.
+>
+> **Schemavakt (watchdog.py):** GitHubs cron var opålitlig även för daily/monthly
+> (körningar 10+ h sena eller uteblivna — månadskörningen 2026-07-01 uteblev
+> tills den triggades manuellt). Därför kör `scan.yml` numera `watchdog.py`
+> först i varje körning: den dispatchar `daily.yml`/`monthly.yml` automatiskt
+> när en körning saknas för sitt fönster. **Ingen manuell trigg behövs längre.**
+> daily/monthly har INGEN egen cron kvar (den gav bara sena dubbelkörningar) —
+> schemavakten är enda avsändaren, med scan-cronen som backup-hjärtslag om
+> pingern skulle dö.
+>
+> **Valfri förbättring:** pingern slutar 21:45 svensk tid, medan USA stänger
+> 22:00 (sommartid). Vill du bevaka USA-sessionens sista kvart intradag,
+> förläng cron-job.org-schemat till 06:00–23:45 svensk tid. Nedsidesvakten
+> fångar ändå allt på stängningsdata morgonen efter, så detta är kosmetik.
+
 ## Steg
 
 ### 1. Skapa en fine-grained PAT (token)

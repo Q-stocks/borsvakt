@@ -18,7 +18,7 @@ thresholds:
 tickers:
   - {symbol: VOLV-B.ST, name: Volvo B,    market: SE, rss: "", levels: []}
   - {symbol: ERIC-B.ST, name: Ericsson B, market: SE, rss: "", levels: []}
-  - {symbol: EVO.ST,    name: Evolution,  market: SE, rss: "", levels: [{price: 2000, dir: over, note: "testnivå"}]}
+  - {symbol: EVO.ST,    name: Evolution,  market: SE, rss: "", levels: []}
   - {symbol: AAPL,      name: Apple,      market: US, rss: "", levels: []}
   - {symbol: NVDA,      name: Nvidia,     market: US, rss: "", levels: []}
 
@@ -73,7 +73,10 @@ pead:
   surprise_pct_min: 5.0
   reaction_pct_min: 5.0
   markets:
-    - {name: USA, index_signal: "SXR8.DE", universe_file: universe/usa_pead.csv, earnings_source: yfinance}
+    # index_signal = ren SIGNALkälla (inte handel): SPY delar handelskalender och
+    # valuta med USA-aktierna – SXR8.DE (EUR, Xetra-stängning 17:30) gav valutabrus
+    # + tidsförskjutning i 2-dagars reaktionsfönstret mot 5 %-tröskeln.
+    - {name: USA, index_signal: "SPY", universe_file: universe/usa_pead.csv, earnings_source: yfinance}
 
 # ---- Trendföljning (trend.py) ----
 trend:
@@ -84,8 +87,12 @@ trend:
     - {name: "S&P 500 (SXR8)",           signal: SXR8.DE, trade: "SXR8.DE"}
     - {name: "EM IMI (IS3N)",            signal: IS3N.DE, trade: "IS3N.DE"}
     - {name: "Guld (4GLD)",              signal: 4GLD.DE, trade: "4GLD.DE"}
-    - {name: "Långa statsobl. (IBTL)",   signal: IBTL.DE, trade: "IBTL.DE"}   # TODO verifiera
-    - {name: "Råvaror (ICOM)",           signal: ICOM.DE, trade: "ICOM.DE"}   # TODO verifiera
+    # Verifierade 2026-07-02: IBTL/ICOM är LSE-tickers som saknas på Yahoo –
+    # korgen körde med 2/6 tillgångar tyst döda. IS04.DE (iShares $ Treasury
+    # 20+yr, IE00BSKRJZ44) och EXXY.DE (iShares Diversified Commodity Swap,
+    # DE000A0H0728) är Xetra/EUR/UCITS med bekräftad Yahoo-prisdata.
+    - {name: "Långa statsobl. (IS04)",   signal: IS04.DE, trade: "IS04.DE"}
+    - {name: "Råvaror (EXXY)",           signal: EXXY.DE, trade: "EXXY.DE"}
   cash: {name: "Kassa (XEON)", trade: "XEON.DE"}
 
 # ---- Regimläge (regime.py) ----

@@ -96,12 +96,15 @@ def main() -> int:
     week = dt.date.today().isocalendar()
     wk = f"{week[0]}-W{week[1]:02d}"
 
-    # Plocka in: motorernas innehav + config-extra + dina egna i holdings.csv
+    # Plocka in: motorernas innehav + config-extra + dina egna i holdings.csv.
+    # OBS: listorna SLÅS IHOP per marknadsnyckel – extra_holdings får aldrig
+    # skugga (ersätta) en hel motorportfölj med samma namn.
     extra = cfg_e.get("extra_holdings", {}) or {}
     universe: dict[str, str] = {}
-    for mkt, tickers in {**held_by_market, **extra}.items():
-        for t in tickers:
-            universe[t] = t  # namn = ticker som fallback
+    for source in (held_by_market, extra):
+        for mkt, tickers in source.items():
+            for t in tickers:
+                universe[t] = t  # namn = ticker som fallback
     for h in load_holdings():
         universe[h["ticker"]] = h["ticker"]
 
@@ -109,6 +112,10 @@ def main() -> int:
         try:
             a = analyse(symbol)
             if not a:
+                # Transparens: ett innehav utan data står UTAN nedsidesbevakning
+                # just nu – det ska synas i Actions-loggen, inte försvinna tyst.
+                print(f"  {symbol}: ingen kursdata – nedsidesvakt ej utvärderad.",
+                      file=sys.stderr)
                 continue
             # Välj starkaste utlösta nivån (200 > 50 > drawdown)
             level = None

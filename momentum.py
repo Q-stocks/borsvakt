@@ -101,6 +101,14 @@ def build_message(rows: list[dict], cfg_m: dict) -> str:
     if top:
         names = " + ".join(f"{html.escape(r['name'])} ({html.escape(r['trade'])})" for r in top)
         lines.append(f"📌 <b>Regel denna månad: äg {names}</b>")
+    elif not ok:
+        # Totalt datafel är INTE en kassasignal – presentera det som felläge,
+        # inte som mekanisk regel (transparens: notisen ska visa datafel).
+        lines.append(
+            "🛑 <b>DATAFEL: kunde inte hämta någon tillgång – INGEN signal "
+            "denna månad.</b> Behåll föregående månads position och kontrollera "
+            "manuellt; detta är ett datafel, inte en kassa-signal."
+        )
     else:
         cash = cfg_m.get("cash", {})
         lines.append(

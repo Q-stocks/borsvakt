@@ -105,6 +105,11 @@ def process(cfg_l: dict, state: dict, dry: bool) -> None:
     skip_pct = float(cfg_l.get("skip_if_follower_moved_pct", 12))
     links = {l["leader"]: l for l in cfg_l.get("links", []) if l.get("leader")}
     fired = state.setdefault("leadlag_fired", {})
+    if not links:
+        # Transparens: utan mappade leaders kan varken följarlarm eller
+        # research-nudge någonsin fira – modulen är i praktiken vilande.
+        print("leadlag: 0 länkar konfigurerade (leadlag.links är tom) – vilande.")
+        return
 
     leaders = fresh_leaders(state, window)
     for lead_sym, ev in leaders.items():

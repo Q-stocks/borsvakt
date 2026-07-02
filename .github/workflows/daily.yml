@@ -1,10 +1,13 @@
 name: Börsvakt – nedsidesvakt (daglig)
 
 on:
-  schedule:
-    # 21:30 UTC vardagar – efter både svensk och amerikansk stängning,
-    # så MA-brott bedöms på dagens stängningskurser.
-    - cron: "30 21 * * 1-5"
+  # INGEN egen cron: GitHubs schemaläggare var opålitlig här (körningar 10+ h
+  # sena, mitt under nästa handelsdag → MA-brott bedömdes på levande intradags-
+  # barer). Schemavakten (watchdog.py i scan.yml, pinger-driven var 15:e min)
+  # dispatchar i stället daily så fort en lyckad körning saknas efter senaste
+  # vardagsstängning 21:30 UTC – i praktiken ~04:00 UTC nästa morgon, på
+  # färdiga dagsstängningar och FÖRE börsöppning. Deterministiskt, utan
+  # dubbelkörningar.
   workflow_dispatch: {}
 
 permissions:
@@ -71,6 +74,7 @@ jobs:
         run: python dashboard.py
 
       - name: Spara state
+        if: always()   # levererade larms dedup-markeringar får inte tappas för att ett senare steg felar
         run: |
           git config user.name "borsvakt-bot"
           git config user.email "bot@users.noreply.github.com"

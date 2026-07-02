@@ -58,9 +58,11 @@ Chromes "Installera"-ikon i adressfältet.
 ## Innan första skarpa körningen — checklista
 1. **`config.yaml`:** sätt din riktiga e-post i `insiders.sec_user_agent`
    (SEC blockerar anonyma anrop). Gå igenom `tickers`, `momentum.universe` m.m.
-2. **Verifiera tickers** (flaggade i koden som gissningar): `IBTL.DE`, `ICOM.DE`
-   (trend), de döda `FNOX.ST`/`RESURS.ST`/`KIND-SDB.ST` i `universe/sverige.csv`,
-   samt sektor-tickrarna. Overifierade hoppas tyst över.
+2. **Verifiera tickers:** ✅ KLART 2026-07-02 — `IBTL.DE`/`ICOM.DE` var LSE-
+   tickers utan Yahoo-data, ersatta med `IS04.DE`/`EXXY.DE` (verifierade,
+   UCITS); döda `FNOX.ST`/`RESURS.ST`/`KIND-SDB.ST` borttagna ur
+   `universe/sverige.csv`. Kvar att verifiera: sektor-tickrarna (QDVE.DE
+   m.fl. i momentum/sectors). Overifierade hoppas tyst över.
 3. **Dina innehav:** fyll `holdings.csv` (ticker, marknad, antal, inköp, datum)
    — direkt, eller via `holdings-editor.html` (nås på Pages bredvid dashboarden).
 4. **(Valfritt) Börsdata-export** i `data/` enligt `BORSDATA-EXPORT.md` för

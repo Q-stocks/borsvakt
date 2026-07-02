@@ -137,11 +137,13 @@ def process_market(mkt: dict, params: dict, state: dict, dry: bool) -> None:
         key = f"{ticker}:{s['date']}"
         if fired.get(key):
             continue
-        send_telegram(build_alert(names.get(ticker, ticker), ticker, s), dry)
-        log_alert("breakout", ticker, "breakout", market=market, price=s["price"],
-                  meta={"rvol": round(s["rvol"], 1), "run_up": round(s["run_up"], 3)}, dry=dry)
-        fired[key] = True
-        hits += 1
+        # Markera skickat (och logga facit) först vid bekräftad leverans –
+        # annars tappas utbrottslarmet permanent vid ett Telegram-fel.
+        if send_telegram(build_alert(names.get(ticker, ticker), ticker, s), dry):
+            log_alert("breakout", ticker, "breakout", market=market, price=s["price"],
+                      meta={"rvol": round(s["rvol"], 1), "run_up": round(s["run_up"], 3)}, dry=dry)
+            fired[key] = True
+            hits += 1
     print(f"Breakout {name}: {len(frames)} aktier skannade, {hits} utbrott.")
 
 

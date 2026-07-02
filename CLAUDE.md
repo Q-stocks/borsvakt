@@ -56,6 +56,17 @@ Börsvakt v3: fyra Python-moduler + GitHub Actions.
   de läser nu holdings.csv via scanner.load_holdings). Daglig.
 - `holdings-editor.html` – inmatnings-GUI (localStorage + export till
   holdings.csv). Kopieras till docs/ av dashboard.py för Pages.
+- `watchdog.py` – SCHEMAVAKT och ENDA schemaläggaren för daily/monthly
+  (stdlib-only, körs FÖRST i scan.yml, före pip install): GitHubs cron var
+  opålitlig på repot (daily/monthly 10+ h sena eller uteblivna) så deras
+  cron är BORTTAGEN. Vakten kollar via GitHub-API att daily.yml körts efter
+  senaste vardagsstängning (21:30 UTC) och monthly.yml under innevarande
+  månad; annars `workflow_dispatch`. Daily landar därmed ~04:00 UTC (före
+  börsöppning, på färdiga dagsstängningar), monthly vid första scan efter
+  06:15 UTC den 1:a. Max en dispatch per varv (concurrency-gruppen har bara
+  en pending-plats), backoff vid färska misslyckanden, fail-soft (fäller
+  aldrig skannern, exit alltid 0). Kräver `permissions: actions: write` i
+  scan.yml. Logiktestad med mockat API.
 - `backtest.py` – historisk simulering av den bestämda momentumregeln
   (+ --trend för trendföljning). Per-år + Sharpe/maxDD vs index. Körs
   lokalt (Yahoo). Survivorship-bias-varning inbyggd; rekommendera
@@ -127,7 +138,9 @@ Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `ANTHROPIC_API_KEY` (valfri).
    - `pead.py` (USA): bekräfta att yfinance `get_earnings_dates` ger
      surprise för urvalet; hantera tickers som saknar data. Prestanda:
      ett earnings-anrop per ticker – cacha/batcha vid stora universa.
-   - `trend.py`: VERIFIERA bond/råvaru-tickrarna (IBTL.DE, ICOM.DE).
+   - `trend.py`: ✅ KLART 2026-07-02 — IBTL.DE/ICOM.DE var LSE-tickers utan
+     Yahoo-data (korgen körde 2/6 tillgångar döda); ersatta med verifierade
+     IS04.DE (Treasury 20+yr) och EXXY.DE (Bloomberg Commodity), båda UCITS.
    - `sectors.py`: VERIFIERA sektor-UCITS-tickrarna (QDVE.DE m.fl. är
      gissningar). Alternativ: STOXX Europe 600-sektorer. Overifierade
      hoppas tyst över.
@@ -172,6 +185,11 @@ Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `ANTHROPIC_API_KEY` (valfri).
    bakom `fetch_metrics`-gränssnittet – först vid behov.
 
 ## Kända fallgropar
+- GITHUBS CRON ÄR OPÅLITLIG på repot: scan-cronen firar sporadiskt (extern
+  pinger ger 15-min-kadensen, se PINGER.md), daily-cronen landade 10+ h sent
+  och monthly-cronen uteblev helt (2026-07-01). Därför har daily/monthly
+  INGEN cron längre — watchdog.py i scan.yml är enda schemaläggaren.
+  Ta ALDRIG bort watchdog-steget eller `actions: write` ur scan.yml.
 - Yahoo: dagens rad kan ha volym 0 nära öppning → behåll
   `min_avg_volume` + elapsed-golvet (0.05).
 - `momentum.py`/`stocks.py` släpper innevarande (ofullbordade) månad –

@@ -107,9 +107,10 @@ def save_state(state: dict) -> None:
     cutoff = (dt.date.today() - dt.timedelta(days=7)).isoformat()
     state["alerts"] = {k: v for k, v in state["alerts"].items()
                        if isinstance(v, str) and v >= cutoff}
-    for sym, ids in list(state.get("seen_news", {}).items()):
-        if isinstance(ids, list):
-            state["seen_news"][sym] = ids[-50:]  # behåll de 50 senaste per bolag
+    # Behåll de 50 senaste per bolag; släng tomma nycklar (setdefault återskapar
+    # dem vid behov – annars växer dicten med varje symbol som någonsin skannats).
+    state["seen_news"] = {sym: ids[-50:] for sym, ids in state["seen_news"].items()
+                          if isinstance(ids, list) and ids}
     STATE_FILE.write_text(
         json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8"
     )
@@ -274,7 +275,7 @@ def build_volume_alert(name, symbol, m, news_items, summary) -> str:
     news_block = ""
     if news_items:
         n = news_items[0]
-        news_block = f"\n\n📰 <b>{html.escape(n['title'])}</b>\n{n['link']}"
+        news_block = f"\n\n📰 <b>{html.escape(n['title'])}</b>\n{html.escape(n['link'])}"
         if summary:
             news_block += f"\n<i>{html.escape(summary)}</i>"
     return (
@@ -314,7 +315,7 @@ def build_level_alert(name, symbol, m, level) -> str:
 def build_news_alert(name, symbol, item, summary) -> str:
     out = (
         f"📰 <b>{html.escape(name)}</b> ({html.escape(symbol)}) – NYTT PM\n"
-        f"<b>{html.escape(item['title'])}</b>\n{item['link']}"
+        f"<b>{html.escape(item['title'])}</b>\n{html.escape(item['link'])}"
     )
     if summary:
         out += f"\n\n<i>{html.escape(summary)}</i>"
@@ -371,6 +372,14 @@ def process_ticker(tk: dict, cfg: dict, state: dict, now_utc: dt.datetime,
             # OBS: markera INTE som sett här – ett PM räknas som "sett" först
             # efter att dess notis bekräftats skickad (annars tappas PM vid
             # misslyckad Telegram-leverans).
+            if not seen and news_items:
+                # Första körningen mot en nyaktiverad feed: lär in historiken
+                # tyst i stället för att larma gamla PM (samma mönster som
+                # insiders first_run).
+                seen.extend(item["id"] for item in news_items)
+                print(f"  {symbol}: ny RSS-feed – lärde in {len(news_items)} "
+                      f"historiska PM utan larm.")
+                news_items = []
         except Exception as exc:
             print(f"  {symbol}: RSS-fel: {exc}", file=sys.stderr)
 
@@ -413,8 +422,11 @@ def process_ticker(tk: dict, cfg: dict, state: dict, now_utc: dt.datetime,
                 and not already_alerted(state, f"{symbol}:rvol:{today}")
                 and abs(m["pct"]) >= th.get("big_move_pct", 6)
                 and not already_alerted(state, key)):
-            send_telegram(build_move_alert(name, symbol, m), dry_run)
-            mark_alerted(state, key)
+            # Markera skickat först vid bekräftad leverans (annars tappas larmet).
+            if send_telegram(build_move_alert(name, symbol, m), dry_run):
+                log_alert("scanner", symbol, "big_move", market=market,
+                          price=m["price"], meta={"pct": round(m["pct"], 1)}, dry=dry_run)
+                mark_alerted(state, key)
 
         # 3) Egna prisnivåer
         for level in tk.get("levels", []) or []:
@@ -422,8 +434,12 @@ def process_ticker(tk: dict, cfg: dict, state: dict, now_utc: dt.datetime,
             hit = (m["price"] >= level["price"] if level["dir"] == "over"
                    else m["price"] <= level["price"])
             if hit and not already_alerted(state, key):
-                send_telegram(build_level_alert(name, symbol, m, level), dry_run)
-                mark_alerted(state, key)
+                if send_telegram(build_level_alert(name, symbol, m, level), dry_run):
+                    log_alert("scanner", symbol, "level_hit", market=market,
+                              price=m["price"],
+                              meta={"level": level["price"], "dir": level["dir"]},
+                              dry=dry_run)
+                    mark_alerted(state, key)
 
     # 4) Rena PM-larm (de som inte bakats in i ett volymlarm)
     for item in news_items:
@@ -431,6 +447,7 @@ def process_ticker(tk: dict, cfg: dict, state: dict, now_utc: dt.datetime,
         if send_telegram(build_news_alert(name, symbol, item, summary), dry_run):
             # Markera som sett först efter bekräftad leverans.
             seen.append(item["id"])
+            log_alert("scanner", symbol, "news", market=market, dry=dry_run)
 
 
 def main() -> int:

@@ -1,10 +1,12 @@
 name: Börsvakt – månadssignaler
 
 on:
-  schedule:
-    # 06:15 UTC den 1:a varje månad – föregående månads stängningar
-    # är då klara på alla marknader.
-    - cron: "15 6 1 * *"
+  # INGEN egen cron: GitHubs schemaläggare missade/försenade månadskörningen
+  # (2026-07-01 uteblev den tills manuell trigg; cronen firade sedan 16:08 och
+  # gav en dubbelkörning). Schemavakten (watchdog.py i scan.yml) dispatchar i
+  # stället månadssignalerna vid första scan-körningen efter 06:15 UTC den 1:a
+  # (eller första vardagen därefter) om ingen lyckad körning finns för månaden.
+  # Deterministiskt, utan dubbelkörningar.
   workflow_dispatch: {}
 
 permissions:
@@ -76,6 +78,7 @@ jobs:
         run: python dashboard.py
 
       - name: Spara state (portfölj + dubblettskydd)
+        if: always()   # levererade larms dedup-markeringar får inte tappas för att ett senare steg felar
         run: |
           git config user.name "borsvakt-bot"
           git config user.email "bot@users.noreply.github.com"

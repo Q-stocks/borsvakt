@@ -232,7 +232,11 @@ def process_market(mkt: dict, cfg_p: dict, state: dict, dry: bool) -> None:
         try:
             entry = dt.date.fromisoformat(drift[sym]["report"])
         except (KeyError, ValueError, TypeError):
-            del drift[sym]   # oparsbar post -> self-heal i stället för att krascha steget
+            # Self-heal i stället för att krascha steget – men synligt: en
+            # bevakad position (och dess 70-dagars säljlarm) försvinner här.
+            print(f"  {sym}: oparsbar drift-post {drift[sym]!r} – tas bort "
+                  f"(self-heal). Positionen bevakas inte längre.", file=sys.stderr)
+            del drift[sym]
             continue
         held = (today - entry).days
         if held >= hold:

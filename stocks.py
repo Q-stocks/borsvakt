@@ -164,14 +164,19 @@ def _passes_gate(r: dict, gate: str, cap: float | None = None) -> bool:
 
 
 def apply_banding(ranked: list[dict], prev: list[str], top_n: int, band_keep: int,
-                  gate: str = "allpos", cap: float | None = None) -> tuple[list[str], dict]:
+                  gate: str = "allpos", cap: float | None = None,
+                  hold: set[str] | None = None) -> tuple[list[str], dict]:
     rank_of = {r["ticker"]: i + 1 for i, r in enumerate(ranked)}
-    keep = [t for t in prev if rank_of.get(t, 10 ** 9) <= band_keep]
+    # `hold` = ägda tickers vars kursdata inte gick att hämta. De kan inte
+    # rankas och BEHÅLLS oförändrade – ett tillfälligt Yahoo-fel får aldrig
+    # generera ett säljlarm (fail-soft: sälj kräver en faktisk rank under band).
+    hold = hold or set()
+    keep = [t for t in prev if t in hold or rank_of.get(t, 10 ** 9) <= band_keep]
     # Banding behåller befintliga innehav via rank; vakten (inkl. tak) gäller bara nya köp.
     fill = [r["ticker"] for r in ranked
             if r["ticker"] not in keep and _passes_gate(r, gate, cap)
             ][: max(0, top_n - len(keep))]
-    portfolio = sorted(keep + fill, key=lambda t: rank_of[t])
+    portfolio = sorted(keep + fill, key=lambda t: rank_of.get(t, 10 ** 9))
     return portfolio, rank_of
 
 
@@ -222,12 +227,14 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
     # 2–3) Momentumranking + banding
     ranked, errors = score_universe(universe)
     prev = list(state.setdefault("stock_portfolio", {}).get(name, []))
+    held_errors = [t for t in prev if t in set(errors)]
     top_n = int(cfg_s.get("top_n", 10))
     band = int(cfg_s.get("band_keep", 20))
     gate = cfg_s.get("momentum_gate", "allpos")
     cap_raw = cfg_s.get("momentum_cap")
     cap = float(cap_raw) if cap_raw not in (None, "", False) else None
-    portfolio, rank_of = apply_banding(ranked, prev, top_n, band, gate, cap)
+    portfolio, rank_of = apply_banding(ranked, prev, top_n, band, gate, cap,
+                                       hold=set(held_errors))
 
     # 4) Regimfilter
     regime_line = ""
@@ -256,13 +263,20 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
             if r:
                 lines.append(f"{rank_of[t]:>2}. <b>{html.escape(t)}</b> "
                              f"{html.escape(r['name'])}  12m {r['r12']:+.0%}")
+            else:
+                lines.append(f" –. <b>{html.escape(t)}</b> kursdata saknas – "
+                             f"behålls utan omprövning (kontrollera manuellt)")
     lines.append("")
     lines.append("<b>Byten denna månad:</b>")
     lines.append("• Sälj: " + (", ".join(html.escape(t) for t in sells) if sells else "–"))
     lines.append("• Köp: " + (", ".join(html.escape(t) for t in buys) if buys else "–"))
     lines.append(f"• Behåll: {len(portfolio) - len(buys)} st")
+    if name == "USA" and (buys or sells):
+        lines.append("💱 <i>USA-byten: handla från valutakonto (USD) – annars "
+                     "~0,5 % växlingsavgift per byte.</i>")
     if errors:
-        lines.append(f"⚠️ Saknar data: {', '.join(html.escape(e) for e in errors[:8])}"
+        lines.append(f"⚠️ Saknar data ({len(errors)} av {len(universe)}): "
+                     f"{', '.join(html.escape(e) for e in errors[:8])}"
                      + (" …" if len(errors) > 8 else ""))
     lines.append("")
     cap_note = (f" Tak: nya köp hoppas över om 12m-avkastning ≥ {cap:.0%} "

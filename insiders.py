@@ -166,33 +166,43 @@ def main() -> int:
             for filing in recent_form4(cik, ua):
                 if filing["acc"] in seen:
                     continue
-                seen.append(filing["acc"])
                 if first_run:
+                    seen.append(filing["acc"])
                     continue
                 xml_text = fetch_form4_xml(cik, filing, ua)
                 if not xml_text:
+                    # Markera INTE som sedd – hämtningen försöks om nästa körning
+                    # i stället för att filingen tappas för alltid.
                     continue
                 parsed = parse_form4(xml_text)
                 if parsed["buys"]:
                     log = state["insider_buys"].setdefault(ticker, [])
-                    log.append({"date": filing["date"], "owner": parsed["owner"]})
                     cutoff = (dt.date.today() - dt.timedelta(days=window)).isoformat()
-                    owners = {x["owner"] for x in log if x["date"] >= cutoff}
-                    send_telegram(
+                    owners = ({x["owner"] for x in log if x["date"] >= cutoff}
+                              | {parsed["owner"]})
+                    # Markera sedd + logga först vid bekräftad leverans, annars
+                    # retry nästa körning (tappa aldrig ett insiderköp på 429/5xx).
+                    if send_telegram(
                         build_buy_alert(ticker, parsed, filing["date"], len(owners), window),
                         args.dry_run,
-                    )
-                    log_alert("insiders", ticker, "buy", market="US",
-                              meta={"owner": parsed["owner"], "cluster": len(owners)},
-                              dry=args.dry_run)
+                    ):
+                        log.append({"date": filing["date"], "owner": parsed["owner"]})
+                        log_alert("insiders", ticker, "buy", market="US",
+                                  meta={"owner": parsed["owner"], "cluster": len(owners)},
+                                  dry=args.dry_run)
+                        seen.append(filing["acc"])
                 elif parsed["sells"] and ins.get("alert_on_sales", False):
                     tot = sum(s["shares"] * s["price"] for s in parsed["sells"])
-                    send_telegram(
+                    if send_telegram(
                         f"👤 <b>Insidersälj – {html.escape(ticker)}</b>: "
                         f"{html.escape(parsed['owner'])} sålde för ≈ ${_fmt(tot)} "
                         f"({filing['date']}). <i>Sälj är brusiga – lågt signalvärde.</i>",
                         args.dry_run,
-                    )
+                    ):
+                        seen.append(filing["acc"])
+                else:
+                    # Varken köplarm eller säljlarm – inget att leverera.
+                    seen.append(filing["acc"])
         except Exception as exc:
             print(f"  {ticker}: insider-fel: {exc}", file=sys.stderr)
 
