@@ -65,3 +65,10 @@ breakout:WST:breakout:2026-06-26,breakout,WST,breakout,2026-06-26,US,1,1.0916,0.
 breakout:DVA:breakout:2026-06-27,breakout,DVA,breakout,2026-06-27,US,1,1.2654,1.0347,0.2306
 breakout:LLY:breakout:2026-06-27,breakout,LLY,breakout,2026-06-27,US,1,-2.4798,1.0347,-3.5146
 breakout:MOH:breakout:2026-06-27,breakout,MOH,breakout,2026-06-27,US,1,-0.3659,1.0347,-1.4007
+breakout:CINT.ST:breakout:2026-07-01,breakout,CINT.ST,breakout,2026-07-01,SE,1,-0.1672,0.8007,-0.9679
+stocks:CHEF.ST:buy:2026-07-01,stocks,CHEF.ST,buy,2026-07-01,SE,1,0.487,0.8007,-0.3136
+stocks:ACAST.ST:buy:2026-07-01,stocks,ACAST.ST,buy,2026-07-01,SE,1,1.6129,0.8007,0.8123
+stocks:VESTUM.ST:buy:2026-07-01,stocks,VESTUM.ST,buy,2026-07-01,SE,1,-0.4957,0.8007,-1.2963
+stocks:ABB.ST:buy:2026-07-01,stocks,ABB.ST,buy,2026-07-01,SE,1,-1.2573,0.8007,-2.0579
+stocks:BOOZT.ST:buy:2026-07-01,stocks,BOOZT.ST,buy,2026-07-01,SE,1,-0.6757,0.8007,-1.4763
+stocks:UNH:buy:2026-07-01,stocks,UNH,buy,2026-07-01,US,1,-0.2767,0.0,-0.2767
