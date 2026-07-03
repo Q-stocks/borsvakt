@@ -34,7 +34,9 @@ ALERTS = LOG_DIR / "alerts.csv"
 EVALS = LOG_DIR / "evaluations.csv"
 
 HORIZONS = (1, 5, 20, 60)                         # handelsdagar framåt
-INDEX_BY_MARKET = {"SE": "^OMX", "US": "SXR8.DE"}
+# Benchmark = ren SIGNALkälla: SPY delar handelskalender/valuta med
+# US-aktierna – SXR8.DE (EUR, Xetra) gav valutabrus i överavkastningen.
+INDEX_BY_MARKET = {"SE": "^OMX", "US": "SPY"}
 
 ALERT_COLS = ["ts", "date", "module", "ticker", "kind", "market", "price", "meta"]
 EVAL_COLS = ["signal_id", "module", "ticker", "kind", "date", "market",
@@ -85,9 +87,28 @@ def log_alert(module: str, ticker: str, kind: str, market: str = "SE",
 # Utvärdering – framåtblickande avkastning mot index
 # ----------------------------------------------------------------------
 
+def _drop_live_bar(hist):
+    """Släpper dagens ännu pågående bar (före 21:30 UTC = båda marknaderna
+    stängda). Utvärderingar FRYSES i evaluations.csv – att mäta mot en levande
+    intradagsbar ger permanent fel facit. (Egen kopia: alertlog är ROT-modul
+    och får inte importera scanner – cirkelimport.)"""
+    if hist is None or len(hist) == 0:
+        return hist
+    now = dt.datetime.now(dt.timezone.utc)
+    cutoff = now.replace(hour=21, minute=30, second=0, microsecond=0)
+    try:
+        last_date = hist.index[-1].date()
+    except (AttributeError, TypeError):
+        return hist
+    if last_date == now.date() and now < cutoff:
+        return hist.iloc[:-1]
+    return hist
+
+
 def _hist(symbol: str, start: str, end: str):
     import yfinance as yf
-    return yf.Ticker(symbol).history(start=start, end=end, interval="1d", auto_adjust=True)
+    return _drop_live_bar(
+        yf.Ticker(symbol).history(start=start, end=end, interval="1d", auto_adjust=True))
 
 
 def _forward_return(ticker: str, sig_date: dt.date, horizon: int,
@@ -107,18 +128,21 @@ def _forward_return(ticker: str, sig_date: dt.date, horizon: int,
     p1 = float(s["Close"].iloc[t0 + horizon])
     stock_ret = (p1 / p0 - 1.0) * 100.0
 
-    bench_ret = 0.0
     idx_sym = INDEX_BY_MARKET.get(market, "^OMX")
     # Index över SAMMA breda fönster som aktien, sedan aligna till aktiens
     # handelsdagar och läsa index-Close på SAMMA positionella t0/t0+horizon.
     # Båda benen måste spänna identiska handelsdagar (yfinance end är EXKLUSIV).
     b = _hist(idx_sym, start, end)
-    if b is not None and not b.empty:
-        bc = b["Close"].reindex(s.index, method="ffill")
-        b0 = bc.iloc[t0]
-        b1 = bc.iloc[t0 + horizon]
-        if b0 == b0 and b1 == b1 and b0:   # NaN-skydd (NaN != NaN) + nollskydd
-            bench_ret = (float(b1) / float(b0) - 1.0) * 100.0
+    if b is None or b.empty:
+        # Benchfel: skriv ALDRIG bench=0 som om index stått stilla – hoppa
+        # över så mätpunkten görs om nästa körning (raden fryses för evigt).
+        return None
+    bc = b["Close"].reindex(s.index, method="ffill")
+    b0 = bc.iloc[t0]
+    b1 = bc.iloc[t0 + horizon]
+    if not (b0 == b0 and b1 == b1 and b0):   # NaN-skydd (NaN != NaN) + nollskydd
+        return None
+    bench_ret = (float(b1) / float(b0) - 1.0) * 100.0
     return stock_ret, bench_ret
 
 

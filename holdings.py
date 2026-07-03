@@ -47,10 +47,13 @@ def analyse(symbol: str) -> dict | None:
 
 
 def build_status(h: dict) -> dict:
+    # PRIVACY: state.json committas till det PUBLIKA repot av alla workflows –
+    # antal aktier, GAV, inköpsdatum, kronvärde och noteringar får därför
+    # ALDRIG skrivas hit. Endast pris/trend/procent persisteras; beloppen
+    # stannar i holdings.csv-processen. (OBS: pl_pct + pris gör GAV härledbart
+    # – acceptansbeslut; positionsstorlek förblir hemlig.)
     sym = h["ticker"]
-    row = {"ticker": sym, "market": h.get("market"), "shares": h.get("shares"),
-           "entry_price": h.get("entry_price"), "entry_date": h.get("entry_date"),
-           "note": h.get("note", ""), "error": False}
+    row = {"ticker": sym, "market": h.get("market"), "error": False}
     try:
         a = analyse(sym)
     except Exception as exc:
@@ -63,9 +66,6 @@ def build_status(h: dict) -> dict:
     ep = h.get("entry_price")
     if ep:
         row["pl_pct"] = round((a["price"] / ep - 1.0) * 100.0, 1)
-        if h.get("shares"):
-            row["value"] = round(a["price"] * h["shares"], 0)
-            row["pl_abs"] = round((a["price"] - ep) * h["shares"], 0)
     return row
 
 

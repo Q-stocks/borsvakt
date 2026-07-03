@@ -31,13 +31,17 @@ import sys
 
 import yaml
 
-from scanner import CONFIG_FILE, load_holdings, load_state, save_state, send_telegram
+from scanner import (CONFIG_FILE, drop_live_bar, load_holdings, load_state,
+                     save_state, send_telegram)
 
 
 def analyse(symbol: str) -> dict | None:
     import yfinance as yf
 
-    hist = yf.Ticker(symbol).history(period="14mo", interval="1d", auto_adjust=True)
+    # drop_live_bar: MA-brott ska bedömas på AVSLUTADE dagsstängningar – körs
+    # daily mitt på dagen (t.ex. watchdog-omkörning) vore sista baren levande.
+    hist = drop_live_bar(
+        yf.Ticker(symbol).history(period="14mo", interval="1d", auto_adjust=True))
     if hist is None or len(hist) < 60:
         return None
     close = hist["Close"].dropna()

@@ -68,6 +68,15 @@
   </div>
 
   <div class="eyebrow">Exportera till holdings.csv</div>
+  <div class="infobox" style="border-color:#e5664f">
+    ⚠️ <b>VIKTIGT — repot är PUBLIKT:</b> allt som committas till
+    <code>holdings.csv</code> kan läsas av vem som helst på GitHub. Fyller du i
+    <b>antal, inköpspris, datum eller noteringar</b> blir de publika. Rekommendation:
+    committa bara <b>ticker</b> (+ ev. marknad) = bevakningslista; håll belopp och
+    GAV lokalt i den här sidan (sparas bara i din webbläsare). Vill du ha
+    vinst/förlust-spårning i systemet: gör repot privat först (Pages kräver då
+    betalplan) eller acceptera att uppgifterna blir publika.
+  </div>
   <div class="infobox">
     Sidan sparar lokalt i din webbläsare. För att <b>systemet</b> (Telegram-larm,
     nedsidesvakt, dashboard) ska följa innehaven måste innehållet hamna i
@@ -75,7 +84,7 @@
     "uppdatera holdings.csv med detta" och klistra in texten nedan, (2) klistra in
     direkt i filen via GitHubs webb-editor, eller (3) ersätt filen lokalt.
     Ticker = Yahoo-format (<code>.ST</code> för svenska). Marknad lämnas tom →
-    härleds automatiskt. Antal/pris/datum är valfria (ger vinst/förlust och innehavstid).
+    härleds automatiskt. Antal/pris/datum är valfria — men se varningen ovan.
   </div>
   <div class="row">
     <button id="gen" class="primary">Generera CSV</button>

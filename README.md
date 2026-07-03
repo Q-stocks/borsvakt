@@ -29,10 +29,15 @@ bedömd kurspåverkan (låg/medel/hög).
 1. **Telegram-bot:** [@BotFather](https://t.me/BotFather) → `/newbot` → spara token.
    Skicka ett meddelande till boten, öppna sedan
    `https://api.telegram.org/bot<TOKEN>/getUpdates` och läs av ditt `chat.id`.
-2. **GitHub:** lägg upp mappen som **privat** repo. Settings → Secrets and
+2. **GitHub:** lägg upp mappen som repo. Settings → Secrets and
    variables → Actions: lägg in `TELEGRAM_BOT_TOKEN` och `TELEGRAM_CHAT_ID`.
-3. **SEC-krav:** sätt din e-post i `insiders.sec_user_agent` i `config.yaml`
-   (annars blockerar SEC insider-anropen).
+   ⚠️ **Driftrepot är PUBLIKT** (gratis Pages kräver det): committa ALDRIG
+   privata uppgifter — `holdings.csv` med antal/GAV/noteringar blir publik
+   (fyll bara ticker+marknad = bevakningslista), och e-post/namn hör hemma i
+   Secrets, inte i spårade filer.
+3. **SEC-krav:** sätt din e-post som GitHub-secret **`SEC_USER_AGENT`**
+   (Settings → Secrets) — INTE i `config.yaml` (spårad fil i publikt repo).
+   Utan den blockerar SEC insider-anropen.
 
 **Rekommenderat:**
 4. `ANTHROPIC_API_KEY` som secret → Claude sammanfattar pressmeddelanden.
@@ -110,8 +115,9 @@ identisk exponering, fullt köpbara. Enskilda USA-aktier berörs inte.
 Bevakar SEC EDGAR (Form 4) för USA-listan i `config.yaml`: larm vid
 öppna marknadsköp, med 🔥-flagga när flera olika insiders köpt inom
 14 dagar (klustermönstret). Försäljningar ignoreras som standard – de
-är brusiga. **Krav:** lägg din e-post i `insiders.sec_user_agent`
-(SEC blockerar anonyma anrop). Första körningen lär bara in historiken
+är brusiga. **Krav:** sätt din e-post som GitHub-secret `SEC_USER_AGENT`
+(SEC blockerar anonyma anrop; lägg den INTE i config.yaml — publikt repo).
+Första körningen lär bara in historiken
 och larmar inte retroaktivt. Svenska insynsregistret (FI) byggs i
 Claude Code – se CLAUDE.md.
 

@@ -105,8 +105,9 @@ def build_data() -> dict:
         counts[r["module"]] = counts.get(r["module"], 0) + 1
 
     # Publik dashboard: strippa absoluta kronbelopp ur innehaven så bara
-    # ticker, %, pris och trend hamnar på Pages. Antal/inköp/värde/kr-resultat
-    # lämnar aldrig maskinen (de finns kvar i state.json lokalt).
+    # ticker, %, pris och trend hamnar på Pages. Sedan 2026-07-02 skriver
+    # holdings.py aldrig antal/inköp/värde/kr till state.json (som committas
+    # PUBLIKT) — den här strippningen är kvar som andra försvarslinje.
     holdings_pub = None
     hs = state.get("holdings_status")
     if hs and hs.get("rows"):
@@ -401,6 +402,19 @@ document.querySelectorAll('nav button').forEach(b=>{
       <div class="r12 ${l.r12>=0?'pos':'neg'}">12m ${sign(l.r12)}%</div>
       <span class="mkt" style="margin-left:10px">${l.above?'trend ✓':'svag'}</span></div>`).join('');
   } else el.innerHTML = '<div class="empty">Sektorrankning beräknas vid månadsskifte.</div>';
+})();
+
+(function(){
+  const el = document.getElementById('sectortrend');
+  const st = D.sector_trend;
+  const keys = st ? Object.keys(st) : [];
+  if(!keys.length){ el.innerHTML='<div class="empty">Sektortrend beräknas dagligen efter stängning.</div>'; return; }
+  const b=(v,on,off)=> v==null ? `<span class="pill" style="color:var(--muted)">${off} ?</span>`
+    : `<span class="pill" style="color:${v?'var(--pos)':'var(--neg)'}">${v?on:off}</span>`;
+  el.innerHTML = '<div class="grid">' + keys.map(n=>{const g=st[n];return `<div class="card">
+    <div class="tk">${esc(n)}</div>
+    <div class="pills">${b(g.above200,'över 200d ✓','under 200d ⛔')}${b(g.gcross,'50>200 ✓','50<200 ⛔')}${b(g.rs_up,'RS upp ✓','RS ner ⛔')}</div>
+    <div class="meta">uppdaterad <span class="mono">${esc(g.updated||'–')}</span></div></div>`;}).join('') + '</div>';
 })();
 
 (function(){

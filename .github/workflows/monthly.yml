@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # färskaste main – köade körningar får annars stale SHA (dubblettlarm)
 
       - uses: actions/setup-python@v5
         with:
@@ -82,6 +84,8 @@ jobs:
         run: |
           git config user.name "borsvakt-bot"
           git config user.email "bot@users.noreply.github.com"
+          # Committa aldrig korrupt state (steget körs via if: always()).
+          python -c "import json; json.load(open('state.json', encoding='utf-8'))" || { echo "state.json KORRUPT – committar inte." >&2; exit 1; }
           git add state.json log/ docs/ holdings.csv 2>/dev/null || true
           if git diff --cached --quiet; then echo "Inget att spara."; exit 0; fi
           git commit -m "state: månadssignal $(date -u +%Y-%m)"

@@ -34,7 +34,8 @@ import sys
 import yaml
 
 from alertlog import log_alert
-from scanner import CONFIG_FILE, ROOT, load_state, save_state, send_telegram
+from scanner import (CONFIG_FILE, ROOT, drop_live_bar, load_state, save_state,
+                     send_telegram)
 from stocks import load_universe
 
 
@@ -122,8 +123,10 @@ def process_market(mkt: dict, params: dict, state: dict, dry: bool) -> None:
 
     hits = 0
     for ticker, _nm in universe:
-        df = frames.get(ticker)
-        if df is None:
+        # Utbrott bekräftas på AVSLUTAD dagsbar – en levande intradagsbar kan
+        # se ut som ett utbrott som sedan stängs under nivån.
+        df = drop_live_bar(frames.get(ticker))
+        if df is None or len(df) == 0:
             continue
         try:
             s = setup_at_last(df, params)

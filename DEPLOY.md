@@ -56,15 +56,21 @@ Chromes "Installera"-ikon i adressfältet.
 ---
 
 ## Innan första skarpa körningen — checklista
-1. **`config.yaml`:** sätt din riktiga e-post i `insiders.sec_user_agent`
-   (SEC blockerar anonyma anrop). Gå igenom `tickers`, `momentum.universe` m.m.
+1. **SEC-e-post:** ✅ redan satt som GitHub-secret `SEC_USER_AGENT` (2026-06-18).
+   Lägg den ALDRIG i `config.yaml` — repot är publikt. Gå igenom `tickers`,
+   `momentum.universe` m.m. i config.
 2. **Verifiera tickers:** ✅ KLART 2026-07-02 — `IBTL.DE`/`ICOM.DE` var LSE-
    tickers utan Yahoo-data, ersatta med `IS04.DE`/`EXXY.DE` (verifierade,
    UCITS); döda `FNOX.ST`/`RESURS.ST`/`KIND-SDB.ST` borttagna ur
    `universe/sverige.csv`. Kvar att verifiera: sektor-tickrarna (QDVE.DE
    m.fl. i momentum/sectors). Overifierade hoppas tyst över.
-3. **Dina innehav:** fyll `holdings.csv` (ticker, marknad, antal, inköp, datum)
-   — direkt, eller via `holdings-editor.html` (nås på Pages bredvid dashboarden).
+3. **Dina innehav:** fyll `holdings.csv` — direkt, eller via
+   `holdings-editor.html` (nås på Pages bredvid dashboarden).
+   ⚠️ **Repot är PUBLIKT:** allt i `holdings.csv` blir läsbart för vem som
+   helst. Rekommendation: fyll bara **ticker + marknad** (bevakningslista).
+   Antal/GAV/datum/noteringar ger vinst/förlust-spårning men blir publika —
+   gör i så fall repot privat först. (state.json/dashboarden skriver sedan
+   2026-07-02 aldrig ut belopp, men själva CSV-filen committas som den är.)
 4. **(Valfritt) Börsdata-export** i `data/` enligt `BORSDATA-EXPORT.md` för
    multifaktorns värde/kvalitet och svensk PEAD.
 

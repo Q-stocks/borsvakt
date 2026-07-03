@@ -26,6 +26,7 @@ import sys
 
 import yaml
 
+from alertlog import log_alert
 from momentum import _ret, month_end_closes
 from stocks import load_borsdata, load_universe
 from scanner import CONFIG_FILE, load_state, save_state, send_telegram
@@ -104,6 +105,17 @@ def process_market(mkt: dict, cfg_m: dict, state: dict, dry: bool) -> str:
                       key=lambda t: by_ticker[t]["score"] if t in by_ticker else -1e9,
                       reverse=True)
 
+    # Höll-vid-datafel (samma princip som Aktiemotorn): ett ÄGT innehav vars
+    # kursdata felar kan inte bedömas och BEHÅLLS – ett tillfälligt Yahoo-fel
+    # får aldrig bli en tyst implicit försäljning ur sleeven (som exits/
+    # scannern bevakar via state).
+    prev = list(state.get("stock_portfolio", {}).get(f"Multifaktor-{name}", []))
+    err_set = set(errors)
+    held_errors = [t for t in prev if t in err_set and t not in combined]
+    combined = combined + held_errors
+    sells = [t for t in prev if t not in combined]
+    buys = [t for t in combined if t not in prev]
+
     L = [f"🧬 <b>Multifaktor – {html.escape(name)} – {dt.date.today():%Y-%m}</b>"]
     if not fmap:
         L.append("<i>Ingen fundamenta-fil – kör bara momentum-sleeven. "
@@ -122,8 +134,16 @@ def process_market(mkt: dict, cfg_m: dict, state: dict, dry: bool) -> str:
         r = by_ticker.get(t)
         if r:
             L.append(f"• <b>{html.escape(t)}</b> {html.escape(r['name'])}  12m {r['r12']:+.0%}")
+        elif t in held_errors:
+            L.append(f"• <b>{html.escape(t)}</b> kursdata saknas – behålls utan "
+                     f"omprövning (kontrollera manuellt)")
+    L.append("")
+    L.append("<b>Byten denna månad:</b>")
+    L.append("• Sälj: " + (", ".join(html.escape(t) for t in sells) if sells else "–"))
+    L.append("• Köp: " + (", ".join(html.escape(t) for t in buys) if buys else "–"))
     if errors:
-        L.append(f"⚠️ Saknar data: {', '.join(html.escape(e) for e in errors[:8])}"
+        L.append(f"⚠️ Saknar data ({len(errors)} av {len(universe)}): "
+                 f"{', '.join(html.escape(e) for e in errors[:8])}"
                  + (" …" if len(errors) > 8 else ""))
     L.append("")
     L.append("<i>Momentum byts månads-/kvartalsvis, värde/kvalitet årsvis (låg "
@@ -154,11 +174,21 @@ def main() -> int:
             # Leveransvillkorat: rotera portföljen först vid bekräftad leverans;
             # vid miss failar steget så schemavakten kör om månadssignalerna.
             if send_telegram(text, args.dry_run):
-                state.setdefault("stock_portfolio", {})[sleeve] = combined
+                prev = set(state.setdefault("stock_portfolio", {}).get(sleeve, []))
+                for t in combined:
+                    if t not in prev:
+                        log_alert("multifactor", t, "buy",
+                                  market=mkt.get("market", "SE"), dry=args.dry_run)
+                state["stock_portfolio"][sleeve] = combined
             else:
                 undelivered.append(mkt.get("name"))
         except Exception as exc:
+            # Ett kraschat marknadsvarv = olevererad månadsnotis: räkna det
+            # som miss så steget failar och schemavakten kör om (transienta
+            # datafel självläker; bestående fel blir SYNLIGA i stället för
+            # en tyst utebliven rebalansering).
             print(f"Multifaktor {mkt.get('name')}: fel: {exc}", file=sys.stderr)
+            undelivered.append(mkt.get("name"))
     if not args.dry_run:
         save_state(state)
     if undelivered:

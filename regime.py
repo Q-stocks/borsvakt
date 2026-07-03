@@ -39,7 +39,15 @@ from scanner import CONFIG_FILE, load_state, save_state, send_telegram
 
 def _daily(symbol: str, period: str = "14mo"):
     import yfinance as yf
-    h = yf.Ticker(symbol).history(period=period, interval="1d", auto_adjust=True)
+    from scanner import drop_live_bar
+    try:
+        # drop_live_bar: regimen är en (månads)snapshot på stängningsdata –
+        # utan vakten gav intradagskörningar olika bredd/spread samma dag.
+        h = drop_live_bar(
+            yf.Ticker(symbol).history(period=period, interval="1d", auto_adjust=True))
+    except Exception as exc:  # fail-soft: ett kastat yfinance-fel får inte
+        print(f"  {symbol}: {exc}", file=sys.stderr)   # fälla hela monthly-steget
+        return None
     return h if (h is not None and not h.empty) else None
 
 

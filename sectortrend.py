@@ -37,9 +37,11 @@ import sys
 import pandas as pd
 import yaml
 
-from scanner import CONFIG_FILE, load_state, save_state, send_telegram
+from scanner import CONFIG_FILE, drop_live_bar, load_state, save_state, send_telegram
 
-BENCH = {"US": "SXR8.DE", "SE": "^OMX"}
+# Benchmark = ren SIGNALkälla (handlas ej): SPY delar handelskalender/valuta
+# med US-aktierna – SXR8.DE (EUR, Xetra) gav valutabrus i relativ styrka.
+BENCH = {"US": "SPY", "SE": "^OMX"}
 
 
 def fetch_daily(symbol: str, cache: dict):
@@ -47,7 +49,9 @@ def fetch_daily(symbol: str, cache: dict):
         return cache[symbol]
     import yfinance as yf
     try:
-        h = yf.Ticker(symbol).history(period="18mo", interval="1d", auto_adjust=True)
+        # drop_live_bar: MA-korsningar bedöms på avslutade dagsstängningar.
+        h = drop_live_bar(
+            yf.Ticker(symbol).history(period="18mo", interval="1d", auto_adjust=True))
         s = h["Close"].dropna() if (h is not None and not h.empty) else None
         # Normalisera bort tidszon så US (America/New_York) och EU-bench
         # (Europe/Berlin) aligneras på kalenderdatum vid join (annars 0 rader).

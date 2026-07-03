@@ -95,7 +95,13 @@ def load_state() -> dict:
         try:
             return json.loads(STATE_FILE.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
-            pass
+            # Faila HÖGLJUTT: en tyst nollställning skulle radera portfölj +
+            # all dedup och committas till molnet. state.json ligger i git –
+            # återställ från föregående commit i stället.
+            print("FATALT: state.json är korrupt JSON – vägrar nollställa. "
+                  "Återställ från git (t.ex. `git checkout HEAD~1 -- state.json`).",
+                  file=sys.stderr)
+            raise SystemExit(1)
     return {"alerts": {}, "seen_news": {}}
 
 
@@ -112,9 +118,34 @@ def save_state(state: dict) -> None:
     # dem vid behov – annars växer dicten med varje symbol som någonsin skannats).
     state["seen_news"] = {sym: ids[-50:] for sym, ids in state["seen_news"].items()
                           if isinstance(ids, list) and ids}
-    STATE_FILE.write_text(
-        json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
+    # Atomär skrivning: skriv till tmp + os.replace så en avbruten körning
+    # (t.ex. cancel mitt i) aldrig lämnar en halvskriven state.json som
+    # sedan committas till molnet.
+    tmp = STATE_FILE.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
+    os.replace(tmp, STATE_FILE)
+
+
+def drop_live_bar(hist, now_utc: dt.datetime | None = None):
+    """Släpper sista dagsbaren om den är dagens ännu PÅGÅENDE bar.
+
+    Signaler och utvärderingar ska bygga på avslutade dagsstängningar – en
+    levande intradagsbar ger falska MA-brott (exits/sectortrend), obekräftade
+    utbrott (breakout) och frysta felmätningar (alertlog). Tröskeln 21:30 UTC
+    = efter både svensk och amerikansk stängning (daily-fönstrets tid).
+    Funkar för både Series och DataFrame med DatetimeIndex. Skannern ska INTE
+    använda den (RVOL är avsiktligt intradag)."""
+    if hist is None or len(hist) == 0:
+        return hist
+    now = now_utc or dt.datetime.now(dt.timezone.utc)
+    cutoff = now.replace(hour=21, minute=30, second=0, microsecond=0)
+    try:
+        last_date = hist.index[-1].date()
+    except (AttributeError, TypeError):
+        return hist
+    if last_date == now.date() and now < cutoff:
+        return hist.iloc[:-1]
+    return hist
 
 
 def market_is_open(market: str, now_utc: dt.datetime) -> bool:
@@ -348,8 +379,10 @@ def send_telegram(text: str, dry_run: bool) -> bool:
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID")
     if not token or not chat_id:
-        print("VARNING: TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID saknas – hoppar över.", file=sys.stderr)
-        print(text)
+        # Skriv INTE larmtexten: Actions-loggarna är publika (publikt repo)
+        # och texten kan innehålla portföljinformation.
+        print(f"VARNING: TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID saknas – larm "
+              f"undertryckt ({len(text)} tecken).", file=sys.stderr)
         return False
     payload = {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
                "disable_web_page_preview": False}

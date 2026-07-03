@@ -323,7 +323,10 @@ def main() -> int:
             else:
                 undelivered.append(mkt.get("name"))
         except Exception as exc:
+            # Krasch = olevererad månadsnotis: räkna som miss så steget failar
+            # och schemavakten kör om (tyst utebliven rebalansering är värre).
             print(f"Aktiemotorn {mkt.get('name')}: fel: {exc}", file=sys.stderr)
+            undelivered.append(mkt.get("name"))
     if not args.dry_run:
         save_state(state)   # dry-run ska inte persistera omräknad portfölj
     if undelivered:

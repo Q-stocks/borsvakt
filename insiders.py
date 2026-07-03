@@ -52,9 +52,12 @@ def get_cik(ticker: str, ua: str, cache: dict) -> int | None:
     if t in cache:
         return int(cache[t])
     data = sec_get(SEC_TICKER_MAP, ua).json()
-    for row in data.values():
-        cache[str(row["ticker"]).upper()] = int(row["cik_str"])
-    return cache.get(t)
+    # Cacha BARA den efterfrågade tickern i state – hela SEC-kartan är
+    # ~10 000 poster och blåste upp state.json (86 % av filstorleken).
+    full = {str(row["ticker"]).upper(): int(row["cik_str"]) for row in data.values()}
+    if t in full:
+        cache[t] = full[t]
+    return full.get(t)
 
 
 def recent_form4(cik: int, ua: str, limit: int = 40) -> list[dict]:
@@ -212,6 +215,10 @@ def main() -> int:
         state["seen_filings"][t] = state["seen_filings"][t][-200:]
     for t in list(state["insider_buys"]):
         state["insider_buys"][t] = state["insider_buys"][t][-100:]
+    # cik_cache: behåll BARA konfigurerade tickers – hela SEC-kartan (10 000+
+    # poster, ~200 KB) blåste upp state.json som committas var 15:e minut.
+    wanted = {t.upper() for t in (ins.get("us_tickers", []) or [])}
+    state["cik_cache"] = {k: v for k, v in state["cik_cache"].items() if k in wanted}
     if not args.dry_run:
         save_state(state)
     print("Insiderkoll klar.")

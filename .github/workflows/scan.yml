@@ -25,6 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # ALLTID färskaste main: utan ref checkas en SHA pinnad vid körningens
+          # SKAPANDE ut – körningar som väntat i concurrency-kön startar då på
+          # state FÖRE föregångarens push (stale dedup → dubblettlarm).
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
@@ -53,6 +58,9 @@ jobs:
         run: |
           git config user.name "borsvakt-bot"
           git config user.email "bot@users.noreply.github.com"
+          # Committa ALDRIG korrupt state (if: always() kör detta steg även
+          # efter avbrott – en halvskriven state.json får inte nå molnet).
+          python -c "import json; json.load(open('state.json', encoding='utf-8'))" || { echo "state.json KORRUPT – committar inte." >&2; exit 1; }
           # log/ MÅSTE med: scanner loggar volym-/move-/nivålarm till alertlog-
           # facit (log/alerts.csv) – utan detta kastas raderna efter varje körning.
           git add state.json log/ 2>/dev/null || true

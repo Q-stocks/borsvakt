@@ -18,12 +18,15 @@ scan-cron är backup-hjärtslag) och dispatchar dem via workflow_dispatch:
                tidigast 06:15 UTC den 1:a (första vardagen därefter om
                den 1:a är en helg — scan körs bara vardagar).
 
-Skulle en dubbelkörning ändå ske (manuell trigg etc.) är den ofarlig —
-motorerna är idempotenta och larmen dedupas via state (verifierat
-2026-07-01) — men vakten undviker dem: den hoppar över om en körning
-redan är igång/köad eller nyss misslyckats (backoff). Max en dispatch
-per varv, eftersom concurrency-gruppen borsvakt-state bara har EN
-pending-plats och en nyare köad körning avbryter en äldre pending.
+Skulle en dubbelkörning ändå ske (manuell trigg etc.) är den riskfri
+för STATE — motorerna är idempotenta och larmen dedupas (verifierat
+2026-07-01) — men de tillståndslösa månadsnotiserna (momentum/trend/
+sectors/regime/scorecard) skickas då OM som dubbletter; innehållet är
+identiskt. Vakten undviker dubbelkörningar: den hoppar över om en
+körning redan är igång/köad eller nyss misslyckats (backoff: 45 min
+efter cancelled, 4 h efter failure). Max en dispatch per varv, eftersom
+concurrency-gruppen borsvakt-state bara har EN pending-plats och en
+nyare köad körning avbryter en äldre pending.
 
 Endast standardbibliotek (körs före pip install). Fel här får ALDRIG
 fälla skannern — allt är fail-soft och exit-koden är alltid 0.

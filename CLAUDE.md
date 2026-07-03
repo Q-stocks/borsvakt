@@ -114,7 +114,8 @@ python dashboard.py        # -> docs/index.html
 Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `ANTHROPIC_API_KEY` (valfri).
 
 ## TODO – prioriterad ordning
-1. **Sätt användarens e-post** i `insiders.sec_user_agent` (SEC-krav).
+1. ✅ KLART: SEC-e-post satt som GitHub-secret `SEC_USER_AGENT` (2026-06-18,
+   verifierad i drift). Lägg den ALDRIG i config.yaml — repot är PUBLIKT.
 2. **Universum – bredd är avgörande för momentum.** Bästa vägen: sätt
    `stocks.universe_from_quality: true` och låt Börsdata-exporten vara
    hela universumet (Large+Mid+Small Cap) + kvalitetsfilter. Verifiera då
