@@ -43,3 +43,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-01T13:04:00+00:00,2026-07-01,stocks,UNH,buy,US,415.6300,{}
 2026-07-03T07:01:10+00:00,2026-07-03,scanner,SIVE.ST,big_move,SE,53.9000,"{""pct"": 10.0}"
 2026-07-03T07:15:44+00:00,2026-07-03,scanner,SIVE.ST,volume_spike,SE,54.7500,"{""rvol"": 5.1, ""pct"": 11.7}"
+2026-07-03T08:15:44+00:00,2026-07-03,scanner,EPIS-B.ST,big_move,SE,0.0900,"{""pct"": 6.5}"
