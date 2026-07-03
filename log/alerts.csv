@@ -41,3 +41,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-01T13:03:48+00:00,2026-07-01,stocks,ABB.ST,buy,SE,1035.0000,{}
 2026-07-01T13:03:48+00:00,2026-07-01,stocks,BOOZT.ST,buy,SE,146.6000,{}
 2026-07-01T13:04:00+00:00,2026-07-01,stocks,UNH,buy,US,415.6300,{}
+2026-07-03T07:01:10+00:00,2026-07-03,scanner,SIVE.ST,big_move,SE,53.9000,"{""pct"": 10.0}"
