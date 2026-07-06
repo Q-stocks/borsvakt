@@ -47,3 +47,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-06T07:01:23+00:00,2026-07-06,scanner,SIVE.ST,big_move,SE,50.0000,"{""pct"": -11.2}"
 2026-07-06T07:15:39+00:00,2026-07-06,scanner,SIVE.ST,volume_spike,SE,45.5200,"{""rvol"": 5.2, ""pct"": -19.1}"
 2026-07-06T07:31:11+00:00,2026-07-06,scanner,ABB.ST,volume_spike,SE,1018.0000,"{""rvol"": 3.2, ""pct"": -3.0}"
+2026-07-06T13:01:24+00:00,2026-07-06,scanner,SPRINT.ST,big_move,SE,3.8200,"{""pct"": -6.1}"
