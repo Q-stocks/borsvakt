@@ -50,3 +50,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-06T13:01:24+00:00,2026-07-06,scanner,SPRINT.ST,big_move,SE,3.8200,"{""pct"": -6.1}"
 2026-07-06T13:46:29+00:00,2026-07-06,scanner,AMD,big_move,US,556.6500,"{""pct"": 7.5}"
 2026-07-06T14:17:24+00:00,2026-07-06,scanner,QCOM,big_move,US,187.2900,"{""pct"": 6.3}"
+2026-07-06T14:45:55+00:00,2026-07-06,scanner,EPIS-B.ST,big_move,SE,0.0671,"{""pct"": -6.8}"
