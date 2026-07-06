@@ -89,19 +89,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-04"
+      "updated": "2026-07-06"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-04"
+      "updated": "2026-07-06"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-04"
+      "updated": "2026-07-06"
     }
   },
   "stock_portfolio": {
@@ -296,7 +296,8 @@
       "0001197650-26-000002",
       "0001219888-26-000002",
       "0001818224-26-000006",
-      "0001197647-26-000003"
+      "0001197647-26-000003",
+      "0001197647-26-000005"
     ],
     "JPM": [
       "0001193125-26-258526",
@@ -362,27 +363,6 @@
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "ACCON.ST:drawdown:2026-W26": true,
-    "AVGO:sma50:2026-W26": true,
-    "EPIS-B.ST:sma50:2026-W26": true,
-    "ERIC-B.ST:sma50:2026-W26": true,
-    "GOOGL:sma50:2026-W26": true,
-    "HTRO.ST:sma50:2026-W26": true,
-    "MORROW.ST:sma50:2026-W26": true,
-    "MVIR.ST:sma50:2026-W26": true,
-    "NANEXA.ST:sma50:2026-W26": true,
-    "ORCL:sma200:2026-W26": true,
-    "ORRON.ST:sma50:2026-W26": true,
-    "OVZON.ST:sma200:2026-W26": true,
-    "TOBII.ST:sma200:2026-W26": true,
-    "VPLAY-B.ST:sma50:2026-W26": true,
-    "QCOM:drawdown:2026-W26": true,
-    "SIVE.ST:drawdown:2026-W26": true,
-    "VPLAY-B.ST:sma200:2026-W26": true,
-    "SIVE.ST:sma50:2026-W26": true,
-    "ACCON.ST:sma50:2026-W26": true,
-    "NOKIA-SEK.ST:drawdown:2026-W26": true,
-    "TXN:sma50:2026-W26": true,
     "ACCON.ST:drawdown:2026-W27": true,
     "AVGO:sma50:2026-W27": true,
     "EPIS-B.ST:sma50:2026-W27": true,
@@ -407,7 +387,21 @@
     "BOL.ST:sma50:2026-W27": true,
     "SIVE.ST:sma50:2026-W27": true,
     "VPLAY-B.ST:sma50:2026-W27": true,
-    "NOKIA-SEK.ST:sma50:2026-W27": true
+    "NOKIA-SEK.ST:sma50:2026-W27": true,
+    "ACCON.ST:sma50:2026-W28": true,
+    "AVGO:sma50:2026-W28": true,
+    "BOL.ST:sma50:2026-W28": true,
+    "EPIS-B.ST:sma50:2026-W28": true,
+    "GOOGL:sma50:2026-W28": true,
+    "HTRO.ST:sma50:2026-W28": true,
+    "INSTAL.ST:sma50:2026-W28": true,
+    "MVIR.ST:sma50:2026-W28": true,
+    "MYCR.ST:sma50:2026-W28": true,
+    "NCAB.ST:sma50:2026-W28": true,
+    "NOKIA-SEK.ST:sma50:2026-W28": true,
+    "ORRON.ST:sma50:2026-W28": true,
+    "QCOM:sma50:2026-W28": true,
+    "SIVE.ST:sma50:2026-W28": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,

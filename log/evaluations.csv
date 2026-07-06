@@ -72,3 +72,7 @@ stocks:VESTUM.ST:buy:2026-07-01,stocks,VESTUM.ST,buy,2026-07-01,SE,1,-0.4957,0.8
 stocks:ABB.ST:buy:2026-07-01,stocks,ABB.ST,buy,2026-07-01,SE,1,-1.2573,0.8007,-2.0579
 stocks:BOOZT.ST:buy:2026-07-01,stocks,BOOZT.ST,buy,2026-07-01,SE,1,-0.6757,0.8007,-1.4763
 stocks:UNH:buy:2026-07-01,stocks,UNH,buy,2026-07-01,US,1,-0.2767,0.0,-0.2767
+breakout:WST:breakout:2026-06-26,breakout,WST,breakout,2026-06-26,US,5,1.9353,3.0577,-1.1224
+scanner:SIVE.ST:big_move:2026-07-03,scanner,SIVE.ST,big_move,2026-07-03,SE,1,nan,0.0,nan
+scanner:SIVE.ST:volume_spike:2026-07-03,scanner,SIVE.ST,volume_spike,2026-07-03,SE,1,nan,0.0,nan
+scanner:EPIS-B.ST:big_move:2026-07-03,scanner,EPIS-B.ST,big_move,2026-07-03,SE,1,nan,0.0,nan
