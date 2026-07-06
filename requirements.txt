@@ -1,7 +1,11 @@
-pandas>=2.0
+# Övre gränser = försäkring mot att NÄSTA majorversion tyst byter API i ett
+# obemannat system (pandas 3 / numpy 2.5 kör redan verifierat i drift).
+# yfinance hålls öppen — den MÅSTE få följa Yahoos ändringar.
+pandas>=2.0,<4
+numpy<3
 yfinance>=0.2.40
-feedparser>=6.0
-pyyaml>=6.0
-requests>=2.31
+feedparser>=6.0,<7
+pyyaml>=6.0,<7
+requests>=2.31,<3
 anthropic>=0.40
-lxml>=5.0
+lxml>=5.0,<7

@@ -12,3 +12,5 @@ bt_*.txt
 *.out
 # state.json, log/ och docs/ committas MEDVETET av workflows (dubblettskydd
 # + dashboard via Pages). Ta inte bort dem härifrån.
+# Atomär state-skrivning (scanner.save_state): tmp-filen får aldrig committas
+state.json.tmp

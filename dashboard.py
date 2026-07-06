@@ -477,7 +477,7 @@ function track(item){
   }
   const sl=document.getElementById('sleeves');
   sl.innerHTML = D.sleeves.length ? D.sleeves.map(s=>`<div class="sleeve"><h3>${esc(s.name)} <span class="mono" style="color:var(--muted);font-size:12px">(${s.tickers.length})</span></h3>
-    <div class="pills">${s.tickers.map(t=>`<span class="pill">${t}</span>`).join('')}</div></div>`).join('')
+    <div class="pills">${s.tickers.map(t=>`<span class="pill">${esc(t)}</span>`).join('')}</div></div>`).join('')
     : '<div class="empty">Inga portföljinnehav ännu.</div>';
 })();
 

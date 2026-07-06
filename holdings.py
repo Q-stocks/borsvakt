@@ -83,6 +83,13 @@ def main() -> int:
     holdings = load_holdings()
     if not holdings:
         print("Inga innehav i holdings.csv.")
+        # Rensa ev. kvarliggande status så gamla innehav inte ligger kvar i
+        # (publika) state.json/dashboarden efter att csv:n tömts.
+        if not args.dry_run:
+            state = load_state()
+            if state.pop("holdings_status", None) is not None:
+                save_state(state)
+                print("Gammal holdings_status rensad ur state.")
         return 0
 
     rows = [build_status(h) for h in holdings]

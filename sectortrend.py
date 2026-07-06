@@ -147,6 +147,9 @@ def process(cfg_t: dict, state: dict, dry: bool) -> None:
             changes = transitions(name, market, old, new)
             if changes:
                 ok = send_telegram(build_alert(name, market, new, changes), dry)
+        # OBS: sektorvändningar facit-loggas INTE i alertlog – korgar saknar
+        # Yahoo-symbol så evaluate() skulle försöka (och misslyckas) för evigt.
+        # Composite-utvärdering är en medveten framtida utbyggnad.
         # Flytta baslinjen bara om ev. larm levererades – annars står vändningen
         # kvar och re-detekteras nästa körning (tappa aldrig en vändning på 429/5xx).
         if ok:

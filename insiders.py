@@ -68,7 +68,9 @@ def recent_form4(cik: int, ua: str, limit: int = 40) -> list[dict]:
         rec.get("form", []), rec.get("accessionNumber", []),
         rec.get("filingDate", []), rec.get("primaryDocument", []),
     ):
-        if form in ("4", "4/A"):
+        # Endast original-Form 4: rättelser (4/A) har eget accession-nummer
+        # och skulle ge DUBBLETTLARM för samma transaktion.
+        if form == "4":
             out.append({"acc": acc, "date": date, "doc": doc})
             if len(out) >= limit:
                 break
