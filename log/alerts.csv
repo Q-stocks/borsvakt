@@ -54,3 +54,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-07T07:01:28+00:00,2026-07-07,scanner,SPRINT.ST,big_move,SE,3.5500,"{""pct"": -12.8}"
 2026-07-07T07:01:29+00:00,2026-07-07,scanner,NCAB.ST,big_move,SE,75.8000,"{""pct"": -7.6}"
 2026-07-07T07:01:30+00:00,2026-07-07,scanner,SIVE.ST,big_move,SE,44.1000,"{""pct"": -21.7}"
+2026-07-07T07:15:46+00:00,2026-07-07,scanner,SPRINT.ST,volume_spike,SE,3.8000,"{""rvol"": 6.7, ""pct"": -6.6}"
+2026-07-07T07:15:47+00:00,2026-07-07,scanner,EPIS-B.ST,big_move,SE,0.0671,"{""pct"": -6.8}"
+2026-07-07T07:15:49+00:00,2026-07-07,scanner,SIVE.ST,volume_spike,SE,45.5000,"{""rvol"": 3.1, ""pct"": -19.2}"
