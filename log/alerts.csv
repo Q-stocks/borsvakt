@@ -59,3 +59,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-07T07:15:49+00:00,2026-07-07,scanner,SIVE.ST,volume_spike,SE,45.5000,"{""rvol"": 3.1, ""pct"": -19.2}"
 2026-07-07T13:31:22+00:00,2026-07-07,scanner,AMD,big_move,US,517.5278,"{""pct"": -6.3}"
 2026-07-07T14:45:48+00:00,2026-07-07,scanner,NOKIA-SEK.ST,big_move,SE,114.3500,"{""pct"": -6.2}"
+2026-07-07T15:45:45+00:00,2026-07-07,scanner,CAT,big_move,US,911.1850,"{""pct"": -6.1}"
