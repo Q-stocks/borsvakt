@@ -97,19 +97,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-06"
+      "updated": "2026-07-07"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-06"
+      "updated": "2026-07-07"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-06"
+      "updated": "2026-07-07"
     }
   },
   "stock_portfolio": {
@@ -409,7 +409,8 @@
     "NOKIA-SEK.ST:sma50:2026-W28": true,
     "ORRON.ST:sma50:2026-W28": true,
     "QCOM:sma50:2026-W28": true,
-    "SIVE.ST:sma50:2026-W28": true
+    "SIVE.ST:sma50:2026-W28": true,
+    "TXN:sma50:2026-W28": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,

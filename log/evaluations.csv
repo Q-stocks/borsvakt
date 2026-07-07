@@ -76,3 +76,6 @@ breakout:WST:breakout:2026-06-26,breakout,WST,breakout,2026-06-26,US,5,1.9353,3.
 scanner:SIVE.ST:big_move:2026-07-03,scanner,SIVE.ST,big_move,2026-07-03,SE,1,nan,0.0,nan
 scanner:SIVE.ST:volume_spike:2026-07-03,scanner,SIVE.ST,volume_spike,2026-07-03,SE,1,nan,0.0,nan
 scanner:EPIS-B.ST:big_move:2026-07-03,scanner,EPIS-B.ST,big_move,2026-07-03,SE,1,nan,0.0,nan
+breakout:DVA:breakout:2026-06-27,breakout,DVA,breakout,2026-06-27,US,5,6.65,0.9055,5.7444
+breakout:LLY:breakout:2026-06-27,breakout,LLY,breakout,2026-06-27,US,5,0.4578,0.9055,-0.4478
+breakout:MOH:breakout:2026-06-27,breakout,MOH,breakout,2026-06-27,US,5,1.4638,0.9055,0.5583
