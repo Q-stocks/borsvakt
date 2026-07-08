@@ -66,3 +66,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-08T07:01:27+00:00,2026-07-08,scanner,NOKIA-SEK.ST,big_move,SE,113.6000,"{""pct"": -6.8}"
 2026-07-08T07:15:41+00:00,2026-07-08,scanner,HTRO.ST,big_move,SE,34.1400,"{""pct"": -7.5}"
 2026-07-08T07:15:43+00:00,2026-07-08,scanner,EPIS-B.ST,volume_spike,SE,0.0710,"{""rvol"": 5.8, ""pct"": 4.4}"
+2026-07-08T07:43:10+00:00,2026-07-08,scanner,NCAB.ST,big_move,SE,72.5000,"{""pct"": -6.3}"
