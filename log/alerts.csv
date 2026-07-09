@@ -73,3 +73,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-09T07:15:59+00:00,2026-07-09,scanner,SIVE.ST,volume_spike,SE,42.3200,"{""rvol"": 4.2, ""pct"": 2.6}"
 2026-07-09T07:16:00+00:00,2026-07-09,scanner,SPRINT.ST,volume_spike,SE,3.8000,"{""rvol"": 5.1, ""pct"": -2.1}"
 2026-07-09T07:36:24+00:00,2026-07-09,scanner,ABB.ST,volume_spike,SE,1016.0000,"{""rvol"": 3.2, ""pct"": 1.6}"
+2026-07-09T13:45:48+00:00,2026-07-09,scanner,NOKIA-SEK.ST,big_move,SE,121.8000,"{""pct"": 7.2}"
+2026-07-09T13:45:50+00:00,2026-07-09,scanner,AMD,big_move,US,549.8000,"{""pct"": 6.3}"
