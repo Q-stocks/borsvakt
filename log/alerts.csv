@@ -68,3 +68,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-08T07:15:43+00:00,2026-07-08,scanner,EPIS-B.ST,volume_spike,SE,0.0710,"{""rvol"": 5.8, ""pct"": 4.4}"
 2026-07-08T07:43:10+00:00,2026-07-08,scanner,NCAB.ST,big_move,SE,72.5000,"{""pct"": -6.3}"
 2026-07-08T16:31:24+00:00,2026-07-08,scanner,AVGO,big_move,US,393.8300,"{""pct"": 6.2}"
+2026-07-09T07:02:44+00:00,2026-07-09,scanner,SIVE.ST,big_move,SE,45.0800,"{""pct"": 9.3}"
+2026-07-09T07:02:45+00:00,2026-07-09,scanner,CHEF.ST,big_move,SE,128.0000,"{""pct"": 6.1}"
