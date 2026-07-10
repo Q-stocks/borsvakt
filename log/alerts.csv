@@ -77,3 +77,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-09T13:45:50+00:00,2026-07-09,scanner,AMD,big_move,US,549.8000,"{""pct"": 6.3}"
 2026-07-09T14:31:16+00:00,2026-07-09,scanner,ERIC-B.ST,big_move,SE,111.7500,"{""pct"": 6.1}"
 2026-07-09T14:31:20+00:00,2026-07-09,scanner,MORROW.ST,big_move,SE,13.5000,"{""pct"": 6.6}"
+2026-07-10T07:01:14+00:00,2026-07-10,scanner,ERIC-B.ST,big_move,SE,112.2500,"{""pct"": 6.6}"
+2026-07-10T07:01:15+00:00,2026-07-10,scanner,NOKIA-SEK.ST,big_move,SE,123.5000,"{""pct"": 8.7}"
