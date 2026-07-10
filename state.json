@@ -105,20 +105,20 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": false,
-      "updated": "2026-07-09"
+      "rs_up": true,
+      "updated": "2026-07-10"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-09"
+      "updated": "2026-07-10"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-09"
+      "updated": "2026-07-10"
     }
   },
   "stock_portfolio": {
@@ -377,7 +377,21 @@
     "JPM": 19617
   },
   "drift_portfolio": {
-    "USA": {}
+    "USA": {},
+    "Sverige": {
+      "BULTEN.ST": {
+        "report": "2026-07-10",
+        "surprise": null,
+        "reaction": 17.127091263441507,
+        "entry_logged": "2026-07-10"
+      },
+      "CARA.ST": {
+        "report": "2026-07-10",
+        "surprise": null,
+        "reaction": 7.523350611671942,
+        "entry_logged": "2026-07-10"
+      }
+    }
   },
   "leadlag_fired": {},
   "exit_alerts": {
