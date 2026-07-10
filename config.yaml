@@ -79,6 +79,18 @@ pead:
     # Universum breddat 2026-07-02: usa_pead.csv (6 megacaps, PEAD-effekten
     # svagast där) -> usa.csv (60 namn). Kostnad: ~1 earnings-anrop/ticker/dag.
     - {name: USA, index_signal: "SPY", universe_file: universe/usa.csv, earnings_source: yfinance}
+    # Sverige (aktiverad 2026-07-02): rapportdata från Börsdata-export, se
+    # BORSDATA-EXPORT.md §2. Exporten FÅR innehålla framtida rapportdatum —
+    # reaktionslarmen (kursreaktion >= reaction_pct_min mot index) räknas då
+    # live från Yahoo när datumet passerat, så EN export/kvartal (rapport-
+    # kalendern) täcker hela säsongen. Surprise-vägen (EPS-slag) kräver
+    # EPS-siffror = export inom lookback_days efter rapporten. Breda
+    # universumet: PEAD är starkast i mindre bolag, och export-källan gör
+    # inga API-anrop per ticker (bara för bolag med färsk rapport).
+    - {name: Sverige, index_signal: "^OMX", universe_file: universe/sverige_broad.csv, earnings_source: export, earnings_file: data/earnings_sverige.csv}
+  # Kantfall i Börsdata->Yahoo-konverteringen (SDB/ADR/namnbyten), samma
+  # format som stocks.ticker_overrides: {"KIND SDB": "KIND-SDB.ST"}
+  ticker_overrides: {}
 
 # ---- Trendföljning (trend.py) ----
 trend:

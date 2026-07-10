@@ -40,41 +40,47 @@ F-Score är medvetet valt: Börslabbet tar bort bolag med lägst F-score
 ---
 
 ## 2. Rapportexport → `data/earnings_sverige.csv`
-**Används av:** svensk PEAD (vinstdrift).
+**Används av:** svensk PEAD (vinstdrift). **AKTIVERAD i config 2026-07-02** —
+marknaden är en (högljudd) no-op tills den här filen finns.
 
-Exportera rapportdata för samma bolagsurval med kolumnerna:
+Exportera rapportdata för bolagsurvalet med kolumnerna:
 
 | Kolumn | Vad | Krav |
 |---|---|---|
 | `Ticker` | kortnamn | nyckel |
-| `Rapportdatum` | datum för senaste rapporten | **måste vara `ÅÅÅÅ-MM-DD`** |
-| `EPS` | redovisad vinst per aktie | för överraskning |
-| `EPS estimat` | konsensusestimat | för överraskning |
+| `Rapportdatum` | rapportdatum — **får ligga i framtiden!** | **måste vara `ÅÅÅÅ-MM-DD`** |
+| `EPS` | redovisad vinst per aktie | valfri — bara för surprise-larmen |
+| `EPS estimat` | konsensusestimat | valfri — bara för surprise-larmen |
 
 Har Börsdata en färdig `Surprise`-kolumn (%) räcker den i stället för EPS +
-estimat. Spara som CSV i `data/earnings_sverige.csv`.
+estimat. Spara som CSV i `data/earnings_sverige.csv` och committa
+(workflows läser filen ur repot — den innehåller inget privat).
 
 > **Datumformat:** parsern kräver ISO (`2026-05-14`). Exporterar Börsdata
 > ett annat format (`14/05/2026`) får Claude Code justera datumtolkningen
 > i `pead.load_earnings_export` — säg till.
 
----
+### Kalender-tricket: EN export per kvartal räcker
 
-## Ärlig begränsning — och en strategisk poäng
+PEAD-larmet har **två oberoende utlösare**, och de ställer olika krav på filen:
 
-PEAD är **eventdriven och daglig**, men svensk data kommer från en
-**manuell** export på Pro. För att fånga rapporter inom 5-dagarsfönstret
-måste du alltså **uppdatera `earnings_sverige.csv` minst en gång i veckan
-under rapportsäsong** (kvartalsskiftena). Det tar udden av automatiken på
-just svensk PEAD.
+| Utlösare | Krav på exporten | Täcks av |
+|---|---|---|
+| **Kursreaktion** ≥ 5 % mot index på rapportdagen | bara **rapportdatumet** — kursen mäts live från Yahoo när dagen passerat | rapport**kalendern**, exporterad i förväg |
+| **Vinstöverraskning** (EPS ≥ 5 % över estimat) | EPS-siffrorna — finns först efter rapporten | uppdaterad export inom 5 dagar efter rapporten |
 
-Tre vägar, välj medvetet:
-1. **Fokusera PEAD på USA.** Där går allt automatiskt via yfinance — ingen
-   manuell export, och du sa själv att möjligheterna känns större där.
-   Svensk PEAD lämnas av tills vidare.
-2. **Pro på svensk PEAD med veckovis export.** Funkar, men kräver disciplin.
-3. **Uppgradera till Pro+** och låt Claude Code bygga en API-adapter bakom
-   samma `load_earnings_export`-gränssnitt → helautomatisk svensk PEAD.
+**Minsta arbetsinsats (rekommenderad start):** exportera Börsdatas
+**rapportdatum-kalender** för kommande kvartal ~4 ggr/år (början av januari,
+april, juli, oktober). Reaktionslarmen — som fångar de flesta stora
+rapportöverraskningarna, eftersom stora EPS-slag brukar synas i kursen —
+fungerar då **automatiskt hela säsongen** utan att du rör något.
+
+**Ambitiös nivå:** uppdatera dessutom exporten med EPS-utfall var ~4:e dag
+under rapportsäsong → även de tystare surprise-larmen (EPS-slag utan stor
+kursreaktion) fångas inom 5-dagarsfönstret (`lookback_days`).
+
+**Helautomatiskt (framtid):** Börsdata Pro+ API bakom samma
+`load_earnings_export`-gränssnitt — säg till Claude Code när/om du uppgraderar.
 
 Fundamenta-exporten (fil 1) är inte lika tidskänslig: multifaktor
 ombalanseras månads-/årsvis, så en månatlig uppdatering räcker gott på Pro.

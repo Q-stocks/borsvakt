@@ -88,12 +88,18 @@ def recent_earnings_yf(symbol: str, lookback_days: int) -> list[dict]:
     return out
 
 
-def load_earnings_export(path: str) -> dict:
+def load_earnings_export(path: str, overrides: dict | None = None) -> dict:
     """Börsdata-rapportexport → ticker -> [{date, surprise}]. Förväntade
     kolumner: Ticker, Rapportdatum, samt antingen 'Surprise' (%) eller
-    'EPS' + 'EPS estimat'. Tickers konverteras Börsdata->Yahoo (.ST)."""
+    'EPS' + 'EPS estimat'. Tickers konverteras Börsdata->Yahoo (.ST);
+    kantfall rättas via pead.ticker_overrides i config. Rapportdatum FÅR
+    ligga i framtiden (rapportkalender) — raden aktiveras när dagen passerat
+    och reaktionen mäts då live mot index."""
     from stocks import borsdata_to_yahoo  # återanvänd konverteraren
 
+    overrides = {k.upper(): v for k, v in (overrides or {}).items()}
+    if not path:
+        return {}
     p = ROOT / path
     if not p.exists():
         return {}
@@ -126,7 +132,7 @@ def load_earnings_export(path: str) -> dict:
                     surp = (a - e) / abs(e) * 100.0 if e else None
                 except (ValueError, ZeroDivisionError):
                     pass
-            t = borsdata_to_yahoo(raw_t, "SE", {})
+            t = borsdata_to_yahoo(raw_t, "SE", overrides)
             out.setdefault(t, []).append({"date": d, "surprise": surp})
     return out
 
@@ -223,7 +229,14 @@ def process_market(mkt: dict, cfg_p: dict, state: dict, dry: bool) -> None:
     # Förladda Börsdata-export om källan är 'export'
     export = {}
     if mkt.get("earnings_source") == "export":
-        export = load_earnings_export(mkt.get("earnings_file", ""))
+        export = load_earnings_export(mkt.get("earnings_file", ""),
+                                      cfg_p.get("ticker_overrides") or {})
+        if not export:
+            # Transparens: utan export är marknaden en no-op — det ska SYNAS
+            # i loggen, inte se ut som "inga rapporter idag".
+            print(f"pead {name}: earnings-exporten saknas eller är tom "
+                  f"({mkt.get('earnings_file', '?')}) – inga {name}-event kan "
+                  f"hittas. Se BORSDATA-EXPORT.md §2.", file=sys.stderr)
 
     today = dt.date.today()
 
