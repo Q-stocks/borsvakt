@@ -85,3 +85,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-10T21:44:21+00:00,2026-07-10,pead,BULTEN.ST,entry,SE,51.3000,"{""surprise"": null, ""reaction"": 17.127091263441507}"
 2026-07-10T21:44:22+00:00,2026-07-10,pead,CARA.ST,entry,SE,24.4000,"{""surprise"": null, ""reaction"": 7.523350611671942}"
 2026-07-13T07:15:50+00:00,2026-07-13,scanner,SIVE.ST,big_move,SE,44.2400,"{""pct"": -6.4}"
+2026-07-13T11:01:23+00:00,2026-07-13,scanner,MORROW.ST,volume_spike,SE,13.1800,"{""rvol"": 3.5, ""pct"": -2.2}"
