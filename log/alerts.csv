@@ -86,3 +86,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-10T21:44:22+00:00,2026-07-10,pead,CARA.ST,entry,SE,24.4000,"{""surprise"": null, ""reaction"": 7.523350611671942}"
 2026-07-13T07:15:50+00:00,2026-07-13,scanner,SIVE.ST,big_move,SE,44.2400,"{""pct"": -6.4}"
 2026-07-13T11:01:23+00:00,2026-07-13,scanner,MORROW.ST,volume_spike,SE,13.1800,"{""rvol"": 3.5, ""pct"": -2.2}"
+2026-07-13T21:37:08+00:00,2026-07-13,pead,OEM-B.ST,entry,SE,174.4000,"{""surprise"": null, ""reaction"": 6.28811127158343}"
+2026-07-13T21:38:45+00:00,2026-07-13,breakout,OEM-B.ST,breakout,SE,174.4000,"{""rvol"": 2.4, ""run_up"": 0.392}"
