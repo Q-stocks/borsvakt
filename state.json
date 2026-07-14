@@ -106,19 +106,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-13"
+      "updated": "2026-07-14"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-13"
+      "updated": "2026-07-14"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-13"
+      "updated": "2026-07-14"
     }
   },
   "stock_portfolio": {
@@ -396,6 +396,24 @@
         "surprise": null,
         "reaction": 6.28811127158343,
         "entry_logged": "2026-07-13"
+      },
+      "AQ.ST": {
+        "report": "2026-07-14",
+        "surprise": null,
+        "reaction": 11.41387119443319,
+        "entry_logged": "2026-07-14"
+      },
+      "LIME.ST": {
+        "report": "2026-07-14",
+        "surprise": null,
+        "reaction": 5.666751277125536,
+        "entry_logged": "2026-07-14"
+      },
+      "MYCR.ST": {
+        "report": "2026-07-14",
+        "surprise": null,
+        "reaction": 15.43362168780934,
+        "entry_logged": "2026-07-14"
       }
     }
   },
@@ -433,7 +451,8 @@
     "ORRON.ST:sma50:2026-W29": true,
     "QCOM:sma50:2026-W29": true,
     "SIVE.ST:sma50:2026-W29": true,
-    "TXN:sma50:2026-W29": true
+    "TXN:sma50:2026-W29": true,
+    "BOL.ST:sma50:2026-W29": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -442,6 +461,7 @@
     "LLY:2026-06-26": true,
     "MOH:2026-06-26": true,
     "CINT.ST:2026-07-01": true,
-    "OEM-B.ST:2026-07-13": true
+    "OEM-B.ST:2026-07-13": true,
+    "MYCR.ST:2026-07-14": true
   }
 }

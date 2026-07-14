@@ -129,3 +129,10 @@ scanner:MORROW.ST:big_move:2026-07-10,scanner,MORROW.ST,big_move,2026-07-10,SE,1
 scanner:EPIS-B.ST:big_move:2026-07-10,scanner,EPIS-B.ST,big_move,2026-07-10,SE,1,-0.9274,-0.3343,-0.5931
 pead:BULTEN.ST:entry:2026-07-10,pead,BULTEN.ST,entry,2026-07-10,SE,1,-0.3899,-0.3343,-0.0556
 pead:CARA.ST:entry:2026-07-10,pead,CARA.ST,entry,2026-07-10,SE,1,1.0246,-0.3343,1.3589
+scanner:SIVE.ST:big_move:2026-07-06,scanner,SIVE.ST,big_move,2026-07-06,SE,5,-8.3512,-2.1131,-6.2381
+scanner:SIVE.ST:volume_spike:2026-07-06,scanner,SIVE.ST,volume_spike,2026-07-06,SE,5,-8.3512,-2.1131,-6.2381
+scanner:ABB.ST:volume_spike:2026-07-06,scanner,ABB.ST,volume_spike,2026-07-06,SE,5,-3.9615,-2.1131,-1.8484
+scanner:SPRINT.ST:big_move:2026-07-06,scanner,SPRINT.ST,big_move,2026-07-06,SE,5,3.5135,-2.1131,5.6266
+scanner:AMD:big_move:2026-07-06,scanner,AMD,big_move,2026-07-06,US,5,-3.199,-0.2809,-2.9181
+scanner:QCOM:big_move:2026-07-06,scanner,QCOM,big_move,2026-07-06,US,5,-1.3406,-0.2809,-1.0598
+scanner:EPIS-B.ST:big_move:2026-07-06,scanner,EPIS-B.ST,big_move,2026-07-06,SE,5,-5.7353,-2.1131,-3.6222
