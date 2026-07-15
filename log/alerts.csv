@@ -104,3 +104,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-15T07:01:28+00:00,2026-07-15,scanner,MYCR.ST,big_move,SE,348.6000,"{""pct"": 18.5}"
 2026-07-15T07:01:34+00:00,2026-07-15,scanner,NCAB.ST,big_move,SE,75.9000,"{""pct"": 6.0}"
 2026-07-15T07:15:44+00:00,2026-07-15,scanner,HTRO.ST,volume_spike,SE,40.3000,"{""rvol"": 14.5, ""pct"": 20.8}"
+2026-07-15T07:31:24+00:00,2026-07-15,scanner,MYCR.ST,volume_spike,SE,343.4000,"{""rvol"": 3.9, ""pct"": 16.7}"
