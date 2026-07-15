@@ -108,19 +108,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-14"
+      "updated": "2026-07-15"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-14"
+      "updated": "2026-07-15"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
-      "rs_up": false,
-      "updated": "2026-07-14"
+      "rs_up": true,
+      "updated": "2026-07-15"
     }
   },
   "stock_portfolio": {
@@ -257,7 +257,8 @@
       "0000789019-26-000059",
       "0000789019-26-000058",
       "0000789019-26-000057",
-      "0000789019-26-000137"
+      "0000789019-26-000137",
+      "0000789019-26-000139"
     ],
     "NVDA": [
       "0001243821-26-000005",
@@ -379,7 +380,32 @@
     "JPM": 19617
   },
   "drift_portfolio": {
-    "USA": {},
+    "USA": {
+      "JPM": {
+        "report": "2026-07-14",
+        "surprise": 5.86,
+        "reaction": 2.9478808004866908,
+        "entry_logged": "2026-07-15"
+      },
+      "BAC": {
+        "report": "2026-07-14",
+        "surprise": 7.74,
+        "reaction": 2.759770190668309,
+        "entry_logged": "2026-07-15"
+      },
+      "GS": {
+        "report": "2026-07-14",
+        "surprise": 44.27,
+        "reaction": 9.397169064657328,
+        "entry_logged": "2026-07-15"
+      },
+      "MS": {
+        "report": "2026-07-15",
+        "surprise": 17.94,
+        "reaction": -0.009837089744135774,
+        "entry_logged": "2026-07-15"
+      }
+    },
     "Sverige": {
       "BULTEN.ST": {
         "report": "2026-07-10",
@@ -454,7 +480,9 @@
     "QCOM:sma50:2026-W29": true,
     "SIVE.ST:sma50:2026-W29": true,
     "TXN:sma50:2026-W29": true,
-    "BOL.ST:sma50:2026-W29": true
+    "BOL.ST:sma50:2026-W29": true,
+    "CAT:sma50:2026-W29": true,
+    "CSCO:sma50:2026-W29": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
