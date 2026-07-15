@@ -110,3 +110,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-15T13:45:49+00:00,2026-07-15,scanner,MS,volume_spike,US,225.5900,"{""rvol"": 4.8, ""pct"": 2.0}"
 2026-07-15T14:15:43+00:00,2026-07-15,scanner,SIVE.ST,big_move,SE,39.4400,"{""pct"": -7.1}"
 2026-07-15T15:05:47+00:00,2026-07-15,scanner,CSCO,big_move,US,111.7220,"{""pct"": -6.3}"
+2026-07-15T16:15:42+00:00,2026-07-15,scanner,AMD,big_move,US,512.2300,"{""pct"": -6.5}"
