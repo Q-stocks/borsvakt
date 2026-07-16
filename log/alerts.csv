@@ -122,3 +122,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-16T07:31:15+00:00,2026-07-16,scanner,BOOZT.ST,volume_spike,SE,157.3000,"{""rvol"": 7.4, ""pct"": 3.8}"
 2026-07-16T07:31:22+00:00,2026-07-16,scanner,ACCON.ST,volume_spike,SE,17.8200,"{""rvol"": 3.7, ""pct"": 3.5}"
 2026-07-16T07:45:47+00:00,2026-07-16,scanner,NOKIA-SEK.ST,big_move,SE,106.2000,"{""pct"": -6.4}"
+2026-07-16T13:31:36+00:00,2026-07-16,scanner,UNH,volume_spike,US,459.7700,"{""rvol"": 4.8, ""pct"": 9.9}"
