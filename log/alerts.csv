@@ -119,3 +119,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-16T07:01:22+00:00,2026-07-16,scanner,HTRO.ST,volume_spike,SE,45.3600,"{""rvol"": 3.1, ""pct"": 32.6}"
 2026-07-16T07:01:23+00:00,2026-07-16,scanner,SIVE.ST,big_move,SE,38.3400,"{""pct"": -9.7}"
 2026-07-16T07:15:46+00:00,2026-07-16,scanner,ABB.ST,volume_spike,SE,963.8000,"{""rvol"": 7.1, ""pct"": -5.1}"
+2026-07-16T07:31:15+00:00,2026-07-16,scanner,BOOZT.ST,volume_spike,SE,157.3000,"{""rvol"": 7.4, ""pct"": 3.8}"
+2026-07-16T07:31:22+00:00,2026-07-16,scanner,ACCON.ST,volume_spike,SE,17.8200,"{""rvol"": 3.7, ""pct"": 3.5}"
