@@ -141,3 +141,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-16T21:44:33+00:00,2026-07-16,pead,VITR.ST,entry,SE,96.5500,"{""surprise"": null, ""reaction"": 10.638340398847046}"
 2026-07-16T21:45:22+00:00,2026-07-16,breakout,JBHT,breakout,US,298.4100,"{""rvol"": 2.3, ""run_up"": 0.37}"
 2026-07-16T21:45:43+00:00,2026-07-16,breakout,KAMBI.ST,breakout,SE,167.0000,"{""rvol"": 2.0, ""run_up"": 0.38}"
+2026-07-17T07:01:20+00:00,2026-07-17,scanner,NOKIA-SEK.ST,big_move,SE,96.1800,"{""pct"": -10.8}"
+2026-07-17T07:01:21+00:00,2026-07-17,scanner,ACCON.ST,volume_spike,SE,14.5000,"{""rvol"": 4.2, ""pct"": -19.6}"
+2026-07-17T07:01:26+00:00,2026-07-17,scanner,SIVE.ST,big_move,SE,31.4400,"{""pct"": -20.7}"
+2026-07-17T07:01:27+00:00,2026-07-17,scanner,ABB.ST,big_move,SE,916.6000,"{""pct"": -7.3}"
