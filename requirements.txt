@@ -9,3 +9,6 @@ pyyaml>=6.0,<7
 requests>=2.31,<3
 anthropic>=0.40
 lxml>=5.0,<7
+# marknadspuls.py: FRED (Akamai) blockerar vanliga Python-klienter på
+# TLS-fingeravtryck — kräver Chrome-impersonering
+curl_cffi>=0.13,<1

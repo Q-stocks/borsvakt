@@ -72,6 +72,11 @@ jobs:
 
       - name: Larmlogg – utvärdera mognade signaler
         run: python alertlog.py evaluate
+
+      - name: Marknadspuls – marknadsklimat (Pages-fliken)
+        # Fail-soft: fliken får aldrig fälla daily; vid fel behålls förra sidan
+        run: python marknadspuls.py --borsvakt || echo "Marknadspuls föll – förra sidan behålls"
+
       - name: Generera dashboard
         run: python dashboard.py
 

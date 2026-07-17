@@ -1,0 +1,44 @@
+name: Marknadspuls – manuell uppdatering
+
+# Manuell knapp för att uppdatera marknadspuls-fliken utanför daily-schemat.
+# Kör BARA marknadspuls (inga larmmoduler) – säker att trigga när som helst.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: borsvakt-state          # samma grupp som scan/daily/monthly: push krockar aldrig
+  cancel-in-progress: false
+
+jobs:
+  puls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Installera beroenden
+        run: pip install -r requirements.txt
+      - name: Generera marknadspuls
+        run: python marknadspuls.py --borsvakt
+      - name: Spara
+        run: |
+          git config user.name "borsvakt-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/marknadspuls.html log/marknadspuls_cache.json log/marknadspuls_historik.csv
+          if git diff --cached --quiet; then echo "Inget att spara."; exit 0; fi
+          git commit -m "marknadspuls: manuell uppdatering $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            echo "Push-försök $i misslyckades (remote flyttade) – nytt försök om 5s." >&2
+            sleep 5
+          done
+          echo "Kunde inte pusha efter 5 försök." >&2
+          exit 1

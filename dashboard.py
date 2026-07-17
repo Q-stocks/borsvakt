@@ -22,6 +22,7 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -42,13 +43,24 @@ def _read_csv(path: Path) -> list[dict]:
 
 
 def _agg(rows: list[dict]) -> dict | None:
-    if not rows:
+    # NaN i loggen (t.ex. utvärdering utan indexdata) får aldrig nå json.dumps:
+    # Python skriver då ut literal NaN = ogiltig JSON, och HELA dashboard-
+    # scriptet dör vid JSON.parse (tomma flikar, döda knappar).
+    par = []
+    for r in rows:
+        try:
+            e, ret = float(r["excess"]), float(r["ret"])
+        except (ValueError, KeyError, TypeError):
+            continue
+        if math.isfinite(e) and math.isfinite(ret):
+            par.append((e, ret))
+    if not par:
         return None
-    ex = [float(r["excess"]) for r in rows]
+    ex = [e for e, _ in par]
     wins = sum(1 for e in ex if e > 0)
-    return {"n": len(rows), "hit": round(100.0 * wins / len(rows), 1),
+    return {"n": len(par), "hit": round(100.0 * wins / len(par), 1),
             "excess": round(sum(ex) / len(ex), 2),
-            "ret": round(sum(float(r["ret"]) for r in rows) / len(rows), 2)}
+            "ret": round(sum(r for _, r in par) / len(par), 2)}
 
 
 def build_data() -> dict:
@@ -172,6 +184,9 @@ TEMPLATE = r"""<!DOCTYPE html>
     font-size:14px;padding:11px 14px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
   nav button:hover{color:var(--text)}
   nav button.active{color:var(--gold);border-bottom-color:var(--gold)}
+  nav a{color:var(--muted);font-family:'Space Grotesk';font-weight:500;font-size:14px;
+    padding:11px 14px;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}
+  nav a:hover{color:var(--text)}
   .view{display:none}.view.active{display:block;animation:fade .35s ease both}
   @keyframes fade{from{opacity:0}to{opacity:1}}
 
@@ -274,6 +289,7 @@ TEMPLATE = r"""<!DOCTYPE html>
     <button data-v="scorecard">Scorecard</button>
     <button data-v="innehav">Innehav</button>
     <button data-v="historik">Historik</button>
+    <a href="marknadspuls.html">Marknadspuls</a>
   </nav>
 
   <!-- COCKPIT -->
@@ -363,8 +379,11 @@ document.querySelectorAll('nav button').forEach(b=>{
     document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
     b.classList.add('active');
     document.getElementById(b.dataset.v).classList.add('active');
+    history.replaceState(null,'','#'+b.dataset.v);
   };
 });
+/* #hash öppnar rätt flik (länkar från marknadspuls.html) */
+{const hv=location.hash.slice(1), hb=hv&&document.querySelector(`nav button[data-v="${hv}"]`); if(hb) hb.onclick();}
 
 /* ---------- COCKPIT ---------- */
 (function(){
@@ -552,8 +571,19 @@ MANIFEST = """{
 }"""
 
 
+def _json_safe(o):
+    """Ersätt icke-ändliga tal med null – NaN/Infinity är ogiltig JSON."""
+    if isinstance(o, float) and not math.isfinite(o):
+        return None
+    if isinstance(o, dict):
+        return {k: _json_safe(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [_json_safe(v) for v in o]
+    return o
+
+
 def main() -> int:
-    data = build_data()
+    data = _json_safe(build_data())
     DOCS.mkdir(exist_ok=True)
     html = TEMPLATE.replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
     (DOCS / "index.html").write_text(html, encoding="utf-8")
