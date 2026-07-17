@@ -122,19 +122,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-16"
+      "updated": "2026-07-17"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-16"
+      "updated": "2026-07-17"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-07-16"
+      "rs_up": false,
+      "updated": "2026-07-17"
     }
   },
   "stock_portfolio": {
@@ -430,6 +430,12 @@
         "surprise": 8.62,
         "reaction": -3.515303444163742,
         "entry_logged": "2026-07-16"
+      },
+      "ISRG": {
+        "report": "2026-07-16",
+        "surprise": 11.86,
+        "reaction": -9.670018553264104,
+        "entry_logged": "2026-07-17"
       }
     },
     "Sverige": {
@@ -589,7 +595,8 @@
     "CSCO:sma50:2026-W29": true,
     "ABB.ST:sma50:2026-W29": true,
     "SAND.ST:sma50:2026-W29": true,
-    "SPRINT.ST:sma50:2026-W29": true
+    "SPRINT.ST:sma50:2026-W29": true,
+    "AMD:sma50:2026-W29": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
