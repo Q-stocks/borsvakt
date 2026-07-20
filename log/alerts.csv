@@ -164,3 +164,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-17T13:46:02+00:00,2026-07-17,scanner,AMD,volume_spike,US,463.7500,"{""rvol"": 3.5, ""pct"": -7.4}"
 2026-07-17T13:46:05+00:00,2026-07-17,scanner,UNH,volume_spike,US,435.0000,"{""rvol"": 3.8, ""pct"": 2.7}"
 2026-07-17T22:23:05+00:00,2026-07-17,pead,ISRG,entry,US,345.4200,"{""surprise"": 11.86, ""reaction"": -9.670018553264104}"
+2026-07-20T07:15:57+00:00,2026-07-20,scanner,ACCON.ST,volume_spike,SE,15.4200,"{""rvol"": 3.2, ""pct"": 3.5}"
