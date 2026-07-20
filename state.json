@@ -119,20 +119,20 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-07-17"
+      "rs_up": false,
+      "updated": "2026-07-20"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-17"
+      "updated": "2026-07-20"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
-      "rs_up": false,
-      "updated": "2026-07-17"
+      "rs_up": true,
+      "updated": "2026-07-20"
     }
   },
   "stock_portfolio": {
@@ -555,24 +555,6 @@
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "ACCON.ST:sma50:2026-W28": true,
-    "AVGO:sma50:2026-W28": true,
-    "BOL.ST:sma50:2026-W28": true,
-    "EPIS-B.ST:sma50:2026-W28": true,
-    "GOOGL:sma50:2026-W28": true,
-    "HTRO.ST:sma50:2026-W28": true,
-    "INSTAL.ST:sma50:2026-W28": true,
-    "MVIR.ST:sma50:2026-W28": true,
-    "MYCR.ST:sma50:2026-W28": true,
-    "NCAB.ST:sma50:2026-W28": true,
-    "NOKIA-SEK.ST:sma50:2026-W28": true,
-    "ORRON.ST:sma50:2026-W28": true,
-    "QCOM:sma50:2026-W28": true,
-    "SIVE.ST:sma50:2026-W28": true,
-    "TXN:sma50:2026-W28": true,
-    "BOL.ST:sma200:2026-W28": true,
-    "SAND.ST:sma50:2026-W28": true,
-    "SINCH.ST:sma50:2026-W28": true,
     "ACCON.ST:sma50:2026-W29": true,
     "AVGO:sma50:2026-W29": true,
     "BOL.ST:sma200:2026-W29": true,
@@ -594,7 +576,25 @@
     "ABB.ST:sma50:2026-W29": true,
     "SAND.ST:sma50:2026-W29": true,
     "SPRINT.ST:sma50:2026-W29": true,
-    "AMD:sma50:2026-W29": true
+    "AMD:sma50:2026-W29": true,
+    "ABB.ST:sma50:2026-W30": true,
+    "ACAST.ST:sma50:2026-W30": true,
+    "ACCON.ST:sma50:2026-W30": true,
+    "AVGO:sma50:2026-W30": true,
+    "BOL.ST:sma200:2026-W30": true,
+    "CAT:sma50:2026-W30": true,
+    "CSCO:sma50:2026-W30": true,
+    "EPIS-B.ST:sma200:2026-W30": true,
+    "GOOGL:sma50:2026-W30": true,
+    "MVIR.ST:sma50:2026-W30": true,
+    "NCAB.ST:sma50:2026-W30": true,
+    "NOKIA-SEK.ST:sma50:2026-W30": true,
+    "ORRON.ST:sma50:2026-W30": true,
+    "QCOM:sma50:2026-W30": true,
+    "SAND.ST:sma200:2026-W30": true,
+    "SIVE.ST:sma50:2026-W30": true,
+    "SPRINT.ST:sma50:2026-W30": true,
+    "TXN:sma50:2026-W30": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -606,6 +606,8 @@
     "OEM-B.ST:2026-07-13": true,
     "MYCR.ST:2026-07-14": true,
     "JBHT:2026-07-16": true,
-    "KAMBI.ST:2026-07-16": true
+    "KAMBI.ST:2026-07-16": true,
+    "ALLEI.ST:2026-07-17": true,
+    "KARNEL-B.ST:2026-07-17": true
   }
 }

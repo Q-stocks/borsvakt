@@ -167,3 +167,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-20T07:15:57+00:00,2026-07-20,scanner,ACCON.ST,volume_spike,SE,15.4200,"{""rvol"": 3.2, ""pct"": 3.5}"
 2026-07-20T07:30:55+00:00,2026-07-20,scanner,EVO.ST,volume_spike,SE,712.8000,"{""rvol"": 3.0, ""pct"": 3.1}"
 2026-07-20T13:45:53+00:00,2026-07-20,scanner,AMD,volume_spike,US,521.3146,"{""rvol"": 3.2, ""pct"": 5.2}"
+2026-07-20T22:30:59+00:00,2026-07-20,breakout,ALLEI.ST,breakout,SE,104.5000,"{""rvol"": 3.1, ""run_up"": 0.373}"
+2026-07-20T22:30:59+00:00,2026-07-20,breakout,KARNEL-B.ST,breakout,SE,91.0000,"{""rvol"": 7.9, ""run_up"": 0.356}"
