@@ -125,19 +125,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-20"
+      "updated": "2026-07-21"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-20"
+      "updated": "2026-07-21"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-07-20"
+      "rs_up": false,
+      "updated": "2026-07-21"
     }
   },
   "stock_portfolio": {
@@ -555,6 +555,132 @@
         "surprise": null,
         "reaction": 10.638340398847046,
         "entry_logged": "2026-07-16"
+      },
+      "ALLEI.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 8.410069482978223,
+        "entry_logged": "2026-07-21"
+      },
+      "BILL.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 7.9461829834096775,
+        "entry_logged": "2026-07-21"
+      },
+      "BYGGP.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 15.91831477634058,
+        "entry_logged": "2026-07-21"
+      },
+      "CEVI.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 9.423957430291896,
+        "entry_logged": "2026-07-21"
+      },
+      "ENGCON-B.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 7.748292042432947,
+        "entry_logged": "2026-07-21"
+      },
+      "GETI-B.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 10.393292021585165,
+        "entry_logged": "2026-07-21"
+      },
+      "HEM.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 5.082737570815921,
+        "entry_logged": "2026-07-21"
+      },
+      "HPOL-B.ST": {
+        "report": "2026-07-20",
+        "surprise": null,
+        "reaction": 16.102432386987243,
+        "entry_logged": "2026-07-21"
+      },
+      "INSTAL.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 6.236368166423034,
+        "entry_logged": "2026-07-21"
+      },
+      "KARNEL-B.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 14.203467862316188,
+        "entry_logged": "2026-07-21"
+      },
+      "KNOW.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 7.728833731520757,
+        "entry_logged": "2026-07-21"
+      },
+      "MCAP.ST": {
+        "report": "2026-07-21",
+        "surprise": null,
+        "reaction": 11.920660244159762,
+        "entry_logged": "2026-07-21"
+      },
+      "MMGR-B.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 14.601298885151493,
+        "entry_logged": "2026-07-21"
+      },
+      "MTG-B.ST": {
+        "report": "2026-07-21",
+        "surprise": null,
+        "reaction": 5.666784409608683,
+        "entry_logged": "2026-07-21"
+      },
+      "MTRS.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 9.789489919072224,
+        "entry_logged": "2026-07-21"
+      },
+      "NOBI.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 12.306636292592366,
+        "entry_logged": "2026-07-21"
+      },
+      "RUG.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 10.826102366142585,
+        "entry_logged": "2026-07-21"
+      },
+      "SAAB-B.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 11.698495429507783,
+        "entry_logged": "2026-07-21"
+      },
+      "TRUE-B.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 5.422803120598929,
+        "entry_logged": "2026-07-21"
+      },
+      "VIMIAN.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 5.8691183311099016,
+        "entry_logged": "2026-07-21"
+      },
+      "VPLAY-B.ST": {
+        "report": "2026-07-17",
+        "surprise": null,
+        "reaction": 9.296756422235351,
+        "entry_logged": "2026-07-21"
       }
     }
   },
@@ -599,7 +725,9 @@
     "SAND.ST:sma200:2026-W30": true,
     "SIVE.ST:sma50:2026-W30": true,
     "SPRINT.ST:sma50:2026-W30": true,
-    "TXN:sma50:2026-W30": true
+    "TXN:sma50:2026-W30": true,
+    "HTRO.ST:sma50:2026-W30": true,
+    "SAND.ST:sma50:2026-W30": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -613,6 +741,8 @@
     "JBHT:2026-07-16": true,
     "KAMBI.ST:2026-07-16": true,
     "ALLEI.ST:2026-07-17": true,
-    "KARNEL-B.ST:2026-07-17": true
+    "KARNEL-B.ST:2026-07-17": true,
+    "MILDEF.ST:2026-07-21": true,
+    "MTG-B.ST:2026-07-21": true
   }
 }

@@ -279,3 +279,8 @@ scanner:GS:volume_spike:2026-07-17,scanner,GS,volume_spike,2026-07-17,US,1,-0.95
 scanner:AMD:volume_spike:2026-07-17,scanner,AMD,volume_spike,2026-07-17,US,1,1.5754,-0.1614,1.7368
 scanner:UNH:volume_spike:2026-07-17,scanner,UNH,volume_spike,2026-07-17,US,1,-1.0655,-0.1614,-0.9041
 pead:ISRG:entry:2026-07-17,pead,ISRG,entry,2026-07-17,US,1,2.2436,-0.1614,2.4051
+breakout:CAT:breakout:2026-06-19,breakout,CAT,breakout,2026-06-19,US,20,-12.7811,0.5226,-13.3037
+scanner:SIVE.ST:big_move:2026-07-13,scanner,SIVE.ST,big_move,2026-07-13,SE,5,-22.1495,-1.047,-21.1025
+scanner:MORROW.ST:volume_spike:2026-07-13,scanner,MORROW.ST,volume_spike,2026-07-13,SE,5,-4.5926,-1.047,-3.5456
+pead:OEM-B.ST:entry:2026-07-13,pead,OEM-B.ST,entry,2026-07-13,SE,5,3.6697,-1.047,4.7167
+breakout:OEM-B.ST:breakout:2026-07-13,breakout,OEM-B.ST,breakout,2026-07-13,SE,5,3.6697,-1.047,4.7167
