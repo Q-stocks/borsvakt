@@ -172,3 +172,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-21T07:15:51+00:00,2026-07-21,scanner,HTRO.ST,big_move,SE,42.0000,"{""pct"": -7.5}"
 2026-07-21T07:15:57+00:00,2026-07-21,scanner,ACCON.ST,big_move,SE,15.8000,"{""pct"": 6.0}"
 2026-07-21T07:15:59+00:00,2026-07-21,scanner,BOL.ST,volume_spike,SE,481.2000,"{""rvol"": 5.9, ""pct"": -4.6}"
+2026-07-21T07:31:01+00:00,2026-07-21,scanner,SIVE.ST,big_move,SE,35.6800,"{""pct"": 6.6}"
