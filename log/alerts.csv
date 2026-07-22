@@ -205,3 +205,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-22T07:15:44+00:00,2026-07-22,scanner,NCAB.ST,volume_spike,SE,80.5000,"{""rvol"": 6.7, ""pct"": 9.7}"
 2026-07-22T07:15:46+00:00,2026-07-22,scanner,SSAB-A.ST,volume_spike,SE,95.7400,"{""rvol"": 10.1, ""pct"": -3.4}"
 2026-07-22T07:15:48+00:00,2026-07-22,scanner,SINCH.ST,volume_spike,SE,35.3500,"{""rvol"": 15.3, ""pct"": -9.4}"
+2026-07-22T08:01:21+00:00,2026-07-22,scanner,SOBI.ST,volume_spike,SE,470.2000,"{""rvol"": 3.9, ""pct"": 1.6}"
