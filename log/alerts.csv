@@ -199,3 +199,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-21T21:45:49+00:00,2026-07-21,pead,VPLAY-B.ST,entry,SE,1.2920,"{""surprise"": null, ""reaction"": 9.296756422235351}"
 2026-07-21T21:49:26+00:00,2026-07-21,breakout,MILDEF.ST,breakout,SE,213.0000,"{""rvol"": 3.3, ""run_up"": 0.498}"
 2026-07-21T21:49:26+00:00,2026-07-21,breakout,MTG-B.ST,breakout,SE,126.0000,"{""rvol"": 2.1, ""run_up"": 0.346}"
+2026-07-22T07:01:12+00:00,2026-07-22,scanner,SIVE.ST,big_move,SE,38.8000,"{""pct"": 16.4}"
+2026-07-22T07:01:13+00:00,2026-07-22,scanner,SINCH.ST,big_move,SE,36.3900,"{""pct"": -6.7}"
+2026-07-22T07:01:14+00:00,2026-07-22,scanner,NCAB.ST,big_move,SE,83.6000,"{""pct"": 13.9}"
