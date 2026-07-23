@@ -207,3 +207,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-22T07:15:48+00:00,2026-07-22,scanner,SINCH.ST,volume_spike,SE,35.3500,"{""rvol"": 15.3, ""pct"": -9.4}"
 2026-07-22T08:01:21+00:00,2026-07-22,scanner,SOBI.ST,volume_spike,SE,470.2000,"{""rvol"": 3.9, ""pct"": 1.6}"
 2026-07-22T22:31:51+00:00,2026-07-22,pead,GOOGL,entry,US,342.0900,"{""surprise"": 214.23, ""reaction"": -1.3413083618632804}"
+2026-07-23T07:01:20+00:00,2026-07-23,scanner,SIVE.ST,big_move,SE,36.6400,"{""pct"": -10.6}"
