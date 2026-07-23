@@ -213,3 +213,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-23T07:30:56+00:00,2026-07-23,scanner,ACAST.ST,volume_spike,SE,38.4500,"{""rvol"": 20.1, ""pct"": 1.6}"
 2026-07-23T07:30:58+00:00,2026-07-23,scanner,NOKIA-SEK.ST,volume_spike,SE,105.3500,"{""rvol"": 7.6, ""pct"": 1.5}"
 2026-07-23T13:31:18+00:00,2026-07-23,scanner,GOOGL,volume_spike,US,324.0250,"{""rvol"": 3.9, ""pct"": -5.3}"
+2026-07-23T13:45:48+00:00,2026-07-23,scanner,TXN,volume_spike,US,283.5200,"{""rvol"": 4.4, ""pct"": -3.6}"
