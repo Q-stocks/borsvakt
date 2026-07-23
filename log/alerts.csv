@@ -209,3 +209,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-22T22:31:51+00:00,2026-07-22,pead,GOOGL,entry,US,342.0900,"{""surprise"": 214.23, ""reaction"": -1.3413083618632804}"
 2026-07-23T07:01:20+00:00,2026-07-23,scanner,SIVE.ST,big_move,SE,36.6400,"{""pct"": -10.6}"
 2026-07-23T07:15:47+00:00,2026-07-23,scanner,SPRINT.ST,volume_spike,SE,3.6500,"{""rvol"": 4.5, ""pct"": 1.7}"
+2026-07-23T07:30:55+00:00,2026-07-23,scanner,NCAB.ST,volume_spike,SE,79.0000,"{""rvol"": 3.0, ""pct"": 4.6}"
+2026-07-23T07:30:56+00:00,2026-07-23,scanner,ACAST.ST,volume_spike,SE,38.4500,"{""rvol"": 20.1, ""pct"": 1.6}"
+2026-07-23T07:30:58+00:00,2026-07-23,scanner,NOKIA-SEK.ST,volume_spike,SE,105.3500,"{""rvol"": 7.6, ""pct"": 1.5}"
