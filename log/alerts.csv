@@ -225,3 +225,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-23T21:42:14+00:00,2026-07-23,pead,HANZA.ST,entry,SE,145.2000,"{""surprise"": null, ""reaction"": 6.45724889239807}"
 2026-07-23T21:42:19+00:00,2026-07-23,pead,UPSALE.ST,entry,SE,28.9000,"{""surprise"": null, ""reaction"": 5.590266419605805}"
 2026-07-23T21:43:27+00:00,2026-07-23,breakout,URI,breakout,US,1139.7100,"{""rvol"": 2.6, ""run_up"": 0.442}"
+2026-07-24T07:01:09+00:00,2026-07-24,scanner,SIVE.ST,big_move,SE,32.8000,"{""pct"": -13.1}"
+2026-07-24T07:01:10+00:00,2026-07-24,scanner,NOKIA-SEK.ST,big_move,SE,92.3000,"{""pct"": -9.0}"
