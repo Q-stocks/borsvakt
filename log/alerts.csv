@@ -229,3 +229,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-24T07:01:10+00:00,2026-07-24,scanner,NOKIA-SEK.ST,big_move,SE,92.3000,"{""pct"": -9.0}"
 2026-07-24T07:15:46+00:00,2026-07-24,scanner,NOKIA-SEK.ST,volume_spike,SE,92.8400,"{""rvol"": 6.0, ""pct"": -8.4}"
 2026-07-24T07:15:47+00:00,2026-07-24,scanner,HOFI.ST,volume_spike,SE,199.0000,"{""rvol"": 23.6, ""pct"": 13.2}"
+2026-07-24T07:31:01+00:00,2026-07-24,scanner,ORRON.ST,volume_spike,SE,7.3700,"{""rvol"": 6.7, ""pct"": -1.7}"
+2026-07-24T07:31:03+00:00,2026-07-24,scanner,ACAST.ST,volume_spike,SE,36.0000,"{""rvol"": 6.3, ""pct"": -5.0}"
+2026-07-24T07:31:04+00:00,2026-07-24,scanner,SSAB-A.ST,volume_spike,SE,99.2000,"{""rvol"": 4.6, ""pct"": 2.1}"
