@@ -238,3 +238,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-27T07:15:50+00:00,2026-07-27,scanner,ACAST.ST,volume_spike,SE,37.8000,"{""rvol"": 4.0, ""pct"": 3.6}"
 2026-07-27T07:15:51+00:00,2026-07-27,scanner,HOFI.ST,volume_spike,SE,213.2000,"{""rvol"": 9.3, ""pct"": 2.7}"
 2026-07-27T07:15:52+00:00,2026-07-27,scanner,ORRON.ST,volume_spike,SE,7.3900,"{""rvol"": 3.8, ""pct"": -2.6}"
+2026-07-27T07:31:03+00:00,2026-07-27,scanner,MVIR.ST,volume_spike,SE,1.7520,"{""rvol"": 3.1, ""pct"": 2.0}"
