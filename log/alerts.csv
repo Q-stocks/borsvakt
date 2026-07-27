@@ -242,3 +242,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-27T08:30:55+00:00,2026-07-27,scanner,SIVE.ST,big_move,SE,33.4000,"{""pct"": 6.6}"
 2026-07-27T11:45:55+00:00,2026-07-27,scanner,ACCON.ST,big_move,SE,17.1600,"{""pct"": 6.6}"
 2026-07-27T14:01:17+00:00,2026-07-27,scanner,AMD,big_move,US,502.9001,"{""pct"": -6.8}"
+2026-07-27T17:15:48+00:00,2026-07-27,scanner,NVDA,big_move,US,195.9600,"{""pct"": -6.1}"
