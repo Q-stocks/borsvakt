@@ -240,3 +240,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-27T07:15:52+00:00,2026-07-27,scanner,ORRON.ST,volume_spike,SE,7.3900,"{""rvol"": 3.8, ""pct"": -2.6}"
 2026-07-27T07:31:03+00:00,2026-07-27,scanner,MVIR.ST,volume_spike,SE,1.7520,"{""rvol"": 3.1, ""pct"": 2.0}"
 2026-07-27T08:30:55+00:00,2026-07-27,scanner,SIVE.ST,big_move,SE,33.4000,"{""pct"": 6.6}"
+2026-07-27T11:45:55+00:00,2026-07-27,scanner,ACCON.ST,big_move,SE,17.1600,"{""pct"": 6.6}"
