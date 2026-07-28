@@ -428,3 +428,12 @@ scanner:HOFI.ST:volume_spike:2026-07-24,scanner,HOFI.ST,volume_spike,2026-07-24,
 scanner:ORRON.ST:volume_spike:2026-07-24,scanner,ORRON.ST,volume_spike,2026-07-24,SE,1,-3.8208,1.6035,-5.4244
 scanner:ACAST.ST:volume_spike:2026-07-24,scanner,ACAST.ST,volume_spike,2026-07-24,SE,1,3.6986,1.6035,2.0951
 scanner:SSAB-A.ST:volume_spike:2026-07-24,scanner,SSAB-A.ST,volume_spike,2026-07-24,SE,1,-1.4634,1.6035,-3.067
+breakout:WST:breakout:2026-06-26,breakout,WST,breakout,2026-06-26,US,20,-3.9476,1.6283,-5.5758
+breakout:LLY:breakout:2026-06-27,breakout,LLY,breakout,2026-06-27,US,20,-0.7537,-0.0189,-0.7348
+scanner:ACCON.ST:volume_spike:2026-07-20,scanner,ACCON.ST,volume_spike,2026-07-20,SE,5,5.4124,2.6768,2.7356
+scanner:EVO.ST:volume_spike:2026-07-20,scanner,EVO.ST,volume_spike,2026-07-20,SE,5,3.8074,2.6768,1.1306
+scanner:AMD:volume_spike:2026-07-20,scanner,AMD,volume_spike,2026-07-20,US,5,-1.7118,-0.4043,-1.3075
+breakout:ALLEI.ST:breakout:2026-07-20,breakout,ALLEI.ST,breakout,2026-07-20,SE,5,5.0467,2.6768,2.37
+breakout:KARNEL-B.ST:breakout:2026-07-20,breakout,KARNEL-B.ST,breakout,2026-07-20,SE,5,-0.885,2.6768,-3.5617
+pead:VZ:entry:2026-07-24,pead,VZ,entry,2026-07-24,US,1,2.0267,0.0217,2.0051
+breakout:IP:breakout:2026-07-24,breakout,IP,breakout,2026-07-24,US,1,0.593,0.0217,0.5713
