@@ -249,3 +249,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-28T07:01:21+00:00,2026-07-28,scanner,MYCR.ST,big_move,SE,314.2000,"{""pct"": -8.3}"
 2026-07-28T07:15:49+00:00,2026-07-28,scanner,ORRON.ST,volume_spike,SE,7.2300,"{""rvol"": 11.4, ""pct"": -4.7}"
 2026-07-28T07:15:50+00:00,2026-07-28,scanner,MYCR.ST,volume_spike,SE,313.8000,"{""rvol"": 4.4, ""pct"": -8.5}"
+2026-07-28T07:31:07+00:00,2026-07-28,scanner,HTRO.ST,big_move,SE,37.9800,"{""pct"": -7.0}"
+2026-07-28T07:31:08+00:00,2026-07-28,scanner,SSAB-A.ST,volume_spike,SE,102.0500,"{""rvol"": 3.2, ""pct"": 1.6}"
+2026-07-28T07:31:09+00:00,2026-07-28,scanner,NCAB.ST,big_move,SE,69.4000,"{""pct"": -7.0}"
