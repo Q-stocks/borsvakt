@@ -244,3 +244,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-27T14:01:17+00:00,2026-07-27,scanner,AMD,big_move,US,502.9001,"{""pct"": -6.8}"
 2026-07-27T17:15:48+00:00,2026-07-27,scanner,NVDA,big_move,US,195.9600,"{""pct"": -6.1}"
 2026-07-27T21:47:54+00:00,2026-07-27,pead,SF.ST,entry,SE,6.2500,"{""surprise"": null, ""reaction"": 47.20598514397578}"
+2026-07-28T07:01:18+00:00,2026-07-28,scanner,EVO.ST,big_move,SE,748.0000,"{""pct"": 7.6}"
+2026-07-28T07:01:18+00:00,2026-07-28,scanner,SIVE.ST,big_move,SE,29.0000,"{""pct"": -7.4}"
+2026-07-28T07:01:21+00:00,2026-07-28,scanner,MYCR.ST,big_move,SE,314.2000,"{""pct"": -8.3}"
