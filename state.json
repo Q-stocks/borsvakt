@@ -117,19 +117,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-28"
+      "updated": "2026-07-29"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-28"
+      "updated": "2026-07-29"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-28"
+      "updated": "2026-07-29"
     }
   },
   "stock_portfolio": {
@@ -481,6 +481,12 @@
         "surprise": 2.71,
         "reaction": 5.740483179585798,
         "entry_logged": "2026-07-24"
+      },
+      "KO": {
+        "report": "2026-07-28",
+        "surprise": 4.05,
+        "reaction": 7.262276422730607,
+        "entry_logged": "2026-07-29"
       }
     },
     "Sverige": {

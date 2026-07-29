@@ -267,3 +267,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-29T13:46:02+00:00,2026-07-29,scanner,AMD,big_move,US,451.4000,"{""pct"": -8.8}"
 2026-07-29T13:46:03+00:00,2026-07-29,scanner,CAT,volume_spike,US,821.9450,"{""rvol"": 3.6, ""pct"": -5.9}"
 2026-07-29T14:31:13+00:00,2026-07-29,scanner,QCOM,big_move,US,159.2881,"{""pct"": -6.3}"
+2026-07-29T22:28:00+00:00,2026-07-29,pead,KO,entry,US,89.0800,"{""surprise"": 4.05, ""reaction"": 7.262276422730607}"
