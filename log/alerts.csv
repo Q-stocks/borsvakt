@@ -274,3 +274,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-30T11:31:04+00:00,2026-07-30,scanner,SPRINT.ST,volume_spike,SE,3.7900,"{""rvol"": 3.6, ""pct"": 1.9}"
 2026-07-30T12:01:11+00:00,2026-07-30,scanner,SIVE.ST,big_move,SE,28.6400,"{""pct"": 6.5}"
 2026-07-30T13:31:07+00:00,2026-07-30,scanner,AMD,big_move,US,461.5300,"{""pct"": 7.4}"
+2026-07-30T13:45:52+00:00,2026-07-30,scanner,AMD,volume_spike,US,470.4800,"{""rvol"": 3.5, ""pct"": 9.5}"
+2026-07-30T13:45:57+00:00,2026-07-30,scanner,QCOM,volume_spike,US,148.2700,"{""rvol"": 5.8, ""pct"": -4.8}"
+2026-07-30T13:45:58+00:00,2026-07-30,scanner,CAT,volume_spike,US,808.8650,"{""rvol"": 3.1, ""pct"": 3.3}"
