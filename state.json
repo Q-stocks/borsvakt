@@ -119,19 +119,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     }
   },
   "stock_portfolio": {
@@ -489,6 +489,18 @@
         "surprise": 4.05,
         "reaction": 7.262276422730607,
         "entry_logged": "2026-07-29"
+      },
+      "MSFT": {
+        "report": "2026-07-29",
+        "surprise": 11.81,
+        "reaction": 14.569546789291277,
+        "entry_logged": "2026-07-30"
+      },
+      "MA": {
+        "report": "2026-07-30",
+        "surprise": 5.53,
+        "reaction": 0.814005877158519,
+        "entry_logged": "2026-07-30"
       }
     },
     "Sverige": {
@@ -761,6 +773,24 @@
         "surprise": null,
         "reaction": 47.20598514397578,
         "entry_logged": "2026-07-27"
+      },
+      "ELUX-B.ST": {
+        "report": "2026-07-29",
+        "surprise": null,
+        "reaction": 16.5907420722593,
+        "entry_logged": "2026-07-30"
+      },
+      "HEXA-B.ST": {
+        "report": "2026-07-29",
+        "surprise": null,
+        "reaction": 11.31087600964673,
+        "entry_logged": "2026-07-30"
+      },
+      "STORY-B.ST": {
+        "report": "2026-07-28",
+        "surprise": null,
+        "reaction": 20.835053804558058,
+        "entry_logged": "2026-07-30"
       }
     }
   },
@@ -811,7 +841,8 @@
     "TXN:sma50:2026-W31": true,
     "GS:sma50:2026-W31": true,
     "MS:sma50:2026-W31": true,
-    "QCOM:sma200:2026-W31": true
+    "QCOM:sma200:2026-W31": true,
+    "CHEF.ST:sma50:2026-W31": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
