@@ -291,3 +291,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-31T07:15:56+00:00,2026-07-31,scanner,ORRON.ST,volume_spike,SE,7.3300,"{""rvol"": 3.9, ""pct"": 1.7}"
 2026-07-31T07:15:57+00:00,2026-07-31,scanner,ABB.ST,volume_spike,SE,958.2000,"{""rvol"": 4.7, ""pct"": 6.3}"
 2026-07-31T09:45:44+00:00,2026-07-31,scanner,SPRINT.ST,volume_spike,SE,3.6500,"{""rvol"": 3.1, ""pct"": -2.1}"
+2026-07-31T13:31:10+00:00,2026-07-31,scanner,AAPL,volume_spike,US,304.2900,"{""rvol"": 3.9, ""pct"": -8.7}"
