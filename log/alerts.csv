@@ -293,3 +293,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-31T09:45:44+00:00,2026-07-31,scanner,SPRINT.ST,volume_spike,SE,3.6500,"{""rvol"": 3.1, ""pct"": -2.1}"
 2026-07-31T13:31:10+00:00,2026-07-31,scanner,AAPL,volume_spike,US,304.2900,"{""rvol"": 3.9, ""pct"": -8.7}"
 2026-07-31T16:31:12+00:00,2026-07-31,scanner,GOOGL,big_move,US,354.3530,"{""pct"": 6.2}"
+2026-07-31T22:30:43+00:00,2026-07-31,pead,AAPL,entry,US,308.9100,"{""surprise"": 6.74, ""reaction"": -11.06648660208944}"
+2026-07-31T22:30:46+00:00,2026-07-31,pead,AMZN,entry,US,271.5800,"{""surprise"": 214.23, ""reaction"": 17.414881763705072}"
+2026-07-31T22:30:52+00:00,2026-07-31,pead,XOM,entry,US,155.4400,"{""surprise"": 13.36, ""reaction"": -1.6946887252926368}"
+2026-07-31T22:31:00+00:00,2026-07-31,pead,CVX,entry,US,196.8300,"{""surprise"": 8.14, ""reaction"": 1.630393079524417}"
+2026-07-31T22:31:59+00:00,2026-07-31,breakout,DXCM,breakout,US,83.4500,"{""rvol"": 2.7, ""run_up"": 0.351}"

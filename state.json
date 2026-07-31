@@ -123,19 +123,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-07-30"
+      "updated": "2026-07-31"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-07-30"
+      "updated": "2026-07-31"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
-      "rs_up": false,
-      "updated": "2026-07-30"
+      "rs_up": true,
+      "updated": "2026-07-31"
     }
   },
   "stock_portfolio": {
@@ -505,6 +505,30 @@
         "surprise": 5.53,
         "reaction": 0.814005877158519,
         "entry_logged": "2026-07-30"
+      },
+      "AAPL": {
+        "report": "2026-07-30",
+        "surprise": 6.74,
+        "reaction": -11.06648660208944,
+        "entry_logged": "2026-07-31"
+      },
+      "AMZN": {
+        "report": "2026-07-30",
+        "surprise": 214.23,
+        "reaction": 17.414881763705072,
+        "entry_logged": "2026-07-31"
+      },
+      "XOM": {
+        "report": "2026-07-31",
+        "surprise": 13.36,
+        "reaction": -1.6946887252926368,
+        "entry_logged": "2026-07-31"
+      },
+      "CVX": {
+        "report": "2026-07-31",
+        "surprise": 8.14,
+        "reaction": 1.630393079524417,
+        "entry_logged": "2026-07-31"
       }
     },
     "Sverige": {
@@ -865,6 +889,7 @@
     "MTG-B.ST:2026-07-21": true,
     "URI:2026-07-23": true,
     "IP:2026-07-24": true,
-    "IQV:2026-07-28": true
+    "IQV:2026-07-28": true,
+    "DXCM:2026-07-31": true
   }
 }
