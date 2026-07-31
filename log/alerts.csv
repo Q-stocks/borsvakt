@@ -282,3 +282,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-30T21:59:49+00:00,2026-07-30,pead,ELUX-B.ST,entry,SE,28.7400,"{""surprise"": null, ""reaction"": 16.5907420722593}"
 2026-07-30T21:59:50+00:00,2026-07-30,pead,HEXA-B.ST,entry,SE,95.4600,"{""surprise"": null, ""reaction"": 11.31087600964673}"
 2026-07-30T21:59:51+00:00,2026-07-30,pead,STORY-B.ST,entry,SE,108.7000,"{""surprise"": null, ""reaction"": 20.835053804558058}"
+2026-07-31T07:01:07+00:00,2026-07-31,scanner,HTRO.ST,big_move,SE,38.6000,"{""pct"": 6.7}"
+2026-07-31T07:01:08+00:00,2026-07-31,scanner,NCAB.ST,big_move,SE,70.2000,"{""pct"": 6.4}"
+2026-07-31T07:01:08+00:00,2026-07-31,scanner,NOKIA-SEK.ST,big_move,SE,91.4200,"{""pct"": 9.2}"
