@@ -298,3 +298,14 @@ ts,date,module,ticker,kind,market,price,meta
 2026-07-31T22:30:52+00:00,2026-07-31,pead,XOM,entry,US,155.4400,"{""surprise"": 13.36, ""reaction"": -1.6946887252926368}"
 2026-07-31T22:31:00+00:00,2026-07-31,pead,CVX,entry,US,196.8300,"{""surprise"": 8.14, ""reaction"": 1.630393079524417}"
 2026-07-31T22:31:59+00:00,2026-07-31,breakout,DXCM,breakout,US,83.4500,"{""rvol"": 2.7, ""run_up"": 0.351}"
+2026-08-03T04:02:35+00:00,2026-08-03,stocks,GRANGX.ST,buy,SE,nan,{}
+2026-08-03T04:02:35+00:00,2026-08-03,stocks,HOFI.ST,buy,SE,nan,{}
+2026-08-03T04:02:35+00:00,2026-08-03,stocks,BOOZT.ST,buy,SE,nan,{}
+2026-08-03T04:02:59+00:00,2026-08-03,stocks,ALLEI.ST,buy,SE,nan,{}
+2026-08-03T04:02:59+00:00,2026-08-03,stocks,LUMI.ST,buy,SE,nan,{}
+2026-08-03T04:02:59+00:00,2026-08-03,stocks,SSAB-B.ST,buy,SE,nan,{}
+2026-08-03T04:03:12+00:00,2026-08-03,stocks,MRK,buy,US,130.2000,{}
+2026-08-03T04:03:12+00:00,2026-08-03,stocks,LLY,buy,US,1148.8400,{}
+2026-08-03T04:03:23+00:00,2026-08-03,multifactor,SWED-A.ST,buy,SE,nan,{}
+2026-08-03T04:03:23+00:00,2026-08-03,multifactor,BUFAB.ST,buy,SE,nan,{}
+2026-08-03T04:03:23+00:00,2026-08-03,multifactor,INDU-C.ST,buy,SE,nan,{}
