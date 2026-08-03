@@ -309,3 +309,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-03T04:03:23+00:00,2026-08-03,multifactor,SWED-A.ST,buy,SE,nan,{}
 2026-08-03T04:03:23+00:00,2026-08-03,multifactor,BUFAB.ST,buy,SE,nan,{}
 2026-08-03T04:03:23+00:00,2026-08-03,multifactor,INDU-C.ST,buy,SE,nan,{}
+2026-08-03T07:01:27+00:00,2026-08-03,scanner,GRANGX.ST,big_move,SE,43.7500,"{""pct"": 281.8}"
