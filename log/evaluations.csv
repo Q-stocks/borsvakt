@@ -561,3 +561,10 @@ pead:MA:entry:2026-07-30,pead,MA,entry,2026-07-30,US,1,-0.7361,0.72,-1.4561
 pead:ELUX-B.ST:entry:2026-07-30,pead,ELUX-B.ST,entry,2026-07-30,SE,1,nan,0.4169,nan
 pead:HEXA-B.ST:entry:2026-07-30,pead,HEXA-B.ST,entry,2026-07-30,SE,1,nan,0.4169,nan
 pead:STORY-B.ST:entry:2026-07-30,pead,STORY-B.ST,entry,2026-07-30,SE,1,nan,0.4169,nan
+scanner:AAPL:volume_spike:2026-07-31,scanner,AAPL,volume_spike,2026-07-31,US,1,-1.7772,1.4243,-3.2015
+scanner:GOOGL:big_move:2026-07-31,scanner,GOOGL,big_move,2026-07-31,US,1,4.8802,1.4243,3.4559
+pead:AAPL:entry:2026-07-31,pead,AAPL,entry,2026-07-31,US,1,-1.7772,1.4243,-3.2015
+pead:AMZN:entry:2026-07-31,pead,AMZN,entry,2026-07-31,US,1,4.5806,1.4243,3.1563
+pead:XOM:entry:2026-07-31,pead,XOM,entry,2026-07-31,US,1,-0.2445,1.4243,-1.6688
+pead:CVX:entry:2026-07-31,pead,CVX,entry,2026-07-31,US,1,-1.8544,1.4243,-3.2787
+breakout:DXCM:breakout:2026-07-31,breakout,DXCM,breakout,2026-07-31,US,1,4.6255,1.4243,3.2012
