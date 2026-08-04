@@ -125,19 +125,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-08-03"
+      "updated": "2026-08-04"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-03"
+      "updated": "2026-08-04"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-03"
+      "updated": "2026-08-04"
     }
   },
   "stock_portfolio": {
@@ -531,6 +531,18 @@
         "surprise": 8.14,
         "reaction": 1.630393079524417,
         "entry_logged": "2026-07-31"
+      },
+      "AMD": {
+        "report": "2026-08-04",
+        "surprise": null,
+        "reaction": 5.200236369118105,
+        "entry_logged": "2026-08-04"
+      },
+      "PLTR": {
+        "report": "2026-08-03",
+        "surprise": 18.51,
+        "reaction": 28.926550620354092,
+        "entry_logged": "2026-08-04"
       }
     },
     "Sverige": {
@@ -821,6 +833,12 @@
         "surprise": null,
         "reaction": 20.835053804558058,
         "entry_logged": "2026-07-30"
+      },
+      "ASMDEE-B.ST": {
+        "report": "2026-08-04",
+        "surprise": null,
+        "reaction": 9.535170121106649,
+        "entry_logged": "2026-08-04"
       }
     }
   },
@@ -866,7 +884,8 @@
     "SIVE.ST:sma50:2026-W32": true,
     "SOBI.ST:sma50:2026-W32": true,
     "SPRINT.ST:sma50:2026-W32": true,
-    "TXN:sma50:2026-W32": true
+    "TXN:sma50:2026-W32": true,
+    "UNH:sma50:2026-W32": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
