@@ -315,3 +315,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-03T12:15:43+00:00,2026-08-03,scanner,SOBI.ST,big_move,SE,441.4000,"{""pct"": -6.2}"
 2026-08-03T13:45:56+00:00,2026-08-03,scanner,GOOGL,volume_spike,US,373.4500,"{""rvol"": 4.1, ""pct"": 4.9}"
 2026-08-03T13:45:57+00:00,2026-08-03,scanner,TXN,volume_spike,US,267.2199,"{""rvol"": 3.5, ""pct"": -3.1}"
+2026-08-04T07:01:14+00:00,2026-08-04,scanner,GRANGX.ST,big_move,SE,42.8000,"{""pct"": 273.5}"
+2026-08-04T07:01:14+00:00,2026-08-04,scanner,SOBI.ST,big_move,SE,441.0000,"{""pct"": -6.3}"
+2026-08-04T07:01:16+00:00,2026-08-04,scanner,SIVE.ST,big_move,SE,33.2800,"{""pct"": 8.3}"
