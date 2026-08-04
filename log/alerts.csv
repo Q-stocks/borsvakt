@@ -322,3 +322,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-04T07:15:53+00:00,2026-08-04,scanner,BOOZT.ST,volume_spike,SE,162.5000,"{""rvol"": 3.8, ""pct"": -2.5}"
 2026-08-04T07:31:04+00:00,2026-08-04,scanner,SIVE.ST,volume_spike,SE,34.2200,"{""rvol"": 3.6, ""pct"": 11.3}"
 2026-08-04T12:45:58+00:00,2026-08-04,scanner,HTRO.ST,big_move,SE,40.4300,"{""pct"": 7.5}"
+2026-08-04T13:31:21+00:00,2026-08-04,scanner,CAT,big_move,US,931.5000,"{""pct"": 12.2}"
