@@ -330,3 +330,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-04T21:53:53+00:00,2026-08-04,pead,AMD,entry,US,518.5800,"{""surprise"": null, ""reaction"": 5.200236369118105}"
 2026-08-04T21:54:12+00:00,2026-08-04,pead,PLTR,entry,US,162.6600,"{""surprise"": 18.51, ""reaction"": 28.926550620354092}"
 2026-08-04T21:54:13+00:00,2026-08-04,pead,ASMDEE-B.ST,entry,SE,163.9000,"{""surprise"": null, ""reaction"": 9.535170121106649}"
+2026-08-05T07:01:10+00:00,2026-08-05,scanner,NOKIA-SEK.ST,big_move,SE,95.8400,"{""pct"": 7.6}"
+2026-08-05T07:01:11+00:00,2026-08-05,scanner,HTRO.ST,big_move,SE,40.2000,"{""pct"": 6.3}"
+2026-08-05T07:01:11+00:00,2026-08-05,scanner,SIVE.ST,big_move,SE,37.6800,"{""pct"": 20.8}"
+2026-08-05T07:01:13+00:00,2026-08-05,scanner,LUMI.ST,volume_spike,SE,255.0000,"{""rvol"": 4.1, ""pct"": 7.9}"
