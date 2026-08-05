@@ -337,3 +337,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-05T07:15:44+00:00,2026-08-05,scanner,GRANGX.ST,big_move,SE,42.1500,"{""pct"": 267.8}"
 2026-08-05T13:31:08+00:00,2026-08-05,scanner,AMD,volume_spike,US,482.5100,"{""rvol"": 3.8, ""pct"": -7.0}"
 2026-08-05T13:31:11+00:00,2026-08-05,scanner,LLY,volume_spike,US,1192.6100,"{""rvol"": 4.1, ""pct"": 6.9}"
+2026-08-05T13:45:46+00:00,2026-08-05,scanner,NVDA,volume_spike,US,219.2100,"{""rvol"": 4.4, ""pct"": 3.4}"
