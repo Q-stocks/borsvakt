@@ -17,6 +17,15 @@ Börsvakt v3: fyra Python-moduler + GitHub Actions.
 - `exits.py` – daglig nedsidesvakt: larmar (aldrig autosälj) när INNEHAV
   (Aktiemotorns state-portfölj) bryter MA50/MA200 eller faller ≥20 %
   från 60-dagars topp. Frivillig overlay; månadskärnan står kvar.
+  **BACKTESTAT 2026-08-06 (`backtest_exits.py`, 14å, fyra universum): agera
+  INTE mekaniskt på MA50-brotten.** Att sälja vid MA50-brott kostar 6–11 pp
+  CAGR i ALLA fyra universum (sverige/broad/midlarge/usa) och relationen är
+  monoton i MA-längd (MA50 sämst, MA200/250 bäst) – det är whipsaw, inte otur:
+  41–52 stopp/år. Kassadraget förklarar bara halva skadan; med direkt
+  återinvestering är MA50 fortfarande under "inget stopp" och tredubblar
+  omsättningen. MA200-brott är ungefär GRATIS (CAGR ±1 pp, Sharpe +0,03…+0,09,
+  maxDD 3–5 pp bättre, 4–6 stopp/år) – enda mekaniska stoppet som går att
+  försvara, men vinsten är liten. Larmen är alltså BESLUTSUNDERLAG, inte order.
 - `scanner.py` är portföljmedveten: skannar även innehaven för
   volym/pris/nyheter (scan_holdings).
 - `pead.py` – daglig, eventdriven: vinstdrift (PEAD). Köplarm vid
