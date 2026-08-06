@@ -28,6 +28,8 @@ from pathlib import Path
 
 import yaml
 
+from alertlog import signal_value   # samma teckenregel som Telegram-scorecarden
+
 ROOT = Path(__file__).resolve().parent
 LOG_DIR = ROOT / "log"
 DOCS = ROOT / "docs"
@@ -53,7 +55,9 @@ def _agg(rows: list[dict]) -> dict | None:
         except (ValueError, KeyError, TypeError):
             continue
         if math.isfinite(e) and math.isfinite(ret):
-            par.append((e, ret))
+            # Säljsignaler (nedsidesvakten) mäts ur sin egen riktning:
+            # ett fall efter varningen är en TRÄFF, inte ett misslyckande.
+            par.append((signal_value(r.get("kind", ""), e), ret))
     if not par:
         return None
     ex = [e for e, _ in par]

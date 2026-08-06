@@ -32,7 +32,7 @@ import sys
 
 import yaml
 
-from momentum import _ret, month_end_closes
+from momentum import _ret, month_end_bars, month_end_closes
 from alertlog import log_alert
 from scanner import CONFIG_FILE, ROOT, load_state, save_state, send_telegram
 
@@ -132,17 +132,57 @@ def load_quality(path: str, ticker_col: str, quality_col: str) -> dict | None:
 # Motorn
 # ----------------------------------------------------------------------
 
-def score_universe(universe: list[tuple[str, str]]) -> tuple[list[dict], list[str]]:
+def liquidity(bars) -> dict:
+    """Handelsbarhet ur samma månadsbarer som momentumet räknas på – ingen
+    extra hämtning. Bakgrund (2026-08-06): GRANGX.ST köptes in trots NOLL
+    omsatta aktier i 12 månader och en fastfrusen kursserie (2 unika kurser
+    på 2 år). En sådan serie ger inte bara ett ohandelsbart innehav – den
+    ger också falska momentumtal när Yahoo till slut släpper en ny kurs.
+
+      • dead    – ingen handel alls under minst halva året. Otvetydigt
+                  ohandelsbar och prövas FÖRST: blockeras som köp OCH
+                  plockas ur portföljen (ett dött papper är inget datafel).
+      • frozen  – kursserien står stilla => momentumtalen är meningslösa.
+                  Frusen men omsatt = sannolikt Yahoo-fel: behandlas som
+                  DATAFEL (ägda innehav behålls, säljs aldrig på ett datafel).
+      • turnover – median dagsomsättning (månadsvolym/21) senaste 6 mån,
+                  i marknadens valuta. Grind på NYA köp; banding behåller
+                  befintliga (ett tunt kvartal ska inte tvinga fram en sälj).
+    """
+    closes, vols = bars["Close"], bars["Volume"]
+    uniq = int(closes.tail(13).nunique())
+    zero_months = int((vols.tail(12) == 0).sum())
+    daily = (closes * vols / 21.0).tail(6).dropna()
+    turnover = float(daily.median()) if len(daily) else 0.0
+    return {"frozen": uniq <= 2, "dead": zero_months >= 6,
+            "zero_months": zero_months, "turnover": turnover}
+
+
+def score_universe(universe: list[tuple[str, str]],
+                   min_turnover: float = 0.0) -> tuple[list[dict], list[str]]:
     scored, errors = [], []
     for ticker, name in universe:
-        closes = month_end_closes(ticker)
-        if closes is None:
+        bars = month_end_bars(ticker)
+        if bars is None:
             errors.append(ticker)
             continue
+        liq = liquidity(bars)
+        if liq["frozen"] and not liq["dead"]:
+            # Fastfrusen serie MEN aktien omsätts: sannolikt ett datafel hos
+            # Yahoo, inte ett dött papper. Fail-soft => ingen rankning, ägda
+            # innehav behålls (aldrig sälj på ett datafel).
+            # Är den däremot BÅDE frusen och utan handel är det inget datafel
+            # utan ett faktum – då rankas den (score 0) enbart för att
+            # banding ska kunna plocka ut den ur portföljen.
+            errors.append(ticker)
+            continue
+        closes = bars["Close"]
         r3, r6, r12 = _ret(closes, 3), _ret(closes, 6), _ret(closes, 12)
         above = float(closes.iloc[-1]) > float(closes.iloc[-10:].mean())  # eget 10-mån MA
         scored.append({"ticker": ticker, "name": name,
                        "r3": r3, "r6": r6, "r12": r12, "above": above,
+                       "dead": liq["dead"], "turnover": liq["turnover"],
+                       "liquid": not liq["dead"] and liq["turnover"] >= min_turnover,
                        "score": (r3 + r6 + r12) / 3.0})
     scored.sort(key=lambda r: r["score"], reverse=True)
     return scored, errors
@@ -158,6 +198,8 @@ def _passes_gate(r: dict, gate: str, cap: float | None = None) -> bool:
     +1000 % (cap=10.0) ≈ gratis blow-off-försäkring, snävare tak = F-score-fällan."""
     if cap is not None and r.get("r12", 0.0) >= cap:
         return False
+    if not r.get("liquid", True):
+        return False          # likviditetsgrind: aldrig NYA köp i ohandelsbart
     if gate == "trend":
         return r.get("above", True)                       # eget 10-mån MA (svagt)
     if gate == "m12":
@@ -175,7 +217,12 @@ def apply_banding(ranked: list[dict], prev: list[str], top_n: int, band_keep: in
     # rankas och BEHÅLLS oförändrade – ett tillfälligt Yahoo-fel får aldrig
     # generera ett säljlarm (fail-soft: sälj kräver en faktisk rank under band).
     hold = hold or set()
-    keep = [t for t in prev if t in hold or rank_of.get(t, 10 ** 9) <= band_keep]
+    # `dead` = bevisat ohandelsbart (ingen handel på ett halvår). Det är ett
+    # FAKTUM, inte ett datafel, så banding får inte behålla namnet – annars
+    # ligger ett omsättningslöst innehav kvar för evigt på hög rank.
+    dead = {r["ticker"] for r in ranked if r.get("dead")}
+    keep = [t for t in prev
+            if (t in hold or rank_of.get(t, 10 ** 9) <= band_keep) and t not in dead]
     # Banding behåller befintliga innehav via rank; vakten (inkl. tak) gäller bara nya köp.
     fill = [r["ticker"] for r in ranked
             if r["ticker"] not in keep and _passes_gate(r, gate, cap)
@@ -229,7 +276,8 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
             quality_note = f"topp {pct:.0f} % av {len(have)} bolag ({mkt.get('quality_file')})"
 
     # 2–3) Momentumranking + banding
-    ranked, errors = score_universe(universe)
+    min_turnover = float(cfg_s.get("min_daily_turnover", 0) or 0)
+    ranked, errors = score_universe(universe, min_turnover)
     prev = list(state.setdefault("stock_portfolio", {}).get(name, []))
     held_errors = [t for t in prev if t in set(errors)]
     top_n = int(cfg_s.get("top_n", 10))
@@ -266,18 +314,23 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
                 lines.append(f"{rank_of[t]:>2}. <b>{html.escape(t)}</b> "
                              f"{html.escape(r['name'])}  12m {r['r12']:+.0%}")
             else:
-                lines.append(f" –. <b>{html.escape(t)}</b> kursdata saknas – "
-                             f"behålls utan omprövning (kontrollera manuellt)")
+                lines.append(f" –. <b>{html.escape(t)}</b> kursdata saknas eller är "
+                             f"fastfrusen – behålls utan omprövning (kontrollera manuellt)")
     lines.append("")
     lines.append("<b>Byten denna månad:</b>")
     lines.append("• Sälj: " + (", ".join(html.escape(t) for t in sells) if sells else "–"))
     lines.append("• Köp: " + (", ".join(html.escape(t) for t in buys) if buys else "–"))
     lines.append(f"• Behåll: {len(portfolio) - len(buys)} st")
+    illiquid_sells = [t for t in sells if by_ticker.get(t, {}).get("dead")]
+    if illiquid_sells:
+        lines.append("🚫 <i>Ut ur portföljen pga OBEFINTLIG handel (ingen omsättning "
+                     "på minst ett halvår, ej handelsbar): "
+                     f"{', '.join(html.escape(t) for t in illiquid_sells)}</i>")
     if name == "USA" and (buys or sells):
         lines.append("💱 <i>USA-byten: handla från valutakonto (USD) – annars "
                      "~0,5 % växlingsavgift per byte.</i>")
     if errors:
-        lines.append(f"⚠️ Saknar data ({len(errors)} av {len(universe)}): "
+        lines.append(f"⚠️ Saknar användbar kursdata ({len(errors)} av {len(universe)}): "
                      f"{', '.join(html.escape(e) for e in errors[:8])}"
                      + (" …" if len(errors) > 8 else ""))
     lines.append("")

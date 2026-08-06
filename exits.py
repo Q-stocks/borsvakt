@@ -31,8 +31,16 @@ import sys
 
 import yaml
 
+from alertlog import log_alert
 from scanner import (CONFIG_FILE, drop_live_bar, load_holdings, load_state,
                      save_state, send_telegram)
+
+# alertlog-typer per nivå. Nedsidesvakten är en SÄLJ-signal: alertlog vänder
+# tecknet i scorecarden (BEARISH_KINDS) så att ett fall efter varningen räknas
+# som träff. Utan facit gick det inte att svara på om det lönar sig att agera
+# på MA-brotten – exakt den fråga som juli 2026 väckte (SIVE föll 47 % EFTER
+# sitt MA50-brott, medan månadskärnan höll kvar positionen i fyra veckor).
+EXIT_KIND = {"sma50": "ma50_break", "sma200": "ma200_break", "drawdown": "drawdown"}
 
 
 def analyse(symbol: str) -> dict | None:
@@ -137,6 +145,16 @@ def main() -> int:
             if send_telegram(build_exit_alert(universe[symbol], symbol, a, level, dd_trigger),
                              args.dry_run):
                 state["exit_alerts"][key] = True   # markera skickat först vid bekräftad leverans
+                # Facit-loggas först vid bekräftad leverans, samma
+                # dedup-mönster som övriga moduler (aldrig larm utan logg,
+                # aldrig logg utan larm).
+                log_alert("exits", symbol, EXIT_KIND[level],
+                          market=("SE" if symbol.upper().endswith(".ST") else "US"),
+                          price=a["price"],
+                          meta={"sma50": round(a["sma50"], 4),
+                                "sma200": (round(a["sma200"], 4) if a["sma200"] else None),
+                                "dd_pct": round(a["dd"], 2)},
+                          dry=args.dry_run)
         except Exception as exc:
             print(f"  {symbol}: exit-fel: {exc}", file=sys.stderr)
 

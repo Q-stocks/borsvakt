@@ -193,6 +193,22 @@ Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `ANTHROPIC_API_KEY` (valfri).
   Ta ALDRIG bort watchdog-steget eller `actions: write` ur scan.yml.
 - Yahoo: dagens rad kan ha volym 0 nära öppning → behåll
   `min_avg_volume` + elapsed-golvet (0.05).
+- FRUSNA/DÖDA KURSSERIER (2026-08-06): GRANGX.ST köptes in av Aktiemotorn trots
+  NOLL omsatta aktier i 12 månader och 1 unik kurs på 2 år – och gav sedan
+  falska +280 %-larm i scannern när Yahoo till slut släppte en ny kurs.
+  `stocks.liquidity()` grindar nu på månadsbarernas volym:
+  *dead* (≥6 nollmånader av 12) blockeras som köp OCH plockas ur portföljen;
+  *frozen men omsatt* = datafel → ingen rankning, innehav behålls (fail-soft);
+  `min_daily_turnover` (config, 250 000) grindar bara NYA köp. Ordningen dead
+  före frozen är avsiktlig – ett bevisat ohandelsbart papper är inget datafel.
+- `alertlog._latest_close` MÅSTE dropna(): Yahoo lägger in dagens rad med tom
+  Close redan före öppning, och sedan watchdog flyttat monthly till ~04:00 UTC
+  (före Stockholmsöppning) loggades alla svenska köp med pris `nan` → osynliga
+  i facit. Samma fälla väntar varje modul som loggar pris före öppning.
+- Nedsidesvakten (exits.py) facit-loggas som `ma50_break`/`ma200_break`/
+  `drawdown`. De ligger i `alertlog.BEARISH_KINDS` → scorecarden VÄNDER tecknet
+  (fall efter varning = träff). CSV:n innehåller alltid rå, ovänd överavkastning.
+  sectortrend.py loggar medvetet INTE (korgar saknar Yahoo-symbol, DW-12).
 - `momentum.py`/`stocks.py` släpper innevarande (ofullbordade) månad –
   signaler ska bygga på senast AVSLUTADE månadsstängning.
 - EDGAR: `primaryDocument` kan vara XSL-renderad; fallback via

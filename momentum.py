@@ -36,20 +36,28 @@ import yaml
 from scanner import CONFIG_FILE, send_telegram
 
 
-def month_end_closes(symbol: str):
-    """Månadsstängningar (totalavkastningsjusterade), exkl. innevarande månad."""
+def month_end_bars(symbol: str):
+    """Avslutade månadsbarer (totalavkastningsjusterade), exkl. innevarande
+    månad. Returnerar hela DataFrame:n så anropare som behöver VOLYM
+    (likviditetsgrind i stocks.py) slipper en extra hämtning."""
     import yfinance as yf
 
     hist = yf.Ticker(symbol).history(period="2y", interval="1mo", auto_adjust=True)
     if hist is None or hist.empty:
         return None
-    closes = hist["Close"].dropna()
+    hist = hist[hist["Close"].notna()]
     # Släng innevarande (ofullbordad) månad – och allt nyare, så att en
     # tz-/locale-skiftad delårsbar inte slinker med (exakt år/månad-match
     # kan missa den och bara trimma en enda rad).
     cur = pd.Period(dt.date.today(), freq="M")
-    closes = closes[closes.index.tz_localize(None).to_period("M") < cur]
-    return closes if len(closes) >= 13 else None
+    hist = hist[hist.index.tz_localize(None).to_period("M") < cur]
+    return hist if len(hist) >= 13 else None
+
+
+def month_end_closes(symbol: str):
+    """Månadsstängningar (totalavkastningsjusterade), exkl. innevarande månad."""
+    bars = month_end_bars(symbol)
+    return None if bars is None else bars["Close"]
 
 
 def _ret(closes, months: int) -> float:

@@ -25,6 +25,7 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -42,17 +43,35 @@ ALERT_COLS = ["ts", "date", "module", "ticker", "kind", "market", "price", "meta
 EVAL_COLS = ["signal_id", "module", "ticker", "kind", "date", "market",
              "horizon", "ret", "bench", "excess"]
 
+# NEDÅT-riktade signaler (sälj/varning). `excess` loggas alltid RÅTT i CSV:n –
+# facit ska vara ett faktum, inte en tolkning – men i scorecarden vänds tecknet
+# så att en varning som följs av fall räknas som TRÄFF. Utan detta hade
+# nedsidesvakten sett ut som systemets sämsta modul just när den fungerade.
+BEARISH_KINDS = {"ma50_break", "ma200_break", "drawdown"}
+
+
+def signal_value(kind: str, excess: float) -> float:
+    """Överavkastning sedd ur signalens egen riktning (>0 = signalen tillförde)."""
+    return -excess if kind in BEARISH_KINDS else excess
+
 
 # ----------------------------------------------------------------------
 # Loggning (anropas av övriga moduler vid skarpa larm)
 # ----------------------------------------------------------------------
 
 def _latest_close(symbol: str) -> float | None:
+    """Senaste AVSLUTADE dagsstängning. Yahoo lägger in dagens rad med tom
+    Close redan före öppning – utan dropna() blev priset `nan` och signalen
+    kunde aldrig utvärderas (drabbade alla 9 svenska köp 2026-08-03, när
+    schemavakten flyttat monthly till 04:0x UTC = före Stockholmsöppning)."""
     import yfinance as yf
     h = yf.Ticker(symbol).history(period="5d", interval="1d", auto_adjust=True)
     if h is None or h.empty:
         return None
-    return float(h["Close"].iloc[-1])
+    closes = _drop_live_bar(h)["Close"].dropna()
+    if closes.empty:
+        return None
+    return float(closes.iloc[-1])
 
 
 def log_alert(module: str, ticker: str, kind: str, market: str = "SE",
@@ -70,6 +89,10 @@ def log_alert(module: str, ticker: str, kind: str, market: str = "SE",
                 price = _latest_close(ticker)
             except Exception:
                 price = None
+        # Bältet till hängslena: NaN/inf får aldrig skrivas som pris – raden
+        # blir då oanvändbar i facit (och "nan" ser ut som ett riktigt värde).
+        if price is not None and not math.isfinite(price):
+            price = None
         now = dt.datetime.now(dt.timezone.utc)
         with open(ALERTS, "a", newline="", encoding="utf-8") as fh:
             w = csv.writer(fh)
@@ -210,7 +233,7 @@ def _agg(rows: list[dict]) -> dict:
     n = len(rows)
     if not n:
         return {}
-    excess = [r["excess"] for r in rows]
+    excess = [signal_value(r["kind"], r["excess"]) for r in rows]
     wins = sum(1 for e in excess if e > 0)
     return {"n": n, "hit": 100.0 * wins / n,
             "avg_excess": sum(excess) / n,
@@ -237,7 +260,9 @@ def report(dry: bool = False) -> int:
     modules = sorted({r["module"] for r in rows})
     L = ["📊 <b>Larmlogg – scorecard</b>",
          "<i>Framåtblickande avkastning mot index, out-of-sample. "
-         "Överavkastning &gt; 0 = signalen tillförde värde.</i>", ""]
+         "Överavkastning &gt; 0 = signalen tillförde värde. För säljsignaler "
+         "(nedsidesvakten) är tecknet vänt: ett fall efter varningen = träff. "
+         "Rå avkastning visas alltid osminkad.</i>", ""]
     for m in modules:
         L.append(f"<b>{m}</b>")
         for h in HORIZONS:

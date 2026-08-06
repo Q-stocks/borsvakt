@@ -49,6 +49,7 @@ stocks:
   regime_filter: true
   momentum_gate: allpos               # vakt på nya köp: off|trend|m12|allpos. allpos (3/6/12 alla>0) bäst i backtest: +1,6pp, Sharpe 0,90→0,99, maxDD −52→−41%; rensar TOBII-typer
   momentum_cap: 10.0                  # övre tak på 12m-avkastning för NYA köp (10.0=+1000%); blow-off-försäkring, banding behåller befintliga. null=av. Backtest: taket höjer ej R/R, +1000%≈gratis, snävare=F-score-fällan
+  min_daily_turnover: 250000          # likviditetsgrind på NYA köp: median dagsomsättning (SEK/USD) senaste 6 mån. 2026-08: bara GRANGX (0 kr, 12 nollmånader) faller bort av 326 i sverige_broad -> grinden är nästan gratis men stoppar ohandelsbara namn. Serier utan handel på ett halvår plockas dessutom UR portföljen
   universe_from_quality: false        # ingen Börsdata-fundamenta-fil tillgänglig
   quality_top_pct: 50                 # F-score-filter: behåll topp 50 % (aktiveras när data/fundamenta_sverige.csv finns)
   ticker_column: Ticker
