@@ -340,3 +340,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-05T13:45:46+00:00,2026-08-05,scanner,NVDA,volume_spike,US,219.2100,"{""rvol"": 4.4, ""pct"": 3.4}"
 2026-08-05T21:41:08+00:00,2026-08-05,pead,LUG.ST,entry,SE,588.2000,"{""surprise"": null, ""reaction"": 9.252332377405503}"
 2026-08-05T21:41:09+00:00,2026-08-05,pead,LUMI.ST,entry,SE,262.6000,"{""surprise"": null, ""reaction"": 6.124385215374617}"
+2026-08-06T07:01:13+00:00,2026-08-06,scanner,GRANGX.ST,big_move,SE,40.8500,"{""pct"": 256.5}"
+2026-08-06T07:01:15+00:00,2026-08-06,scanner,SIVE.ST,big_move,SE,33.7600,"{""pct"": -8.9}"
