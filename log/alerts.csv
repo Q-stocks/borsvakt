@@ -351,3 +351,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-07T00:37:03+00:00,2026-08-07,pead,BKNG,entry,US,207.3900,"{""surprise"": 4.49, ""reaction"": 5.8260235858833775}"
 2026-08-07T07:01:12+00:00,2026-08-07,scanner,GRANGX.ST,big_move,SE,42.7000,"{""pct"": 272.6}"
 2026-08-07T07:01:13+00:00,2026-08-07,scanner,SIVE.ST,big_move,SE,36.7800,"{""pct"": 8.3}"
+2026-08-07T07:30:58+00:00,2026-08-07,scanner,SPRINT.ST,volume_spike,SE,3.3100,"{""rvol"": 5.9, ""pct"": -4.9}"
+2026-08-07T07:30:59+00:00,2026-08-07,scanner,SINCH.ST,volume_spike,SE,42.2500,"{""rvol"": 4.0, ""pct"": 2.4}"
