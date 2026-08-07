@@ -106,19 +106,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-08-05"
+      "updated": "2026-08-07"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-05"
+      "updated": "2026-08-07"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-05"
+      "updated": "2026-08-07"
     }
   },
   "stock_portfolio": {
@@ -256,7 +256,9 @@
       "0000789019-26-000058",
       "0000789019-26-000057",
       "0000789019-26-000137",
-      "0000789019-26-000139"
+      "0000789019-26-000139",
+      "0000789019-26-000143",
+      "0000789019-26-000141"
     ],
     "NVDA": [
       "0001243821-26-000005",
@@ -524,6 +526,36 @@
         "surprise": 18.51,
         "reaction": 28.926550620354092,
         "entry_logged": "2026-08-04"
+      },
+      "MRK": {
+        "report": "2026-08-04",
+        "surprise": 49.43,
+        "reaction": -1.1613487764241315,
+        "entry_logged": "2026-08-07"
+      },
+      "CAT": {
+        "report": "2026-08-04",
+        "surprise": 31.83,
+        "reaction": 3.3459623342220635,
+        "entry_logged": "2026-08-07"
+      },
+      "AMGN": {
+        "report": "2026-08-04",
+        "surprise": 11.97,
+        "reaction": 6.044140274735166,
+        "entry_logged": "2026-08-07"
+      },
+      "PFE": {
+        "report": "2026-08-04",
+        "surprise": 12.87,
+        "reaction": 1.516615128677934,
+        "entry_logged": "2026-08-07"
+      },
+      "BKNG": {
+        "report": "2026-08-04",
+        "surprise": 4.49,
+        "reaction": 5.8260235858833775,
+        "entry_logged": "2026-08-07"
       }
     },
     "Sverige": {

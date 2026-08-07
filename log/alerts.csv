@@ -344,3 +344,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-06T07:01:15+00:00,2026-08-06,scanner,SIVE.ST,big_move,SE,33.7600,"{""pct"": -8.9}"
 2026-08-06T07:15:43+00:00,2026-08-06,scanner,LUMI.ST,volume_spike,SE,252.7000,"{""rvol"": 5.7, ""pct"": 2.1}"
 2026-08-06T07:31:11+00:00,2026-08-06,scanner,SPRINT.ST,volume_spike,SE,3.4200,"{""rvol"": 4.9, ""pct"": -5.0}"
+2026-08-07T00:36:46+00:00,2026-08-07,pead,MRK,entry,US,128.3700,"{""surprise"": 49.43, ""reaction"": -1.1613487764241315}"
+2026-08-07T00:36:56+00:00,2026-08-07,pead,CAT,entry,US,856.9600,"{""surprise"": 31.83, ""reaction"": 3.3459623342220635}"
+2026-08-07T00:36:58+00:00,2026-08-07,pead,AMGN,entry,US,404.8500,"{""surprise"": 11.97, ""reaction"": 6.044140274735166}"
+2026-08-07T00:37:00+00:00,2026-08-07,pead,PFE,entry,US,26.2000,"{""surprise"": 12.87, ""reaction"": 1.516615128677934}"
+2026-08-07T00:37:03+00:00,2026-08-07,pead,BKNG,entry,US,207.3900,"{""surprise"": 4.49, ""reaction"": 5.8260235858833775}"
