@@ -367,3 +367,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-10T07:15:50+00:00,2026-08-10,scanner,SPRINT.ST,volume_spike,SE,3.5600,"{""rvol"": 5.3, ""pct"": 1.7}"
 2026-08-10T07:31:03+00:00,2026-08-10,scanner,SINCH.ST,volume_spike,SE,43.0300,"{""rvol"": 3.2, ""pct"": -2.6}"
 2026-08-10T13:45:49+00:00,2026-08-10,scanner,AAPL,volume_spike,US,306.1000,"{""rvol"": 3.0, ""pct"": -2.3}"
+2026-08-10T13:56:28+00:00,2026-08-10,scanner,CSCO,volume_spike,US,123.5600,"{""rvol"": 3.0, ""pct"": 1.8}"
