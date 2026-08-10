@@ -107,19 +107,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-08-07"
+      "updated": "2026-08-10"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-07"
+      "updated": "2026-08-10"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-07"
+      "updated": "2026-08-10"
     }
   },
   "stock_portfolio": {
@@ -582,6 +582,12 @@
         "surprise": 10.26,
         "reaction": 1.7832288558331744,
         "entry_logged": "2026-08-07"
+      },
+      "BRK-B": {
+        "report": "2026-08-08",
+        "surprise": 17.4,
+        "reaction": 1.4900704002830834,
+        "entry_logged": "2026-08-10"
       }
     },
     "Sverige": {
@@ -890,35 +896,17 @@
         "surprise": null,
         "reaction": 6.124385215374617,
         "entry_logged": "2026-08-05"
+      },
+      "YUBICO.ST": {
+        "report": "2026-08-06",
+        "surprise": null,
+        "reaction": 40.04483936807337,
+        "entry_logged": "2026-08-10"
       }
     }
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "ABB.ST:sma50:2026-W31": true,
-    "ACAST.ST:sma50:2026-W31": true,
-    "ACCON.ST:sma50:2026-W31": true,
-    "AMD:sma50:2026-W31": true,
-    "AVGO:sma50:2026-W31": true,
-    "BOL.ST:sma200:2026-W31": true,
-    "CAT:sma50:2026-W31": true,
-    "CSCO:sma50:2026-W31": true,
-    "EPIS-B.ST:sma200:2026-W31": true,
-    "GOOGL:sma50:2026-W31": true,
-    "HTRO.ST:sma50:2026-W31": true,
-    "INSTAL.ST:sma50:2026-W31": true,
-    "NCAB.ST:sma50:2026-W31": true,
-    "NOKIA-SEK.ST:sma50:2026-W31": true,
-    "ORRON.ST:sma50:2026-W31": true,
-    "QCOM:sma50:2026-W31": true,
-    "SAND.ST:sma50:2026-W31": true,
-    "SIVE.ST:sma50:2026-W31": true,
-    "SPRINT.ST:sma50:2026-W31": true,
-    "TXN:sma50:2026-W31": true,
-    "GS:sma50:2026-W31": true,
-    "MS:sma50:2026-W31": true,
-    "QCOM:sma200:2026-W31": true,
-    "CHEF.ST:sma50:2026-W31": true,
     "ACAST.ST:sma50:2026-W32": true,
     "ACCON.ST:sma50:2026-W32": true,
     "AMD:sma50:2026-W32": true,
@@ -937,7 +925,21 @@
     "SPRINT.ST:sma50:2026-W32": true,
     "TXN:sma50:2026-W32": true,
     "UNH:sma50:2026-W32": true,
-    "GOOGL:sma50:2026-W32": true
+    "GOOGL:sma50:2026-W32": true,
+    "ACAST.ST:sma50:2026-W33": true,
+    "ACCON.ST:sma50:2026-W33": true,
+    "AMD:sma50:2026-W33": true,
+    "CAT:sma50:2026-W33": true,
+    "CHEF.ST:sma50:2026-W33": true,
+    "GS:sma50:2026-W33": true,
+    "HTRO.ST:sma50:2026-W33": true,
+    "INSTAL.ST:sma50:2026-W33": true,
+    "NOKIA-SEK.ST:sma50:2026-W33": true,
+    "SIVE.ST:sma50:2026-W33": true,
+    "SOBI.ST:sma50:2026-W33": true,
+    "SPRINT.ST:sma50:2026-W33": true,
+    "TXN:sma50:2026-W33": true,
+    "UNH:sma50:2026-W33": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
