@@ -365,3 +365,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-10T07:01:14+00:00,2026-08-10,scanner,SIVE.ST,big_move,SE,43.8400,"{""pct"": 8.5}"
 2026-08-10T07:15:49+00:00,2026-08-10,scanner,SIVE.ST,volume_spike,SE,46.0200,"{""rvol"": 3.4, ""pct"": 13.9}"
 2026-08-10T07:15:50+00:00,2026-08-10,scanner,SPRINT.ST,volume_spike,SE,3.5600,"{""rvol"": 5.3, ""pct"": 1.7}"
+2026-08-10T07:31:03+00:00,2026-08-10,scanner,SINCH.ST,volume_spike,SE,43.0300,"{""rvol"": 3.2, ""pct"": -2.6}"
