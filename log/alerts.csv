@@ -363,3 +363,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-07T22:07:42+00:00,2026-08-07,breakout,YUBICO.ST,breakout,SE,86.0000,"{""rvol"": 19.8, ""run_up"": 0.537}"
 2026-08-10T07:01:14+00:00,2026-08-10,scanner,GRANGX.ST,big_move,SE,46.6500,"{""pct"": 307.1}"
 2026-08-10T07:01:14+00:00,2026-08-10,scanner,SIVE.ST,big_move,SE,43.8400,"{""pct"": 8.5}"
+2026-08-10T07:15:49+00:00,2026-08-10,scanner,SIVE.ST,volume_spike,SE,46.0200,"{""rvol"": 3.4, ""pct"": 13.9}"
+2026-08-10T07:15:50+00:00,2026-08-10,scanner,SPRINT.ST,volume_spike,SE,3.5600,"{""rvol"": 5.3, ""pct"": 1.7}"
