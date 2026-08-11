@@ -386,3 +386,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-10T21:56:35+00:00,2026-08-10,exits,UNH,ma50_break,US,408.7400,"{""sma50"": 412.8255, ""sma200"": 343.1523, ""dd_pct"": -6.33}"
 2026-08-11T07:01:08+00:00,2026-08-11,scanner,GRANGX.ST,big_move,SE,44.7500,"{""pct"": 290.5}"
 2026-08-11T07:01:09+00:00,2026-08-11,scanner,SIVE.ST,big_move,SE,43.5600,"{""pct"": 7.8}"
+2026-08-11T08:31:14+00:00,2026-08-11,scanner,MORROW.ST,volume_spike,SE,13.1600,"{""rvol"": 6.4, ""pct"": 2.0}"
