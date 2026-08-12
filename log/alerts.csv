@@ -393,3 +393,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-12T07:15:57+00:00,2026-08-12,scanner,NOKIA-SEK.ST,volume_spike,SE,94.2400,"{""rvol"": 4.0, ""pct"": 6.9}"
 2026-08-12T08:31:00+00:00,2026-08-12,scanner,SIVE.ST,big_move,SE,44.7600,"{""pct"": 7.6}"
 2026-08-12T09:15:52+00:00,2026-08-12,scanner,SPRINT.ST,volume_spike,SE,3.4400,"{""rvol"": 4.7, ""pct"": 2.4}"
+2026-08-12T22:10:35+00:00,2026-08-12,breakout,SEYE.ST,breakout,SE,97.9500,"{""rvol"": 7.2, ""run_up"": 0.338}"
