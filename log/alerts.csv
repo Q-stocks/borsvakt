@@ -402,3 +402,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-13T07:31:06+00:00,2026-08-13,scanner,MVIR.ST,volume_spike,SE,1.7580,"{""rvol"": 3.3, ""pct"": -3.5}"
 2026-08-13T09:15:44+00:00,2026-08-13,scanner,SPRINT.ST,volume_spike,SE,3.3300,"{""rvol"": 3.0, ""pct"": 3.1}"
 2026-08-13T13:31:06+00:00,2026-08-13,scanner,CSCO,volume_spike,US,113.8900,"{""rvol"": 4.3, ""pct"": -8.1}"
+2026-08-13T22:00:35+00:00,2026-08-13,pead,MER.ST,entry,SE,15.0000,"{""surprise"": null, ""reaction"": 7.571835367127178}"
+2026-08-13T22:00:39+00:00,2026-08-13,exits,CSCO,ma50_break,US,113.4700,"{""sma50"": 117.5297, ""sma200"": 91.1718, ""dd_pct"": -12.39}"
