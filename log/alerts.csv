@@ -400,3 +400,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-13T07:15:48+00:00,2026-08-13,scanner,MORROW.ST,volume_spike,SE,13.7600,"{""rvol"": 10.5, ""pct"": 3.1}"
 2026-08-13T07:15:49+00:00,2026-08-13,scanner,INDU-A.ST,volume_spike,SE,537.0000,"{""rvol"": 3.4, ""pct"": -1.9}"
 2026-08-13T07:31:06+00:00,2026-08-13,scanner,MVIR.ST,volume_spike,SE,1.7580,"{""rvol"": 3.3, ""pct"": -3.5}"
+2026-08-13T09:15:44+00:00,2026-08-13,scanner,SPRINT.ST,volume_spike,SE,3.3300,"{""rvol"": 3.0, ""pct"": 3.1}"
