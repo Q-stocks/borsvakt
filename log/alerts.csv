@@ -413,3 +413,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-14T07:15:54+00:00,2026-08-14,scanner,SINCH.ST,volume_spike,SE,44.5300,"{""rvol"": 4.8, ""pct"": 4.8}"
 2026-08-14T07:31:02+00:00,2026-08-14,scanner,MORROW.ST,volume_spike,SE,14.1200,"{""rvol"": 3.2, ""pct"": 4.6}"
 2026-08-14T07:31:04+00:00,2026-08-14,scanner,INDU-A.ST,volume_spike,SE,520.5000,"{""rvol"": 3.2, ""pct"": -4.3}"
+2026-08-14T14:01:11+00:00,2026-08-14,scanner,CSCO,volume_spike,US,111.4400,"{""rvol"": 3.2, ""pct"": -1.8}"
