@@ -411,3 +411,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-14T07:15:51+00:00,2026-08-14,scanner,LUMI.ST,volume_spike,SE,236.8000,"{""rvol"": 4.4, ""pct"": -6.8}"
 2026-08-14T07:15:53+00:00,2026-08-14,scanner,SPRINT.ST,volume_spike,SE,3.4800,"{""rvol"": 5.8, ""pct"": 7.7}"
 2026-08-14T07:15:54+00:00,2026-08-14,scanner,SINCH.ST,volume_spike,SE,44.5300,"{""rvol"": 4.8, ""pct"": 4.8}"
+2026-08-14T07:31:02+00:00,2026-08-14,scanner,MORROW.ST,volume_spike,SE,14.1200,"{""rvol"": 3.2, ""pct"": 4.6}"
+2026-08-14T07:31:04+00:00,2026-08-14,scanner,INDU-A.ST,volume_spike,SE,520.5000,"{""rvol"": 3.2, ""pct"": -4.3}"
