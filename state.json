@@ -102,19 +102,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-08-13"
+      "updated": "2026-08-14"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-13"
+      "updated": "2026-08-14"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-13"
+      "updated": "2026-08-14"
     }
   },
   "stock_portfolio": {
@@ -208,7 +208,8 @@
       "0002078476-25-000003",
       "0001214156-25-000009",
       "0001462356-25-000008",
-      "0001214128-25-000005"
+      "0001214128-25-000005",
+      "0001140361-26-032884"
     ],
     "MSFT": [
       "0000789019-26-000135",
@@ -905,6 +906,36 @@
         "surprise": null,
         "reaction": 7.571835367127178,
         "entry_logged": "2026-08-13"
+      },
+      "BTS-B.ST": {
+        "report": "2026-08-14",
+        "surprise": null,
+        "reaction": 5.601358498479259,
+        "entry_logged": "2026-08-14"
+      },
+      "EMBRAC-B.ST": {
+        "report": "2026-08-13",
+        "surprise": null,
+        "reaction": 13.338336508788242,
+        "entry_logged": "2026-08-14"
+      },
+      "HAYPP.ST": {
+        "report": "2026-08-13",
+        "surprise": null,
+        "reaction": 5.173511346147941,
+        "entry_logged": "2026-08-14"
+      },
+      "NYAB.ST": {
+        "report": "2026-08-13",
+        "surprise": null,
+        "reaction": 6.5287592719719845,
+        "entry_logged": "2026-08-14"
+      },
+      "VISC.ST": {
+        "report": "2026-08-13",
+        "surprise": null,
+        "reaction": 9.362957750281687,
+        "entry_logged": "2026-08-14"
       }
     }
   },
@@ -945,7 +976,11 @@
     "UNH:sma50:2026-W33": true,
     "GOOGL:sma50:2026-W33": true,
     "MS:sma50:2026-W33": true,
-    "CSCO:sma50:2026-W33": true
+    "CSCO:sma50:2026-W33": true,
+    "INDU-A.ST:sma50:2026-W33": true,
+    "INDU-C.ST:sma50:2026-W33": true,
+    "LUMI.ST:sma50:2026-W33": true,
+    "MVIR.ST:sma50:2026-W33": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
