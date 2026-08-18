@@ -448,3 +448,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-17T21:47:33+00:00,2026-08-17,exits,UNH,ma50_break,US,395.6200,"{""sma50"": 414.8952, ""sma200"": 344.2633, ""dd_pct"": -9.33}"
 2026-08-18T07:01:12+00:00,2026-08-18,scanner,BOOZT.ST,big_move,SE,138.3000,"{""pct"": -7.6}"
 2026-08-18T07:01:14+00:00,2026-08-18,scanner,SIVE.ST,big_move,SE,38.7600,"{""pct"": -6.2}"
+2026-08-18T07:31:05+00:00,2026-08-18,scanner,BOOZT.ST,volume_spike,SE,141.6000,"{""rvol"": 4.3, ""pct"": -5.4}"
