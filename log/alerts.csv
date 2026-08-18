@@ -450,3 +450,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-18T07:01:14+00:00,2026-08-18,scanner,SIVE.ST,big_move,SE,38.7600,"{""pct"": -6.2}"
 2026-08-18T07:31:05+00:00,2026-08-18,scanner,BOOZT.ST,volume_spike,SE,141.6000,"{""rvol"": 4.3, ""pct"": -5.4}"
 2026-08-18T08:01:14+00:00,2026-08-18,scanner,MORROW.ST,volume_spike,SE,13.7000,"{""rvol"": 3.1, ""pct"": -3.1}"
+2026-08-18T13:28:35+00:00,2026-08-18,scanner,NOKIA-SEK.ST,big_move,SE,98.8800,"{""pct"": -6.1}"
