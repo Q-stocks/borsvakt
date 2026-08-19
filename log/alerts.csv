@@ -457,3 +457,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-19T07:01:20+00:00,2026-08-19,scanner,SIVE.ST,big_move,SE,34.3600,"{""pct"": -16.0}"
 2026-08-19T07:15:45+00:00,2026-08-19,scanner,SIVE.ST,volume_spike,SE,34.4000,"{""rvol"": 3.0, ""pct"": -15.9}"
 2026-08-19T13:31:20+00:00,2026-08-19,scanner,MRK,volume_spike,US,146.5800,"{""rvol"": 7.8, ""pct"": 8.4}"
+2026-08-19T13:45:50+00:00,2026-08-19,scanner,LLY,volume_spike,US,1285.4800,"{""rvol"": 6.2, ""pct"": 4.9}"
