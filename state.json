@@ -103,19 +103,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-08-18"
+      "updated": "2026-08-19"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-18"
+      "updated": "2026-08-19"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-18"
+      "updated": "2026-08-19"
     }
   },
   "stock_portfolio": {
@@ -944,6 +944,24 @@
         "surprise": null,
         "reaction": 6.967346253360285,
         "entry_logged": "2026-08-17"
+      },
+      "AMBEA.ST": {
+        "report": "2026-08-19",
+        "surprise": null,
+        "reaction": 13.501161092577464,
+        "entry_logged": "2026-08-19"
+      },
+      "BICO.ST": {
+        "report": "2026-08-19",
+        "surprise": null,
+        "reaction": 13.215912035199851,
+        "entry_logged": "2026-08-19"
+      },
+      "SUS.ST": {
+        "report": "2026-08-19",
+        "surprise": null,
+        "reaction": 24.73235362307078,
+        "entry_logged": "2026-08-19"
       }
     }
   },
@@ -987,7 +1005,11 @@
     "SPRINT.ST:sma50:2026-W34": true,
     "TXN:sma50:2026-W34": true,
     "UNH:sma50:2026-W34": true,
-    "LUMI.ST:sma50:2026-W34": true
+    "LUMI.ST:sma50:2026-W34": true,
+    "CHEF.ST:sma50:2026-W34": true,
+    "HTRO.ST:sma50:2026-W34": true,
+    "MS:sma50:2026-W34": true,
+    "MYCR.ST:sma50:2026-W34": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -1010,6 +1032,8 @@
     "DXCM:2026-07-31": true,
     "GEN:2026-08-07": true,
     "YUBICO.ST:2026-08-06": true,
-    "SEYE.ST:2026-08-11": true
+    "SEYE.ST:2026-08-11": true,
+    "HUM.ST:2026-08-19": true,
+    "SYNACT.ST:2026-08-19": true
   }
 }
