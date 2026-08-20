@@ -109,19 +109,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-08-19"
+      "updated": "2026-08-20"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-19"
+      "updated": "2026-08-20"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-19"
+      "updated": "2026-08-20"
     }
   },
   "stock_portfolio": {
@@ -594,6 +594,12 @@
         "surprise": 17.4,
         "reaction": 1.4900704002830834,
         "entry_logged": "2026-08-10"
+      },
+      "WMT": {
+        "report": "2026-08-20",
+        "surprise": 9.27,
+        "reaction": -8.311372373308256,
+        "entry_logged": "2026-08-20"
       }
     },
     "Sverige": {
@@ -968,6 +974,30 @@
         "surprise": null,
         "reaction": 24.73235362307078,
         "entry_logged": "2026-08-19"
+      },
+      "ACE.ST": {
+        "report": "2026-08-20",
+        "surprise": null,
+        "reaction": 6.8251354389345265,
+        "entry_logged": "2026-08-20"
+      },
+      "CANTA.ST": {
+        "report": "2026-08-19",
+        "surprise": null,
+        "reaction": 8.083432161072167,
+        "entry_logged": "2026-08-20"
+      },
+      "KAR.ST": {
+        "report": "2026-08-20",
+        "surprise": null,
+        "reaction": 10.202479745444993,
+        "entry_logged": "2026-08-20"
+      },
+      "MVIR.ST": {
+        "report": "2026-08-20",
+        "surprise": null,
+        "reaction": 9.611583977330152,
+        "entry_logged": "2026-08-20"
       }
     }
   },
@@ -1015,7 +1045,10 @@
     "CHEF.ST:sma50:2026-W34": true,
     "HTRO.ST:sma50:2026-W34": true,
     "MS:sma50:2026-W34": true,
-    "MYCR.ST:sma50:2026-W34": true
+    "MYCR.ST:sma50:2026-W34": true,
+    "ACCON.ST:drawdown:2026-W34": true,
+    "SSAB-A.ST:sma50:2026-W34": true,
+    "SSAB-B.ST:sma50:2026-W34": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -1040,6 +1073,7 @@
     "YUBICO.ST:2026-08-06": true,
     "SEYE.ST:2026-08-11": true,
     "HUM.ST:2026-08-19": true,
-    "SYNACT.ST:2026-08-19": true
+    "SYNACT.ST:2026-08-19": true,
+    "HUM.ST:2026-08-20": true
   }
 }
