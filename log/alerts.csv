@@ -467,3 +467,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-19T21:38:06+00:00,2026-08-19,exits,MYCR.ST,ma50_break,SE,314.2000,"{""sma50"": 316.296, ""sma200"": 251.1414, ""dd_pct"": -10.33}"
 2026-08-19T21:39:02+00:00,2026-08-19,breakout,HUM.ST,breakout,SE,69.2000,"{""rvol"": 5.2, ""run_up"": 0.456}"
 2026-08-19T21:39:02+00:00,2026-08-19,breakout,SYNACT.ST,breakout,SE,21.4500,"{""rvol"": 3.1, ""run_up"": 1.76}"
+2026-08-20T07:03:42+00:00,2026-08-20,scanner,GRANGX.ST,big_move,SE,45.9000,"{""pct"": 8.1}"
+2026-08-20T07:03:44+00:00,2026-08-20,scanner,ACCON.ST,volume_spike,SE,17.3600,"{""rvol"": 5.0, ""pct"": 8.2}"
