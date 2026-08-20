@@ -471,3 +471,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-20T07:03:44+00:00,2026-08-20,scanner,ACCON.ST,volume_spike,SE,17.3600,"{""rvol"": 5.0, ""pct"": 8.2}"
 2026-08-20T07:15:48+00:00,2026-08-20,scanner,SSAB-B.ST,volume_spike,SE,99.1400,"{""rvol"": 5.5, ""pct"": -6.0}"
 2026-08-20T07:15:49+00:00,2026-08-20,scanner,SSAB-A.ST,volume_spike,SE,98.2200,"{""rvol"": 5.3, ""pct"": -6.2}"
+2026-08-20T07:31:01+00:00,2026-08-20,scanner,HTRO.ST,big_move,SE,37.8800,"{""pct"": -6.1}"
+2026-08-20T07:31:02+00:00,2026-08-20,scanner,MVIR.ST,volume_spike,SE,1.7900,"{""rvol"": 5.4, ""pct"": 8.1}"
+2026-08-20T07:31:03+00:00,2026-08-20,scanner,BOOZT.ST,volume_spike,SE,146.0000,"{""rvol"": 3.3, ""pct"": 2.0}"
+2026-08-20T07:31:04+00:00,2026-08-20,scanner,SPRINT.ST,volume_spike,SE,3.2500,"{""rvol"": 7.7, ""pct"": -1.8}"
