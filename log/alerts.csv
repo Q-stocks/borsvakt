@@ -496,3 +496,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-21T07:30:56+00:00,2026-08-21,scanner,MVIR.ST,volume_spike,SE,1.9480,"{""rvol"": 4.4, ""pct"": 15.3}"
 2026-08-21T07:30:57+00:00,2026-08-21,scanner,ACCON.ST,volume_spike,SE,17.2800,"{""rvol"": 3.4, ""pct"": 7.3}"
 2026-08-21T07:30:58+00:00,2026-08-21,scanner,SSAB-B.ST,volume_spike,SE,96.8000,"{""rvol"": 3.2, ""pct"": -7.6}"
+2026-08-21T11:01:11+00:00,2026-08-21,scanner,SIVE.ST,big_move,SE,37.3200,"{""pct"": 6.3}"
