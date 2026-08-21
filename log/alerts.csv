@@ -486,3 +486,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-20T21:41:05+00:00,2026-08-20,exits,SSAB-A.ST,ma50_break,SE,94.5000,"{""sma50"": 98.4816, ""sma200"": 80.5121, ""dd_pct"": -12.26}"
 2026-08-20T21:41:06+00:00,2026-08-20,exits,SSAB-B.ST,ma50_break,SE,95.1200,"{""sma50"": 98.393, ""sma200"": 79.9485, ""dd_pct"": -12.25}"
 2026-08-20T21:42:27+00:00,2026-08-20,breakout,HUM.ST,breakout,SE,71.4000,"{""rvol"": 5.3, ""run_up"": 0.456}"
+2026-08-21T07:01:16+00:00,2026-08-21,scanner,SSAB-B.ST,big_move,SE,96.2800,"{""pct"": -8.1}"
+2026-08-21T07:01:17+00:00,2026-08-21,scanner,SPRINT.ST,big_move,SE,3.0800,"{""pct"": -6.4}"
+2026-08-21T07:01:18+00:00,2026-08-21,scanner,SSAB-A.ST,big_move,SE,95.6600,"{""pct"": -7.9}"
+2026-08-21T07:01:18+00:00,2026-08-21,scanner,MVIR.ST,big_move,SE,1.9100,"{""pct"": 13.0}"
