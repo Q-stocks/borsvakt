@@ -497,3 +497,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-21T07:30:57+00:00,2026-08-21,scanner,ACCON.ST,volume_spike,SE,17.2800,"{""rvol"": 3.4, ""pct"": 7.3}"
 2026-08-21T07:30:58+00:00,2026-08-21,scanner,SSAB-B.ST,volume_spike,SE,96.8000,"{""rvol"": 3.2, ""pct"": -7.6}"
 2026-08-21T11:01:11+00:00,2026-08-21,scanner,SIVE.ST,big_move,SE,37.3200,"{""pct"": 6.3}"
+2026-08-21T21:46:13+00:00,2026-08-21,pead,EGTX.ST,entry,SE,7.3300,"{""surprise"": null, ""reaction"": 6.750386935322572}"
+2026-08-21T21:46:14+00:00,2026-08-21,pead,NIBE-B.ST,entry,SE,41.9900,"{""surprise"": null, ""reaction"": 7.76685004024249}"
+2026-08-21T21:46:16+00:00,2026-08-21,pead,SYNSAM.ST,entry,SE,60.2000,"{""surprise"": null, ""reaction"": 6.456274796168882}"
