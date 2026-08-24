@@ -506,3 +506,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-24T07:45:45+00:00,2026-08-24,scanner,BOOZT.ST,volume_spike,SE,154.3000,"{""rvol"": 3.2, ""pct"": 1.6}"
 2026-08-24T07:45:46+00:00,2026-08-24,scanner,SPRINT.ST,volume_spike,SE,3.0800,"{""rvol"": 4.5, ""pct"": -2.8}"
 2026-08-24T07:45:48+00:00,2026-08-24,scanner,SWED-A.ST,volume_spike,SE,367.4000,"{""rvol"": 3.0, ""pct"": -1.7}"
+2026-08-24T13:58:53+00:00,2026-08-24,scanner,SIVE.ST,big_move,SE,33.7800,"{""pct"": -7.5}"
+2026-08-24T13:58:57+00:00,2026-08-24,scanner,HOFI.ST,volume_spike,SE,214.6000,"{""rvol"": 3.4, ""pct"": 1.6}"
