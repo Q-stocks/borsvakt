@@ -503,3 +503,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-24T07:02:06+00:00,2026-08-24,scanner,SSAB-B.ST,volume_spike,SE,101.6500,"{""rvol"": 3.3, ""pct"": 4.3}"
 2026-08-24T07:02:08+00:00,2026-08-24,scanner,SSAB-A.ST,volume_spike,SE,101.2000,"{""rvol"": 4.0, ""pct"": 4.4}"
 2026-08-24T07:15:49+00:00,2026-08-24,scanner,MVIR.ST,volume_spike,SE,1.8300,"{""rvol"": 4.9, ""pct"": -3.7}"
+2026-08-24T07:45:45+00:00,2026-08-24,scanner,BOOZT.ST,volume_spike,SE,154.3000,"{""rvol"": 3.2, ""pct"": 1.6}"
+2026-08-24T07:45:46+00:00,2026-08-24,scanner,SPRINT.ST,volume_spike,SE,3.0800,"{""rvol"": 4.5, ""pct"": -2.8}"
+2026-08-24T07:45:48+00:00,2026-08-24,scanner,SWED-A.ST,volume_spike,SE,367.4000,"{""rvol"": 3.0, ""pct"": -1.7}"
