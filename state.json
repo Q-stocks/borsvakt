@@ -111,19 +111,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-24"
+      "updated": "2026-08-25"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-08-24"
+      "updated": "2026-08-25"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-08-24"
+      "updated": "2026-08-25"
     }
   },
   "stock_portfolio": {
@@ -1026,6 +1026,12 @@
         "surprise": null,
         "reaction": 8.206071307005313,
         "entry_logged": "2026-08-24"
+      },
+      "ZZ-B.ST": {
+        "report": "2026-08-25",
+        "surprise": null,
+        "reaction": 6.541544958096757,
+        "entry_logged": "2026-08-25"
       }
     }
   },
@@ -1101,6 +1107,7 @@
     "SEYE.ST:2026-08-11": true,
     "HUM.ST:2026-08-19": true,
     "SYNACT.ST:2026-08-19": true,
-    "HUM.ST:2026-08-20": true
+    "HUM.ST:2026-08-20": true,
+    "TERNOR.ST:2026-08-25": true
   }
 }

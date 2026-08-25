@@ -535,3 +535,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-25T07:31:01+00:00,2026-08-25,scanner,MVIR.ST,volume_spike,SE,1.8160,"{""rvol"": 3.5, ""pct"": -4.4}"
 2026-08-25T07:31:02+00:00,2026-08-25,scanner,HOFI.ST,volume_spike,SE,217.0000,"{""rvol"": 44.0, ""pct"": 2.7}"
 2026-08-25T08:15:52+00:00,2026-08-25,scanner,ACCON.ST,volume_spike,SE,17.9000,"{""rvol"": 4.5, ""pct"": 4.1}"
+2026-08-25T21:51:02+00:00,2026-08-25,pead,ZZ-B.ST,entry,SE,145.6000,"{""surprise"": null, ""reaction"": 6.541544958096757}"
+2026-08-25T21:52:22+00:00,2026-08-25,breakout,TERNOR.ST,breakout,SE,40.0000,"{""rvol"": 14.7, ""run_up"": 0.744}"
