@@ -546,3 +546,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-26T07:24:52+00:00,2026-08-26,scanner,SPRINT.ST,volume_spike,SE,3.1000,"{""rvol"": 5.1, ""pct"": -1.6}"
 2026-08-26T23:50:18+00:00,2026-08-26,pead,CRM,entry,US,205.6200,"{""surprise"": 80.38, ""reaction"": -0.05623691361151817}"
 2026-08-26T23:50:24+00:00,2026-08-26,pead,INTU,entry,US,345.8800,"{""surprise"": 12.34, ""reaction"": -6.840570776050137}"
+2026-08-27T07:01:13+00:00,2026-08-27,scanner,GRANGX.ST,big_move,SE,39.0000,"{""pct"": -6.7}"
