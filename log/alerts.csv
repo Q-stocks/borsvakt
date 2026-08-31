@@ -567,3 +567,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-31T07:01:13+00:00,2026-08-31,scanner,SIVE.ST,big_move,SE,28.2000,"{""pct"": -22.0}"
 2026-08-31T07:15:50+00:00,2026-08-31,scanner,SIVE.ST,volume_spike,SE,29.1200,"{""rvol"": 5.5, ""pct"": 6.6}"
 2026-08-31T07:30:59+00:00,2026-08-31,scanner,ACAST.ST,volume_spike,SE,34.3500,"{""rvol"": 3.2, ""pct"": -1.6}"
+2026-08-31T07:45:51+00:00,2026-08-31,scanner,GRANGX.ST,big_move,SE,35.2500,"{""pct"": -6.5}"
