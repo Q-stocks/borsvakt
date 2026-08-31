@@ -565,3 +565,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-08-28T07:15:43+00:00,2026-08-28,scanner,SINCH.ST,big_move,SE,48.2300,"{""pct"": 6.4}"
 2026-08-29T00:14:18+00:00,2026-08-29,pead,GOMX.ST,entry,SE,12.0400,"{""surprise"": null, ""reaction"": 7.8862348344157285}"
 2026-08-31T07:01:13+00:00,2026-08-31,scanner,SIVE.ST,big_move,SE,28.2000,"{""pct"": -22.0}"
+2026-08-31T07:15:50+00:00,2026-08-31,scanner,SIVE.ST,volume_spike,SE,29.1200,"{""rvol"": 5.5, ""pct"": 6.6}"
