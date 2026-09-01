@@ -610,3 +610,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-01T07:30:55+00:00,2026-09-01,scanner,ACCON.ST,big_move,SE,15.3000,"{""pct"": -6.9}"
 2026-09-01T07:30:56+00:00,2026-09-01,scanner,NOKIA-SEK.ST,volume_spike,SE,99.0600,"{""rvol"": 3.1, ""pct"": -1.7}"
 2026-09-01T07:30:58+00:00,2026-09-01,scanner,BURE.ST,volume_spike,SE,311.8000,"{""rvol"": 3.8, ""pct"": -4.6}"
+2026-09-01T07:45:44+00:00,2026-09-01,scanner,SIVE.ST,volume_spike,SE,26.3000,"{""rvol"": 3.1, ""pct"": -3.7}"
+2026-09-01T07:45:45+00:00,2026-09-01,scanner,HTRO.ST,volume_spike,SE,40.3300,"{""rvol"": 3.2, ""pct"": -3.1}"
