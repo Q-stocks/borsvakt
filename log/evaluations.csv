@@ -1392,3 +1392,4 @@ exits:SPRINT.ST:ma50_break:2026-08-24,exits,SPRINT.ST,ma50_break,2026-08-24,SE,5
 exits:SWED-A.ST:ma50_break:2026-08-24,exits,SWED-A.ST,ma50_break,2026-08-24,SE,5,nan,0.5573,nan
 exits:TXN:ma50_break:2026-08-24,exits,TXN,ma50_break,2026-08-24,US,5,0.7608,0.4689,0.2919
 exits:UNH:ma50_break:2026-08-24,exits,UNH,ma50_break,2026-08-24,US,5,-2.3448,0.4689,-2.8137
+pead:GOMX.ST:entry:2026-08-29,pead,GOMX.ST,entry,2026-08-29,SE,1,nan,0.0,nan
