@@ -620,3 +620,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-02T07:31:08+00:00,2026-09-02,scanner,MYCR.ST,volume_spike,SE,305.4000,"{""rvol"": 4.6, ""pct"": -6.3}"
 2026-09-02T10:30:58+00:00,2026-09-02,scanner,MORROW.ST,volume_spike,SE,15.1000,"{""rvol"": 4.7, ""pct"": 2.6}"
 2026-09-02T13:45:55+00:00,2026-09-02,scanner,JNJ,volume_spike,US,279.8600,"{""rvol"": 4.1, ""pct"": 3.2}"
+2026-09-02T21:58:57+00:00,2026-09-02,exits,HTRO.ST,ma50_break,SE,38.9400,"{""sma50"": 39.007, ""sma200"": 32.7023, ""dd_pct"": -14.27}"
+2026-09-02T21:59:00+00:00,2026-09-02,exits,MYCR.ST,ma50_break,SE,302.4000,"{""sma50"": 320.912, ""sma200"": 257.6004, ""dd_pct"": -13.7}"
+2026-09-02T21:59:52+00:00,2026-09-02,breakout,DELL,breakout,US,492.2000,"{""rvol"": 6.3, ""run_up"": 0.653}"
