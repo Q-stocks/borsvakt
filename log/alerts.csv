@@ -629,3 +629,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-03T08:15:46+00:00,2026-09-03,scanner,ACAST.ST,volume_spike,SE,35.1000,"{""rvol"": 12.6, ""pct"": 2.5}"
 2026-09-03T09:15:52+00:00,2026-09-03,scanner,TROAX.ST,big_move,SE,152.4000,"{""pct"": 7.0}"
 2026-09-03T13:45:46+00:00,2026-09-03,scanner,AMD,volume_spike,US,447.8600,"{""rvol"": 3.1, ""pct"": -2.0}"
+2026-09-03T21:48:22+00:00,2026-09-03,pead,CLAS-B.ST,entry,SE,474.6000,"{""surprise"": null, ""reaction"": 5.842419531187182}"
+2026-09-03T21:49:22+00:00,2026-09-03,breakout,BULTEN.ST,breakout,SE,69.7000,"{""rvol"": 4.1, ""run_up"": 0.427}"
