@@ -628,3 +628,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-03T07:16:41+00:00,2026-09-03,scanner,SIVE.ST,volume_spike,SE,23.9000,"{""rvol"": 7.3, ""pct"": -2.9}"
 2026-09-03T08:15:46+00:00,2026-09-03,scanner,ACAST.ST,volume_spike,SE,35.1000,"{""rvol"": 12.6, ""pct"": 2.5}"
 2026-09-03T09:15:52+00:00,2026-09-03,scanner,TROAX.ST,big_move,SE,152.4000,"{""pct"": 7.0}"
+2026-09-03T13:45:46+00:00,2026-09-03,scanner,AMD,volume_spike,US,447.8600,"{""rvol"": 3.1, ""pct"": -2.0}"
