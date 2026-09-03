@@ -627,3 +627,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-03T07:16:40+00:00,2026-09-03,scanner,NANEXA.ST,volume_spike,SE,5.7500,"{""rvol"": 6.2, ""pct"": -3.5}"
 2026-09-03T07:16:41+00:00,2026-09-03,scanner,SIVE.ST,volume_spike,SE,23.9000,"{""rvol"": 7.3, ""pct"": -2.9}"
 2026-09-03T08:15:46+00:00,2026-09-03,scanner,ACAST.ST,volume_spike,SE,35.1000,"{""rvol"": 12.6, ""pct"": 2.5}"
+2026-09-03T09:15:52+00:00,2026-09-03,scanner,TROAX.ST,big_move,SE,152.4000,"{""pct"": 7.0}"
