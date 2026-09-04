@@ -633,3 +633,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-03T21:49:22+00:00,2026-09-03,breakout,BULTEN.ST,breakout,SE,69.7000,"{""rvol"": 4.1, ""run_up"": 0.427}"
 2026-09-04T07:01:06+00:00,2026-09-04,scanner,TROAX.ST,big_move,SE,155.0000,"{""pct"": 8.8}"
 2026-09-04T07:01:09+00:00,2026-09-04,scanner,SIVE.ST,big_move,SE,27.1800,"{""pct"": 23.0}"
+2026-09-04T07:15:41+00:00,2026-09-04,scanner,SIVE.ST,volume_spike,SE,26.6200,"{""rvol"": 3.1, ""pct"": 20.5}"
+2026-09-04T07:15:42+00:00,2026-09-04,scanner,CLAS-B.ST,volume_spike,SE,461.8000,"{""rvol"": 6.0, ""pct"": 4.0}"
