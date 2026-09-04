@@ -636,3 +636,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-04T07:15:41+00:00,2026-09-04,scanner,SIVE.ST,volume_spike,SE,26.6200,"{""rvol"": 3.1, ""pct"": 20.5}"
 2026-09-04T07:15:42+00:00,2026-09-04,scanner,CLAS-B.ST,volume_spike,SE,461.8000,"{""rvol"": 6.0, ""pct"": 4.0}"
 2026-09-04T08:01:07+00:00,2026-09-04,scanner,MYCR.ST,volume_spike,SE,310.6000,"{""rvol"": 3.2, ""pct"": 2.7}"
+2026-09-04T09:01:12+00:00,2026-09-04,scanner,NANEXA.ST,volume_spike,SE,6.0400,"{""rvol"": 3.4, ""pct"": 3.8}"
