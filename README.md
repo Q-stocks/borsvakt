@@ -10,6 +10,17 @@ med Sharpe 4–5 på sociala medier är kurvanpassning, inte alfa. Värdet i
 ett sådant här system är bevakning + disciplin: du slipper stirra på
 börsen, och när något händer får du fakta i stället för puls.
 
+## Dokumentation
+
+| Fil | Vad den svarar på |
+|---|---|
+| `README.md` (denna) | Vad systemet gör och hur man kommer igång |
+| **`DRIFT.md`** | **Driftmanual:** hälsokoll, rutiner, felsökning, hur man ändrar säkert, vilka beslut som redan är fattade. Börja här om du ska ta över driften. |
+| `DEPLOY.md` | Hur det sattes upp (Telegram, secrets, Pages, hemskärm) |
+| `CLAUDE.md` | Varför koden ser ut som den gör: modulöversikt, designprinciper, kända fallgropar, backtest-slutsatser |
+| `PINGER.md` | Externa pingern som håller 15-minuterskadensen |
+| `BORSDATA-EXPORT.md` | Recept för de manuella kvartalsexporterna |
+
 ## Vad den larmar på
 
 | Larm | Logik | Varför |

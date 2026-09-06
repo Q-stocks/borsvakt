@@ -97,9 +97,14 @@ python -m venv .venv
 ## Schemalagda körningar (sköts av GitHub Actions)
 | Workflow | När | Gör |
 |---|---|---|
-| `scan.yml` | var 15:e min, börstid | volym/pris/PM/innehav + insiders |
-| `daily.yml` | 21:30 UTC vardagar | PEAD → lead-lag → nedsidesvakt → innehav → larmlogg → dashboard |
-| `monthly.yml` | 1:a varje månad | alla månadsstrategier + sektorer + regim + scorecard + dashboard |
+| `scan.yml` | var 15:e min, börstid (extern pinger + cron som backup) | schemavakt → volym/pris/PM/innehav |
+| `daily.yml` | ~04:00 UTC, dispatchad av schemavakten | PEAD → lead-lag → nedsidesvakt → sektortrend → breakout → insiders → innehav → larmlogg → dashboard |
+| `monthly.yml` | första skan ≥06:15 UTC den 1:a, dispatchad av schemavakten | alla månadsstrategier + sektorer + regim + scorecard + dashboard |
+
+⚠️ **daily.yml och monthly.yml har ingen egen cron** — GitHubs schemaläggare var
+opålitlig på det här repot, så `watchdog.py` i `scan.yml` är enda schemaläggaren.
+Se **`DRIFT.md`** för driftmanualen: hälsokoll, felsökning, hur man gör en ändring
+säkert och vilka beslut som redan är fattade.
 
 Viktigast på sikt: låt **larmloggen** samla skarp data några veckor — den är
 facit för om strategierna faktiskt fungerar, out-of-sample.
