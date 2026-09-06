@@ -6,9 +6,17 @@ gratis extern cron som triggar workflowen via GitHubs API (`workflow_dispatch`)
 på en pålitlig kadens. `scan.yml` har redan `workflow_dispatch:` aktiverat, så
 ingen kodändring behövs — bara stegen nedan.
 
-> **STATUS (2026-07-02): AKTIV OCH VERIFIERAD.** Pingern kör var 15:e minut,
-> vardagar ca 06:00–21:45 **svensk tid** (04:00–19:45 UTC). Skanningarna syns
-> som `workflow_dispatch`-händelser i Actions-fliken.
+> **STATUS (2026-07-02): AKTIV OCH VERIFIERAD.** Pingern kör var 15:e minut på
+> vardagar. Skanningarna syns som `workflow_dispatch`-händelser i Actions-fliken.
+>
+> ⚠️ **Tidszonen är inte dokumenterad, den är OBSERVERAD.** Denna fil har
+> tidigare påstått två olika scheman: "06:00–21:45 svensk tid (04:00–19:45 UTC)"
+> här, och `*/15 6-21 * * 1-5` i steg 2 nedan — det senare är 08:00–23:00 svensk
+> sommartid, alltså ett helt annat fönster. Observerade dispatchar 2026-09-04
+> slutade 19:45 UTC, vilket matchar det första. **Läs det faktiska schemat och
+> dess tidszon i cron-job.org vid övertagande** och rätta båda ställena här.
+> Svensk UTC-offset skiftar dessutom med sommar-/vintertid; ett schema satt i
+> UTC vandrar en timme mot börstiden två gånger om året.
 >
 > **Schemavakt (watchdog.py):** GitHubs cron var opålitlig även för daily/monthly
 > (körningar 10+ h sena eller uteblivna — månadskörningen 2026-07-01 uteblev
@@ -37,7 +45,9 @@ ingen kodändring behövs — bara stegen nedan.
 - Skapa konto på https://cron-job.org (gratis)
 - **Create cronjob:**
   - **URL:** `https://api.github.com/repos/Q-stocks/borsvakt/actions/workflows/scan.yml/dispatches`
-  - **Schedule:** var 15:e minut, vardagar 06–21 UTC (`*/15 6-21 * * 1-5`)
+  - **Schedule:** var 15:e minut, vardagar. Sätt fönstret medvetet och notera
+    tidszonen: `*/15 4-19 * * 1-5` **i UTC** motsvarar ca 06:00–21:45 svensk
+    sommartid (vintertid: en timme senare i svensk tid)
   - **Request method:** `POST`
   - **Request headers:**
     - `Accept: application/vnd.github+json`

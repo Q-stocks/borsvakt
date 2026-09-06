@@ -263,22 +263,46 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
         universe = [(r["ticker"], r["name"]) for r in have]
     else:
         # Väg B: hårdkodat universum + valfri separat kvalitetsfil.
+        # OBS: kvalitetsfiltret kräver en EGEN uttrycklig flagga. Tidigare räckte
+        # det att `quality_file` pekade på en fil som råkade finnas – och eftersom
+        # multifaktorn läser samma sorts export kunde en rutinimport tyst slå på
+        # ett filter som backtestet FÖRKASTAT (bred allpos +31 % -> +17 %).
         universe = load_universe(mkt["universe_file"])
-        q = load_quality(mkt.get("quality_file", ""),
-                         cfg_s.get("ticker_column", "Ticker"),
-                         cfg_s.get("quality_column", "Kvalitet"))
+        if not cfg_s.get("quality_filter_enabled", False):
+            quality_note = "av (quality_filter_enabled: false)"
+            q = None
+        else:
+            q = load_quality(mkt.get("quality_file", ""),
+                             cfg_s.get("ticker_column", "Ticker"),
+                             cfg_s.get("quality_column", "Kvalitet"))
+            quality_note = f"PÅ men ingen läsbar fil ({mkt.get('quality_file')})"
         if q:
             pct = float(cfg_s.get("quality_top_pct", 50))
             have = [(t, n) for t, n in universe if t.upper() in q]
-            have.sort(key=lambda tn: q[tn[0].upper()], reverse=True)
-            keep_n = max(1, math.ceil(len(have) * pct / 100.0))
-            universe = have[:keep_n]
-            quality_note = f"topp {pct:.0f} % av {len(have)} bolag ({mkt.get('quality_file')})"
+            # Tickerformat-vakt: Börsdata skriver "HTRO B", universumfilen
+            # "HTRO-B.ST". Matchar nästan inget är det ett FORMATFEL, inte ett
+            # kvalitetsurval – utan den här vakten blev universumet tomt och
+            # hela portföljen såldes ut på nästa rebalans.
+            if len(have) < max(1, len(universe) // 2):
+                quality_note = (f"HOPPAT ÖVER – bara {len(have)} av {len(universe)} tickrar "
+                                f"matchade {mkt.get('quality_file')} (ticker-format?)")
+            else:
+                have.sort(key=lambda tn: q[tn[0].upper()], reverse=True)
+                keep_n = max(1, math.ceil(len(have) * pct / 100.0))
+                universe = have[:keep_n]
+                quality_note = f"topp {pct:.0f} % av {len(have)} bolag ({mkt.get('quality_file')})"
 
     # 2–3) Momentumranking + banding
+    prev = list(state.setdefault("stock_portfolio", {}).get(name, []))
+    # Ägda innehav som inte (längre) finns i universumfilen MÅSTE ändå rankas.
+    # Utan detta får de rank 10^9 och säljs ut utan att kursdata ens hämtats –
+    # en manuell universumstädning blev då en tyst säljorder.
+    in_universe = {t for t, _ in universe}
+    orphans = [t for t in prev if t not in in_universe]
+    if orphans:
+        universe = universe + [(t, t) for t in orphans]
     min_turnover = float(cfg_s.get("min_daily_turnover", 0) or 0)
     ranked, errors = score_universe(universe, min_turnover)
-    prev = list(state.setdefault("stock_portfolio", {}).get(name, []))
     held_errors = [t for t in prev if t in set(errors)]
     top_n = int(cfg_s.get("top_n", 10))
     band = int(cfg_s.get("band_keep", 20))
@@ -287,6 +311,16 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
     cap = float(cap_raw) if cap_raw not in (None, "", False) else None
     portfolio, rank_of = apply_banding(ranked, prev, top_n, band, gate, cap,
                                        hold=set(held_errors))
+
+    # 3b) SISTA SKYDDSNÄT: gick INGEN enda ticker att ranka är det ett datafel
+    # (trasig universumfil, fel sökväg, Yahoo nere) – aldrig ett beslut att
+    # sälja hela portföljen. Behåll föregående portfölj och skrik i notisen.
+    data_fail_line = ""
+    if not ranked and prev:
+        portfolio = list(prev)
+        data_fail_line = ("\n🛑 <b>DATAFEL:</b> ingen ticker i universumet gick att ranka "
+                          f"({len(universe)} försökta). Portföljen står OFÖRÄNDRAD – "
+                          "kontrollera universumfil och kursdata innan nästa körning.")
 
     # 4) Regimfilter
     regime_line = ""
@@ -304,7 +338,10 @@ def process_market(mkt: dict, cfg_s: dict, state: dict, dry: bool = False) -> st
     by_ticker = {r["ticker"]: r for r in ranked}
 
     lines = [f"📈 <b>Aktiemotorn – {html.escape(name)} – {dt.date.today():%Y-%m}</b>"]
-    lines.append(f"Kvalitetsfilter: {html.escape(quality_note)}{regime_line}")
+    lines.append(f"Kvalitetsfilter: {html.escape(quality_note)}{data_fail_line}{regime_line}")
+    if orphans:
+        lines.append(f"ℹ️ <i>Ägs men saknas i universumfilen – rankas ändå: "
+                     f"{', '.join(html.escape(t) for t in orphans)}</i>")
     lines.append("")
     if portfolio:
         lines.append(f"<b>Portfölj (topp {top_n}, banding {band}):</b>")

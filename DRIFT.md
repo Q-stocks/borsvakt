@@ -86,6 +86,31 @@ export per kvartal räcker för hela säsongen. Nuvarande fil täcker t.o.m. 3 n
 **Vid behov:** `holdings.csv` är sanningskällan för "aktier jag äger" och läses av scanner,
 exits och holdings.py. ⚠️ Repot är publikt — lägg bara **ticker + marknad** där.
 
+### ⚠️ Innan du lägger en fundamentafil i `data/`
+
+En filimport är en **strategiändring tills motsatsen bevisats**. Aktiemotorns
+kvalitetsfilter styrs sedan 2026-09-06 av en egen flagga, `stocks.quality_filter_enabled`
+(standard `false`). Dessförinnan räckte det att `quality_file` pekade på en fil som råkade
+finnas: en rutinimport för multifaktorn kunde tyst slå på F-score-filtret som backtestet
+förkastat (bred allpos +31 % → +17 %). Värre — med Börsdata-format på tickrarna (`HTRO B`
+mot universumfilens `HTRO-B.ST`) matchade noll rader, universumet blev tomt och hela
+portföljen hade sålts ut vid nästa rebalans.
+
+Två skydd finns nu, men de ersätter inte en kontroll av vad du lägger in:
+- Matchar färre än hälften av universumets tickrar hoppas filtret över, och notisen säger
+  `HOPPAT ÖVER – bara N av M tickrar matchade`.
+- Går ingen enda ticker att ranka står portföljen **oförändrad** och notisen säger `DATAFEL`.
+
+Kör alltid `stocks.py --dry-run` efter en filimport och läs raden "Kvalitetsfilter:" för
+varje marknad innan nästa månadskörning.
+
+### ⚠️ Innan du städar en universumfil
+
+Ett ägt innehav som saknas i universumfilen rankas numera ändå (det läggs till från
+portföljen och bedöms på momentum som alla andra). Före 2026-09-06 fick det rank 10⁹ och
+såldes utan att kursdata ens hämtats — en manuell städning var alltså en tyst säljorder.
+Notisen listar sådana namn under "Ägs men saknas i universumfilen".
+
 ---
 
 ## 4. Så gör du en ändring säkert
@@ -98,8 +123,9 @@ git fetch origin && git merge --ff-only origin/main
 
 # 2. Ändra koden
 
-# 3. Kompilera + kör berörda moduler torrt mot riktig data
+# 3. Kompilera, kör röktesterna, kör sedan berörda moduler torrt mot riktig data
 .venv\Scripts\python -m py_compile <ändrade filer>
+.venv\Scripts\python selftest.py              # 31 tester, inget nätverk, ingen state
 .venv\Scripts\python stocks.py --dry-run      # tar några minuter på 326 tickers
 .venv\Scripts\python exits.py  --dry-run
 .venv\Scripts\python scanner.py --dry-run --force
@@ -123,8 +149,19 @@ gh run list --limit 3 --json headSha,status,conclusion
 `CLAUDE.md`, ändra sedan — eller låt bli. Flera "självklara" förbättringar har fallit på
 mätning (F-score, momentumtak, MA50-stopp) — se `CLAUDE.md` och §8 nedan.
 
-**Alla `--dry-run`-flaggor är på riktigt:** modulerna skriver varken state eller Telegram i
-dry-run. Vakterna finns i sju moduler; ta inte bort dem.
+**`--dry-run` i larmmodulerna är på riktigt:** de skriver varken state eller Telegram.
+Vakterna finns i sju moduler; ta inte bort dem. **Men förutsätt inte att ordet
+`--dry-run` gör vilket skript som helst ofarligt:**
+
+| Skript | Skriver ändå |
+|---|---|
+| `alertlog.py evaluate` | Skrev till `log/evaluations.csv` även med `--dry-run` fram till 2026-09-06; nu vägrar den köra i dry-run i stället |
+| `alertlog.py repair` | Skriver om `log/evaluations.csv` (med backup) — `--dry-run` visar bara vad som skulle tas bort |
+| `watchdog.py` | Har ingen dry-run-flagga alls och **dispatchar skarpa workflows** om en token finns |
+| `dashboard.py` | Skriver alltid `docs/index.html` lokalt |
+
+Jämför `state.json`, `log/` och `holdings.csv` före och efter en torrkörning och säkerställ
+att inget ändrats.
 
 ---
 
@@ -173,8 +210,22 @@ skriver aldrig antal/GAV till `state.json` — behåll de skydden.
 - **Missad månadsrebalans:** trigga `monthly.yml` manuellt. Prev-portföljen är orörd, så
   omkörningen ger exakt samma bytesnotis igen.
 - **Larmlogg:** `log/alerts.csv` (varje signal) och `log/evaluations.csv` (utfall per
-  horisont) är append-only facit. Redigera dem inte i efterhand — utvärderingar fryses med
+  horisont) är append-only facit. Redigera dem inte för hand — utvärderingar fryses med
   flit, annars mäts mot en levande intradagsbar och facit blir permanent fel.
+- **Ogiltiga mätpunkter:** `python alertlog.py repair` tar bort rader med icke-finit
+  avkastning och sparar originalet som `log/evaluations_pre_repair_<datum>.csv`. De
+  borttagna mäts om vid nästa `evaluate` och skrivs bara om de ger giltiga tal. Kör
+  `--dry-run` först för att se vad som skulle tas bort. Bakgrund: fram till 2026-09-06
+  kunde en NaN-kurs skrivas som utfall, och `_load_done()` räknade då raden som färdig →
+  den mättes aldrig om (123 av 1509 rader). Nu vägrar utvärderaren skriva icke-finita tal,
+  och både Telegram och dashboarden filtrerar bort dem med synligt bortfall.
+
+**Vad facit faktiskt mäter:** stängning på första handelsdagen ≥ signaldatum, mot samma
+dags indexstängning, över 1/5/20/60 handelsdagar. Det **loggade larmpriset används inte** —
+priskolumnen i `alerts.csv` är dokumentation, inte mätpunkt. Det är därför en
+scanner-signal som utlöses intradag mäts från den dagens stängning, inte från spiken.
+Måttet är alltså "vad hände efter att signalen fanns", inte "vad gav affären" — en
+riktig affärsbok med aktieantal och avslut finns inte i systemet.
 
 ---
 
@@ -183,7 +234,9 @@ skriver aldrig antal/GAV till `state.json` — behåll de skydden.
 | Sak | Status |
 |---|---|
 | `momentum_gate: allpos` | PÅ. +1,6 pp/år, Sharpe 0,90→0,99, maxDD −52→−41 % i backtest. |
-| F-score-kvalitetsfilter | **AV.** Brett allpos +31 % → +17 % med F-score. Momentum och kvalitet drar åt olika håll. |
+| F-score-kvalitetsfilter | **AV** via egen flagga `quality_filter_enabled: false` (2026-09-06). Brett allpos +31 % → +17 % med F-score. Momentum och kvalitet drar åt olika håll. |
+| Ägda innehav utanför universumet | Rankas alltid (2026-09-06). En universumstädning får aldrig bli en tyst säljorder. |
+| Facit får inte innehålla NaN | Icke-finita utfall skrivs inte, fryses inte och räknas inte med (2026-09-06). |
 | `momentum_cap: 10.0` (+1000 %) | PÅ, men enbart som blow-off-försäkring. Snävare tak sänker CAGR och HÖJER maxDD. |
 | MA50-stopp på innehav | **FÖRKASTAT** 2026-08-06. −6 till −11,5 pp CAGR i alla fyra universum, monotont i MA-längd = whipsaw. MA200 ≈ gratis men marginellt. `exits.py` förblir larm, aldrig autosälj. |
 | Likviditetsgrind i Aktiemotorn | PÅ sedan 2026-08-06 efter att ett papper utan handel på 12 månader köpts in. |

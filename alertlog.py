@@ -149,6 +149,12 @@ def _forward_return(ticker: str, sig_date: dt.date, horizon: int,
         return None  # ännu inte mognat
     p0 = float(s["Close"].iloc[t0])
     p1 = float(s["Close"].iloc[t0 + horizon])
+    # Aktiebenet måste vara giltigt INNAN det skrivs. En NaN-kurs gav förut en
+    # NaN-avkastning som ändå sparades – och _load_done() räknade den då som en
+    # färdig mätpunkt, så den gjordes aldrig om (123 av 1509 rader 2026-09-06).
+    # Hoppa i stället över: raden mäts på nytt nästa körning.
+    if not (math.isfinite(p0) and math.isfinite(p1) and p0 > 0):
+        return None
     stock_ret = (p1 / p0 - 1.0) * 100.0
 
     idx_sym = INDEX_BY_MARKET.get(market, "^OMX")
@@ -169,12 +175,23 @@ def _forward_return(ticker: str, sig_date: dt.date, horizon: int,
     return stock_ret, bench_ret
 
 
+def _finite(row: dict) -> bool:
+    """En mätpunkt räknas bara som mätt om både aktie- och indexbenet är tal."""
+    try:
+        return math.isfinite(float(row["ret"])) and math.isfinite(float(row["excess"]))
+    except (ValueError, KeyError, TypeError):
+        return False
+
+
 def _load_done() -> set:
     if not EVALS.exists():
         return set()
     out = set()
     for r in csv.DictReader(open(EVALS, encoding="utf-8")):
-        out.add((r["signal_id"], int(r["horizon"])))
+        # Icke-finita rader räknas INTE som färdiga – annars fryses ett
+        # tillfälligt datafel för evigt som om det vore ett uppmätt utfall.
+        if _finite(r):
+            out.add((r["signal_id"], int(r["horizon"])))
     return out
 
 
@@ -207,6 +224,8 @@ def evaluate() -> int:
             if fr is None:
                 continue
             sret, bret = fr
+            if not (math.isfinite(sret) and math.isfinite(bret)):
+                continue      # bältet till hängslena: skriv aldrig icke-finit facit
             new_rows.append({"signal_id": sid, "module": r["module"], "ticker": r["ticker"],
                              "kind": r["kind"], "date": r["date"], "market": market,
                              "horizon": h, "ret": round(sret, 4),
@@ -230,14 +249,20 @@ def evaluate() -> int:
 # ----------------------------------------------------------------------
 
 def _agg(rows: list[dict]) -> dict:
-    n = len(rows)
+    # Samma filtrering som dashboard._agg: icke-finita rader får varken förstöra
+    # medelvärdet eller ligga kvar i nämnaren för träffprocenten. Utan detta
+    # visade Telegram "nan" medan dashboarden visade ett tal – två kanaler,
+    # två svar på samma fråga.
+    ok = [r for r in rows if _finite(r)]
+    dropped = len(rows) - len(ok)
+    n = len(ok)
     if not n:
-        return {}
-    excess = [signal_value(r["kind"], r["excess"]) for r in rows]
+        return {"n": 0, "dropped": dropped} if dropped else {}
+    excess = [signal_value(r["kind"], r["excess"]) for r in ok]
     wins = sum(1 for e in excess if e > 0)
-    return {"n": n, "hit": 100.0 * wins / n,
+    return {"n": n, "dropped": dropped, "hit": 100.0 * wins / n,
             "avg_excess": sum(excess) / n,
-            "avg_ret": sum(r["ret"] for r in rows) / n}
+            "avg_ret": sum(r["ret"] for r in ok) / n}
 
 
 def report(dry: bool = False) -> int:
@@ -252,10 +277,16 @@ def report(dry: bool = False) -> int:
         send_telegram("📊 <b>Larmlogg</b>: inga utvärderade signaler ännu. "
                       "Loggen mognar – återkom när signaler passerat horisonterna.", dry)
         return 0
+    parsed = []
     for r in rows:
-        r["horizon"] = int(r["horizon"])
-        r["excess"] = float(r["excess"])
-        r["ret"] = float(r["ret"])
+        try:
+            r["horizon"] = int(r["horizon"])
+            r["excess"] = float(r["excess"])
+            r["ret"] = float(r["ret"])
+        except (ValueError, TypeError, KeyError):
+            continue          # trasig rad får aldrig fälla hela scorecarden
+        parsed.append(r)
+    rows = parsed
 
     modules = sorted({r["module"] for r in rows})
     L = ["📊 <b>Larmlogg – scorecard</b>",
@@ -268,7 +299,7 @@ def report(dry: bool = False) -> int:
         for h in HORIZONS:
             sub = [r for r in rows if r["module"] == m and r["horizon"] == h]
             a = _agg(sub)
-            if not a:
+            if not a.get("n"):
                 continue
             L.append(f"  {h}d: n={a['n']}, träff {a['hit']:.0f}%, "
                      f"snitt-överavk {a['avg_excess']:+.1f}% "
@@ -277,12 +308,54 @@ def report(dry: bool = False) -> int:
     total = _agg(rows)
     L.append(f"<b>Totalt:</b> {total['n']} mätpunkter, träff {total['hit']:.0f}%, "
              f"snitt-överavk {total['avg_excess']:+.1f}%")
+    if total.get("dropped"):
+        # Bortfallet ska SYNAS. Ett tyst filtrerat datafel ser ut som färre
+        # signaler, inte som ett fel att åtgärda.
+        L.append(f"⚠️ {total['dropped']} mätpunkter uteslutna (ogiltig kursdata) – "
+                 f"körs om automatiskt nästa utvärdering.")
     L.append("<i>Litet n = osäkert. Döm ingen strategi förrän några månaders "
              "signaler hunnit mogna. Detta är facit – inte backtest.</i>")
     if not send_telegram("\n".join(L), dry):
         print("alertlog: scorecard-notisen kunde inte levereras – steget "
               "failar för omkörning.", file=sys.stderr)
         return 1
+    return 0
+
+
+def repair(dry: bool = False) -> int:
+    """Städar bort icke-finita mätpunkter ur evaluations.csv så att de kan mätas
+    om. Originalet sparas EN gång som evaluations_pre_repair_<datum>.csv – facit
+    ska aldrig skrivas om utan spår. Rader som inte går att mäta (avnoterat,
+    borttagen ticker) skrivs helt enkelt inte tillbaka: 'ej mätt' är ett ärligare
+    svar än en nolla eller ett NaN."""
+    if not EVALS.exists():
+        print("Ingen evaluations.csv att reparera.")
+        return 0
+    rows = list(csv.DictReader(open(EVALS, encoding="utf-8")))
+    ok = [r for r in rows if _finite(r)]
+    bad = len(rows) - len(ok)
+    if not bad:
+        print(f"Inget att reparera: alla {len(rows)} mätpunkter är giltiga.")
+        return 0
+    per_mod: dict[str, int] = {}
+    for r in rows:
+        if not _finite(r):
+            per_mod[r.get("module", "?")] = per_mod.get(r.get("module", "?"), 0) + 1
+    print(f"{bad} av {len(rows)} mätpunkter är ogiltiga: "
+          + ", ".join(f"{k}={v}" for k, v in sorted(per_mod.items())))
+    if dry:
+        print("[DRY] skulle säkerhetskopiera och skriva om filen.")
+        return 0
+    backup = LOG_DIR / f"evaluations_pre_repair_{dt.date.today():%Y%m%d}.csv"
+    if not backup.exists():
+        backup.write_bytes(EVALS.read_bytes())
+        print(f"Original sparat: {backup.name}")
+    with open(EVALS, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=EVAL_COLS)
+        w.writeheader()
+        w.writerows({k: r[k] for k in EVAL_COLS} for r in ok)
+    print(f"Klart: {len(ok)} giltiga rader kvar. De borttagna mäts om vid nästa "
+          f"'alertlog.py evaluate' och skrivs bara om de ger giltiga tal.")
     return 0
 
 
@@ -305,12 +378,19 @@ def main() -> int:
     cmd = sys.argv[1] if len(sys.argv) > 1 else "evaluate"
     dry = "--dry-run" in sys.argv
     if cmd == "evaluate":
+        if dry:
+            # `evaluate` SKREV förut till evaluations.csv även med --dry-run.
+            # Flaggan ska betyda samma sak i alla moduler: rör ingenting.
+            print("[DRY] evaluate skriver till log/evaluations.csv – hoppar över.")
+            return 0
         return evaluate()
     if cmd == "report":
         return report(dry)
+    if cmd == "repair":
+        return repair(dry)
     if cmd == "show":
         return show()
-    print(f"Okänt kommando: {cmd}. Använd evaluate | report | show.", file=sys.stderr)
+    print(f"Okänt kommando: {cmd}. Använd evaluate | report | repair | show.", file=sys.stderr)
     return 1
 
 
