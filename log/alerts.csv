@@ -639,3 +639,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-04T09:01:12+00:00,2026-09-04,scanner,NANEXA.ST,volume_spike,SE,6.0400,"{""rvol"": 3.4, ""pct"": 3.8}"
 2026-09-04T13:45:44+00:00,2026-09-04,scanner,NVDA,volume_spike,US,232.8750,"{""rvol"": 3.3, ""pct"": 1.9}"
 2026-09-07T07:01:12+00:00,2026-09-07,scanner,SINCH.ST,big_move,SE,47.5200,"{""pct"": 7.0}"
+2026-09-07T07:15:46+00:00,2026-09-07,scanner,NANEXA.ST,volume_spike,SE,6.5300,"{""rvol"": 7.2, ""pct"": 3.2}"
+2026-09-07T07:15:46+00:00,2026-09-07,scanner,HTRO.ST,volume_spike,SE,39.1000,"{""rvol"": 3.6, ""pct"": 2.7}"
+2026-09-07T07:15:47+00:00,2026-09-07,scanner,SINCH.ST,volume_spike,SE,46.3600,"{""rvol"": 5.0, ""pct"": 4.4}"
+2026-09-07T07:15:49+00:00,2026-09-07,scanner,SPRINT.ST,volume_spike,SE,3.1800,"{""rvol"": 4.2, ""pct"": -2.2}"
