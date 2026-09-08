@@ -670,3 +670,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-08T13:45:50+00:00,2026-09-08,scanner,AMD,volume_spike,US,493.4750,"{""rvol"": 4.2, ""pct"": 3.3}"
 2026-09-08T13:45:50+00:00,2026-09-08,scanner,AMGN,volume_spike,US,406.4600,"{""rvol"": 6.5, ""pct"": -7.0}"
 2026-09-08T14:01:18+00:00,2026-09-08,scanner,LUMI.ST,big_move,SE,261.0000,"{""pct"": 6.0}"
+2026-09-08T15:01:20+00:00,2026-09-08,scanner,NOKIA-SEK.ST,big_move,SE,102.0500,"{""pct"": 6.0}"
