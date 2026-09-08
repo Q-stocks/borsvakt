@@ -1564,3 +1564,13 @@ scanner:SIVE.ST:volume_spike:2026-09-04,scanner,SIVE.ST,volume_spike,2026-09-04,
 scanner:CLAS-B.ST:volume_spike:2026-09-04,scanner,CLAS-B.ST,volume_spike,2026-09-04,SE,1,-2.1768,0.2363,-2.4131
 scanner:MYCR.ST:volume_spike:2026-09-04,scanner,MYCR.ST,volume_spike,2026-09-04,SE,1,3.4483,0.2363,3.212
 scanner:NANEXA.ST:volume_spike:2026-09-04,scanner,NANEXA.ST,volume_spike,2026-09-04,SE,1,-3.3175,0.2363,-3.5538
+exits:AMD:ma50_break:2026-08-31,exits,AMD,ma50_break,2026-08-31,US,5,7.4397,-0.1421,7.5818
+exits:CAT:ma50_break:2026-08-31,exits,CAT,ma50_break,2026-08-31,US,5,3.1362,-0.1421,3.2783
+exits:CSCO:ma50_break:2026-08-31,exits,CSCO,ma50_break,2026-08-31,US,5,-1.1947,-0.1421,-1.0526
+exits:GOOGL:ma50_break:2026-08-31,exits,GOOGL,ma50_break,2026-08-31,US,5,-0.2276,-0.1421,-0.0856
+exits:GS:ma50_break:2026-08-31,exits,GS,ma50_break,2026-08-31,US,5,1.531,-0.1421,1.6731
+exits:LLY:ma50_break:2026-08-31,exits,LLY,ma50_break,2026-08-31,US,5,-2.8373,-0.1421,-2.6952
+exits:MS:ma50_break:2026-08-31,exits,MS,ma50_break,2026-08-31,US,5,1.3688,-0.1421,1.5109
+exits:TXN:ma50_break:2026-08-31,exits,TXN,ma50_break,2026-08-31,US,5,-0.7627,-0.1421,-0.6206
+exits:UNH:ma50_break:2026-08-31,exits,UNH,ma50_break,2026-08-31,US,5,2.9352,-0.1421,3.0773
+scanner:NVDA:volume_spike:2026-09-04,scanner,NVDA,volume_spike,2026-09-04,US,1,-2.0099,-0.5492,-1.4607
