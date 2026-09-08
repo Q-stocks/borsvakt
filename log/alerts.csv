@@ -660,3 +660,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-07T21:50:38+00:00,2026-09-07,exits,SPRINT.ST,ma50_break,SE,3.2400,"{""sma50"": 3.5396, ""sma200"": 2.6981, ""dd_pct"": -27.84}"
 2026-09-07T21:50:39+00:00,2026-09-07,exits,UNH,ma50_break,US,397.1400,"{""sma50"": 411.7384, ""sma200"": 349.1392, ""dd_pct"": -8.99}"
 2026-09-07T21:51:34+00:00,2026-09-07,breakout,NETI-B.ST,breakout,SE,3.5250,"{""rvol"": 4.9, ""run_up"": 0.371}"
+2026-09-08T07:01:10+00:00,2026-09-08,scanner,SINCH.ST,big_move,SE,48.1600,"{""pct"": 8.4}"
