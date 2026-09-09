@@ -684,3 +684,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-09T08:01:19+00:00,2026-09-09,scanner,SINCH.ST,volume_spike,SE,46.7000,"{""rvol"": 4.3, ""pct"": 5.1}"
 2026-09-09T08:27:08+00:00,2026-09-09,scanner,SPRINT.ST,big_move,SE,3.0500,"{""pct"": -6.2}"
 2026-09-09T09:15:49+00:00,2026-09-09,scanner,SPRINT.ST,volume_spike,SE,2.9500,"{""rvol"": 3.6, ""pct"": -7.5}"
+2026-09-09T13:45:53+00:00,2026-09-09,scanner,AMD,volume_spike,US,515.4150,"{""rvol"": 3.5, ""pct"": 1.9}"
+2026-09-09T13:45:59+00:00,2026-09-09,scanner,UNH,volume_spike,US,385.6350,"{""rvol"": 4.4, ""pct"": -3.8}"
