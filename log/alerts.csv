@@ -675,3 +675,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-08T22:02:55+00:00,2026-09-08,exits,MYCR.ST,ma50_break,SE,313.2000,"{""sma50"": 321.016, ""sma200"": 258.5963, ""dd_pct"": -10.62}"
 2026-09-08T22:02:56+00:00,2026-09-08,exits,NOKIA-SEK.ST,ma50_break,SE,96.2400,"{""sma50"": 101.5922, ""sma200"": 89.7163, ""dd_pct"": -31.71}"
 2026-09-08T22:02:57+00:00,2026-09-08,exits,SIVE.ST,ma200_break,SE,27.2600,"{""sma50"": 37.9214, ""sma200"": 27.4981, ""dd_pct"": -73.25}"
+2026-09-09T07:01:05+00:00,2026-09-09,scanner,NOKIA-SEK.ST,big_move,SE,104.6000,"{""pct"": 8.7}"
+2026-09-09T07:01:06+00:00,2026-09-09,scanner,ACCON.ST,volume_spike,SE,11.6000,"{""rvol"": 4.7, ""pct"": -27.0}"
+2026-09-09T07:01:06+00:00,2026-09-09,scanner,NANEXA.ST,big_move,SE,5.8500,"{""pct"": -7.6}"
+2026-09-09T07:01:07+00:00,2026-09-09,scanner,SIVE.ST,big_move,SE,29.7600,"{""pct"": 9.2}"
+2026-09-09T07:01:08+00:00,2026-09-09,scanner,LUMI.ST,big_move,SE,262.1000,"{""pct"": 6.5}"
