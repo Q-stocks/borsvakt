@@ -81,6 +81,37 @@ Börsvakt v3: fyra Python-moduler + GitHub Actions.
   lokalt (Yahoo). Survivorship-bias-varning inbyggd; rekommendera
   point-in-time/Börsdata-universum för ren körning.
 
+## ⚠️ 2026-09-09: ALLA ÄLDRE BACKTEST-CAGR ÄR FÖR HÖGA — läs detta först
+
+Två mätfel hittades samtidigt. Rätta siffror i huvudet innan du citerar något
+äldre tal i den här filen eller i gamla commit-meddelanden.
+
+**1. Jämförelsen mot `^OMX` var dubbelt fel.** ^OMX är ett PRISindex (inga
+utdelningar) medan aktierna hämtas med `auto_adjust=True` (MED utdelningar) —
+uppmätt drag 3,31 pp/år (^OMX mot XACT OMXS30, 152 gemensamma månader). Dessutom
+är ^OMX 30 storbolag, inte det universum som faktiskt handlas. `backtest_exits.py`
+räknar därför numera fram "Äg allt": samma prisdata, samma kalender, samma
+survivorship bias — den enda jämförelse som är apples-to-apples.
+
+**2. Trasiga kursserier fanns i universumet och köptes i simuleringen.**
+ORRON.ST redovisas av Yahoo som 0,0001 → 6,83 kr (70 966x, bakåtjustering efter
+Lundin Energy-utskiftningen), SBB-B.ST har en endagsrörelse på +27 700 % och
+CARA.ST ett liknande brott. Drift skyddades av `momentum_cap` (+1000 %) men
+backtesten saknade taket. `sane_series()` filtrerar dem nu, och taket finns i
+simuleringen.
+
+| Universum | Gammalt tal | Rättat | Äg allt (daglig omvikt) | Faktisk edge |
+|---|---|---|---|---|
+| sverige_midlarge | +31,9 %/år | **+23,4 %** | +18,3 % | **+5,1 pp** |
+| sverige_broad | +27,7 %/år | **+20,2 %** | +18,2 % | **+2,0 pp** |
+| usa | +21,6 %/år | +21,6 % | +20,3 % (månadsvis +21,8 %) | **≈ 0** |
+
+Slutsatsen som ändras: momentumkärnans överavkastning är inte 20+ pp mot index
+utan några få pp mot att äga hela universumet — och på USA slår månadsvis
+likaviktad "äg allt" strategin. Slutsatsen som INTE ändras: MA50-stoppet är
+fortfarande sämre än inget stopp i alla universum (−4,7 till −11,5 pp på rättad
+data) och MA200 är fortfarande ungefär gratis.
+
 Evidensgrund: cross-sectional momentum (Jegadeesh & Titman m.fl.).
 Börslabbets backtest 2001-2021 (källa, Stockholmsbörsen): Sammansatt
 momentum (topp 10, månadsvis, banding) gav 31,9 %/år vs index 10,1 %/år,

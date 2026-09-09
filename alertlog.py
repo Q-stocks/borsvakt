@@ -35,13 +35,33 @@ ALERTS = LOG_DIR / "alerts.csv"
 EVALS = LOG_DIR / "evaluations.csv"
 
 HORIZONS = (1, 5, 20, 60)                         # handelsdagar framåt
-# Benchmark = ren SIGNALkälla: SPY delar handelskalender/valuta med
-# US-aktierna – SXR8.DE (EUR, Xetra) gav valutabrus i överavkastningen.
+
+# MÄTBENCHMARK – skilj det från `stocks.markets[].index_signal` (regimregeln)
+# och från `sectortrend.BENCH` (relativ styrka). Att byta mätbenchmark ändrar
+# hur resultatet REDOVISAS; att byta indexsignal ändrar vad systemet GÖR.
+#
+# SPY delar handelskalender och valuta med US-aktierna och återinvesterar
+# utdelningar via auto_adjust → korrekt totalavkastning.
+#
+# ⚠️ ^OMX är ett PRISINDEX medan aktierna hämtas med auto_adjust=True, alltså
+# MED utdelningar. Överavkastningen mot ^OMX är därför systematiskt för
+# generös mot strategin. Uppmätt drag (2026-09-09, ^OMX mot XACT OMXS30 över
+# 152 gemensamma månader): 3,31 pp/år ≈ 0,013 pp per handelsdag, dvs
+#   1 d: +0,01   5 d: +0,07   20 d: +0,26   60 d: +0,79 pp för mycket.
+# Varför inte byta ändå: den enda totalavkastningsserie som finns på Yahoo
+# (XACT-OMXS30.ST) saknar 23 % av handelsdagarna (803 av 3514) och dess
+# rullande 12m-skillnad svänger −11 till +16 pp. Att ffill:a den vore att
+# byta en känd, konstant skevhet mot okänt brus. Backtesten har i stället
+# fått ett EXAKT totalavkastningsbenchmark byggt av universumet självt.
 INDEX_BY_MARKET = {"SE": "^OMX", "US": "SPY"}
+SE_DIVIDEND_DRAG_PP_PER_DAY = 0.0131              # dokumenterad, används ej i beräkning
 
 ALERT_COLS = ["ts", "date", "module", "ticker", "kind", "market", "price", "meta"]
+# bench_sym tillagd 2026-09-09: varje mätpunkt bär numera sin egen
+# benchmarkdefinition, så ett framtida byte inte tyst blandar två mått.
+# Rader loggade före det saknar fältet och mättes mot INDEX_BY_MARKET ovan.
 EVAL_COLS = ["signal_id", "module", "ticker", "kind", "date", "market",
-             "horizon", "ret", "bench", "excess"]
+             "horizon", "ret", "bench", "excess", "bench_sym"]
 
 # NEDÅT-riktade signaler (sälj/varning). `excess` loggas alltid RÅTT i CSV:n –
 # facit ska vara ett faktum, inte en tolkning – men i scorecarden vänds tecknet
@@ -175,6 +195,34 @@ def _forward_return(ticker: str, sig_date: dt.date, horizon: int,
     return stock_ret, bench_ret
 
 
+def _ensure_columns() -> None:
+    """Migrerar evaluations.csv till aktuell kolumnuppsättning.
+
+    Utan detta skriver DictWriter fler värden än rubrikraden har namn, och
+    DictReader lägger överskottet i en namnlös restnyckel – de nya fälten blir
+    tysta och oläsbara. Migreringen är additiv: gamla rader får tomt värde,
+    inga tal ändras. Originalet sparas en gång."""
+    if not EVALS.exists():
+        return
+    with open(EVALS, encoding="utf-8", newline="") as fh:
+        header = next(csv.reader(fh), None)
+    if header is None or header == EVAL_COLS:
+        return
+    missing = [c for c in EVAL_COLS if c not in header]
+    if not missing:
+        return
+    rows = list(csv.DictReader(open(EVALS, encoding="utf-8")))
+    backup = LOG_DIR / f"evaluations_pre_migration_{dt.date.today():%Y%m%d}.csv"
+    if not backup.exists():
+        backup.write_bytes(EVALS.read_bytes())
+    with open(EVALS, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=EVAL_COLS)
+        w.writeheader()
+        w.writerows({k: r.get(k, "") for k in EVAL_COLS} for r in rows)
+    print(f"alertlog: la till kolumn(er) {', '.join(missing)} i evaluations.csv "
+          f"({len(rows)} rader, original i {backup.name})")
+
+
 def _finite(row: dict) -> bool:
     """En mätpunkt räknas bara som mätt om både aktie- och indexbenet är tal."""
     try:
@@ -199,6 +247,7 @@ def evaluate() -> int:
     if not ALERTS.exists():
         print("Ingen alerts.csv ännu.")
         return 0
+    _ensure_columns()
     done = _load_done()
     today = dt.date.today()
     new_rows = []
@@ -229,7 +278,8 @@ def evaluate() -> int:
             new_rows.append({"signal_id": sid, "module": r["module"], "ticker": r["ticker"],
                              "kind": r["kind"], "date": r["date"], "market": market,
                              "horizon": h, "ret": round(sret, 4),
-                             "bench": round(bret, 4), "excess": round(sret - bret, 4)})
+                             "bench": round(bret, 4), "excess": round(sret - bret, 4),
+                             "bench_sym": INDEX_BY_MARKET.get(market, "^OMX")})
             done.add((sid, h))
 
     if new_rows:
@@ -315,6 +365,13 @@ def report(dry: bool = False) -> int:
                  f"körs om automatiskt nästa utvärdering.")
     L.append("<i>Litet n = osäkert. Döm ingen strategi förrän några månaders "
              "signaler hunnit mogna. Detta är facit – inte backtest.</i>")
+    if any(r["market"] == "SE" for r in rows):
+        # Skevheten ska stå där siffrorna läses, inte bara i en kodkommentar.
+        L.append(f"<i>⚠️ Svenska tal mäts mot ^OMX som är ett PRISINDEX medan "
+                 f"aktiekurserna innehåller utdelningar. Överavkastningen är "
+                 f"därför ca {SE_DIVIDEND_DRAG_PP_PER_DAY:.3f} pp per handelsdag "
+                 f"för generös (1d +0,01 · 5d +0,07 · 20d +0,26 · 60d +0,79 pp). "
+                 f"Dra bort det innan du drar slutsatser om långa horisonter.</i>")
     if not send_telegram("\n".join(L), dry):
         print("alertlog: scorecard-notisen kunde inte levereras – steget "
               "failar för omkörning.", file=sys.stderr)
@@ -331,6 +388,8 @@ def repair(dry: bool = False) -> int:
     if not EVALS.exists():
         print("Ingen evaluations.csv att reparera.")
         return 0
+    if not dry:
+        _ensure_columns()
     rows = list(csv.DictReader(open(EVALS, encoding="utf-8")))
     ok = [r for r in rows if _finite(r)]
     bad = len(rows) - len(ok)
@@ -353,7 +412,7 @@ def repair(dry: bool = False) -> int:
     with open(EVALS, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=EVAL_COLS)
         w.writeheader()
-        w.writerows({k: r[k] for k in EVAL_COLS} for r in ok)
+        w.writerows({k: r.get(k, "") for k in EVAL_COLS} for r in ok)
     print(f"Klart: {len(ok)} giltiga rader kvar. De borttagna mäts om vid nästa "
           f"'alertlog.py evaluate' och skrivs bara om de ger giltiga tal.")
     return 0

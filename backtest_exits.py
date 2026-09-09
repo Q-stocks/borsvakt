@@ -53,6 +53,9 @@ SMA_N = 210          # regimfilter: ~10 månader i handelsdagar
 STEP = 21            # rebalans ~1 gång/månad
 COST_NET = 0.10      # courtage per affär, %
 YEARS = 14
+MOM_CAP = 10.0       # = config.yaml stocks.momentum_cap (+1000 %) på NYA köp.
+                     # Fanns bara i drift, inte här – därför kunde backtesten
+                     # köpa namn som live hade blockerat (se sane_series).
 CACHE = ROOT / ".cache_backtest_exits"
 
 
@@ -192,7 +195,9 @@ def simulate(P, R, B, cols, stop: Stop | None, cost_pct=COST_NET, gate="allpos")
                 meta[c] = (r3, r6, r12)
             ranked = sorted(scores, key=lambda c: scores[c], reverse=True)
             rank_of = {c: k + 1 for k, c in enumerate(ranked)}
-            passes = (lambda c: all(x > 0 for x in meta[c])) if gate == "allpos" else (lambda c: True)
+            # allpos OCH momentumtaket – samma vakt som config.yaml kör skarpt.
+            passes = ((lambda c: all(x > 0 for x in meta[c]) and meta[c][2] < MOM_CAP)
+                      if gate == "allpos" else (lambda c: meta[c][2] < MOM_CAP))
             keep = [c for c in held if rank_of.get(c, 10 ** 9) <= BAND]
             cand = [c for c in ranked
                     if c not in keep and passes(c) and banned.get(c, -1) < n_rebal]
@@ -216,6 +221,92 @@ def simulate(P, R, B, cols, stop: Stop | None, cost_pct=COST_NET, gate="allpos")
     years = (N - start) / 252.0
     return (np.array(eqs), trades / years, stops / years,
             100.0 * cash_days / (N - start))
+
+
+MIN_START_PRICE = 0.01      # under detta är kursen avrundad mot noll -> ratio exploderar
+MAX_DAY_MOVE = 3.0          # +300 % på en dag = trasig justering, inte en aktie
+
+
+def sane_series(P, c, start: int, N: int) -> bool:
+    """Sant om kursserien går att räkna på – falskt vid trasig justering.
+
+    Bakgrund (2026-09-09): en första version av jämförelsekorgen gav +62 %/år
+    och två serier stod för 99 % av slutvärdet. ORRON.ST redovisades som
+    0,0001 -> 6,83 kr (70 966x — startkursen nertryckt mot noll av Yahoos
+    bakåtjustering efter Lundin Energy-utskiftningen) och SBB-B.ST hade en
+    endagsrörelse på +27 700 %. Medianaktien gav +13,5 %/år.
+
+    Tröskeln är medvetet låg: äkta öresaktier (Episurf ~0,09 kr) ska INTE
+    falla bort. Bara serier vars startkurs ligger under ett öre, eller som
+    fyrdubblas på en dag, räknas som trasiga.
+
+    Mäts från seriens första giltiga bar, inte från `start` – ett bolag som
+    noterades mitt i perioden är inte ett datafel.
+    """
+    px = P[c][start:N]
+    valid = np.flatnonzero(np.isfinite(px) & (px > 0))
+    if len(valid) < 2:
+        return False
+    px = px[valid[0]:]
+    px = px[np.isfinite(px)]
+    if len(px) < 2 or px[0] < MIN_START_PRICE:
+        return False
+    with np.errstate(invalid="ignore", divide="ignore"):
+        r = np.diff(px) / px[:-1]
+    return not (np.nanmax(np.abs(r)) > MAX_DAY_MOVE)
+
+
+def universe_benchmark(P, R, start: int, N: int):
+    """'Äg hela universumet' som EXAKT totalavkastningsbenchmark.
+
+    Varför inte bara indexet: ^OMX är ett PRISINDEX medan aktiekurserna här
+    hämtas med auto_adjust=True, alltså MED utdelningar. Att jämföra dem är
+    att ge strategin utdelningarna gratis – uppmätt 3,31 pp/år (^OMX mot XACT
+    OMXS30, 152 gemensamma månader). Den enda svenska totalavkastningsserien
+    på Yahoo saknar 23 % av handelsdagarna och duger inte som daglig serie.
+
+    Korgen använder exakt samma prisdata som strategin: totalavkastande per
+    konstruktion, samma handelskalender och SAMMA survivorship bias. Den är
+    därför en ärlig spegel av strategins egna förutsättningar – men den är
+    INTE ett marknadsindex och ska aldrig presenteras som ett.
+
+    Tre kurvor, med olika syfte:
+      • monthly – likavikt, omviktad var 21:a dag som strategin. Robust
+                  centralmått och den rimligaste "äg allt"-jämförelsen.
+      • daily   – omviktad varje dag, precis som strategisimuleringen. Den
+                  enda raden som är apples-to-apples med CAGR-talen ovan.
+      • buyhold – aktieantalen stilla från dag ett. Ärligast i teorin men
+                  extremt utfallskänslig: några få namn dominerar helt.
+    Skillnaden daily minus buyhold ÄR omviktningspremien i modellen.
+    """
+    # Korgen kräver kurs redan vid `start` – ett bolag som noterades senare kan
+    # inte ingå i en köp-och-behåll-korg från dag ett. Det snävar in urvalet
+    # ytterligare (en survivorship-effekt till) och ska redovisas som sådant.
+    cols = [c for c in P if sane_series(P, c, start, N)
+            and not math.isnan(P[c][start]) and P[c][start] > 0]
+    dropped = [c for c in P if c not in set(cols)
+               and not math.isnan(P[c][start]) and P[c][start] > 0]
+    if not cols:
+        return None
+    base = np.array([P[c][start] for c in cols])
+    px = np.array([P[c][start:N] for c in cols])          # (namn, dagar)
+    with np.errstate(invalid="ignore"):
+        rel = px / base[:, None]
+    buyhold = np.nanmean(rel, axis=0)
+    rr = np.array([R[c][start:N] for c in cols])
+    daily = np.cumprod(1 + np.nanmean(rr, axis=0))
+
+    # Månadsvis omviktning: håll vikterna stilla inom varje 21-dagarsperiod.
+    monthly = np.ones(N - start)
+    eq = 1.0
+    for i0 in range(0, N - start, STEP):
+        i1 = min(i0 + STEP, N - start)
+        seg = rel[:, i0:i1] / rel[:, i0][:, None]
+        monthly[i0:i1] = eq * np.nanmean(seg, axis=0)
+        eq = monthly[i1 - 1]
+    return {"buyhold": buyhold / buyhold[0], "daily": daily / daily[0],
+            "monthly": monthly / monthly[0], "n": len(cols), "dropped": dropped,
+            "median_mult": float(np.nanmedian(rel[:, -1]))}
 
 
 def metrics(eqs):
@@ -260,7 +351,16 @@ def main() -> int:
     R = {c: prices[c].pct_change().fillna(0).to_numpy(dtype=float) for c in prices}
     B = bench.to_numpy(dtype=float)
     Brel = bench.pct_change().fillna(0).to_numpy(dtype=float)
-    cols = list(prices)
+    # Trasiga kursserier ut ur STRATEGINS universum, inte bara ur jämförelse-
+    # korgen: mätt 2026-09-09 kom +8,5 pp av midlarge-CAGR:n och +7,3 pp av
+    # broad-CAGR:n från ORRON.ST/SBB-B.ST/CARA.ST, som simuleringen faktiskt
+    # köpte. Drift skyddades av momentum_cap; backtesten saknade det.
+    alla = list(prices)
+    cols = [c for c in alla if sane_series(P, c, 252, len(B))]
+    skippade = [c for c in alla if c not in set(cols)]
+    if skippade:
+        print(f"  Uteslutna (trasig kursjustering): {', '.join(sorted(skippade))}",
+              file=sys.stderr)
 
     variants = [
         (None, "Inget stopp (som live nu)"),
@@ -292,8 +392,49 @@ def main() -> int:
             base = m
         print(f"   {label:<30}{m['cagr']:>+8.1%}{m['sharpe']:>8.2f}{m['mdd']:>+8.0%}"
               f"{m['ulcer']:>8.1f}{tpy:>12.0f}{spy:>10.0f}{cashpct:>8.0f}")
-    print(f"   {'Index köp & behåll':<30}{bm['cagr']:>+8.1%}{bm['sharpe']:>8.2f}"
-          f"{bm['mdd']:>+8.0%}{bm['ulcer']:>8.1f}{0:>12.0f}{0:>10.0f}{0:>8.0f}")
+    # ^-symboler är rena index (inga utdelningar). En ETF som SPY eller
+    # XACT-OMXS30.ST hämtas med auto_adjust och ÄR totalavkastande.
+    ar_prisindex = bench_sym.startswith("^")
+    bench_etikett = (f"{bench_sym} (PRISindex, u. utdeln.)" if ar_prisindex
+                     else f"{bench_sym} (ETF, totalavk.)")
+    print(f"\n   {'JÄMFÖRELSER':<30}")
+    print(f"   {bench_etikett:<30}{bm['cagr']:>+8.1%}"
+          f"{bm['sharpe']:>8.2f}{bm['mdd']:>+8.0%}{bm['ulcer']:>8.1f}"
+          f"{0:>12.0f}{0:>10.0f}{0:>8.0f}")
+    ub = universe_benchmark(P, R, 252, len(B))
+    if ub:
+        rader = [("Äg allt, månadsvis omvikt", "monthly"),
+                 ("Äg allt, daglig omvikt", "daily"),
+                 ("Äg allt, köp & behåll", "buyhold")]
+        mm = {}
+        for label, key in rader:
+            m = metrics(ub[key])
+            mm[key] = m
+            print(f"   {label:<30}{m['cagr']:>+8.1%}{m['sharpe']:>8.2f}"
+                  f"{m['mdd']:>+8.0%}{m['ulcer']:>8.1f}{0:>12.0f}{0:>10.0f}{0:>8.0f}")
+        print(f"\n LÄS SÅ HÄR")
+        if ar_prisindex:
+            print(f" • {bench_sym} är ett PRISindex medan aktierna hämtas MED utdelningar.")
+            print(f"   Den raden ger strategin utdelningarna gratis (~3,3 pp/år i Sverige)")
+            print(f"   och jämför dessutom mot 30 storbolag i stället för detta universum.")
+        else:
+            print(f" • {bench_sym} är totalavkastande, men speglar ett annat universum")
+            print(f"   än det som handlas här – jämför främst mot 'Äg allt'-raderna.")
+        print(f" • 'Äg allt' är byggt av SAMMA prisdata: totalavkastande, samma kalender,")
+        print(f"   samma survivorship bias – en spegel av strategins förutsättningar,")
+        print(f"   INTE ett marknadsindex. {ub['n']} av {len(cols)} namn ingår; "
+              f"medianaktien gav {ub['median_mult']:.1f}x.")
+        if ub["dropped"]:
+            print(f" • {len(ub['dropped'])} namn uteslutna ur korgen (trasig justering: "
+                  f"startkurs < {MIN_START_PRICE} kr\n   eller endagsrörelse > "
+                  f"{MAX_DAY_MOVE:.0%}): {', '.join(sorted(ub['dropped'])[:8])}"
+                  + (" …" if len(ub["dropped"]) > 8 else ""))
+            print(f"   ⚠️ De ligger KVAR i strategins universum – kontrollera om de "
+                  f"påverkar rankningen.")
+        print(f" • Strategin viktar om dagligen, så den apples-to-apples-jämförelsen är")
+        print(f"   'daglig omvikt' ({mm['daily']['cagr']:+.1%}). Skillnaden mot "
+              f"'köp & behåll' ({mm['buyhold']['cagr']:+.1%}) är hur\n   mycket av "
+              f"ALLA CAGR-tal ovan som kommer ur viktningsmodellen, inte ur strategin.")
     print("\n TOLKNING: ett stopp ska sänka maxDD/Ulcer utan att äta upp CAGR. Höjer det")
     print(" BÅDE avkastning och Sharpe är det för bra för att vara sant – kolla courtage")
     print(" och antal stopp/år innan du tror på det. Whipsaw syns som många stopp/år")

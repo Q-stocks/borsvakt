@@ -237,6 +237,8 @@ riktig affärsbok med aktieantal och avslut finns inte i systemet.
 | F-score-kvalitetsfilter | **AV** via egen flagga `quality_filter_enabled: false` (2026-09-06). Brett allpos +31 % → +17 % med F-score. Momentum och kvalitet drar åt olika håll. |
 | Ägda innehav utanför universumet | Rankas alltid (2026-09-06). En universumstädning får aldrig bli en tyst säljorder. |
 | Facit får inte innehålla NaN | Icke-finita utfall skrivs inte, fryses inte och räknas inte med (2026-09-06). |
+| Mätbenchmark ≠ indexsignal | `alertlog.INDEX_BY_MARKET` mäter resultat; `stocks.markets[].index_signal` styr regimregeln; `sectortrend.BENCH` styr relativ styrka. Att byta det första ändrar redovisningen, de andra ändrar vad systemet gör. Blanda dem inte. |
+| Backtest jämförs mot "Äg allt" | Sedan 2026-09-09. `^OMX` är ett prisindex och fel universum — se `CLAUDE.md` för de rättade talen (midlarge +31,9 % → +23,4 %). |
 | `momentum_cap: 10.0` (+1000 %) | PÅ, men enbart som blow-off-försäkring. Snävare tak sänker CAGR och HÖJER maxDD. |
 | MA50-stopp på innehav | **FÖRKASTAT** 2026-08-06. −6 till −11,5 pp CAGR i alla fyra universum, monotont i MA-längd = whipsaw. MA200 ≈ gratis men marginellt. `exits.py` förblir larm, aldrig autosälj. |
 | Likviditetsgrind i Aktiemotorn | PÅ sedan 2026-08-06 efter att ett papper utan handel på 12 månader köpts in. |

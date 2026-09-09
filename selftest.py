@@ -201,6 +201,59 @@ def test_facit(tmp):
     check("evaluate --dry-run skriver inte", "[DRY]" in (r.stdout or ""))
 
 
+def test_benchmark_och_serier():
+    print("\n--- Mätbenchmark och trasiga kursserier (2026-09-09) ---")
+    import backtest_exits as bx
+
+    n = 600
+    frisk = np.linspace(10.0, 40.0, n)
+    trasig_start = np.concatenate([[0.0001], np.linspace(0.5, 7.0, n - 1)])
+    trasig_hopp = np.concatenate([np.full(300, 1.0), np.full(n - 300, 300.0)])
+    sen_notering = np.concatenate([np.full(300, np.nan), np.linspace(20.0, 45.0, n - 300)])
+    P = {"FRISK": frisk, "NOLLSTART": trasig_start, "HOPP": trasig_hopp,
+         "SEN": sen_notering}
+    check("frisk serie godkänns", bx.sane_series(P, "FRISK", 0, n))
+    check("startkurs under ett öre underkänns", not bx.sane_series(P, "NOLLSTART", 0, n))
+    check("endagshopp > 300 % underkänns", not bx.sane_series(P, "HOPP", 0, n))
+    check("sen notering är inget datafel", bx.sane_series(P, "SEN", 0, n))
+    # äkta öresaktie ska INTE falla bort (Episurf handlas kring 0,09 kr)
+    oresaktie = np.linspace(0.09, 0.30, n)
+    P["ORE"] = oresaktie
+    check("äkta öresaktie godkänns", bx.sane_series(P, "ORE", 0, n))
+
+    R = {c: np.concatenate([[0.0], np.diff(P[c]) / P[c][:-1]]) for c in P}
+    ub = bx.universe_benchmark(P, R, 0, n)
+    check("trasiga namn utesluts ur jämförelsekorgen",
+          set(ub["dropped"]) == {"NOLLSTART", "HOPP"})
+    check("korgen ger tre kurvor", {"buyhold", "daily", "monthly"} <= set(ub))
+    check("bench_sym finns i facit-kolumnerna", "bench_sym" in alertlog.EVAL_COLS)
+
+
+def test_kolumnmigrering(tmp):
+    print("\n--- Facit: kolumnmigrering utan dataförlust (2026-09-09) ---")
+    d = tmp / "mig"
+    d.mkdir(exist_ok=True)
+    alertlog.LOG_DIR, alertlog.EVALS = d, d / "e.csv"
+    gamla = [c for c in alertlog.EVAL_COLS if c != "bench_sym"]
+    with open(alertlog.EVALS, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=gamla)
+        w.writeheader()
+        w.writerow({"signal_id": "m:T:buy:2026-01-01", "module": "m", "ticker": "T",
+                    "kind": "buy", "date": "2026-01-01", "market": "SE", "horizon": 1,
+                    "ret": "2.0", "bench": "1.0", "excess": "1.0"})
+    alertlog._ensure_columns()
+    with open(alertlog.EVALS, encoding="utf-8", newline="") as fh:
+        header = next(csv.reader(fh))
+    rows = list(csv.DictReader(open(alertlog.EVALS, encoding="utf-8")))
+    check("rubriken har migrerats", header == alertlog.EVAL_COLS)
+    check("gammal rad har kvar sina tal", rows[0]["ret"] == "2.0" and rows[0]["excess"] == "1.0")
+    check("nytt fält är tomt, inte hittepå", rows[0]["bench_sym"] == "")
+    check("originalet säkerhetskopierat", len(list(d.glob("evaluations_pre_migration_*.csv"))) == 1)
+    alertlog._ensure_columns()
+    check("migrering är idempotent",
+          len(list(d.glob("evaluations_pre_migration_*.csv"))) == 1)
+
+
 def main() -> int:
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -211,6 +264,8 @@ def main() -> int:
     test_quality_filter(tmp)
     test_orphans_and_datafail(tmp)
     test_facit(tmp)
+    test_benchmark_och_serier()
+    test_kolumnmigrering(tmp)
     print(f"\n===== {OK} gröna, {FAIL} röda =====")
     return 1 if FAIL else 0
 
