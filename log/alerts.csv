@@ -690,3 +690,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-09T21:58:13+00:00,2026-09-09,exits,BOOZT.ST,ma50_break,SE,146.4000,"{""sma50"": 154.67, ""sma200"": 119.3135, ""dd_pct"": -12.54}"
 2026-09-09T21:58:15+00:00,2026-09-09,exits,CLAS-B.ST,ma50_break,SE,420.4000,"{""sma50"": 426.58, ""sma200"": 380.5219, ""dd_pct"": -11.42}"
 2026-09-10T07:01:11+00:00,2026-09-10,scanner,SPRINT.ST,big_move,SE,2.9100,"{""pct"": -8.8}"
+2026-09-10T07:15:48+00:00,2026-09-10,scanner,SPRINT.ST,volume_spike,SE,2.9000,"{""rvol"": 3.6, ""pct"": -9.1}"
+2026-09-10T07:15:51+00:00,2026-09-10,scanner,ACCON.ST,volume_spike,SE,12.6600,"{""rvol"": 4.0, ""pct"": 7.3}"
