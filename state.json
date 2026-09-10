@@ -112,20 +112,20 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-09-09"
+      "rs_up": false,
+      "updated": "2026-09-10"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-09"
+      "updated": "2026-09-10"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-09"
+      "updated": "2026-09-10"
     }
   },
   "stock_portfolio": {
@@ -412,7 +412,8 @@
       "0001225208-26-006542",
       "0001225208-26-006750",
       "0001225208-26-006749",
-      "0001225208-26-007064"
+      "0001225208-26-007064",
+      "0001225208-26-007727"
     ]
   },
   "insider_buys": {},
@@ -1154,7 +1155,10 @@
     "SIVE.ST:sma200:2026-W37": true,
     "ACCON.ST:sma200:2026-W37": true,
     "BOOZT.ST:sma50:2026-W37": true,
-    "CLAS-B.ST:sma50:2026-W37": true
+    "CLAS-B.ST:sma50:2026-W37": true,
+    "HOFI.ST:sma50:2026-W37": true,
+    "LUMI.ST:sma50:2026-W37": true,
+    "MS:sma50:2026-W37": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
