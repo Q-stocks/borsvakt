@@ -701,3 +701,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-11T07:01:14+00:00,2026-09-11,scanner,SIVE.ST,big_move,SE,29.0000,"{""pct"": -6.8}"
 2026-09-11T07:15:44+00:00,2026-09-11,scanner,MORROW.ST,volume_spike,SE,15.9200,"{""rvol"": 4.6, ""pct"": 4.5}"
 2026-09-11T07:30:58+00:00,2026-09-11,scanner,SPRINT.ST,volume_spike,SE,2.7300,"{""rvol"": 6.7, ""pct"": -5.2}"
+2026-09-11T13:45:43+00:00,2026-09-11,scanner,AAPL,volume_spike,US,332.7950,"{""rvol"": 3.9, ""pct"": 1.9}"
