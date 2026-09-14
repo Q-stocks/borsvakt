@@ -704,3 +704,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-11T13:45:43+00:00,2026-09-11,scanner,AAPL,volume_spike,US,332.7950,"{""rvol"": 3.9, ""pct"": 1.9}"
 2026-09-11T21:48:48+00:00,2026-09-11,pead,ORCL,entry,US,150.2800,"{""surprise"": 10.45, ""reaction"": -7.270110059124191}"
 2026-09-11T21:48:55+00:00,2026-09-11,exits,LUMI.ST,ma200_break,SE,235.6000,"{""sma50"": 246.2376, ""sma200"": 236.2769, ""dd_pct"": -13.18}"
+2026-09-14T07:01:18+00:00,2026-09-14,scanner,SIVE.ST,big_move,SE,28.3400,"{""pct"": -6.5}"
