@@ -705,3 +705,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-11T21:48:48+00:00,2026-09-11,pead,ORCL,entry,US,150.2800,"{""surprise"": 10.45, ""reaction"": -7.270110059124191}"
 2026-09-11T21:48:55+00:00,2026-09-11,exits,LUMI.ST,ma200_break,SE,235.6000,"{""sma50"": 246.2376, ""sma200"": 236.2769, ""dd_pct"": -13.18}"
 2026-09-14T07:01:18+00:00,2026-09-14,scanner,SIVE.ST,big_move,SE,28.3400,"{""pct"": -6.5}"
+2026-09-14T07:15:45+00:00,2026-09-14,scanner,NOKIA-SEK.ST,volume_spike,SE,102.2000,"{""rvol"": 3.4, ""pct"": -4.9}"
+2026-09-14T07:15:45+00:00,2026-09-14,scanner,HTRO.ST,volume_spike,SE,38.1600,"{""rvol"": 4.2, ""pct"": -2.7}"
