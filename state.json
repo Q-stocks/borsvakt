@@ -108,20 +108,20 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-09-14"
+      "rs_up": false,
+      "updated": "2026-09-15"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-14"
+      "updated": "2026-09-15"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-14"
+      "updated": "2026-09-15"
     }
   },
   "stock_portfolio": {
@@ -1171,7 +1171,11 @@
     "NOKIA-SEK.ST:drawdown:2026-W38": true,
     "SIVE.ST:sma50:2026-W38": true,
     "SPRINT.ST:sma50:2026-W38": true,
-    "UNH:sma50:2026-W38": true
+    "UNH:sma50:2026-W38": true,
+    "CLAS-B.ST:sma50:2026-W38": true,
+    "HTRO.ST:sma50:2026-W38": true,
+    "NOKIA-SEK.ST:sma50:2026-W38": true,
+    "SIVE.ST:sma200:2026-W38": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -1207,6 +1211,7 @@
     "TROAX.ST:2026-08-28": true,
     "DELL:2026-09-02": true,
     "BULTEN.ST:2026-09-03": true,
-    "NETI-B.ST:2026-09-07": true
+    "NETI-B.ST:2026-09-07": true,
+    "RVTY:2026-09-15": true
   }
 }
