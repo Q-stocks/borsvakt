@@ -732,3 +732,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-14T23:07:31+00:00,2026-09-14,exits,UNH,ma50_break,US,383.5500,"{""sma50"": 408.33, ""sma200"": 351.154, ""dd_pct"": -12.1}"
 2026-09-15T07:01:08+00:00,2026-09-15,scanner,SIVE.ST,big_move,SE,27.4200,"{""pct"": -9.5}"
 2026-09-15T07:01:10+00:00,2026-09-15,scanner,NOKIA-SEK.ST,big_move,SE,96.2000,"{""pct"": -10.5}"
+2026-09-15T07:15:44+00:00,2026-09-15,scanner,NANEXA.ST,volume_spike,SE,5.9000,"{""rvol"": 5.0, ""pct"": 4.8}"
