@@ -741,3 +741,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-15T21:34:56+00:00,2026-09-15,breakout,RVTY,breakout,US,140.1900,"{""rvol"": 2.3, ""run_up"": 0.329}"
 2026-09-16T07:15:52+00:00,2026-09-16,scanner,MYCR.ST,volume_spike,SE,313.6000,"{""rvol"": 3.0, ""pct"": 1.6}"
 2026-09-16T07:15:54+00:00,2026-09-16,scanner,SPRINT.ST,volume_spike,SE,2.9200,"{""rvol"": 6.1, ""pct"": 6.6}"
+2026-09-16T07:45:51+00:00,2026-09-16,scanner,SIVE.ST,big_move,SE,29.2600,"{""pct"": 6.9}"
