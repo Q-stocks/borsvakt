@@ -99,19 +99,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-09-17"
+      "updated": "2026-09-18"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-17"
+      "updated": "2026-09-18"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-17"
+      "updated": "2026-09-18"
     }
   },
   "stock_portfolio": {
@@ -365,7 +365,12 @@
       "0001696841-26-000010",
       "0001197647-26-000009",
       "0001199039-26-000014",
-      "0002152188-26-000005"
+      "0002152188-26-000005",
+      "0001283854-26-000010",
+      "0001696841-26-000012",
+      "0001588670-26-000014",
+      "0001243821-26-000007",
+      "0001197649-26-000012"
     ],
     "JPM": [
       "0001193125-26-258526",
@@ -669,18 +674,6 @@
       }
     },
     "Sverige": {
-      "BULTEN.ST": {
-        "report": "2026-07-10",
-        "surprise": null,
-        "reaction": 17.127091263441507,
-        "entry_logged": "2026-07-10"
-      },
-      "CARA.ST": {
-        "report": "2026-07-10",
-        "surprise": null,
-        "reaction": 7.523350611671942,
-        "entry_logged": "2026-07-10"
-      },
       "OEM-B.ST": {
         "report": "2026-07-13",
         "surprise": null,
@@ -1214,6 +1207,7 @@
     "NETI-B.ST:2026-09-07": true,
     "RVTY:2026-09-15": true,
     "BILL.ST:2026-09-15": true,
-    "TMO:2026-09-17": true
+    "TMO:2026-09-17": true,
+    "MPC:2026-09-18": true
   }
 }
