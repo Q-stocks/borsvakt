@@ -763,3 +763,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-21T07:01:17+00:00,2026-09-21,scanner,NOKIA-SEK.ST,big_move,SE,106.4500,"{""pct"": 6.8}"
 2026-09-21T07:15:46+00:00,2026-09-21,scanner,SIVE.ST,big_move,SE,32.8800,"{""pct"": 6.1}"
 2026-09-21T07:15:48+00:00,2026-09-21,scanner,MORROW.ST,volume_spike,SE,16.2800,"{""rvol"": 3.3, ""pct"": 2.4}"
+2026-09-21T08:15:57+00:00,2026-09-21,scanner,MYCR.ST,big_move,SE,334.4000,"{""pct"": 6.2}"
