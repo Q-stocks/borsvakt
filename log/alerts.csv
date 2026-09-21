@@ -760,3 +760,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-18T07:30:55+00:00,2026-09-18,scanner,MYCR.ST,volume_spike,SE,322.2000,"{""rvol"": 3.0, ""pct"": 2.3}"
 2026-09-18T15:31:01+00:00,2026-09-18,scanner,EVO.ST,volume_spike,SE,865.8000,"{""rvol"": 4.6, ""pct"": -3.7}"
 2026-09-18T21:52:28+00:00,2026-09-18,breakout,MPC,breakout,US,424.8900,"{""rvol"": 4.0, ""run_up"": 0.632}"
+2026-09-21T07:01:17+00:00,2026-09-21,scanner,NOKIA-SEK.ST,big_move,SE,106.4500,"{""pct"": 6.8}"
