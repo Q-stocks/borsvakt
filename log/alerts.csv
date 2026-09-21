@@ -766,3 +766,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-21T08:15:57+00:00,2026-09-21,scanner,MYCR.ST,big_move,SE,334.4000,"{""pct"": 6.2}"
 2026-09-21T12:01:19+00:00,2026-09-21,scanner,NANEXA.ST,big_move,SE,5.5000,"{""pct"": -6.5}"
 2026-09-21T12:31:13+00:00,2026-09-21,scanner,HTRO.ST,big_move,SE,39.4800,"{""pct"": 6.3}"
+2026-09-21T13:45:43+00:00,2026-09-21,scanner,AMD,volume_spike,US,603.1650,"{""rvol"": 8.7, ""pct"": 7.7}"
