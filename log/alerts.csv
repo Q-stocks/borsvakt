@@ -792,3 +792,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-22T07:15:50+00:00,2026-09-22,scanner,HOFI.ST,volume_spike,SE,206.2000,"{""rvol"": 13.7, ""pct"": 1.6}"
 2026-09-22T07:15:51+00:00,2026-09-22,scanner,NANEXA.ST,big_move,SE,5.5200,"{""pct"": -6.1}"
 2026-09-22T07:15:52+00:00,2026-09-22,scanner,SINCH.ST,big_move,SE,48.7500,"{""pct"": 6.6}"
+2026-09-22T07:30:59+00:00,2026-09-22,scanner,SINCH.ST,volume_spike,SE,48.7400,"{""rvol"": 3.4, ""pct"": 6.6}"
