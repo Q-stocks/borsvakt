@@ -793,3 +793,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-22T07:15:51+00:00,2026-09-22,scanner,NANEXA.ST,big_move,SE,5.5200,"{""pct"": -6.1}"
 2026-09-22T07:15:52+00:00,2026-09-22,scanner,SINCH.ST,big_move,SE,48.7500,"{""pct"": 6.6}"
 2026-09-22T07:30:59+00:00,2026-09-22,scanner,SINCH.ST,volume_spike,SE,48.7400,"{""rvol"": 3.4, ""pct"": 6.6}"
+2026-09-22T13:45:06+00:00,2026-09-22,scanner,AMGN,volume_spike,US,402.6900,"{""rvol"": 3.9, ""pct"": 2.4}"
