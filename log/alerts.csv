@@ -787,3 +787,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-21T23:17:52+00:00,2026-09-21,exits,UNH,ma50_break,US,377.5600,"{""sma50"": 401.1941, ""sma200"": 350.4653, ""dd_pct"": -12.94}"
 2026-09-22T07:01:10+00:00,2026-09-22,scanner,HTRO.ST,big_move,SE,39.9900,"{""pct"": 7.7}"
 2026-09-22T07:01:10+00:00,2026-09-22,scanner,SIVE.ST,big_move,SE,33.3400,"{""pct"": 7.5}"
+2026-09-22T07:15:48+00:00,2026-09-22,scanner,ERIC-B.ST,volume_spike,SE,97.1200,"{""rvol"": 7.6, ""pct"": -2.9}"
+2026-09-22T07:15:49+00:00,2026-09-22,scanner,SPRINT.ST,big_move,SE,2.7700,"{""pct"": -6.1}"
+2026-09-22T07:15:50+00:00,2026-09-22,scanner,HOFI.ST,volume_spike,SE,206.2000,"{""rvol"": 13.7, ""pct"": 1.6}"
+2026-09-22T07:15:51+00:00,2026-09-22,scanner,NANEXA.ST,big_move,SE,5.5200,"{""pct"": -6.1}"
+2026-09-22T07:15:52+00:00,2026-09-22,scanner,SINCH.ST,big_move,SE,48.7500,"{""pct"": 6.6}"
