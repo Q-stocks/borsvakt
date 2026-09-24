@@ -805,3 +805,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-24T07:30:58+00:00,2026-09-24,scanner,SINCH.ST,volume_spike,SE,50.9200,"{""rvol"": 3.1, ""pct"": 4.5}"
 2026-09-24T15:15:50+00:00,2026-09-24,scanner,NANEXA.ST,big_move,SE,5.9600,"{""pct"": 8.4}"
 2026-09-24T15:15:51+00:00,2026-09-24,scanner,HTRO.ST,big_move,SE,39.2400,"{""pct"": -6.1}"
+2026-09-24T23:57:52+00:00,2026-09-24,exits,LUMI.ST,ma50_break,SE,243.0000,"{""sma50"": 246.5083, ""sma200"": 239.1707, ""dd_pct"": -10.45}"
+2026-09-24T23:57:54+00:00,2026-09-24,exits,SPRINT.ST,ma200_break,SE,2.7700,"{""sma50"": 3.2884, ""sma200"": 2.7992, ""dd_pct"": -31.94}"
