@@ -802,3 +802,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-23T23:50:35+00:00,2026-09-23,exits,ACAST.ST,ma200_break,SE,32.9000,"{""sma50"": 35.958, ""sma200"": 33.0165, ""dd_pct"": -19.66}"
 2026-09-24T07:01:10+00:00,2026-09-24,scanner,SIVE.ST,big_move,SE,31.8200,"{""pct"": -11.1}"
 2026-09-24T07:15:45+00:00,2026-09-24,scanner,CLAS-B.ST,volume_spike,SE,439.0000,"{""rvol"": 4.5, ""pct"": 4.3}"
+2026-09-24T07:30:58+00:00,2026-09-24,scanner,SINCH.ST,volume_spike,SE,50.9200,"{""rvol"": 3.1, ""pct"": 4.5}"
