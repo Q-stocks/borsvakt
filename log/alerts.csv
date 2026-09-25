@@ -811,3 +811,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-25T07:15:46+00:00,2026-09-25,scanner,SINCH.ST,volume_spike,SE,49.3700,"{""rvol"": 3.6, ""pct"": -3.6}"
 2026-09-25T07:15:47+00:00,2026-09-25,scanner,NANEXA.ST,volume_spike,SE,12.1000,"{""rvol"": 160.8, ""pct"": 120.0}"
 2026-09-25T07:30:57+00:00,2026-09-25,scanner,MORROW.ST,volume_spike,SE,16.7600,"{""rvol"": 3.7, ""pct"": 3.5}"
+2026-09-25T09:30:57+00:00,2026-09-25,scanner,HOFI.ST,volume_spike,SE,210.0000,"{""rvol"": 4.1, ""pct"": 2.3}"
