@@ -99,19 +99,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-09-24"
+      "updated": "2026-09-25"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-24"
+      "updated": "2026-09-25"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-24"
+      "updated": "2026-09-25"
     }
   },
   "stock_portfolio": {
@@ -635,70 +635,10 @@
       }
     },
     "Sverige": {
-      "ALLEI.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 8.410069482978223,
-        "entry_logged": "2026-07-21"
-      },
-      "BILL.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 7.9461829834096775,
-        "entry_logged": "2026-07-21"
-      },
-      "BYGGP.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 15.91831477634058,
-        "entry_logged": "2026-07-21"
-      },
-      "CEVI.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 9.423957430291896,
-        "entry_logged": "2026-07-21"
-      },
-      "ENGCON-B.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 7.748292042432947,
-        "entry_logged": "2026-07-21"
-      },
-      "GETI-B.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 10.393292021585165,
-        "entry_logged": "2026-07-21"
-      },
-      "HEM.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 5.082737570815921,
-        "entry_logged": "2026-07-21"
-      },
       "HPOL-B.ST": {
         "report": "2026-07-20",
         "surprise": null,
         "reaction": 16.102432386987243,
-        "entry_logged": "2026-07-21"
-      },
-      "INSTAL.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 6.236368166423034,
-        "entry_logged": "2026-07-21"
-      },
-      "KARNEL-B.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 14.203467862316188,
-        "entry_logged": "2026-07-21"
-      },
-      "KNOW.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 7.728833731520757,
         "entry_logged": "2026-07-21"
       },
       "MCAP.ST": {
@@ -707,58 +647,10 @@
         "reaction": 11.920660244159762,
         "entry_logged": "2026-07-21"
       },
-      "MMGR-B.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 14.601298885151493,
-        "entry_logged": "2026-07-21"
-      },
       "MTG-B.ST": {
         "report": "2026-07-21",
         "surprise": null,
         "reaction": 5.666784409608683,
-        "entry_logged": "2026-07-21"
-      },
-      "MTRS.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 9.789489919072224,
-        "entry_logged": "2026-07-21"
-      },
-      "NOBI.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 12.306636292592366,
-        "entry_logged": "2026-07-21"
-      },
-      "RUG.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 10.826102366142585,
-        "entry_logged": "2026-07-21"
-      },
-      "SAAB-B.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 11.698495429507783,
-        "entry_logged": "2026-07-21"
-      },
-      "TRUE-B.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 5.422803120598929,
-        "entry_logged": "2026-07-21"
-      },
-      "VIMIAN.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 5.8691183311099016,
-        "entry_logged": "2026-07-21"
-      },
-      "VPLAY-B.ST": {
-        "report": "2026-07-17",
-        "surprise": null,
-        "reaction": 9.296756422235351,
         "entry_logged": "2026-07-21"
       },
       "8TRA.ST": {
@@ -1026,7 +918,8 @@
     "SIVE.ST:drawdown:2026-W39": true,
     "ACAST.ST:sma200:2026-W39": true,
     "LUMI.ST:sma50:2026-W39": true,
-    "SPRINT.ST:sma200:2026-W39": true
+    "SPRINT.ST:sma200:2026-W39": true,
+    "MTG-B.ST:sma50:2026-W39": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -1066,6 +959,7 @@
     "RVTY:2026-09-15": true,
     "BILL.ST:2026-09-15": true,
     "TMO:2026-09-17": true,
-    "MPC:2026-09-18": true
+    "MPC:2026-09-18": true,
+    "NANEXA.ST:2026-09-25": true
   }
 }
