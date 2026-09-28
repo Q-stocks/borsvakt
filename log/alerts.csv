@@ -816,3 +816,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-25T21:55:53+00:00,2026-09-25,breakout,NANEXA.ST,breakout,SE,12.1600,"{""rvol"": 38.7, ""run_up"": 0.627}"
 2026-09-28T07:01:13+00:00,2026-09-28,scanner,NANEXA.ST,volume_spike,SE,11.9600,"{""rvol"": 6.0, ""pct"": -1.6}"
 2026-09-28T07:15:48+00:00,2026-09-28,scanner,LUMI.ST,volume_spike,SE,234.6000,"{""rvol"": 3.4, ""pct"": -3.5}"
+2026-09-28T07:31:01+00:00,2026-09-28,scanner,EVO.ST,volume_spike,SE,784.8000,"{""rvol"": 3.3, ""pct"": -3.8}"
