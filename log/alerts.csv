@@ -819,3 +819,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-28T07:31:01+00:00,2026-09-28,scanner,EVO.ST,volume_spike,SE,784.8000,"{""rvol"": 3.3, ""pct"": -3.8}"
 2026-09-28T08:31:08+00:00,2026-09-28,scanner,ACAST.ST,volume_spike,SE,32.5500,"{""rvol"": 10.3, ""pct"": 1.9}"
 2026-09-28T13:01:18+00:00,2026-09-28,scanner,SINCH.ST,big_move,SE,46.2200,"{""pct"": -6.0}"
+2026-09-28T13:45:50+00:00,2026-09-28,scanner,NVDA,volume_spike,US,232.4150,"{""rvol"": 5.5, ""pct"": 3.3}"
