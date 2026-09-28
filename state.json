@@ -100,19 +100,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-09-25"
+      "updated": "2026-09-28"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-25"
+      "updated": "2026-09-28"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-25"
+      "updated": "2026-09-28"
     }
   },
   "stock_portfolio": {
@@ -636,12 +636,6 @@
       }
     },
     "Sverige": {
-      "HPOL-B.ST": {
-        "report": "2026-07-20",
-        "surprise": null,
-        "reaction": 16.102432386987243,
-        "entry_logged": "2026-07-21"
-      },
       "MCAP.ST": {
         "report": "2026-07-21",
         "surprise": null,
@@ -874,29 +868,6 @@
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "ACAST.ST:sma50:2026-W38": true,
-    "ACCON.ST:sma200:2026-W38": true,
-    "AMD:sma50:2026-W38": true,
-    "AMGN:sma50:2026-W38": true,
-    "BOOZT.ST:sma50:2026-W38": true,
-    "CAT:sma50:2026-W38": true,
-    "CHEF.ST:sma50:2026-W38": true,
-    "CSCO:sma50:2026-W38": true,
-    "GS:sma50:2026-W38": true,
-    "HOFI.ST:sma50:2026-W38": true,
-    "LLY:sma50:2026-W38": true,
-    "LUMI.ST:sma200:2026-W38": true,
-    "MS:sma50:2026-W38": true,
-    "MYCR.ST:sma50:2026-W38": true,
-    "NOKIA-SEK.ST:drawdown:2026-W38": true,
-    "SIVE.ST:sma50:2026-W38": true,
-    "SPRINT.ST:sma50:2026-W38": true,
-    "UNH:sma50:2026-W38": true,
-    "CLAS-B.ST:sma50:2026-W38": true,
-    "HTRO.ST:sma50:2026-W38": true,
-    "NOKIA-SEK.ST:sma50:2026-W38": true,
-    "SIVE.ST:sma200:2026-W38": true,
-    "GS:sma200:2026-W38": true,
     "ACAST.ST:sma50:2026-W39": true,
     "ACCON.ST:sma200:2026-W39": true,
     "AMGN:sma50:2026-W39": true,
@@ -920,7 +891,21 @@
     "ACAST.ST:sma200:2026-W39": true,
     "LUMI.ST:sma50:2026-W39": true,
     "SPRINT.ST:sma200:2026-W39": true,
-    "MTG-B.ST:sma50:2026-W39": true
+    "MTG-B.ST:sma50:2026-W39": true,
+    "ACAST.ST:sma200:2026-W40": true,
+    "ACCON.ST:sma200:2026-W40": true,
+    "BOOZT.ST:sma50:2026-W40": true,
+    "CAT:sma50:2026-W40": true,
+    "CHEF.ST:sma50:2026-W40": true,
+    "CSCO:sma50:2026-W40": true,
+    "GS:sma200:2026-W40": true,
+    "HOFI.ST:sma50:2026-W40": true,
+    "LUMI.ST:sma50:2026-W40": true,
+    "MS:sma50:2026-W40": true,
+    "MTG-B.ST:sma50:2026-W40": true,
+    "SIVE.ST:sma50:2026-W40": true,
+    "SPRINT.ST:sma50:2026-W40": true,
+    "UNH:sma50:2026-W40": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
