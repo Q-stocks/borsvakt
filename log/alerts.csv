@@ -840,3 +840,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-29T07:15:50+00:00,2026-09-29,scanner,BOOZT.ST,volume_spike,SE,157.6000,"{""rvol"": 4.1, ""pct"": 8.7}"
 2026-09-29T07:15:52+00:00,2026-09-29,scanner,NANEXA.ST,volume_spike,SE,10.9000,"{""rvol"": 4.3, ""pct"": -10.4}"
 2026-09-29T07:15:55+00:00,2026-09-29,scanner,SPRINT.ST,volume_spike,SE,3.2100,"{""rvol"": 7.1, ""pct"": 5.2}"
+2026-09-29T07:30:58+00:00,2026-09-29,scanner,KJELL.ST,volume_spike,SE,15.8000,"{""rvol"": 3.1, ""pct"": -1.9}"
