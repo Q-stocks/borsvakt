@@ -837,3 +837,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-29T07:01:10+00:00,2026-09-29,scanner,SINCH.ST,big_move,SE,46.2000,"{""pct"": -6.1}"
 2026-09-29T07:01:11+00:00,2026-09-29,scanner,NANEXA.ST,big_move,SE,10.6800,"{""pct"": -12.2}"
 2026-09-29T07:01:13+00:00,2026-09-29,scanner,BOOZT.ST,big_move,SE,157.9000,"{""pct"": 8.9}"
+2026-09-29T07:15:50+00:00,2026-09-29,scanner,BOOZT.ST,volume_spike,SE,157.6000,"{""rvol"": 4.1, ""pct"": 8.7}"
+2026-09-29T07:15:52+00:00,2026-09-29,scanner,NANEXA.ST,volume_spike,SE,10.9000,"{""rvol"": 4.3, ""pct"": -10.4}"
+2026-09-29T07:15:55+00:00,2026-09-29,scanner,SPRINT.ST,volume_spike,SE,3.2100,"{""rvol"": 7.1, ""pct"": 5.2}"
