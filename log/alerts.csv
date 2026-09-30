@@ -843,3 +843,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-29T07:30:58+00:00,2026-09-29,scanner,KJELL.ST,volume_spike,SE,15.8000,"{""rvol"": 3.1, ""pct"": -1.9}"
 2026-09-29T09:45:56+00:00,2026-09-29,scanner,MTG-B.ST,volume_spike,SE,125.8000,"{""rvol"": 8.1, ""pct"": 1.7}"
 2026-09-29T12:15:49+00:00,2026-09-29,scanner,SIVE.ST,big_move,SE,33.3800,"{""pct"": 6.0}"
+2026-09-30T00:03:38+00:00,2026-09-30,exits,HTRO.ST,ma50_break,SE,38.2900,"{""sma50"": 39.3658, ""sma200"": 34.5297, ""dd_pct"": -15.7}"
+2026-09-30T00:03:40+00:00,2026-09-30,exits,LUMI.ST,ma200_break,SE,236.1000,"{""sma50"": 247.0438, ""sma200"": 240.0947, ""dd_pct"": -13.0}"
+2026-09-30T00:04:47+00:00,2026-09-30,breakout,HUM.ST,breakout,SE,71.6000,"{""rvol"": 3.8, ""run_up"": 0.541}"
