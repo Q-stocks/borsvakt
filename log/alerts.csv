@@ -846,3 +846,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-09-30T00:03:38+00:00,2026-09-30,exits,HTRO.ST,ma50_break,SE,38.2900,"{""sma50"": 39.3658, ""sma200"": 34.5297, ""dd_pct"": -15.7}"
 2026-09-30T00:03:40+00:00,2026-09-30,exits,LUMI.ST,ma200_break,SE,236.1000,"{""sma50"": 247.0438, ""sma200"": 240.0947, ""dd_pct"": -13.0}"
 2026-09-30T00:04:47+00:00,2026-09-30,breakout,HUM.ST,breakout,SE,71.6000,"{""rvol"": 3.8, ""run_up"": 0.541}"
+2026-09-30T07:01:09+00:00,2026-09-30,scanner,SPRINT.ST,big_move,SE,3.3100,"{""pct"": 6.1}"
+2026-09-30T07:01:10+00:00,2026-09-30,scanner,NANEXA.ST,big_move,SE,10.1400,"{""pct"": -7.7}"
