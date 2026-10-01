@@ -867,3 +867,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-01T06:20:16+00:00,2026-10-01,multifactor,BUFAB.ST,buy,SE,142.4000,{}
 2026-10-01T06:20:16+00:00,2026-10-01,multifactor,EMBRAC-B.ST,buy,SE,85.2000,{}
 2026-10-01T07:01:16+00:00,2026-10-01,scanner,SPRINT.ST,big_move,SE,3.5000,"{""pct"": 6.1}"
+2026-10-01T07:15:48+00:00,2026-10-01,scanner,KARNEL-B.ST,volume_spike,SE,105.6000,"{""rvol"": 3.3, ""pct"": 2.3}"
