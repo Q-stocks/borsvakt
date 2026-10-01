@@ -869,3 +869,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-01T07:01:16+00:00,2026-10-01,scanner,SPRINT.ST,big_move,SE,3.5000,"{""pct"": 6.1}"
 2026-10-01T07:15:48+00:00,2026-10-01,scanner,KARNEL-B.ST,volume_spike,SE,105.6000,"{""rvol"": 3.3, ""pct"": 2.3}"
 2026-10-01T07:34:08+00:00,2026-10-01,scanner,NANEXA.ST,volume_spike,SE,10.2800,"{""rvol"": 3.0, ""pct"": 2.2}"
+2026-10-01T08:01:10+00:00,2026-10-01,scanner,SPRINT.ST,volume_spike,SE,3.4900,"{""rvol"": 4.1, ""pct"": 5.8}"
