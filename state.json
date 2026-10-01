@@ -95,20 +95,20 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": false,
-      "updated": "2026-09-30"
+      "rs_up": true,
+      "updated": "2026-10-01"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-30"
+      "updated": "2026-10-01"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-09-30"
+      "updated": "2026-10-01"
     }
   },
   "stock_portfolio": {
@@ -444,30 +444,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "TMO": {
-        "report": "2026-07-23",
-        "surprise": 5.57,
-        "reaction": 9.94593876363682,
-        "entry_logged": "2026-07-23"
-      },
-      "RTX": {
-        "report": "2026-07-23",
-        "surprise": 13.71,
-        "reaction": 8.562514124170873,
-        "entry_logged": "2026-07-23"
-      },
-      "HON": {
-        "report": "2026-07-23",
-        "surprise": 7.22,
-        "reaction": 6.934743511667508,
-        "entry_logged": "2026-07-23"
-      },
-      "UNP": {
-        "report": "2026-07-23",
-        "surprise": 5.46,
-        "reaction": 5.258031376933603,
-        "entry_logged": "2026-07-23"
-      },
       "VZ": {
         "report": "2026-07-24",
         "surprise": 2.71,
@@ -620,12 +596,6 @@
       }
     },
     "Sverige": {
-      "8TRA.ST": {
-        "report": "2026-07-23",
-        "surprise": null,
-        "reaction": 11.51429409322029,
-        "entry_logged": "2026-07-23"
-      },
       "SF.ST": {
         "report": "2026-07-24",
         "surprise": null,
@@ -861,7 +831,9 @@
     "SPRINT.ST:sma50:2026-W40": true,
     "UNH:sma50:2026-W40": true,
     "HTRO.ST:sma50:2026-W40": true,
-    "LUMI.ST:sma200:2026-W40": true
+    "LUMI.ST:sma200:2026-W40": true,
+    "SSAB-A.ST:sma50:2026-W40": true,
+    "SSAB-B.ST:sma50:2026-W40": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -903,6 +875,7 @@
     "TMO:2026-09-17": true,
     "MPC:2026-09-18": true,
     "NANEXA.ST:2026-09-25": true,
-    "HUM.ST:2026-09-28": true
+    "HUM.ST:2026-09-28": true,
+    "EGTX.ST:2026-09-29": true
   }
 }
