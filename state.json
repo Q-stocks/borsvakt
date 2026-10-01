@@ -100,7 +100,7 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
+      "rs_up": false,
       "updated": "2026-10-01"
     },
     "Svensk bank": {
@@ -437,7 +437,11 @@
       "0001225208-26-006750",
       "0001225208-26-006749",
       "0001225208-26-007064",
-      "0001225208-26-007727"
+      "0001225208-26-007727",
+      "0001225208-26-008053",
+      "0001225208-26-008052",
+      "0001225208-26-008051",
+      "0001225208-26-008050"
     ]
   },
   "insider_buys": {},
@@ -598,6 +602,12 @@
         "surprise": 10.45,
         "reaction": -7.270110059124191,
         "entry_logged": "2026-09-11"
+      },
+      "ACN": {
+        "report": "2026-10-01",
+        "surprise": 3.36,
+        "reaction": 15.598521048294222,
+        "entry_logged": "2026-10-01"
       }
     },
     "Sverige": {
@@ -792,6 +802,12 @@
         "surprise": null,
         "reaction": 5.842419531187182,
         "entry_logged": "2026-09-03"
+      },
+      "SKIS-B.ST": {
+        "report": "2026-09-30",
+        "surprise": null,
+        "reaction": 7.110133568091492,
+        "entry_logged": "2026-10-01"
       }
     }
   },
@@ -838,7 +854,11 @@
     "HTRO.ST:sma50:2026-W40": true,
     "LUMI.ST:sma200:2026-W40": true,
     "SSAB-A.ST:sma50:2026-W40": true,
-    "SSAB-B.ST:sma50:2026-W40": true
+    "SSAB-B.ST:sma50:2026-W40": true,
+    "ALLEI.ST:sma50:2026-W40": true,
+    "AMGN:sma50:2026-W40": true,
+    "JNJ:sma50:2026-W40": true,
+    "LLY:sma50:2026-W40": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -881,6 +901,7 @@
     "MPC:2026-09-18": true,
     "NANEXA.ST:2026-09-25": true,
     "HUM.ST:2026-09-28": true,
-    "EGTX.ST:2026-09-29": true
+    "EGTX.ST:2026-09-29": true,
+    "ACN:2026-10-01": true
   }
 }
