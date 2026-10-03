@@ -97,19 +97,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-10-01"
+      "updated": "2026-10-03"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-01"
+      "updated": "2026-10-03"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-01"
+      "updated": "2026-10-03"
     }
   },
   "stock_portfolio": {
@@ -217,7 +217,8 @@
       "0001140361-26-038026",
       "0001140361-26-038024",
       "0001140361-26-038022",
-      "0001140361-26-038021"
+      "0001140361-26-038021",
+      "0001140361-26-038307"
     ],
     "MSFT": [
       "0000789019-26-000135",
@@ -449,12 +450,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "VZ": {
-        "report": "2026-07-24",
-        "surprise": 2.71,
-        "reaction": 5.740483179585798,
-        "entry_logged": "2026-07-24"
-      },
       "KO": {
         "report": "2026-07-28",
         "surprise": 4.05,
@@ -607,12 +602,6 @@
       }
     },
     "Sverige": {
-      "SF.ST": {
-        "report": "2026-07-24",
-        "surprise": null,
-        "reaction": 47.20598514397578,
-        "entry_logged": "2026-07-27"
-      },
       "ELUX-B.ST": {
         "report": "2026-07-29",
         "surprise": null,
