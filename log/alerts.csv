@@ -896,3 +896,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-06T00:55:05+00:00,2026-10-06,exits,SIVE.ST,drawdown,SE,33.2800,"{""sma50"": 32.706, ""sma200"": 30.226, ""dd_pct"": -24.09}"
 2026-10-06T00:55:06+00:00,2026-10-06,exits,SSAB-A.ST,ma50_break,SE,100.4500,"{""sma50"": 103.0456, ""sma200"": 86.9649, ""dd_pct"": -7.67}"
 2026-10-06T00:55:06+00:00,2026-10-06,exits,SSAB-B.ST,ma50_break,SE,100.7000,"{""sma50"": 103.4438, ""sma200"": 86.6892, ""dd_pct"": -7.95}"
+2026-10-06T07:31:03+00:00,2026-10-06,scanner,SSAB-B.ST,volume_spike,SE,104.4500,"{""rvol"": 3.1, ""pct"": 3.7}"
+2026-10-06T07:31:05+00:00,2026-10-06,scanner,NANEXA.ST,big_move,SE,10.6800,"{""pct"": 6.9}"
