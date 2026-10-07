@@ -796,7 +796,8 @@
     "SIVE.ST:drawdown:2026-W41": true,
     "SSAB-A.ST:sma50:2026-W41": true,
     "SSAB-B.ST:sma50:2026-W41": true,
-    "MRK:sma50:2026-W41": true
+    "MRK:sma50:2026-W41": true,
+    "CAT:sma50:2026-W41": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -840,6 +841,7 @@
     "NANEXA.ST:2026-09-25": true,
     "HUM.ST:2026-09-28": true,
     "EGTX.ST:2026-09-29": true,
-    "ACN:2026-10-01": true
+    "ACN:2026-10-01": true,
+    "STOR-B.ST:2026-10-06": true
   }
 }
