@@ -901,3 +901,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-06T07:45:54+00:00,2026-10-06,scanner,SIVE.ST,big_move,SE,35.5200,"{""pct"": 6.7}"
 2026-10-06T14:01:14+00:00,2026-10-06,scanner,AMD,volume_spike,US,641.5801,"{""rvol"": 3.3, ""pct"": 1.6}"
 2026-10-07T00:52:48+00:00,2026-10-07,exits,MRK,ma50_break,US,141.9400,"{""sma50"": 142.1194, ""sma200"": 121.8893, ""dd_pct"": -8.74}"
+2026-10-07T15:01:13+00:00,2026-10-07,scanner,CAT,big_move,US,811.0600,"{""pct"": -6.1}"
