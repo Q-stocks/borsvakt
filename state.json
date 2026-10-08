@@ -89,20 +89,20 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-10-07"
+      "rs_up": false,
+      "updated": "2026-10-08"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-07"
+      "updated": "2026-10-08"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-07"
+      "updated": "2026-10-08"
     }
   },
   "stock_portfolio": {
@@ -215,7 +215,8 @@
       "0001140361-26-038674",
       "0001140361-26-038672",
       "0001140361-26-038669",
-      "0001140361-26-038667"
+      "0001140361-26-038667",
+      "0001140361-26-039158"
     ],
     "MSFT": [
       "0000789019-26-000135",
@@ -447,24 +448,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "MA": {
-        "report": "2026-07-30",
-        "surprise": 5.53,
-        "reaction": 0.814005877158519,
-        "entry_logged": "2026-07-30"
-      },
-      "AAPL": {
-        "report": "2026-07-30",
-        "surprise": 6.74,
-        "reaction": -11.06648660208944,
-        "entry_logged": "2026-07-31"
-      },
-      "AMZN": {
-        "report": "2026-07-30",
-        "surprise": 214.23,
-        "reaction": 17.414881763705072,
-        "entry_logged": "2026-07-31"
-      },
       "XOM": {
         "report": "2026-07-31",
         "surprise": 13.36,
@@ -797,7 +780,10 @@
     "SSAB-A.ST:sma50:2026-W41": true,
     "SSAB-B.ST:sma50:2026-W41": true,
     "MRK:sma50:2026-W41": true,
-    "CAT:sma50:2026-W41": true
+    "CAT:sma50:2026-W41": true,
+    "CAT:sma200:2026-W41": true,
+    "SINCH.ST:sma50:2026-W41": true,
+    "TROAX.ST:sma50:2026-W41": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,

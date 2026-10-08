@@ -910,3 +910,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-08T08:01:17+00:00,2026-10-08,scanner,SPRINT.ST,volume_spike,SE,3.5200,"{""rvol"": 4.1, ""pct"": 1.7}"
 2026-10-08T08:15:50+00:00,2026-10-08,scanner,INSTAL.ST,volume_spike,SE,40.5200,"{""rvol"": 3.1, ""pct"": -4.7}"
 2026-10-08T13:45:55+00:00,2026-10-08,scanner,PLTR,volume_spike,US,199.0950,"{""rvol"": 11.4, ""pct"": 2.6}"
+2026-10-08T22:38:02+00:00,2026-10-08,exits,CAT,ma200_break,US,796.1800,"{""sma50"": 822.1688, ""sma200"": 798.5485, ""dd_pct"": -11.0}"
+2026-10-08T22:38:06+00:00,2026-10-08,exits,SINCH.ST,ma50_break,SE,43.2500,"{""sma50"": 45.158, ""sma200"": 34.3599, ""dd_pct"": -16.18}"
+2026-10-08T22:38:09+00:00,2026-10-08,exits,TROAX.ST,ma50_break,SE,146.6000,"{""sma50"": 147.792, ""sma200"": 122.8479, ""dd_pct"": -7.33}"
