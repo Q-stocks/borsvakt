@@ -908,3 +908,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-08T07:45:40+00:00,2026-10-08,scanner,SF.ST,volume_spike,SE,7.1000,"{""rvol"": 3.9, ""pct"": -3.3}"
 2026-10-08T08:01:09+00:00,2026-10-08,scanner,SIVE.ST,big_move,SE,32.9600,"{""pct"": -6.7}"
 2026-10-08T08:01:17+00:00,2026-10-08,scanner,SPRINT.ST,volume_spike,SE,3.5200,"{""rvol"": 4.1, ""pct"": 1.7}"
+2026-10-08T08:15:50+00:00,2026-10-08,scanner,INSTAL.ST,volume_spike,SE,40.5200,"{""rvol"": 3.1, ""pct"": -4.7}"
