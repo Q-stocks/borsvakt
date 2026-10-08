@@ -904,3 +904,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-07T15:01:13+00:00,2026-10-07,scanner,CAT,big_move,US,811.0600,"{""pct"": -6.1}"
 2026-10-07T22:16:29+00:00,2026-10-07,exits,CAT,ma50_break,US,813.8300,"{""sma50"": 821.8994, ""sma200"": 797.4312, ""dd_pct"": -10.82}"
 2026-10-07T22:17:27+00:00,2026-10-07,breakout,STOR-B.ST,breakout,SE,11.2700,"{""rvol"": 2.3, ""run_up"": 0.306}"
+2026-10-08T07:01:15+00:00,2026-10-08,scanner,FMM-B.ST,big_move,SE,114.0000,"{""pct"": -6.9}"
