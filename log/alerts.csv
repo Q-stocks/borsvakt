@@ -916,3 +916,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-09T07:01:15+00:00,2026-10-09,scanner,SIVE.ST,big_move,SE,31.8200,"{""pct"": -7.2}"
 2026-10-09T07:15:49+00:00,2026-10-09,scanner,ERIC-B.ST,volume_spike,SE,96.4800,"{""rvol"": 3.0, ""pct"": 1.7}"
 2026-10-09T07:31:04+00:00,2026-10-09,scanner,SF.ST,volume_spike,SE,7.4850,"{""rvol"": 10.2, ""pct"": 5.3}"
+2026-10-09T07:45:42+00:00,2026-10-09,scanner,BOOZT.ST,volume_spike,SE,150.4500,"{""rvol"": 4.6, ""pct"": 3.8}"
