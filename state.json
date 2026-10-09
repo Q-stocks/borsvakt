@@ -90,20 +90,20 @@
     "Svensk verkstad": {
       "above200": true,
       "gcross": true,
-      "rs_up": false,
-      "updated": "2026-10-08"
+      "rs_up": true,
+      "updated": "2026-10-09"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-08"
+      "updated": "2026-10-09"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-08"
+      "updated": "2026-10-09"
     }
   },
   "stock_portfolio": {
@@ -377,7 +377,8 @@
       "0001243821-26-000007",
       "0001197649-26-000012",
       "0001199039-26-000016",
-      "0001696841-26-000014"
+      "0001696841-26-000014",
+      "0001197647-26-000011"
     ],
     "JPM": [
       "0001193125-26-258526",
@@ -449,18 +450,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "XOM": {
-        "report": "2026-07-31",
-        "surprise": 13.36,
-        "reaction": -1.6946887252926368,
-        "entry_logged": "2026-07-31"
-      },
-      "CVX": {
-        "report": "2026-07-31",
-        "surprise": 8.14,
-        "reaction": 1.630393079524417,
-        "entry_logged": "2026-07-31"
-      },
       "AMD": {
         "report": "2026-08-04",
         "surprise": null,
@@ -784,7 +773,8 @@
     "CAT:sma50:2026-W41": true,
     "CAT:sma200:2026-W41": true,
     "SINCH.ST:sma50:2026-W41": true,
-    "TROAX.ST:sma50:2026-W41": true
+    "TROAX.ST:sma50:2026-W41": true,
+    "SIVE.ST:sma200:2026-W41": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -829,6 +819,8 @@
     "HUM.ST:2026-09-28": true,
     "EGTX.ST:2026-09-29": true,
     "ACN:2026-10-01": true,
-    "STOR-B.ST:2026-10-06": true
+    "STOR-B.ST:2026-10-06": true,
+    "BICO.ST:2026-10-09": true,
+    "SF.ST:2026-10-09": true
   }
 }
