@@ -924,3 +924,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-09T21:50:06+00:00,2026-10-09,breakout,SF.ST,breakout,SE,7.6500,"{""rvol"": 2.6, ""run_up"": 0.803}"
 2026-10-12T07:15:53+00:00,2026-10-12,scanner,EMBRAC-B.ST,volume_spike,SE,89.3400,"{""rvol"": 4.2, ""pct"": 2.5}"
 2026-10-12T10:15:56+00:00,2026-10-12,scanner,KARNEL-B.ST,volume_spike,SE,111.8000,"{""rvol"": 3.6, ""pct"": 10.9}"
+2026-10-12T14:01:25+00:00,2026-10-12,scanner,SIVE.ST,big_move,SE,28.1200,"{""pct"": -6.4}"
