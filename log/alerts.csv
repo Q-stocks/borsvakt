@@ -922,3 +922,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-09T21:48:42+00:00,2026-10-09,exits,SIVE.ST,ma200_break,SE,30.0400,"{""sma50"": 33.07, ""sma200"": 30.9554, ""dd_pct"": -31.48}"
 2026-10-09T21:50:05+00:00,2026-10-09,breakout,BICO.ST,breakout,SE,23.7000,"{""rvol"": 3.3, ""run_up"": 0.719}"
 2026-10-09T21:50:06+00:00,2026-10-09,breakout,SF.ST,breakout,SE,7.6500,"{""rvol"": 2.6, ""run_up"": 0.803}"
+2026-10-12T07:15:53+00:00,2026-10-12,scanner,EMBRAC-B.ST,volume_spike,SE,89.3400,"{""rvol"": 4.2, ""pct"": 2.5}"
