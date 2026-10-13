@@ -939,3 +939,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-13T07:15:51+00:00,2026-10-13,scanner,SIVE.ST,volume_spike,SE,27.7800,"{""rvol"": 3.2, ""pct"": -7.5}"
 2026-10-13T07:31:01+00:00,2026-10-13,scanner,KARNEL-B.ST,volume_spike,SE,105.4000,"{""rvol"": 5.2, ""pct"": 4.6}"
 2026-10-13T07:31:03+00:00,2026-10-13,scanner,NOKIA-SEK.ST,volume_spike,SE,96.4000,"{""rvol"": 3.6, ""pct"": -7.5}"
+2026-10-13T13:45:56+00:00,2026-10-13,scanner,JNJ,volume_spike,US,253.4000,"{""rvol"": 3.6, ""pct"": -3.9}"
