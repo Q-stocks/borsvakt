@@ -86,19 +86,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-09"
+      "updated": "2026-10-13"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-09"
+      "updated": "2026-10-13"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-09"
+      "updated": "2026-10-13"
     }
   },
   "stock_portfolio": {
@@ -445,48 +445,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "AMD": {
-        "report": "2026-08-04",
-        "surprise": null,
-        "reaction": 5.200236369118105,
-        "entry_logged": "2026-08-04"
-      },
-      "PLTR": {
-        "report": "2026-08-03",
-        "surprise": 18.51,
-        "reaction": 28.926550620354092,
-        "entry_logged": "2026-08-04"
-      },
-      "MRK": {
-        "report": "2026-08-04",
-        "surprise": 49.43,
-        "reaction": -1.1613487764241315,
-        "entry_logged": "2026-08-07"
-      },
-      "CAT": {
-        "report": "2026-08-04",
-        "surprise": 31.83,
-        "reaction": 3.3459623342220635,
-        "entry_logged": "2026-08-07"
-      },
-      "AMGN": {
-        "report": "2026-08-04",
-        "surprise": 11.97,
-        "reaction": 6.044140274735166,
-        "entry_logged": "2026-08-07"
-      },
-      "PFE": {
-        "report": "2026-08-04",
-        "surprise": 12.87,
-        "reaction": 1.516615128677934,
-        "entry_logged": "2026-08-07"
-      },
-      "BKNG": {
-        "report": "2026-08-04",
-        "surprise": 4.49,
-        "reaction": 5.8260235858833775,
-        "entry_logged": "2026-08-07"
-      },
       "LLY": {
         "report": "2026-08-05",
         "surprise": 27.27,
@@ -555,18 +513,6 @@
       }
     },
     "Sverige": {
-      "ASMDEE-B.ST": {
-        "report": "2026-08-04",
-        "surprise": null,
-        "reaction": 9.535170121106649,
-        "entry_logged": "2026-08-04"
-      },
-      "LUG.ST": {
-        "report": "2026-08-04",
-        "surprise": null,
-        "reaction": 9.252332377405503,
-        "entry_logged": "2026-08-05"
-      },
       "LUMI.ST": {
         "report": "2026-08-05",
         "surprise": null,
@@ -733,28 +679,6 @@
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "ACAST.ST:sma200:2026-W40": true,
-    "ACCON.ST:sma200:2026-W40": true,
-    "BOOZT.ST:sma50:2026-W40": true,
-    "CAT:sma50:2026-W40": true,
-    "CHEF.ST:sma50:2026-W40": true,
-    "CSCO:sma50:2026-W40": true,
-    "GS:sma200:2026-W40": true,
-    "HOFI.ST:sma50:2026-W40": true,
-    "LUMI.ST:sma50:2026-W40": true,
-    "MS:sma50:2026-W40": true,
-    "MTG-B.ST:sma50:2026-W40": true,
-    "SIVE.ST:sma50:2026-W40": true,
-    "SPRINT.ST:sma50:2026-W40": true,
-    "UNH:sma50:2026-W40": true,
-    "HTRO.ST:sma50:2026-W40": true,
-    "LUMI.ST:sma200:2026-W40": true,
-    "SSAB-A.ST:sma50:2026-W40": true,
-    "SSAB-B.ST:sma50:2026-W40": true,
-    "ALLEI.ST:sma50:2026-W40": true,
-    "AMGN:sma50:2026-W40": true,
-    "JNJ:sma50:2026-W40": true,
-    "LLY:sma50:2026-W40": true,
     "ALLEI.ST:sma50:2026-W41": true,
     "AMGN:sma50:2026-W41": true,
     "BOOZT.ST:sma50:2026-W41": true,
@@ -769,7 +693,12 @@
     "CAT:sma200:2026-W41": true,
     "SINCH.ST:sma50:2026-W41": true,
     "TROAX.ST:sma50:2026-W41": true,
-    "SIVE.ST:sma200:2026-W41": true
+    "SIVE.ST:sma200:2026-W41": true,
+    "CAT:sma200:2026-W42": true,
+    "HOFI.ST:sma50:2026-W42": true,
+    "JNJ:sma50:2026-W42": true,
+    "SIVE.ST:sma200:2026-W42": true,
+    "SSAB-A.ST:sma50:2026-W42": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
