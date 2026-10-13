@@ -519,6 +519,18 @@
         "surprise": 3.36,
         "reaction": 15.598521048294222,
         "entry_logged": "2026-10-01"
+      },
+      "UNH": {
+        "report": "2026-10-13",
+        "surprise": 13.26,
+        "reaction": -0.18921427212965636,
+        "entry_logged": "2026-10-13"
+      },
+      "GS": {
+        "report": "2026-10-13",
+        "surprise": 29.98,
+        "reaction": -0.21664280456968887,
+        "entry_logged": "2026-10-13"
       }
     },
     "Sverige": {
@@ -707,7 +719,13 @@
     "HOFI.ST:sma50:2026-W42": true,
     "JNJ:sma50:2026-W42": true,
     "SIVE.ST:sma200:2026-W42": true,
-    "SSAB-A.ST:sma50:2026-W42": true
+    "SSAB-A.ST:sma50:2026-W42": true,
+    "ALLEI.ST:sma50:2026-W42": true,
+    "LLY:sma50:2026-W42": true,
+    "MORROW.ST:sma50:2026-W42": true,
+    "MRK:sma50:2026-W42": true,
+    "SINCH.ST:sma50:2026-W42": true,
+    "SSAB-B.ST:sma50:2026-W42": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -754,6 +772,8 @@
     "ACN:2026-10-01": true,
     "STOR-B.ST:2026-10-06": true,
     "BICO.ST:2026-10-09": true,
-    "SF.ST:2026-10-09": true
+    "SF.ST:2026-10-09": true,
+    "KARNEL-B.ST:2026-10-12": true,
+    "SUS.ST:2026-10-12": true
   }
 }
