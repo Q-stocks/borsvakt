@@ -931,3 +931,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-13T02:09:32+00:00,2026-10-13,exits,JNJ,ma50_break,US,263.7300,"{""sma50"": 265.0688, ""sma200"": 241.3264, ""dd_pct"": -5.28}"
 2026-10-13T02:09:36+00:00,2026-10-13,exits,SIVE.ST,ma200_break,SE,30.0400,"{""sma50"": 33.07, ""sma200"": 30.9554, ""dd_pct"": -31.48}"
 2026-10-13T02:09:37+00:00,2026-10-13,exits,SSAB-A.ST,ma50_break,SE,103.0500,"{""sma50"": 103.1798, ""sma200"": 87.7753, ""dd_pct"": -5.28}"
+2026-10-13T07:01:14+00:00,2026-10-13,scanner,SIVE.ST,big_move,SE,26.2800,"{""pct"": -12.5}"
+2026-10-13T07:01:16+00:00,2026-10-13,scanner,KARNEL-B.ST,big_move,SE,109.0000,"{""pct"": 8.1}"
+2026-10-13T07:01:18+00:00,2026-10-13,scanner,NANEXA.ST,big_move,SE,10.6000,"{""pct"": -7.8}"
+2026-10-13T07:01:20+00:00,2026-10-13,scanner,SPRINT.ST,volume_spike,SE,3.7200,"{""rvol"": 5.0, ""pct"": 1.9}"
+2026-10-13T07:01:21+00:00,2026-10-13,scanner,NOKIA-SEK.ST,big_move,SE,97.1000,"{""pct"": -6.9}"
