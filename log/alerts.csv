@@ -950,3 +950,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-13T22:58:41+00:00,2026-10-13,exits,SSAB-B.ST,ma50_break,SE,101.9500,"{""sma50"": 103.6312, ""sma200"": 87.7073, ""dd_pct"": -6.81}"
 2026-10-13T23:00:05+00:00,2026-10-13,breakout,KARNEL-B.ST,breakout,SE,109.0000,"{""rvol"": 5.1, ""run_up"": 0.387}"
 2026-10-13T23:00:05+00:00,2026-10-13,breakout,SUS.ST,breakout,SE,55.3000,"{""rvol"": 2.6, ""run_up"": 0.742}"
+2026-10-14T07:01:22+00:00,2026-10-14,scanner,KJELL.ST,big_move,SE,17.0000,"{""pct"": 6.2}"
