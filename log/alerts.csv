@@ -952,3 +952,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-13T23:00:05+00:00,2026-10-13,breakout,SUS.ST,breakout,SE,55.3000,"{""rvol"": 2.6, ""run_up"": 0.742}"
 2026-10-14T07:01:22+00:00,2026-10-14,scanner,KJELL.ST,big_move,SE,17.0000,"{""pct"": 6.2}"
 2026-10-14T07:15:53+00:00,2026-10-14,scanner,SEB-A.ST,volume_spike,SE,221.5000,"{""rvol"": 7.1, ""pct"": -3.2}"
+2026-10-14T07:31:08+00:00,2026-10-14,scanner,EMBRAC-B.ST,volume_spike,SE,93.0000,"{""rvol"": 4.7, ""pct"": 2.4}"
