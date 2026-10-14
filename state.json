@@ -95,19 +95,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-13"
+      "updated": "2026-10-14"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-13"
+      "updated": "2026-10-14"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-10-13"
+      "updated": "2026-10-14"
     }
   },
   "stock_portfolio": {
@@ -454,24 +454,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "LLY": {
-        "report": "2026-08-05",
-        "surprise": 27.27,
-        "reaction": 7.194405364783451,
-        "entry_logged": "2026-08-07"
-      },
-      "UBER": {
-        "report": "2026-08-05",
-        "surprise": 40.22,
-        "reaction": -1.7522772754950067,
-        "entry_logged": "2026-08-07"
-      },
-      "DIS": {
-        "report": "2026-08-05",
-        "surprise": 11.09,
-        "reaction": 6.979615437333553,
-        "entry_logged": "2026-08-07"
-      },
       "COP": {
         "report": "2026-08-06",
         "surprise": 10.26,
@@ -534,12 +516,6 @@
       }
     },
     "Sverige": {
-      "LUMI.ST": {
-        "report": "2026-08-05",
-        "surprise": null,
-        "reaction": 6.124385215374617,
-        "entry_logged": "2026-08-05"
-      },
       "YUBICO.ST": {
         "report": "2026-08-06",
         "surprise": null,
@@ -725,7 +701,8 @@
     "MORROW.ST:sma50:2026-W42": true,
     "MRK:sma50:2026-W42": true,
     "SINCH.ST:sma50:2026-W42": true,
-    "SSAB-B.ST:sma50:2026-W42": true
+    "SSAB-B.ST:sma50:2026-W42": true,
+    "NOKIA-SEK.ST:sma50:2026-W42": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
