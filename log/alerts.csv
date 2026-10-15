@@ -956,3 +956,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-14T16:31:07+00:00,2026-10-14,scanner,AMD,big_move,US,568.1200,"{""pct"": -6.2}"
 2026-10-14T22:00:02+00:00,2026-10-14,exits,NOKIA-SEK.ST,ma50_break,SE,97.5000,"{""sma50"": 100.1834, ""sma200"": 95.7726, ""dd_pct"": -9.81}"
 2026-10-15T07:01:21+00:00,2026-10-15,scanner,SIVE.ST,big_move,SE,24.2200,"{""pct"": -9.7}"
+2026-10-15T07:15:43+00:00,2026-10-15,scanner,ERIC-B.ST,volume_spike,SE,106.0000,"{""rvol"": 15.0, ""pct"": 11.6}"
+2026-10-15T07:15:46+00:00,2026-10-15,scanner,MYCR.ST,big_move,SE,310.0000,"{""pct"": -6.3}"
+2026-10-15T07:15:47+00:00,2026-10-15,scanner,NOKIA-SEK.ST,volume_spike,SE,92.3000,"{""rvol"": 8.0, ""pct"": -5.3}"
+2026-10-15T07:15:48+00:00,2026-10-15,scanner,SIVE.ST,volume_spike,SE,24.0200,"{""rvol"": 5.0, ""pct"": -10.4}"
+2026-10-15T07:15:50+00:00,2026-10-15,scanner,HTRO.ST,volume_spike,SE,40.7400,"{""rvol"": 4.7, ""pct"": -4.4}"
