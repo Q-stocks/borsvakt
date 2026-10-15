@@ -955,3 +955,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-14T07:31:08+00:00,2026-10-14,scanner,EMBRAC-B.ST,volume_spike,SE,93.0000,"{""rvol"": 4.7, ""pct"": 2.4}"
 2026-10-14T16:31:07+00:00,2026-10-14,scanner,AMD,big_move,US,568.1200,"{""pct"": -6.2}"
 2026-10-14T22:00:02+00:00,2026-10-14,exits,NOKIA-SEK.ST,ma50_break,SE,97.5000,"{""sma50"": 100.1834, ""sma200"": 95.7726, ""dd_pct"": -9.81}"
+2026-10-15T07:01:21+00:00,2026-10-15,scanner,SIVE.ST,big_move,SE,24.2200,"{""pct"": -9.7}"
