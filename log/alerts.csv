@@ -962,3 +962,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-15T07:15:48+00:00,2026-10-15,scanner,SIVE.ST,volume_spike,SE,24.0200,"{""rvol"": 5.0, ""pct"": -10.4}"
 2026-10-15T07:15:50+00:00,2026-10-15,scanner,HTRO.ST,volume_spike,SE,40.7400,"{""rvol"": 4.7, ""pct"": -4.4}"
 2026-10-15T07:31:07+00:00,2026-10-15,scanner,MYCR.ST,volume_spike,SE,304.6000,"{""rvol"": 3.6, ""pct"": -8.0}"
+2026-10-15T11:45:54+00:00,2026-10-15,scanner,SPRINT.ST,big_move,SE,3.5600,"{""pct"": -7.0}"
