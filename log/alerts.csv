@@ -969,3 +969,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-15T13:45:56+00:00,2026-10-15,scanner,JNJ,volume_spike,US,259.9250,"{""rvol"": 3.1, ""pct"": 2.4}"
 2026-10-15T13:45:58+00:00,2026-10-15,scanner,LLY,volume_spike,US,1248.8850,"{""rvol"": 3.1, ""pct"": 3.3}"
 2026-10-15T13:45:58+00:00,2026-10-15,scanner,PLTR,volume_spike,US,197.5450,"{""rvol"": 3.2, ""pct"": -1.7}"
+2026-10-15T23:17:59+00:00,2026-10-15,exits,CSCO,ma50_break,US,109.8500,"{""sma50"": 111.5505, ""sma200"": 98.6847, ""dd_pct"": -10.98}"
+2026-10-15T23:18:02+00:00,2026-10-15,exits,SEB-A.ST,ma50_break,SE,220.2000,"{""sma50"": 226.218, ""sma200"": 196.8823, ""dd_pct"": -6.66}"
+2026-10-15T23:18:49+00:00,2026-10-15,breakout,SNM-SDB.ST,breakout,SE,1.7720,"{""rvol"": 2.6, ""run_up"": 0.34}"
