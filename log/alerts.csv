@@ -972,3 +972,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-15T23:17:59+00:00,2026-10-15,exits,CSCO,ma50_break,US,109.8500,"{""sma50"": 111.5505, ""sma200"": 98.6847, ""dd_pct"": -10.98}"
 2026-10-15T23:18:02+00:00,2026-10-15,exits,SEB-A.ST,ma50_break,SE,220.2000,"{""sma50"": 226.218, ""sma200"": 196.8823, ""dd_pct"": -6.66}"
 2026-10-15T23:18:49+00:00,2026-10-15,breakout,SNM-SDB.ST,breakout,SE,1.7720,"{""rvol"": 2.6, ""run_up"": 0.34}"
+2026-10-16T07:01:22+00:00,2026-10-16,scanner,ERIC-B.ST,big_move,SE,104.4500,"{""pct"": 7.6}"
+2026-10-16T07:01:24+00:00,2026-10-16,scanner,MYCR.ST,big_move,SE,307.4000,"{""pct"": -7.1}"
