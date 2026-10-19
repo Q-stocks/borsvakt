@@ -983,3 +983,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-16T22:49:07+00:00,2026-10-16,exits,NOKIA-SEK.ST,ma200_break,SE,93.8400,"{""sma50"": 100.3338, ""sma200"": 96.1295, ""dd_pct"": -13.19}"
 2026-10-16T22:50:17+00:00,2026-10-16,breakout,MILDEF.ST,breakout,SE,244.7000,"{""rvol"": 4.2, ""run_up"": 0.368}"
 2026-10-19T07:15:48+00:00,2026-10-19,scanner,KARNEL-B.ST,volume_spike,SE,97.6000,"{""rvol"": 6.1, ""pct"": -5.1}"
+2026-10-19T13:45:55+00:00,2026-10-19,scanner,AMD,volume_spike,US,551.6100,"{""rvol"": 3.3, ""pct"": 4.3}"
