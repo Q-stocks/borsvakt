@@ -516,6 +516,18 @@
         "surprise": 29.98,
         "reaction": -0.21664280456968887,
         "entry_logged": "2026-10-13"
+      },
+      "GE": {
+        "report": "2026-10-20",
+        "surprise": 11.39,
+        "reaction": -4.000811335912868,
+        "entry_logged": "2026-10-20"
+      },
+      "RTX": {
+        "report": "2026-10-20",
+        "surprise": 27.03,
+        "reaction": 0.30495596597608365,
+        "entry_logged": "2026-10-20"
       }
     },
     "Sverige": {
@@ -693,7 +705,12 @@
     "MYCR.ST:sma50:2026-W43": true,
     "NOKIA-SEK.ST:sma200:2026-W43": true,
     "SEB-A.ST:sma50:2026-W43": true,
-    "SIVE.ST:sma200:2026-W43": true
+    "SIVE.ST:sma200:2026-W43": true,
+    "ALLEI.ST:sma50:2026-W43": true,
+    "HTRO.ST:sma50:2026-W43": true,
+    "SSAB-A.ST:sma50:2026-W43": true,
+    "SSAB-B.ST:sma50:2026-W43": true,
+    "TROAX.ST:sma50:2026-W43": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -745,6 +762,9 @@
     "SUS.ST:2026-10-12": true,
     "SNM-SDB.ST:2026-10-15": true,
     "MILDEF.ST:2026-10-15": true,
-    "MIPS.ST:2026-10-16": true
+    "MIPS.ST:2026-10-16": true,
+    "IT:2026-10-20": true,
+    "BULTEN.ST:2026-10-20": true,
+    "SCST.ST:2026-10-20": true
   }
 }

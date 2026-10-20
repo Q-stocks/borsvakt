@@ -2850,3 +2850,17 @@ scanner:PLTR:volume_spike:2026-10-15,scanner,PLTR,volume_spike,2026-10-15,US,1,-
 exits:CSCO:ma50_break:2026-10-15,exits,CSCO,ma50_break,2026-10-15,US,1,-2.2394,-1.1065,-1.1329,SPY
 exits:SEB-A.ST:ma50_break:2026-10-15,exits,SEB-A.ST,ma50_break,2026-10-15,SE,1,1.0134,1.2518,-0.2385,^OMX
 breakout:SNM-SDB.ST:breakout:2026-10-15,breakout,SNM-SDB.ST,breakout,2026-10-15,SE,1,3.9503,1.2518,2.6985,^OMX
+scanner:EMBRAC-B.ST:volume_spike:2026-10-12,scanner,EMBRAC-B.ST,volume_spike,2026-10-12,SE,5,-0.0881,-0.067,-0.0211,^OMX
+scanner:KARNEL-B.ST:volume_spike:2026-10-12,scanner,KARNEL-B.ST,volume_spike,2026-10-12,SE,5,-8.2569,-0.067,-8.1899,^OMX
+scanner:SIVE.ST:big_move:2026-10-12,scanner,SIVE.ST,big_move,2026-10-12,SE,5,-16.7022,-0.067,-16.6352,^OMX
+scanner:NANEXA.ST:big_move:2026-10-12,scanner,NANEXA.ST,big_move,2026-10-12,SE,5,-0.9276,-0.067,-0.8607,^OMX
+scanner:ERIC-B.ST:big_move:2026-10-16,scanner,ERIC-B.ST,big_move,2026-10-16,SE,1,-2.3663,-0.8869,-1.4794,^OMX
+scanner:MYCR.ST:big_move:2026-10-16,scanner,MYCR.ST,big_move,2026-10-16,SE,1,0.6707,-0.8869,1.5576,^OMX
+scanner:SIVE.ST:volume_spike:2026-10-16,scanner,SIVE.ST,volume_spike,2026-10-16,SE,1,-1.9247,-0.8869,-1.0378,^OMX
+scanner:MYCR.ST:volume_spike:2026-10-16,scanner,MYCR.ST,volume_spike,2026-10-16,SE,1,0.6707,-0.8869,1.5576,^OMX
+scanner:AAPL:volume_spike:2026-10-16,scanner,AAPL,volume_spike,2026-10-16,US,1,-0.1514,0.4232,-0.5746,SPY
+scanner:PLTR:volume_spike:2026-10-16,scanner,PLTR,volume_spike,2026-10-16,US,1,4.3649,0.4232,3.9417,SPY
+exits:AMD:ma50_break:2026-10-16,exits,AMD,ma50_break,2026-10-16,US,1,1.7589,0.4232,1.3357,SPY
+exits:MYCR.ST:ma50_break:2026-10-16,exits,MYCR.ST,ma50_break,2026-10-16,SE,1,0.6707,-0.8869,1.5576,^OMX
+exits:NOKIA-SEK.ST:ma200_break:2026-10-16,exits,NOKIA-SEK.ST,ma200_break,2026-10-16,SE,1,-1.3643,-0.8869,-0.4774,^OMX
+breakout:MILDEF.ST:breakout:2026-10-16,breakout,MILDEF.ST,breakout,2026-10-16,SE,1,-0.83,-0.8869,0.0569,^OMX
