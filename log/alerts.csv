@@ -1011,3 +1011,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-20T21:48:31+00:00,2026-10-20,breakout,SCST.ST,breakout,SE,181.2000,"{""rvol"": 7.5, ""run_up"": 0.319}"
 2026-10-21T08:01:21+00:00,2026-10-21,scanner,KJELL.ST,volume_spike,SE,16.8000,"{""rvol"": 4.8, ""pct"": -4.0}"
 2026-10-21T13:15:56+00:00,2026-10-21,scanner,INSTAL.ST,volume_spike,SE,42.2800,"{""rvol"": 3.8, ""pct"": 2.5}"
+2026-10-21T14:18:15+00:00,2026-10-21,scanner,TMO,volume_spike,US,698.2500,"{""rvol"": 3.7, ""pct"": 1.6}"
