@@ -1012,3 +1012,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-21T08:01:21+00:00,2026-10-21,scanner,KJELL.ST,volume_spike,SE,16.8000,"{""rvol"": 4.8, ""pct"": -4.0}"
 2026-10-21T13:15:56+00:00,2026-10-21,scanner,INSTAL.ST,volume_spike,SE,42.2800,"{""rvol"": 3.8, ""pct"": 2.5}"
 2026-10-21T14:18:15+00:00,2026-10-21,scanner,TMO,volume_spike,US,698.2500,"{""rvol"": 3.7, ""pct"": 1.6}"
+2026-10-21T22:02:21+00:00,2026-10-21,pead,NFLX,entry,US,65.0400,"{""surprise"": 5.75, ""reaction"": -7.748571295338736}"
+2026-10-21T22:02:30+00:00,2026-10-21,pead,ISRG,entry,US,428.1200,"{""surprise"": 13.61, ""reaction"": -2.0304950521910947}"
+2026-10-21T22:03:27+00:00,2026-10-21,breakout,CRL,breakout,US,344.8700,"{""rvol"": 2.8, ""run_up"": 0.407}"
