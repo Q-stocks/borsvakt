@@ -1015,3 +1015,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-21T22:02:21+00:00,2026-10-21,pead,NFLX,entry,US,65.0400,"{""surprise"": 5.75, ""reaction"": -7.748571295338736}"
 2026-10-21T22:02:30+00:00,2026-10-21,pead,ISRG,entry,US,428.1200,"{""surprise"": 13.61, ""reaction"": -2.0304950521910947}"
 2026-10-21T22:03:27+00:00,2026-10-21,breakout,CRL,breakout,US,344.8700,"{""rvol"": 2.8, ""run_up"": 0.407}"
+2026-10-22T07:01:20+00:00,2026-10-22,scanner,KJELL.ST,volume_spike,SE,18.2000,"{""rvol"": 3.6, ""pct"": 7.7}"
+2026-10-22T07:01:21+00:00,2026-10-22,scanner,HTRO.ST,volume_spike,SE,43.9900,"{""rvol"": 4.0, ""pct"": 13.5}"
