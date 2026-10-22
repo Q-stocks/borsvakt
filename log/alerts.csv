@@ -1022,3 +1022,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-22T07:15:49+00:00,2026-10-22,scanner,MYCR.ST,volume_spike,SE,310.8000,"{""rvol"": 6.1, ""pct"": 5.6}"
 2026-10-22T07:15:49+00:00,2026-10-22,scanner,KARNEL-B.ST,volume_spike,SE,95.5000,"{""rvol"": 6.5, ""pct"": -2.9}"
 2026-10-22T07:15:50+00:00,2026-10-22,scanner,SEB-A.ST,volume_spike,SE,210.6000,"{""rvol"": 3.3, ""pct"": -2.8}"
+2026-10-22T07:31:12+00:00,2026-10-22,scanner,SPRINT.ST,volume_spike,SE,3.5400,"{""rvol"": 3.6, ""pct"": 2.3}"
