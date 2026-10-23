@@ -1050,3 +1050,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-23T07:15:51+00:00,2026-10-23,scanner,NANEXA.ST,big_move,SE,10.5000,"{""pct"": -6.2}"
 2026-10-23T07:15:52+00:00,2026-10-23,scanner,HOFI.ST,volume_spike,SE,175.4000,"{""rvol"": 14.5, ""pct"": -10.2}"
 2026-10-23T07:15:53+00:00,2026-10-23,scanner,INSTAL.ST,volume_spike,SE,43.9000,"{""rvol"": 7.6, ""pct"": 3.2}"
+2026-10-23T07:31:05+00:00,2026-10-23,scanner,SIVE.ST,volume_spike,SE,21.4600,"{""rvol"": 3.1, ""pct"": -11.0}"
