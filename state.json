@@ -109,19 +109,19 @@
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-10-22"
+      "updated": "2026-10-23"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-10-22"
+      "updated": "2026-10-23"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-10-22"
+      "updated": "2026-10-23"
     }
   },
   "stock_portfolio": {
@@ -238,7 +238,8 @@
       "0001140361-26-039158",
       "0001140361-26-039785",
       "0001140361-26-040127",
-      "0001140361-26-040126"
+      "0001140361-26-040126",
+      "0001140361-26-040540"
     ],
     "MSFT": [
       "0000789019-26-000135",
@@ -563,15 +564,15 @@
         "surprise": 7.94,
         "reaction": 1.2810465907629354,
         "entry_logged": "2026-10-22"
+      },
+      "AXP": {
+        "report": "2026-10-23",
+        "surprise": 20.44,
+        "reaction": -3.152719021783179,
+        "entry_logged": "2026-10-23"
       }
     },
     "Sverige": {
-      "BTS-B.ST": {
-        "report": "2026-08-14",
-        "surprise": null,
-        "reaction": 5.601358498479259,
-        "entry_logged": "2026-08-14"
-      },
       "KJELL.ST": {
         "report": "2026-08-17",
         "surprise": null,
@@ -725,7 +726,8 @@
     "BUFAB.ST:sma50:2026-W43": true,
     "KARNEL-B.ST:sma50:2026-W43": true,
     "SF.ST:sma50:2026-W43": true,
-    "SWED-A.ST:sma50:2026-W43": true
+    "SWED-A.ST:sma50:2026-W43": true,
+    "MRK:sma50:2026-W43": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
