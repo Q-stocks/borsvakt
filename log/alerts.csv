@@ -1055,3 +1055,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-23T23:54:45+00:00,2026-10-23,exits,MRK,ma50_break,US,145.2700,"{""sma50"": 146.2781, ""sma200"": 124.6131, ""dd_pct"": -6.6}"
 2026-10-26T08:15:53+00:00,2026-10-26,scanner,SIVE.ST,volume_spike,SE,19.9900,"{""rvol"": 3.1, ""pct"": -3.1}"
 2026-10-26T08:15:55+00:00,2026-10-26,scanner,SF.ST,volume_spike,SE,5.9750,"{""rvol"": 4.6, ""pct"": 6.3}"
+2026-10-26T08:31:10+00:00,2026-10-26,scanner,INSTAL.ST,volume_spike,SE,40.5200,"{""rvol"": 3.6, ""pct"": -4.7}"
