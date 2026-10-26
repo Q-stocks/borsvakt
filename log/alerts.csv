@@ -1058,3 +1058,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-26T08:31:10+00:00,2026-10-26,scanner,INSTAL.ST,volume_spike,SE,40.5200,"{""rvol"": 3.6, ""pct"": -4.7}"
 2026-10-26T08:45:51+00:00,2026-10-26,scanner,HOFI.ST,volume_spike,SE,182.9000,"{""rvol"": 3.3, ""pct"": 2.4}"
 2026-10-26T08:45:56+00:00,2026-10-26,scanner,ALLEI.ST,volume_spike,SE,114.5000,"{""rvol"": 3.0, ""pct"": 1.6}"
+2026-10-26T10:15:53+00:00,2026-10-26,scanner,BOOZT.ST,volume_spike,SE,159.9000,"{""rvol"": 3.2, ""pct"": 3.4}"
