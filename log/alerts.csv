@@ -1080,3 +1080,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-27T00:24:54+00:00,2026-10-27,exits,SWED-A.ST,ma50_break,SE,379.0000,"{""sma50"": 392.534, ""sma200"": 349.0258, ""dd_pct"": -8.19}"
 2026-10-27T00:24:54+00:00,2026-10-27,exits,TROAX.ST,ma50_break,SE,141.4000,"{""sma50"": 149.168, ""sma200"": 122.8585, ""dd_pct"": -10.62}"
 2026-10-27T00:25:39+00:00,2026-10-27,breakout,ANOD-B.ST,breakout,SE,64.2000,"{""rvol"": 5.6, ""run_up"": 0.541}"
+2026-10-27T08:01:18+00:00,2026-10-27,scanner,ALLEI.ST,volume_spike,SE,95.2500,"{""rvol"": 5.2, ""pct"": -15.5}"
