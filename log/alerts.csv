@@ -1085,3 +1085,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-27T15:15:58+00:00,2026-10-27,scanner,SIVE.ST,big_move,SE,22.3600,"{""pct"": 6.3}"
 2026-10-27T23:46:14+00:00,2026-10-27,breakout,YUBICO.ST,breakout,SE,150.6000,"{""rvol"": 7.1, ""run_up"": 1.042}"
 2026-10-28T08:01:25+00:00,2026-10-28,scanner,SIVE.ST,big_move,SE,23.5200,"{""pct"": 11.8}"
+2026-10-28T08:15:51+00:00,2026-10-28,scanner,ALLEI.ST,volume_spike,SE,94.0000,"{""rvol"": 3.3, ""pct"": -4.1}"
