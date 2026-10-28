@@ -1087,3 +1087,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-28T08:01:25+00:00,2026-10-28,scanner,SIVE.ST,big_move,SE,23.5200,"{""pct"": 11.8}"
 2026-10-28T08:15:51+00:00,2026-10-28,scanner,ALLEI.ST,volume_spike,SE,94.0000,"{""rvol"": 3.3, ""pct"": -4.1}"
 2026-10-28T08:31:08+00:00,2026-10-28,scanner,MORROW.ST,volume_spike,SE,15.4800,"{""rvol"": 4.8, ""pct"": 1.7}"
+2026-10-28T08:45:53+00:00,2026-10-28,scanner,SSAB-B.ST,volume_spike,SE,96.1400,"{""rvol"": 4.9, ""pct"": -3.1}"
+2026-10-28T08:45:53+00:00,2026-10-28,scanner,SSAB-A.ST,volume_spike,SE,95.3200,"{""rvol"": 6.5, ""pct"": -3.0}"
+2026-10-28T08:45:56+00:00,2026-10-28,scanner,HTRO.ST,volume_spike,SE,46.4700,"{""rvol"": 4.1, ""pct"": 4.0}"
