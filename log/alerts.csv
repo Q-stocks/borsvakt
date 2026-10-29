@@ -1092,3 +1092,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-28T08:45:56+00:00,2026-10-28,scanner,HTRO.ST,volume_spike,SE,46.4700,"{""rvol"": 4.1, ""pct"": 4.0}"
 2026-10-28T14:01:30+00:00,2026-10-28,scanner,SF.ST,big_move,SE,6.1750,"{""pct"": 6.5}"
 2026-10-29T01:06:38+00:00,2026-10-29,exits,ALLEI.ST,ma200_break,SE,93.7500,"{""sma50"": 115.453, ""sma200"": 94.488, ""dd_pct"": -23.41}"
+2026-10-29T08:01:20+00:00,2026-10-29,scanner,TROAX.ST,big_move,SE,164.6000,"{""pct"": 16.1}"
