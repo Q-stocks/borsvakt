@@ -573,6 +573,18 @@
         "surprise": 20.44,
         "reaction": -3.152719021783179,
         "entry_logged": "2026-10-23"
+      },
+      "LLY": {
+        "report": "2026-10-29",
+        "surprise": 17.88,
+        "reaction": 7.010855506824187,
+        "entry_logged": "2026-10-29"
+      },
+      "MRK": {
+        "report": "2026-10-29",
+        "surprise": 19.3,
+        "reaction": 4.213668738699972,
+        "entry_logged": "2026-10-29"
       }
     },
     "Sverige": {
@@ -685,7 +697,8 @@
     "SSAB-B.ST:sma50:2026-W44": true,
     "SWED-A.ST:sma50:2026-W44": true,
     "TROAX.ST:sma50:2026-W44": true,
-    "ALLEI.ST:sma200:2026-W44": true
+    "ALLEI.ST:sma200:2026-W44": true,
+    "SINCH.ST:sma50:2026-W44": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
