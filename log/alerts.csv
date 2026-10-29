@@ -1096,3 +1096,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-29T08:15:52+00:00,2026-10-29,scanner,SSAB-A.ST,volume_spike,SE,93.4200,"{""rvol"": 3.3, ""pct"": -4.9}"
 2026-10-29T08:15:56+00:00,2026-10-29,scanner,SIVE.ST,volume_spike,SE,23.2200,"{""rvol"": 3.1, ""pct"": 2.4}"
 2026-10-29T08:45:49+00:00,2026-10-29,scanner,SF.ST,big_move,SE,6.1650,"{""pct"": 6.3}"
+2026-10-29T09:15:54+00:00,2026-10-29,scanner,SPRINT.ST,volume_spike,SE,3.6400,"{""rvol"": 4.0, ""pct"": 5.8}"
