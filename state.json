@@ -111,19 +111,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-10-27"
+      "updated": "2026-10-29"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-10-27"
+      "updated": "2026-10-29"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-10-27"
+      "updated": "2026-10-29"
     }
   },
   "stock_portfolio": {
@@ -477,12 +477,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "WMT": {
-        "report": "2026-08-20",
-        "surprise": 9.27,
-        "reaction": -8.311372373308256,
-        "entry_logged": "2026-08-20"
-      },
       "CRM": {
         "report": "2026-08-26",
         "surprise": 80.38,
@@ -575,48 +569,6 @@
       }
     },
     "Sverige": {
-      "AMBEA.ST": {
-        "report": "2026-08-19",
-        "surprise": null,
-        "reaction": 13.501161092577464,
-        "entry_logged": "2026-08-19"
-      },
-      "BICO.ST": {
-        "report": "2026-08-19",
-        "surprise": null,
-        "reaction": 13.215912035199851,
-        "entry_logged": "2026-08-19"
-      },
-      "SUS.ST": {
-        "report": "2026-08-19",
-        "surprise": null,
-        "reaction": 24.73235362307078,
-        "entry_logged": "2026-08-19"
-      },
-      "ACE.ST": {
-        "report": "2026-08-20",
-        "surprise": null,
-        "reaction": 6.8251354389345265,
-        "entry_logged": "2026-08-20"
-      },
-      "CANTA.ST": {
-        "report": "2026-08-19",
-        "surprise": null,
-        "reaction": 8.083432161072167,
-        "entry_logged": "2026-08-20"
-      },
-      "KAR.ST": {
-        "report": "2026-08-20",
-        "surprise": null,
-        "reaction": 10.202479745444993,
-        "entry_logged": "2026-08-20"
-      },
-      "MVIR.ST": {
-        "report": "2026-08-20",
-        "surprise": null,
-        "reaction": 9.611583977330152,
-        "entry_logged": "2026-08-20"
-      },
       "EGTX.ST": {
         "report": "2026-08-21",
         "surprise": null,
@@ -725,7 +677,8 @@
     "SSAB-A.ST:sma50:2026-W44": true,
     "SSAB-B.ST:sma50:2026-W44": true,
     "SWED-A.ST:sma50:2026-W44": true,
-    "TROAX.ST:sma50:2026-W44": true
+    "TROAX.ST:sma50:2026-W44": true,
+    "ALLEI.ST:sma200:2026-W44": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
