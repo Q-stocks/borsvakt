@@ -1106,3 +1106,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-30T08:01:21+00:00,2026-10-30,scanner,SINCH.ST,big_move,SE,43.7800,"{""pct"": -7.4}"
 2026-10-30T08:01:23+00:00,2026-10-30,scanner,ALLEI.ST,volume_spike,SE,89.5000,"{""rvol"": 3.7, ""pct"": -3.0}"
 2026-10-30T08:15:54+00:00,2026-10-30,scanner,NOKIA-SEK.ST,volume_spike,SE,87.2000,"{""rvol"": 3.1, ""pct"": -3.9}"
+2026-10-30T13:31:05+00:00,2026-10-30,scanner,AMD,big_move,US,511.1900,"{""pct"": -9.8}"
+2026-10-30T13:31:11+00:00,2026-10-30,scanner,CAT,volume_spike,US,627.0000,"{""rvol"": 4.4, ""pct"": -3.1}"
