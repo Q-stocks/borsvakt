@@ -1102,3 +1102,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-29T21:46:33+00:00,2026-10-29,pead,LLY,entry,US,1373.7000,"{""surprise"": 17.88, ""reaction"": 7.010855506824187}"
 2026-10-29T21:46:41+00:00,2026-10-29,pead,MRK,entry,US,146.3300,"{""surprise"": 19.3, ""reaction"": 4.213668738699972}"
 2026-10-29T21:47:02+00:00,2026-10-29,exits,SINCH.ST,ma50_break,SE,45.6600,"{""sma50"": 46.3946, ""sma200"": 35.642, ""dd_pct"": -11.51}"
+2026-10-30T08:01:21+00:00,2026-10-30,scanner,SIVE.ST,big_move,SE,21.3000,"{""pct"": -7.1}"
+2026-10-30T08:01:21+00:00,2026-10-30,scanner,SINCH.ST,big_move,SE,43.7800,"{""pct"": -7.4}"
+2026-10-30T08:01:23+00:00,2026-10-30,scanner,ALLEI.ST,volume_spike,SE,89.5000,"{""rvol"": 3.7, ""pct"": -3.0}"
