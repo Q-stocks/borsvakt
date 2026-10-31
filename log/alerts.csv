@@ -1112,3 +1112,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-10-30T13:45:51+00:00,2026-10-30,scanner,LLY,volume_spike,US,1421.1000,"{""rvol"": 5.5, ""pct"": 3.5}"
 2026-10-30T13:45:53+00:00,2026-10-30,scanner,AMD,volume_spike,US,513.2600,"{""rvol"": 5.3, ""pct"": -9.4}"
 2026-10-30T13:45:57+00:00,2026-10-30,scanner,PLTR,volume_spike,US,189.3100,"{""rvol"": 3.1, ""pct"": -3.6}"
+2026-10-31T00:47:13+00:00,2026-10-31,pead,CVX,entry,US,231.4600,"{""surprise"": 8.47, ""reaction"": NaN}"
