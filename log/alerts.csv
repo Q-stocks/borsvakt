@@ -1135,3 +1135,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-02T09:01:23+00:00,2026-11-02,scanner,CLAS-B.ST,volume_spike,SE,503.5000,"{""rvol"": 10.3, ""pct"": 1.5}"
 2026-11-02T11:15:51+00:00,2026-11-02,scanner,SPRINT.ST,volume_spike,SE,3.5400,"{""rvol"": 4.2, ""pct"": -1.7}"
 2026-11-02T15:01:32+00:00,2026-11-02,scanner,FMM-B.ST,big_move,SE,119.5000,"{""pct"": -6.3}"
+2026-11-02T19:31:12+00:00,2026-11-02,scanner,AMD,big_move,US,473.5400,"{""pct"": -6.2}"
