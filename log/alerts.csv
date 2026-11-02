@@ -1129,3 +1129,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-02T05:03:31+00:00,2026-11-02,multifactor,CLAS-B.ST,buy,SE,496.0000,{}
 2026-11-02T05:03:31+00:00,2026-11-02,multifactor,INWI.ST,buy,SE,190.9000,{}
 2026-11-02T05:03:32+00:00,2026-11-02,multifactor,SECT-B.ST,buy,SE,346.0000,{}
+2026-11-02T08:15:47+00:00,2026-11-02,scanner,VOLV-B.ST,volume_spike,SE,304.3000,"{""rvol"": 4.0, ""pct"": -1.8}"
+2026-11-02T08:15:48+00:00,2026-11-02,scanner,SIVE.ST,volume_spike,SE,19.4400,"{""rvol"": 3.8, ""pct"": -7.0}"
