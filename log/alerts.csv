@@ -1132,3 +1132,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-02T08:15:47+00:00,2026-11-02,scanner,VOLV-B.ST,volume_spike,SE,304.3000,"{""rvol"": 4.0, ""pct"": -1.8}"
 2026-11-02T08:15:48+00:00,2026-11-02,scanner,SIVE.ST,volume_spike,SE,19.4400,"{""rvol"": 3.8, ""pct"": -7.0}"
 2026-11-02T08:31:09+00:00,2026-11-02,scanner,YUBICO.ST,volume_spike,SE,142.9000,"{""rvol"": 4.2, ""pct"": -3.3}"
+2026-11-02T09:01:23+00:00,2026-11-02,scanner,CLAS-B.ST,volume_spike,SE,503.5000,"{""rvol"": 10.3, ""pct"": 1.5}"
