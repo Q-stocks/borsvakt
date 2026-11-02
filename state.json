@@ -37,59 +37,59 @@
   },
   "seen_news": {},
   "regime": {
-    "date": "2026-10-01",
-    "risk_on": false,
+    "date": "2026-11-02",
+    "risk_on": true,
     "inverted": false,
-    "curve_spread": 1.26,
-    "breadth_pct": 75,
-    "stance": "Defensivt: luta dig mot trendföljning och kvalitetsfiltret. Momentum/sektorer kan ge falska utbrott."
+    "curve_spread": 0.96,
+    "breadth_pct": 62,
+    "stance": "Offensivt: momentum, sektorrotation och PEAD har medvind. Trendföljningen ligger kvar som bas."
   },
   "sectors": {
-    "updated": "2026-10-01",
+    "updated": "2026-11-02",
     "held": [
-      "Bank/finans",
       "US Energy",
-      "US Tech"
+      "Hälsovård",
+      "Bank/finans"
     ],
     "leaders": [
       {
-        "name": "Bank/finans",
-        "r12": 36.6,
-        "above": true
-      },
-      {
         "name": "US Energy",
-        "r12": 40.9,
-        "above": true
-      },
-      {
-        "name": "US Tech",
-        "r12": 15.9,
-        "above": true
-      },
-      {
-        "name": "Verkstad",
-        "r12": 33.3,
-        "above": true
-      },
-      {
-        "name": "Industri/teknik",
-        "r12": 9.8,
+        "r12": 66.2,
         "above": true
       },
       {
         "name": "Hälsovård",
-        "r12": 14.3,
+        "r12": 21.0,
         "above": true
       },
       {
+        "name": "Bank/finans",
+        "r12": 26.2,
+        "above": true
+      },
+      {
+        "name": "Verkstad",
+        "r12": 21.1,
+        "above": false
+      },
+      {
         "name": "US Financials",
-        "r12": 7.5,
+        "r12": 8.5,
+        "above": true
+      },
+      {
+        "name": "Industri/teknik",
+        "r12": -3.0,
+        "above": true
+      },
+      {
+        "name": "US Tech",
+        "r12": -0.6,
         "above": false
       },
       {
         "name": "Fastighet",
-        "r12": -13.7,
+        "r12": -15.5,
         "above": false
       }
     ]
@@ -116,51 +116,51 @@
   },
   "stock_portfolio": {
     "Sverige": [
-      "SIVE.ST",
       "NANEXA.ST",
+      "YUBICO.ST",
       "SPRINT.ST",
+      "SIVE.ST",
+      "KJELL.ST",
       "MORROW.ST",
       "FMM-B.ST",
-      "KARNEL-B.ST",
-      "HOFI.ST",
-      "SF.ST",
-      "KJELL.ST",
-      "NOKIA-SEK.ST"
+      "EGTX.ST",
+      "BULTEN.ST",
+      "HOFI.ST"
     ],
     "USA": [
       "AMD",
+      "LLY",
       "MRK",
-      "TMO",
-      "CSCO",
+      "COP",
       "AMGN",
+      "TMO",
+      "JNJ",
       "PLTR",
       "AAPL",
-      "LLY",
-      "CAT",
-      "JNJ"
+      "CSCO"
     ],
     "Multifaktor-Sverige": [
-      "SINCH.ST",
-      "SSAB-A.ST",
       "HTRO.ST",
-      "TROAX.ST",
-      "INSTAL.ST",
-      "MYCR.ST",
-      "BUFAB.ST",
-      "SWED-A.ST",
+      "BICO.ST",
+      "GETI-B.ST",
+      "VIMIAN.ST",
+      "CLAS-B.ST",
+      "INWI.ST",
       "EMBRAC-B.ST",
-      "SEB-A.ST"
+      "SINCH.ST",
+      "SECT-B.ST",
+      "INSTAL.ST"
     ],
     "Sverige Stora": [
+      "YUBICO.ST",
       "MORROW.ST",
       "FMM-B.ST",
-      "KARNEL-B.ST",
+      "EGTX.ST",
+      "BRAV.ST",
+      "HTRO.ST",
+      "BONEX.ST",
+      "SCST.ST",
       "HOFI.ST",
-      "ALLEI.ST",
-      "SSAB-B.ST",
-      "SINCH.ST",
-      "NOKIA-SEK.ST",
-      "BOOZT.ST",
       "VESTUM.ST"
     ]
   },
