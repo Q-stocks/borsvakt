@@ -1156,3 +1156,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-03T08:31:07+00:00,2026-11-03,scanner,YUBICO.ST,volume_spike,SE,128.3000,"{""rvol"": 3.3, ""pct"": -13.2}"
 2026-11-03T08:31:09+00:00,2026-11-03,scanner,BICO.ST,volume_spike,SE,22.6000,"{""rvol"": 5.7, ""pct"": -7.6}"
 2026-11-03T09:15:56+00:00,2026-11-03,scanner,SPRINT.ST,big_move,SE,3.5800,"{""pct"": 6.5}"
+2026-11-03T14:31:10+00:00,2026-11-03,scanner,AAPL,volume_spike,US,330.8800,"{""rvol"": 3.3, ""pct"": -2.2}"
+2026-11-03T14:31:14+00:00,2026-11-03,scanner,PLTR,volume_spike,US,168.8500,"{""rvol"": 5.9, ""pct"": -5.3}"
