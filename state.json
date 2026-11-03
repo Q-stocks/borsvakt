@@ -109,7 +109,7 @@
   },
   "sector_trend": {
     "Svensk verkstad": {
-      "above200": false,
+      "above200": true,
       "gcross": true,
       "rs_up": false,
       "updated": "2026-11-03"
@@ -121,7 +121,7 @@
       "updated": "2026-11-03"
     },
     "US Big Tech": {
-      "above200": false,
+      "above200": true,
       "gcross": true,
       "rs_up": false,
       "updated": "2026-11-03"
@@ -598,6 +598,18 @@
         "surprise": 8.09,
         "reaction": -2.6549855272174683,
         "entry_logged": "2026-11-03"
+      },
+      "AMGN": {
+        "report": "2026-11-03",
+        "surprise": 11.55,
+        "reaction": -1.19936695961661,
+        "entry_logged": "2026-11-03"
+      },
+      "PFE": {
+        "report": "2026-11-03",
+        "surprise": 18.26,
+        "reaction": -2.4837077566022825,
+        "entry_logged": "2026-11-03"
       }
     },
     "Sverige": {
@@ -668,7 +680,10 @@
     "INSTAL.ST:sma50:2026-W45": true,
     "PLTR:sma50:2026-W45": true,
     "SINCH.ST:sma50:2026-W45": true,
-    "SIVE.ST:sma200:2026-W45": true
+    "SIVE.ST:sma200:2026-W45": true,
+    "AAPL:sma50:2026-W45": true,
+    "MORROW.ST:sma50:2026-W45": true,
+    "MRK:sma50:2026-W45": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,

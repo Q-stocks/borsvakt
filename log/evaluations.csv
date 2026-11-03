@@ -3369,3 +3369,15 @@ scanner:NVDA:volume_spike:2026-10-30,scanner,NVDA,volume_spike,2026-10-30,US,1,-
 scanner:LLY:volume_spike:2026-10-30,scanner,LLY,volume_spike,2026-10-30,US,1,-0.4621,-0.479,0.0169,SPY
 scanner:AMD:volume_spike:2026-10-30,scanner,AMD,volume_spike,2026-10-30,US,1,-7.5198,-0.479,-7.0408,SPY
 scanner:PLTR:volume_spike:2026-10-30,scanner,PLTR,volume_spike,2026-10-30,US,1,-3.134,-0.479,-2.655,SPY
+scanner:SIVE.ST:volume_spike:2026-10-26,scanner,SIVE.ST,volume_spike,2026-10-26,SE,5,-4.7529,1.9095,-6.6624,^OMX
+scanner:SF.ST:volume_spike:2026-10-26,scanner,SF.ST,volume_spike,2026-10-26,SE,5,3.8961,1.9095,1.9866,^OMX
+scanner:INSTAL.ST:volume_spike:2026-10-26,scanner,INSTAL.ST,volume_spike,2026-10-26,SE,5,2.7695,1.9095,0.86,^OMX
+scanner:HOFI.ST:volume_spike:2026-10-26,scanner,HOFI.ST,volume_spike,2026-10-26,SE,5,3.8337,1.9095,1.9242,^OMX
+scanner:ALLEI.ST:volume_spike:2026-10-26,scanner,ALLEI.ST,volume_spike,2026-10-26,SE,5,-6.8878,1.9095,-8.7973,^OMX
+scanner:BOOZT.ST:volume_spike:2026-10-26,scanner,BOOZT.ST,volume_spike,2026-10-26,SE,5,-0.0628,1.9095,-1.9723,^OMX
+scanner:HTRO.ST:big_move:2026-10-26,scanner,HTRO.ST,big_move,2026-10-26,SE,5,-0.7175,1.9095,-2.627,^OMX
+scanner:SIVE.ST:big_move:2026-10-30,scanner,SIVE.ST,big_move,2026-10-30,SE,1,-4.1148,0.4775,-4.5923,^OMX
+scanner:SINCH.ST:big_move:2026-10-30,scanner,SINCH.ST,big_move,2026-10-30,SE,1,1.3358,0.4775,0.8583,^OMX
+scanner:ALLEI.ST:volume_spike:2026-10-30,scanner,ALLEI.ST,volume_spike,2026-10-30,SE,1,2.1265,0.4775,1.649,^OMX
+scanner:NOKIA-SEK.ST:volume_spike:2026-10-30,scanner,NOKIA-SEK.ST,volume_spike,2026-10-30,SE,1,-2.2527,0.4775,-2.7301,^OMX
+pead:CVX:entry:2026-10-31,pead,CVX,entry,2026-10-31,US,1,-1.0976,0.2992,-1.3968,SPY
