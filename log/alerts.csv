@@ -1149,3 +1149,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-03T08:01:23+00:00,2026-11-03,scanner,YUBICO.ST,big_move,SE,127.9000,"{""pct"": -13.5}"
 2026-11-03T08:01:25+00:00,2026-11-03,scanner,FMM-B.ST,big_move,SE,119.5000,"{""pct"": -6.3}"
 2026-11-03T08:01:27+00:00,2026-11-03,scanner,SIVE.ST,big_move,SE,18.0900,"{""pct"": -13.4}"
+2026-11-03T08:15:53+00:00,2026-11-03,scanner,SCST.ST,volume_spike,SE,187.2000,"{""rvol"": 7.0, ""pct"": 2.9}"
+2026-11-03T08:15:53+00:00,2026-11-03,scanner,BULTEN.ST,volume_spike,SE,86.2000,"{""rvol"": 3.5, ""pct"": 3.7}"
+2026-11-03T08:15:55+00:00,2026-11-03,scanner,SIVE.ST,volume_spike,SE,17.3500,"{""rvol"": 13.0, ""pct"": -17.0}"
+2026-11-03T08:15:55+00:00,2026-11-03,scanner,SECT-B.ST,big_move,SE,321.6000,"{""pct"": -7.1}"
