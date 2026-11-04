@@ -1165,3 +1165,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-03T23:40:20+00:00,2026-11-03,exits,MORROW.ST,ma50_break,SE,15.5200,"{""sma50"": 15.5544, ""sma200"": 13.4962, ""dd_pct"": -8.27}"
 2026-11-03T23:40:21+00:00,2026-11-03,exits,MRK,ma50_break,US,144.6700,"{""sma50"": 146.414, ""sma200"": 125.9032, ""dd_pct"": -6.98}"
 2026-11-04T08:01:21+00:00,2026-11-04,scanner,EGTX.ST,volume_spike,SE,9.7700,"{""rvol"": 4.1, ""pct"": -1.8}"
+2026-11-04T08:15:53+00:00,2026-11-04,scanner,SCST.ST,volume_spike,SE,190.2000,"{""rvol"": 4.1, ""pct"": 1.7}"
+2026-11-04T08:15:55+00:00,2026-11-04,scanner,SPRINT.ST,volume_spike,SE,3.4700,"{""rvol"": 3.8, ""pct"": 3.3}"
