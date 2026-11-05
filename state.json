@@ -122,7 +122,7 @@
   },
   "sector_trend": {
     "Svensk verkstad": {
-      "above200": true,
+      "above200": false,
       "gcross": true,
       "rs_up": false,
       "updated": "2026-11-05"
@@ -134,7 +134,7 @@
       "updated": "2026-11-05"
     },
     "US Big Tech": {
-      "above200": true,
+      "above200": false,
       "gcross": true,
       "rs_up": false,
       "updated": "2026-11-05"
@@ -256,7 +256,8 @@
       "0001140361-26-040127",
       "0001140361-26-040126",
       "0001140361-26-040540",
-      "0001140361-26-041201"
+      "0001140361-26-041201",
+      "0001140361-26-042149"
     ],
     "MSFT": [
       "0000789019-26-000135",
@@ -629,6 +630,18 @@
         "surprise": 3.62,
         "reaction": 9.244140875038067,
         "entry_logged": "2026-11-05"
+      },
+      "UBER": {
+        "report": "2026-11-04",
+        "surprise": -72.32,
+        "reaction": 6.103521871302342,
+        "entry_logged": "2026-11-05"
+      },
+      "COP": {
+        "report": "2026-11-05",
+        "surprise": 7.31,
+        "reaction": 3.3284132120535053,
+        "entry_logged": "2026-11-05"
       }
     },
     "Sverige": {
@@ -678,7 +691,10 @@
     "SIVE.ST:sma200:2026-W45": true,
     "AAPL:sma50:2026-W45": true,
     "MORROW.ST:sma50:2026-W45": true,
-    "MRK:sma50:2026-W45": true
+    "MRK:sma50:2026-W45": true,
+    "AMD:sma200:2026-W45": true,
+    "COP:sma50:2026-W45": true,
+    "CSCO:sma200:2026-W45": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -738,6 +754,8 @@
     "ANOD-B.ST:2026-10-23": true,
     "YUBICO.ST:2026-10-26": true,
     "MSFT:2026-11-04": true,
-    "SCST.ST:2026-11-03": true
+    "SCST.ST:2026-11-03": true,
+    "EPAM:2026-11-05": true,
+    "NYAB.ST:2026-11-04": true
   }
 }
