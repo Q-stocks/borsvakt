@@ -1184,3 +1184,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-05T08:15:49+00:00,2026-11-05,scanner,EGTX.ST,volume_spike,SE,11.1000,"{""rvol"": 29.3, ""pct"": 11.7}"
 2026-11-05T08:15:50+00:00,2026-11-05,scanner,YUBICO.ST,volume_spike,SE,171.5000,"{""rvol"": 13.9, ""pct"": 25.6}"
 2026-11-05T08:15:52+00:00,2026-11-05,scanner,HTRO.ST,volume_spike,SE,41.0000,"{""rvol"": 4.0, ""pct"": -8.6}"
+2026-11-05T08:31:07+00:00,2026-11-05,scanner,NANEXA.ST,volume_spike,SE,10.8000,"{""rvol"": 3.0, ""pct"": 2.9}"
