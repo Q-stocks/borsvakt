@@ -1189,3 +1189,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-05T09:15:54+00:00,2026-11-05,scanner,SIVE.ST,volume_spike,SE,16.8300,"{""rvol"": 3.0, ""pct"": -4.8}"
 2026-11-05T10:01:26+00:00,2026-11-05,scanner,CLAS-B.ST,volume_spike,SE,521.0000,"{""rvol"": 3.5, ""pct"": 2.0}"
 2026-11-05T14:31:12+00:00,2026-11-05,scanner,AMD,volume_spike,US,449.9000,"{""rvol"": 3.1, ""pct"": -8.0}"
+2026-11-05T14:45:58+00:00,2026-11-05,scanner,NVDA,volume_spike,US,191.8800,"{""rvol"": 5.4, ""pct"": -4.1}"
+2026-11-05T14:46:01+00:00,2026-11-05,scanner,PLTR,volume_spike,US,158.8000,"{""rvol"": 4.7, ""pct"": -7.5}"
+2026-11-05T14:46:06+00:00,2026-11-05,scanner,CSCO,volume_spike,US,100.8400,"{""rvol"": 3.6, ""pct"": -2.7}"
