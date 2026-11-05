@@ -112,19 +112,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-03"
+      "updated": "2026-11-05"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-03"
+      "updated": "2026-11-05"
     },
     "US Big Tech": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-03"
+      "updated": "2026-11-05"
     }
   },
   "stock_portfolio": {
@@ -479,18 +479,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "CRM": {
-        "report": "2026-08-26",
-        "surprise": 80.38,
-        "reaction": -0.05623691361151817,
-        "entry_logged": "2026-08-26"
-      },
-      "NVDA": {
-        "report": "2026-08-26",
-        "surprise": 6.16,
-        "reaction": 6.330115471729081,
-        "entry_logged": "2026-08-28"
-      },
       "ORCL": {
         "report": "2026-09-10",
         "surprise": 10.45,
@@ -610,33 +598,27 @@
         "surprise": 18.26,
         "reaction": -2.4837077566022825,
         "entry_logged": "2026-11-03"
+      },
+      "AMD": {
+        "report": "2026-11-03",
+        "surprise": 7.46,
+        "reaction": 2.743823615810581,
+        "entry_logged": "2026-11-05"
+      },
+      "MCD": {
+        "report": "2026-11-04",
+        "surprise": 5.62,
+        "reaction": 4.879566906213184,
+        "entry_logged": "2026-11-05"
+      },
+      "BKNG": {
+        "report": "2026-11-03",
+        "surprise": 3.62,
+        "reaction": 9.244140875038067,
+        "entry_logged": "2026-11-05"
       }
     },
     "Sverige": {
-      "GOMX.ST": {
-        "report": "2026-08-26",
-        "surprise": null,
-        "reaction": 7.8862348344157285,
-        "entry_logged": "2026-08-29"
-      },
-      "EOLU-B.ST": {
-        "report": "2026-08-27",
-        "surprise": null,
-        "reaction": 5.04366306881181,
-        "entry_logged": "2026-08-31"
-      },
-      "NANEXA.ST": {
-        "report": "2026-08-27",
-        "surprise": null,
-        "reaction": 8.04670525059652,
-        "entry_logged": "2026-08-31"
-      },
-      "ONCO.ST": {
-        "report": "2026-08-27",
-        "surprise": null,
-        "reaction": 19.005732958061937,
-        "entry_logged": "2026-08-31"
-      },
       "CLAS-B.ST": {
         "report": "2026-09-03",
         "surprise": null,
@@ -741,6 +723,8 @@
     "SCST.ST:2026-10-20": true,
     "CRL:2026-10-21": true,
     "ANOD-B.ST:2026-10-23": true,
-    "YUBICO.ST:2026-10-26": true
+    "YUBICO.ST:2026-10-26": true,
+    "MSFT:2026-11-04": true,
+    "SCST.ST:2026-11-03": true
   }
 }

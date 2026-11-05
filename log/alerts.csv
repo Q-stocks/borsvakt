@@ -1174,3 +1174,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-04T14:46:00+00:00,2026-11-04,scanner,AMD,volume_spike,US,507.1400,"{""rvol"": 14.0, ""pct"": 4.8}"
 2026-11-04T15:31:16+00:00,2026-11-04,scanner,HTRO.ST,big_move,SE,42.0800,"{""pct"": -6.2}"
 2026-11-04T17:01:25+00:00,2026-11-04,scanner,COP,big_move,US,135.6650,"{""pct"": -6.0}"
+2026-11-05T00:02:38+00:00,2026-11-05,pead,AMD,entry,US,488.7800,"{""surprise"": 7.46, ""reaction"": 2.743823615810581}"
+2026-11-05T00:02:42+00:00,2026-11-05,pead,MCD,entry,US,280.2200,"{""surprise"": 5.62, ""reaction"": 4.879566906213184}"
+2026-11-05T00:02:48+00:00,2026-11-05,pead,BKNG,entry,US,170.9700,"{""surprise"": 3.62, ""reaction"": 9.244140875038067}"
+2026-11-05T00:03:38+00:00,2026-11-05,breakout,MSFT,breakout,US,555.8000,"{""rvol"": 2.3, ""run_up"": 0.374}"
+2026-11-05T00:03:57+00:00,2026-11-05,breakout,SCST.ST,breakout,SE,189.8000,"{""rvol"": 3.5, ""run_up"": 0.427}"
