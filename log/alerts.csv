@@ -1204,3 +1204,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-06T08:01:23+00:00,2026-11-06,scanner,EGTX.ST,volume_spike,SE,11.1200,"{""rvol"": 3.2, ""pct"": 11.3}"
 2026-11-06T08:01:25+00:00,2026-11-06,scanner,NANEXA.ST,big_move,SE,9.7300,"{""pct"": -6.6}"
 2026-11-06T08:01:26+00:00,2026-11-06,scanner,YUBICO.ST,big_move,SE,163.4000,"{""pct"": 23.8}"
+2026-11-06T08:15:54+00:00,2026-11-06,scanner,SIVE.ST,volume_spike,SE,15.3400,"{""rvol"": 6.4, ""pct"": -13.2}"
+2026-11-06T08:15:56+00:00,2026-11-06,scanner,NANEXA.ST,volume_spike,SE,9.9200,"{""rvol"": 3.6, ""pct"": -4.8}"
+2026-11-06T08:15:57+00:00,2026-11-06,scanner,SINCH.ST,volume_spike,SE,43.4400,"{""rvol"": 3.6, ""pct"": -1.8}"
+2026-11-06T08:15:58+00:00,2026-11-06,scanner,YUBICO.ST,volume_spike,SE,167.0000,"{""rvol"": 5.1, ""pct"": 26.5}"
