@@ -1199,3 +1199,8 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-05T23:56:56+00:00,2026-11-05,exits,CSCO,ma200_break,US,95.7200,"{""sma50"": 109.1828, ""sma200"": 101.415, ""dd_pct"": -19.15}"
 2026-11-05T23:57:35+00:00,2026-11-05,breakout,EPAM,breakout,US,165.7000,"{""rvol"": 3.3, ""run_up"": 0.594}"
 2026-11-05T23:57:50+00:00,2026-11-05,breakout,NYAB.ST,breakout,SE,8.1900,"{""rvol"": 2.7, ""run_up"": 0.315}"
+2026-11-06T08:01:21+00:00,2026-11-06,scanner,SIVE.ST,big_move,SE,14.8100,"{""pct"": -16.2}"
+2026-11-06T08:01:22+00:00,2026-11-06,scanner,HTRO.ST,big_move,SE,37.6600,"{""pct"": -9.2}"
+2026-11-06T08:01:23+00:00,2026-11-06,scanner,EGTX.ST,volume_spike,SE,11.1200,"{""rvol"": 3.2, ""pct"": 11.3}"
+2026-11-06T08:01:25+00:00,2026-11-06,scanner,NANEXA.ST,big_move,SE,9.7300,"{""pct"": -6.6}"
+2026-11-06T08:01:26+00:00,2026-11-06,scanner,YUBICO.ST,big_move,SE,163.4000,"{""pct"": 23.8}"
