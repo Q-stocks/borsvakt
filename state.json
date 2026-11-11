@@ -115,19 +115,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-09"
+      "updated": "2026-11-11"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-11-09"
+      "updated": "2026-11-11"
     },
     "US Big Tech": {
-      "above200": true,
+      "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-09"
+      "updated": "2026-11-11"
     }
   },
   "stock_portfolio": {
@@ -335,7 +335,9 @@
       "0000789019-26-000221",
       "0000789019-26-000220",
       "0000789019-26-000228",
-      "0000789019-26-000226"
+      "0000789019-26-000226",
+      "0000789019-26-000232",
+      "0000789019-26-000230"
     ],
     "NVDA": [
       "0001243821-26-000005",
