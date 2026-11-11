@@ -1238,3 +1238,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-11T08:01:13+00:00,2026-11-11,scanner,EMBRAC-B.ST,volume_spike,SE,101.4000,"{""rvol"": 5.9, ""pct"": 5.1}"
 2026-11-11T08:01:15+00:00,2026-11-11,scanner,BICO.ST,volume_spike,SE,22.3000,"{""rvol"": 11.9, ""pct"": -6.1}"
 2026-11-11T08:01:19+00:00,2026-11-11,scanner,SIVE.ST,big_move,SE,17.3700,"{""pct"": 6.0}"
+2026-11-11T08:15:50+00:00,2026-11-11,scanner,SPRINT.ST,big_move,SE,3.7500,"{""pct"": -7.4}"
+2026-11-11T08:15:52+00:00,2026-11-11,scanner,SIVE.ST,volume_spike,SE,17.9500,"{""rvol"": 8.8, ""pct"": 9.6}"
