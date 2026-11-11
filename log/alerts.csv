@@ -1242,3 +1242,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-11T08:15:52+00:00,2026-11-11,scanner,SIVE.ST,volume_spike,SE,17.9500,"{""rvol"": 8.8, ""pct"": 9.6}"
 2026-11-11T08:31:04+00:00,2026-11-11,scanner,NANEXA.ST,volume_spike,SE,9.5000,"{""rvol"": 3.9, ""pct"": -5.9}"
 2026-11-11T08:31:06+00:00,2026-11-11,scanner,SPRINT.ST,volume_spike,SE,3.7500,"{""rvol"": 3.5, ""pct"": -7.4}"
+2026-11-11T14:31:03+00:00,2026-11-11,scanner,NVDA,volume_spike,US,173.1800,"{""rvol"": 4.4, ""pct"": 2.5}"
