@@ -114,19 +114,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-11"
+      "updated": "2026-11-12"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-11-11"
+      "updated": "2026-11-12"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-11"
+      "updated": "2026-11-12"
     }
   },
   "stock_portfolio": {
@@ -637,12 +637,6 @@
       }
     },
     "Sverige": {
-      "CLAS-B.ST": {
-        "report": "2026-09-03",
-        "surprise": null,
-        "reaction": 5.842419531187182,
-        "entry_logged": "2026-09-03"
-      },
       "SKIS-B.ST": {
         "report": "2026-09-30",
         "surprise": null,
@@ -674,7 +668,8 @@
     "HTRO.ST:sma200:2026-W46": true,
     "PLTR:sma50:2026-W46": true,
     "SINCH.ST:sma50:2026-W46": true,
-    "SIVE.ST:sma200:2026-W46": true
+    "SIVE.ST:sma200:2026-W46": true,
+    "HTRO.ST:sma50:2026-W46": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
