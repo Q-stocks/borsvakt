@@ -1256,3 +1256,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-13T00:38:49+00:00,2026-11-13,exits,CSCO,ma50_break,US,102.0100,"{""sma50"": 107.8481, ""sma200"": 101.6502, ""dd_pct"": -13.84}"
 2026-11-13T00:38:49+00:00,2026-11-13,exits,FMM-B.ST,ma50_break,SE,114.0000,"{""sma50"": 117.19, ""sma200"": 91.0272, ""dd_pct"": -10.59}"
 2026-11-13T00:39:34+00:00,2026-11-13,breakout,EMBRAC-B.ST,breakout,SE,101.0000,"{""rvol"": 5.6, ""run_up"": 0.435}"
+2026-11-13T08:01:19+00:00,2026-11-13,scanner,SIVE.ST,big_move,SE,15.5000,"{""pct"": -10.9}"
