@@ -120,11 +120,11 @@
     "Svensk bank": {
       "above200": true,
       "gcross": true,
-      "rs_up": false,
+      "rs_up": true,
       "updated": "2026-11-13"
     },
     "US Big Tech": {
-      "above200": false,
+      "above200": true,
       "gcross": true,
       "rs_up": false,
       "updated": "2026-11-13"
@@ -476,7 +476,8 @@
       "0001225208-26-008052",
       "0001225208-26-008051",
       "0001225208-26-008050",
-      "0001225208-26-008428"
+      "0001225208-26-008428",
+      "0001225208-26-008974"
     ]
   },
   "insider_buys": {},
@@ -637,6 +638,12 @@
         "surprise": 7.31,
         "reaction": 3.3284132120535053,
         "entry_logged": "2026-11-05"
+      },
+      "CSCO": {
+        "report": "2026-11-12",
+        "surprise": 5.64,
+        "reaction": -4.365415329310428,
+        "entry_logged": "2026-11-13"
       }
     },
     "Sverige": {
