@@ -108,19 +108,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-12"
+      "updated": "2026-11-13"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-11-12"
+      "rs_up": false,
+      "updated": "2026-11-13"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-12"
+      "updated": "2026-11-13"
     }
   },
   "stock_portfolio": {
@@ -240,7 +240,8 @@
       "0001140361-26-040126",
       "0001140361-26-040540",
       "0001140361-26-041201",
-      "0001140361-26-042149"
+      "0001140361-26-042149",
+      "0001140361-26-043484"
     ],
     "MSFT": [
       "0000789019-26-000135",
@@ -330,7 +331,8 @@
       "0000789019-26-000228",
       "0000789019-26-000226",
       "0000789019-26-000232",
-      "0000789019-26-000230"
+      "0000789019-26-000230",
+      "0000789019-26-000234"
     ],
     "NVDA": [
       "0001243821-26-000005",
@@ -663,7 +665,10 @@
     "PLTR:sma50:2026-W46": true,
     "SINCH.ST:sma50:2026-W46": true,
     "SIVE.ST:sma200:2026-W46": true,
-    "HTRO.ST:sma50:2026-W46": true
+    "HTRO.ST:sma50:2026-W46": true,
+    "BICO.ST:sma200:2026-W46": true,
+    "CSCO:sma50:2026-W46": true,
+    "FMM-B.ST:sma50:2026-W46": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -725,6 +730,7 @@
     "MSFT:2026-11-04": true,
     "SCST.ST:2026-11-03": true,
     "EPAM:2026-11-05": true,
-    "NYAB.ST:2026-11-04": true
+    "NYAB.ST:2026-11-04": true,
+    "EMBRAC-B.ST:2026-11-11": true
   }
 }
