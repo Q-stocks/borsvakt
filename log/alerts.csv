@@ -1264,3 +1264,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-13T14:45:53+00:00,2026-11-13,scanner,CSCO,volume_spike,US,98.1606,"{""rvol"": 4.6, ""pct"": -3.8}"
 2026-11-13T14:45:58+00:00,2026-11-13,scanner,AMD,volume_spike,US,553.1900,"{""rvol"": 3.6, ""pct"": -5.5}"
 2026-11-13T23:54:09+00:00,2026-11-13,pead,CSCO,entry,US,95.6400,"{""surprise"": 5.64, ""reaction"": -4.365415329310428}"
+2026-11-16T08:15:52+00:00,2026-11-16,scanner,NANEXA.ST,volume_spike,SE,10.3000,"{""rvol"": 4.7, ""pct"": 2.2}"
