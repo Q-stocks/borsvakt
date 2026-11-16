@@ -1266,3 +1266,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-13T23:54:09+00:00,2026-11-13,pead,CSCO,entry,US,95.6400,"{""surprise"": 5.64, ""reaction"": -4.365415329310428}"
 2026-11-16T08:15:52+00:00,2026-11-16,scanner,NANEXA.ST,volume_spike,SE,10.3000,"{""rvol"": 4.7, ""pct"": 2.2}"
 2026-11-16T09:45:50+00:00,2026-11-16,scanner,SPRINT.ST,volume_spike,SE,3.9500,"{""rvol"": 3.1, ""pct"": 2.1}"
+2026-11-16T13:01:21+00:00,2026-11-16,scanner,BICO.ST,big_move,SE,15.6600,"{""pct"": -6.2}"
