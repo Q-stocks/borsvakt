@@ -105,19 +105,19 @@
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-13"
+      "updated": "2026-11-16"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-11-13"
+      "updated": "2026-11-16"
     },
     "US Big Tech": {
-      "above200": true,
+      "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-13"
+      "updated": "2026-11-16"
     }
   },
   "stock_portfolio": {
@@ -647,20 +647,6 @@
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "AMD:sma50:2026-W45": true,
-    "CSCO:sma50:2026-W45": true,
-    "HOFI.ST:sma50:2026-W45": true,
-    "INSTAL.ST:sma50:2026-W45": true,
-    "PLTR:sma50:2026-W45": true,
-    "SINCH.ST:sma50:2026-W45": true,
-    "SIVE.ST:sma200:2026-W45": true,
-    "AAPL:sma50:2026-W45": true,
-    "MORROW.ST:sma50:2026-W45": true,
-    "MRK:sma50:2026-W45": true,
-    "AMD:sma200:2026-W45": true,
-    "COP:sma50:2026-W45": true,
-    "CSCO:sma200:2026-W45": true,
-    "HTRO.ST:sma50:2026-W45": true,
     "AMD:sma50:2026-W46": true,
     "BRAV.ST:sma50:2026-W46": true,
     "COP:sma50:2026-W46": true,
@@ -672,7 +658,16 @@
     "HTRO.ST:sma50:2026-W46": true,
     "BICO.ST:sma200:2026-W46": true,
     "CSCO:sma50:2026-W46": true,
-    "FMM-B.ST:sma50:2026-W46": true
+    "FMM-B.ST:sma50:2026-W46": true,
+    "AMD:sma50:2026-W47": true,
+    "BICO.ST:sma200:2026-W47": true,
+    "CSCO:sma200:2026-W47": true,
+    "FMM-B.ST:sma50:2026-W47": true,
+    "HTRO.ST:sma200:2026-W47": true,
+    "MRK:sma50:2026-W47": true,
+    "PLTR:sma50:2026-W47": true,
+    "SINCH.ST:sma50:2026-W47": true,
+    "SIVE.ST:sma200:2026-W47": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
