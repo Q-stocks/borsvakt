@@ -100,22 +100,22 @@
   },
   "sector_trend": {
     "Svensk verkstad": {
-      "above200": true,
+      "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-16"
+      "updated": "2026-11-17"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-11-16"
+      "updated": "2026-11-17"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-16"
+      "updated": "2026-11-17"
     }
   },
   "stock_portfolio": {
@@ -327,7 +327,8 @@
       "0000789019-26-000226",
       "0000789019-26-000232",
       "0000789019-26-000230",
-      "0000789019-26-000234"
+      "0000789019-26-000234",
+      "0000789019-26-000236"
     ],
     "NVDA": [
       "0001243821-26-000005",
@@ -632,6 +633,12 @@
         "surprise": 5.64,
         "reaction": -4.365415329310428,
         "entry_logged": "2026-11-13"
+      },
+      "DIS": {
+        "report": "2026-11-17",
+        "surprise": 5.43,
+        "reaction": -0.4677902362216324,
+        "entry_logged": "2026-11-17"
       }
     },
     "Sverige": {
