@@ -1283,3 +1283,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-17T08:15:50+00:00,2026-11-17,scanner,MORROW.ST,volume_spike,SE,17.3600,"{""rvol"": 17.5, ""pct"": -2.6}"
 2026-11-17T08:45:51+00:00,2026-11-17,scanner,KJELL.ST,volume_spike,SE,18.6000,"{""rvol"": 3.0, ""pct"": 2.2}"
 2026-11-17T21:54:54+00:00,2026-11-17,pead,DIS,entry,US,116.9400,"{""surprise"": 5.43, ""reaction"": -0.4677902362216324}"
+2026-11-18T09:01:24+00:00,2026-11-18,scanner,VIMIAN.ST,volume_spike,SE,42.7000,"{""rvol"": 6.6, ""pct"": 1.7}"
