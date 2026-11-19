@@ -1288,3 +1288,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-18T15:01:37+00:00,2026-11-18,scanner,YUBICO.ST,big_move,SE,188.4000,"{""pct"": 7.0}"
 2026-11-19T02:07:15+00:00,2026-11-19,pead,NVDA,entry,US,155.4600,"{""surprise"": 8.36, ""reaction"": NaN}"
 2026-11-19T02:07:35+00:00,2026-11-19,pead,LOW,entry,US,220.4600,"{""surprise"": 7.63, ""reaction"": NaN}"
+2026-11-19T08:01:27+00:00,2026-11-19,scanner,HOFI.ST,volume_spike,SE,197.2000,"{""rvol"": 3.3, ""pct"": -3.7}"
+2026-11-19T08:01:29+00:00,2026-11-19,scanner,BICO.ST,big_move,SE,16.5800,"{""pct"": 6.4}"
+2026-11-19T08:01:31+00:00,2026-11-19,scanner,YUBICO.ST,big_move,SE,187.5000,"{""pct"": 6.5}"
