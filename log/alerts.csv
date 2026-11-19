@@ -1291,3 +1291,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-19T08:01:27+00:00,2026-11-19,scanner,HOFI.ST,volume_spike,SE,197.2000,"{""rvol"": 3.3, ""pct"": -3.7}"
 2026-11-19T08:01:29+00:00,2026-11-19,scanner,BICO.ST,big_move,SE,16.5800,"{""pct"": 6.4}"
 2026-11-19T08:01:31+00:00,2026-11-19,scanner,YUBICO.ST,big_move,SE,187.5000,"{""pct"": 6.5}"
+2026-11-19T08:15:54+00:00,2026-11-19,scanner,MORROW.ST,volume_spike,SE,18.2000,"{""rvol"": 5.9, ""pct"": 4.5}"
