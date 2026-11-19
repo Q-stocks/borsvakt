@@ -91,19 +91,19 @@
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-17"
+      "updated": "2026-11-19"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-11-17"
+      "updated": "2026-11-19"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-17"
+      "updated": "2026-11-19"
     }
   },
   "stock_portfolio": {
@@ -224,7 +224,8 @@
       "0001140361-26-040540",
       "0001140361-26-041201",
       "0001140361-26-042149",
-      "0001140361-26-043484"
+      "0001140361-26-043484",
+      "0001140361-26-044773"
     ],
     "MSFT": [
       "0000789019-26-000135",
@@ -466,12 +467,6 @@
   },
   "drift_portfolio": {
     "USA": {
-      "ORCL": {
-        "report": "2026-09-10",
-        "surprise": 10.45,
-        "reaction": -7.270110059124191,
-        "entry_logged": "2026-09-11"
-      },
       "ACN": {
         "report": "2026-10-01",
         "surprise": 3.36,
@@ -627,6 +622,18 @@
         "surprise": 5.43,
         "reaction": -0.4677902362216324,
         "entry_logged": "2026-11-17"
+      },
+      "NVDA": {
+        "report": "2026-11-17",
+        "surprise": 8.36,
+        "reaction": NaN,
+        "entry_logged": "2026-11-19"
+      },
+      "LOW": {
+        "report": "2026-11-18",
+        "surprise": 7.63,
+        "reaction": NaN,
+        "entry_logged": "2026-11-19"
       }
     },
     "Sverige": {

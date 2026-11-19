@@ -1286,3 +1286,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-18T09:01:24+00:00,2026-11-18,scanner,VIMIAN.ST,volume_spike,SE,42.7000,"{""rvol"": 6.6, ""pct"": 1.7}"
 2026-11-18T10:16:02+00:00,2026-11-18,scanner,BICO.ST,big_move,SE,16.5200,"{""pct"": 6.0}"
 2026-11-18T15:01:37+00:00,2026-11-18,scanner,YUBICO.ST,big_move,SE,188.4000,"{""pct"": 7.0}"
+2026-11-19T02:07:15+00:00,2026-11-19,pead,NVDA,entry,US,155.4600,"{""surprise"": 8.36, ""reaction"": NaN}"
+2026-11-19T02:07:35+00:00,2026-11-19,pead,LOW,entry,US,220.4600,"{""surprise"": 7.63, ""reaction"": NaN}"
