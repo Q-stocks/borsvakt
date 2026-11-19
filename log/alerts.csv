@@ -1298,3 +1298,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-19T11:01:31+00:00,2026-11-19,scanner,SIVE.ST,big_move,SE,14.1900,"{""pct"": 6.2}"
 2026-11-19T14:45:52+00:00,2026-11-19,scanner,NVDA,volume_spike,US,157.6100,"{""rvol"": 4.2, ""pct"": 4.4}"
 2026-11-19T15:45:55+00:00,2026-11-19,scanner,AMD,big_move,US,484.8429,"{""pct"": -8.5}"
+2026-11-19T16:01:27+00:00,2026-11-19,scanner,AMD,volume_spike,US,487.0600,"{""rvol"": 3.0, ""pct"": -8.1}"
