@@ -1294,3 +1294,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-19T08:15:54+00:00,2026-11-19,scanner,MORROW.ST,volume_spike,SE,18.2000,"{""rvol"": 5.9, ""pct"": 4.5}"
 2026-11-19T08:31:11+00:00,2026-11-19,scanner,HTRO.ST,big_move,SE,39.2500,"{""pct"": 6.4}"
 2026-11-19T09:15:53+00:00,2026-11-19,scanner,BULTEN.ST,volume_spike,SE,89.9000,"{""rvol"": 3.3, ""pct"": 2.5}"
+2026-11-19T10:31:09+00:00,2026-11-19,scanner,FMM-B.ST,big_move,SE,117.0000,"{""pct"": 8.8}"
