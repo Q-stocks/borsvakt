@@ -1308,3 +1308,7 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-20T08:15:57+00:00,2026-11-20,scanner,NANEXA.ST,volume_spike,SE,9.7100,"{""rvol"": 3.9, ""pct"": -2.1}"
 2026-11-20T09:16:04+00:00,2026-11-20,scanner,SCST.ST,volume_spike,SE,197.8000,"{""rvol"": 3.1, ""pct"": 1.7}"
 2026-11-20T09:31:10+00:00,2026-11-20,scanner,HTRO.ST,big_move,SE,36.2200,"{""pct"": -6.5}"
+2026-11-20T14:45:55+00:00,2026-11-20,scanner,NVDA,volume_spike,US,139.9800,"{""rvol"": 5.4, ""pct"": -4.1}"
+2026-11-20T14:45:57+00:00,2026-11-20,scanner,MRK,volume_spike,US,135.5800,"{""rvol"": 3.2, ""pct"": 2.1}"
+2026-11-20T14:46:00+00:00,2026-11-20,scanner,PLTR,volume_spike,US,149.2900,"{""rvol"": 3.6, ""pct"": -2.9}"
+2026-11-20T14:46:01+00:00,2026-11-20,scanner,AMD,volume_spike,US,462.1501,"{""rvol"": 4.6, ""pct"": -5.5}"
