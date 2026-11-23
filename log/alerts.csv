@@ -1321,3 +1321,6 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-23T08:31:14+00:00,2026-11-23,scanner,SCST.ST,volume_spike,SE,196.4000,"{""rvol"": 6.3, ""pct"": -2.3}"
 2026-11-23T12:01:16+00:00,2026-11-23,scanner,YUBICO.ST,big_move,SE,190.9000,"{""pct"": 6.5}"
 2026-11-23T14:15:59+00:00,2026-11-23,scanner,HTRO.ST,big_move,SE,39.5600,"{""pct"": 7.3}"
+2026-11-23T14:31:09+00:00,2026-11-23,scanner,NVDA,volume_spike,US,165.2258,"{""rvol"": 7.8, ""pct"": 31.6}"
+2026-11-23T14:31:14+00:00,2026-11-23,scanner,AMD,big_move,US,467.7150,"{""pct"": 10.2}"
+2026-11-23T14:31:23+00:00,2026-11-23,scanner,PLTR,big_move,US,157.3050,"{""pct"": 9.6}"
