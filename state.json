@@ -104,19 +104,19 @@
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-21"
+      "updated": "2026-11-24"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": true,
-      "updated": "2026-11-21"
+      "updated": "2026-11-24"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-21"
+      "updated": "2026-11-24"
     }
   },
   "stock_portfolio": {
@@ -654,6 +654,12 @@
         "surprise": 10.19,
         "reaction": NaN,
         "entry_logged": "2026-11-20"
+      },
+      "WMT": {
+        "report": "2026-11-19",
+        "surprise": 2.16,
+        "reaction": 5.994614075724658,
+        "entry_logged": "2026-11-24"
       }
     },
     "Sverige": {
@@ -667,18 +673,6 @@
   },
   "leadlag_fired": {},
   "exit_alerts": {
-    "AMD:sma50:2026-W46": true,
-    "BRAV.ST:sma50:2026-W46": true,
-    "COP:sma50:2026-W46": true,
-    "CSCO:sma200:2026-W46": true,
-    "HTRO.ST:sma200:2026-W46": true,
-    "PLTR:sma50:2026-W46": true,
-    "SINCH.ST:sma50:2026-W46": true,
-    "SIVE.ST:sma200:2026-W46": true,
-    "HTRO.ST:sma50:2026-W46": true,
-    "BICO.ST:sma200:2026-W46": true,
-    "CSCO:sma50:2026-W46": true,
-    "FMM-B.ST:sma50:2026-W46": true,
     "AMD:sma50:2026-W47": true,
     "BICO.ST:sma200:2026-W47": true,
     "CSCO:sma200:2026-W47": true,
@@ -693,7 +687,23 @@
     "HTRO.ST:sma50:2026-W47": true,
     "HOFI.ST:sma50:2026-W47": true,
     "JNJ:sma50:2026-W47": true,
-    "PLTR:sma200:2026-W47": true
+    "PLTR:sma200:2026-W47": true,
+    "AMD:sma200:2026-W48": true,
+    "BICO.ST:sma200:2026-W48": true,
+    "BRAV.ST:sma50:2026-W48": true,
+    "COP:sma50:2026-W48": true,
+    "CSCO:sma200:2026-W48": true,
+    "FMM-B.ST:sma50:2026-W48": true,
+    "HOFI.ST:sma50:2026-W48": true,
+    "HTRO.ST:sma200:2026-W48": true,
+    "INSTAL.ST:sma50:2026-W48": true,
+    "INWI.ST:sma50:2026-W48": true,
+    "MRK:sma50:2026-W48": true,
+    "NANEXA.ST:drawdown:2026-W48": true,
+    "PLTR:sma200:2026-W48": true,
+    "SINCH.ST:sma50:2026-W48": true,
+    "SIVE.ST:sma200:2026-W48": true,
+    "TMO:sma50:2026-W48": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -756,6 +766,7 @@
     "SCST.ST:2026-11-03": true,
     "EPAM:2026-11-05": true,
     "NYAB.ST:2026-11-04": true,
-    "EMBRAC-B.ST:2026-11-11": true
+    "EMBRAC-B.ST:2026-11-11": true,
+    "SCST.ST:2026-11-20": true
   }
 }
