@@ -1353,3 +1353,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-24T08:15:53+00:00,2026-11-24,scanner,SCST.ST,volume_spike,SE,180.2000,"{""rvol"": 13.1, ""pct"": -10.3}"
 2026-11-24T08:31:09+00:00,2026-11-24,scanner,YUBICO.ST,big_move,SE,190.5000,"{""pct"": 6.3}"
 2026-11-24T08:31:10+00:00,2026-11-24,scanner,SPRINT.ST,big_move,SE,3.4500,"{""pct"": -6.3}"
+2026-11-24T14:31:20+00:00,2026-11-24,scanner,AMD,big_move,US,419.9938,"{""pct"": -7.4}"
