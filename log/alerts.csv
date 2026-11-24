@@ -1351,3 +1351,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-24T08:15:51+00:00,2026-11-24,scanner,CLAS-B.ST,volume_spike,SE,525.5000,"{""rvol"": 8.4, ""pct"": -2.6}"
 2026-11-24T08:15:52+00:00,2026-11-24,scanner,BICO.ST,big_move,SE,16.3800,"{""pct"": 7.9}"
 2026-11-24T08:15:53+00:00,2026-11-24,scanner,SCST.ST,volume_spike,SE,180.2000,"{""rvol"": 13.1, ""pct"": -10.3}"
+2026-11-24T08:31:09+00:00,2026-11-24,scanner,YUBICO.ST,big_move,SE,190.5000,"{""pct"": 6.3}"
+2026-11-24T08:31:10+00:00,2026-11-24,scanner,SPRINT.ST,big_move,SE,3.4500,"{""pct"": -6.3}"
