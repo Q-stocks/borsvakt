@@ -121,19 +121,19 @@
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-24"
+      "updated": "2026-11-25"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
-      "rs_up": true,
-      "updated": "2026-11-24"
+      "rs_up": false,
+      "updated": "2026-11-25"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-24"
+      "updated": "2026-11-25"
     }
   },
   "stock_portfolio": {
