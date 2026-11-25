@@ -1368,3 +1368,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-25T12:01:25+00:00,2026-11-25,scanner,VIMIAN.ST,volume_spike,SE,44.0000,"{""rvol"": 4.9, ""pct"": 2.0}"
 2026-11-25T14:31:21+00:00,2026-11-25,scanner,NVDA,big_move,US,142.6700,"{""pct"": -8.2}"
 2026-11-25T14:31:23+00:00,2026-11-25,scanner,AMD,big_move,US,379.8600,"{""pct"": -8.1}"
+2026-11-25T14:45:54+00:00,2026-11-25,scanner,NVDA,volume_spike,US,142.3000,"{""rvol"": 3.5, ""pct"": -8.4}"
