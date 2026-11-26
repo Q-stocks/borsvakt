@@ -1371,3 +1371,4 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-25T14:45:54+00:00,2026-11-25,scanner,NVDA,volume_spike,US,142.3000,"{""rvol"": 3.5, ""pct"": -8.4}"
 2026-11-26T08:01:27+00:00,2026-11-26,scanner,SECT-B.ST,big_move,SE,374.8000,"{""pct"": 13.6}"
 2026-11-26T08:15:59+00:00,2026-11-26,scanner,SECT-B.ST,volume_spike,SE,373.8000,"{""rvol"": 3.8, ""pct"": 13.3}"
+2026-11-26T08:31:14+00:00,2026-11-26,scanner,BICO.ST,volume_spike,SE,16.5200,"{""rvol"": 3.9, ""pct"": 2.1}"
