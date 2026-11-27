@@ -120,19 +120,19 @@
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-26"
+      "updated": "2026-11-27"
     },
     "Svensk bank": {
       "above200": true,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-26"
+      "updated": "2026-11-27"
     },
     "US Big Tech": {
       "above200": false,
       "gcross": true,
       "rs_up": false,
-      "updated": "2026-11-26"
+      "updated": "2026-11-27"
     }
   },
   "stock_portfolio": {
@@ -725,7 +725,8 @@
     "HTRO.ST:sma50:2026-W48": true,
     "PLTR:sma50:2026-W48": true,
     "SPRINT.ST:sma50:2026-W48": true,
-    "SCST.ST:sma50:2026-W48": true
+    "SCST.ST:sma50:2026-W48": true,
+    "NANEXA.ST:sma50:2026-W48": true
   },
   "breakout_alerts": {
     "CAT:2026-06-18": true,
@@ -789,6 +790,7 @@
     "EPAM:2026-11-05": true,
     "NYAB.ST:2026-11-04": true,
     "EMBRAC-B.ST:2026-11-11": true,
-    "SCST.ST:2026-11-20": true
+    "SCST.ST:2026-11-20": true,
+    "BULTEN.ST:2026-11-27": true
   }
 }

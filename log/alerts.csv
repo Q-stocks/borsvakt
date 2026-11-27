@@ -1383,3 +1383,5 @@ ts,date,module,ticker,kind,market,price,meta
 2026-11-27T08:15:51+00:00,2026-11-27,scanner,HTRO.ST,volume_spike,SE,40.4500,"{""rvol"": 3.1, ""pct"": 10.6}"
 2026-11-27T08:15:51+00:00,2026-11-27,scanner,BULTEN.ST,volume_spike,SE,96.4000,"{""rvol"": 11.2, ""pct"": 6.3}"
 2026-11-27T08:31:10+00:00,2026-11-27,scanner,NANEXA.ST,volume_spike,SE,10.0200,"{""rvol"": 3.9, ""pct"": 1.5}"
+2026-11-27T22:11:04+00:00,2026-11-27,exits,NANEXA.ST,ma50_break,SE,9.9300,"{""sma50"": 9.9956, ""sma200"": 5.5872, ""dd_pct"": -18.34}"
+2026-11-27T22:11:52+00:00,2026-11-27,breakout,BULTEN.ST,breakout,SE,95.5000,"{""rvol"": 2.7, ""run_up"": 0.455}"
